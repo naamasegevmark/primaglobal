@@ -5,8 +5,10 @@
     --accent-color: #FFD700; /* Yellow from brochure */
     --text-color-dark: #333;
     --text-color-light: #eee;
-    --font-primary: 'Montserrat', sans-serif;
-    --font-secondary: 'Playfair Display', serif; /* For headings or emphasis */
+    --font-primary: 'Montserrat', sans-serif; /* Clean, modern sans-serif */
+    --font-secondary: 'Playfair Display', serif; /* For headings or emphasis, elegant serif */
+    --padding-section: 80px 0; /* Consistent padding for main sections */
+    --max-width-content: 1100px; /* Slightly wider content area */
 }
 
 /* Base Styles */
@@ -14,25 +16,619 @@ body {
     font-family: var(--font-primary);
     margin: 0;
     padding: 0;
-    line-height: 1.6;
+    line-height: 1.7; /* Improved readability */
     color: var(--text-color-dark);
     background-color: var(--secondary-color);
     scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+    -webkit-font-smoothing: antialiased; /* Better font rendering */
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* General Layout & Utility Classes */
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+h1 { font-size: 3.5em; } /* Larger hero text */
+h2 { font-size: 2.8em; } /* Main section headings */
+h3 { font-size: 1.8em; } /* Sub-headings */
+p { font-size: 1.1em; margin-bottom: 20px; }
+strong { font-weight: 600; color: var(--primary-color); } /* Make strong text more prominent */
+
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* Utility Classes */
 .container {
-    max-width: 1000px; /* Max width for content, similar to F+P */
+    max-width: var(--max-width-content);
     margin: 0 auto;
     padding: 0 20px;
 }
 
 .full-screen-section {
     width: 100%;
-    height: 100vh; /* Full viewport height */
+    min-height: 100vh; /* Use min-height for content flexibility */
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     overflow: hidden;
-    padding-top: 70px; /* Account for fixed
+    padding: 70px 0 0; /* Account for fixed header */
+}
+
+.section-padding {
+    padding: var(--padding-section);
+}
+
+.black-bg { background-color: var(--primary-color); color: var(--text-color-light); }
+.white-bg { background-color: var(--secondary-color); color: var(--text-color-dark); }
+.dark-gray-bg { background-color: #1a1a1a; color: var(--text-color-light); } /* Slightly lighter than black for variety */
+.yellow-bg { background-color: var(--accent-color); color: var(--primary-color); }
+.text-center { text-align: center; }
+
+/* Header & Navigation */
+header {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 15px 0;
+    position: fixed; /* Fixed header */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--max-width-content);
+    margin: auto;
+    padding: 0 20px;
+}
+
+.logo a {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 1.5em;
+    color: var(--secondary-color);
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.95em;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after { /* Underline effect on hover */
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after { /* Add 'active' class for current page/section */
+    width: 100%;
+}
+
+/* Call to Action Button */
+.cta-button {
+    display: inline-block;
+    background: var(--accent-color);
+    color: var(--primary-color);
+    padding: 15px 30px;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 3px;
+    margin-top: 30px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.cta-button:hover {
+    background-color: var(--primary-color);
+    color: var(--accent-color);
+}
+
+/* Section Headers - Reusable */
+.section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    padding-top: 40px; /* Extra padding for sticky header offset */
+}
+
+.section-number {
+    font-family: var(--font-secondary);
+    font-size: 3em;
+    color: var(--accent-color);
+    margin-right: 20px;
+    line-height: 1;
+}
+
+.yellow-highlight-line {
+    width: 60px;
+    height: 2px;
+    background-color: var(--accent-color);
+    margin-right: 20px;
+}
+
+.section-header h2 {
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 2.5em; /* Slightly smaller for section headers */
+}
+
+/* --- Hero Section Specific --- */
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    /* Apply a slight overlay for text readability, similar to brochure's color effect */
+    background-color: rgba(0, 0, 0, 0.4); /* Darkens the image slightly */
+    background-blend-mode: multiply; /* Blends colors effectively */
+}
+
+.hero-content {
+    position: relative; /* Ensure content is above the background */
+    z-index: 10;
+    color: var(--text-color-light);
+    max-width: 800px; /* Limit hero text width */
+}
+
+.hero-content h1 {
+    font-size: 4.5em; /* Larger, impactful heading */
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.hero-subtitle {
+    font-family: var(--font-primary);
+    font-weight: 300;
+    font-size: 1.5em;
+    letter-spacing: 5px; /* Wide letter spacing for elegance */
+    text-transform: uppercase;
+}
+
+/* --- Intro Vision Section Specific --- */
+.intro-vision-content {
+    position: relative;
+    z-index: 10;
+    padding: 50px 0; /* Add some vertical padding */
+}
+
+.image-text-overlay-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* Max width for the image/text block */
+    margin: 0 auto 60px; /* Space below the block */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px; /* Ensure a minimum height for the background image to show */
+}
+
+.image-text-overlay-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2; /* Subtle background image */
+    filter: grayscale(100%); /* Make it monochrome */
+}
+
+.overlay-box {
+    position: relative; /* Keep it above the bg image */
+    z-index: 2;
+    padding: 40px 60px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.overlay-box .impact-text {
+    font-family: var(--font-secondary);
+    font-size: 2.5em;
+    font-weight: 700;
+    margin: 0 0 10px;
+    line-height: 1.1;
+}
+
+.overlay-box .impact-text:last-child {
+    margin-bottom: 0;
+}
+
+.intro-tagline {
+    font-family: var(--font-secondary);
+    font-size: 2.2em;
+    font-weight: 400;
+    margin-top: 30px;
+    letter-spacing: 1px;
+    color: var(--text-color-light);
+}
+
+/* --- About Section Specific --- */
+.about-content {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    gap: 40px; /* Space between image and text */
+    align-items: flex-start; /* Align items to the top */
+}
+
+.about-image {
+    width: 100%; /* Default to full width on small screens */
+    max-width: 500px; /* Max width for the image */
+    height: auto;
+    object-fit: cover;
+    flex-shrink: 0; /* Prevent image from shrinking */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.about-text {
+    flex-grow: 1; /* Allow text to take up remaining space */
+    min-width: 300px; /* Ensure text doesn't get too narrow */
+}
+
+/* --- Innovation Section Specific --- */
+.innovation-intro-text {
+    margin-bottom: 40px;
+}
+.innovation-intro-text p {
+    font-size: 1.15em;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+.innovation-intro-text p:last-child {
+    margin-bottom: 0;
+}
+
+
+.innovation-list {
+    list-style: none;
+    padding: 0;
+    margin: 40px 0 0;
+}
+
+.innovation-list li {
+    display: flex;
+    align-items: flex-start; /* Align bullet and text */
+    margin-bottom: 25px;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.innovation-list li:last-child {
+    margin-bottom: 0;
+}
+
+.list-bullet {
+    font-size: 1.5em;
+    color: var(--accent-color);
+    margin-right: 15px;
+    line-height: 1; /* Align with the top of the text */
+    flex-shrink: 0; /* Prevent bullet from shrinking */
+    padding-top: 2px; /* Small adjustment for visual alignment */
+}
+
+.innovation-list li p {
+    margin: 0;
+}
+
+.innovation-list strong {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* --- Specs & Design Sections Specific --- */
+.specs-grid, .design-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 40px;
+    margin-bottom: 60px; /* Space between specs and design sections */
+}
+
+.spec-item, .design-item {
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+}
+
+.spec-icon, .design-icon {
+    width: 60px; /* Size for feature icons */
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+.spec-item h3, .design-item h3 {
+    font-family: var(--font-primary); /* Use primary font for these smaller headings */
+    font-size: 1.4em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.spec-item p, .design-item p {
+    font-size: 0.95em;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.spec-image-container, .design-image-container {
+    width: 100%;
+    height: 180px; /* Consistent height for images */
+    overflow: hidden;
+    margin-top: 15px;
+    border-radius: 3px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.spec-detail-image, .design-detail-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.margin-top-large {
+    margin-top: 80px; /* Extra space before new section header */
+}
+
+/* Specific adjustments for design items to match brochure (image first, then icon/text) */
+.design-item .design-icon {
+    margin-top: 20px; /* Space between image and icon */
+    margin-bottom: 10px;
+}
+
+/* --- Cross Section Specific --- */
+.full-width-image-section {
+    width: 100%;
+    background-color: #f8f8f8; /* Light background for the diagram */
+    padding: 60px 0;
+    text-align: center;
+}
+
+.cross-section-image-wrap {
+    max-width: var(--max-width-content);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.full-width-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.image-caption {
+    font-style: italic;
+    color: #666;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+/* --- Assets Section Specific --- */
+.assets-list {
+    list-style: none;
+    padding: 0;
+    margin: 40px 0 0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.assets-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.assets-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* Reusing .list-bullet from innovation section */
+.assets-list strong {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* --- Contact Section Specific --- */
+.contact-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.6); /* Darken image for readability */
+    background-blend-mode: multiply;
+    filter: grayscale(100%); /* Make it monochrome */
+}
+
+.contact-content {
+    position: relative;
+    z-index: 10;
+    color: var(--text-color-light);
+    max-width: 600px;
+}
+
+.contact-content h2 {
+    font-size: 3em;
+    color: var(--accent-color);
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.contact-details p {
+    font-size: 1.15em;
+    margin-bottom: 10px;
+    color: var(--text-color-light);
+}
+
+.contact-details .contact-link {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.contact-details .contact-link:hover {
+    color: var(--secondary-color);
+}
+
+.contact-person, .contact-location {
+    font-weight: 300;
+    font-size: 1em;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* Override CTA button for contact section if needed, or just let global style apply */
+.contact-content .cta-button {
+    margin-top: 40px;
+}
+
+
+/* Footer */
+footer {
+    background: var(--primary-color);
+    color: var(--text-color-light);
+    padding: 40px 20px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: var(--accent-color);
+}
+
+footer a:hover {
+    color: var(--secondary-color);
+}
+
+
+/* --- Responsive Design (Basic) --- */
+@media (max-width: 1024px) {
+    .container { padding: 0 15px; }
+    .section-header h2 { font-size: 2.2em; }
+    .section-number { font-size: 2.5em; }
+}
+
+@media (max-width: 900px) {
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .about-image { max-width: 80%; margin-bottom: 30px; }
+    .about-text { width: 100%; text-align: center; }
+    .about-text p { text-align: left; } /* Reset text alignment for paragraphs within about-text */
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2.8em; }
+    h2 { font-size: 2.2em; }
+    h3 { font-size: 1.6em; }
+    p { font-size: 1em; }
+
+    .nav-links { display: none; } /* Hamburger menu for mobile later */
+    .logo { font-size: 1.2em; }
+    .nav { padding: 0 15px; }
+
+    .full-screen-section {
+        min-height: 70vh; /* Adjust height for smaller screens */
+        padding-top: 60px;
+    }
+
+    .section-number { font-size: 2.5em; }
+    .section-header h2 { font-size: 2em; }
+
+    .section-padding { padding: 60px 0; }
+
+    .hero-content h1 { font-size: 3em; }
+    .hero-subtitle { font-size: 1.2em; letter-spacing: 3px; }
+
+    .overlay-box { padding: 30px 40px; }
+    .overlay-box .impact-text { font-size: 2em; }
+    .intro-tagline { font-size: 1.8em; }
+    .image-text-overlay-wrap { min-height: 300px; margin-bottom: 40px; }
+
+    .specs-grid, .design-grid {
+        gap: 30px;
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+    .spec-item, .design-item { padding: 15px; }
+    .spec-icon, .design-icon { width: 50px; height: 50px; margin-bottom: 10px; }
+
+    .innovation-list li, .assets-list li { font-size: 1em; margin-bottom: 20px; }
+    .list-bullet { font-size: 1.3em; margin-right: 10px; }
+
+    .full-width-image-section { padding: 40px 0; }
+    .image-caption { margin-top: 15px; font-size: 0.85em; }
+
+    .contact-content h2 { font-size: 2.5em; }
+    .contact-details p { font-size: 1em; }
+    .cta-button { padding: 12px 25px; font-size: 1em; }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.8em; }
+    .cta-button { padding: 12px 25px; font-size: 1em; }
+    .section-header { flex-direction: column; align-items: flex-start; }
+    .yellow-highlight-line { margin-top: 10px; margin-bottom: 10px; }
+
+    .hero-content h1 { font-size: 2.5em; }
+    .hero-subtitle { font-size: 1em; letter-spacing: 2px; }
+
+    .overlay-box { padding: 20px 30px; }
+    .overlay-box .impact-text { font-size: 1.5em; }
+    .intro-tagline { font-size: 1.5em; }
+    .image-text-overlay-wrap { min-height: 250px; margin-bottom: 30px; }
+
+    .contact-content h2 { font-size: 2em; }
+}
