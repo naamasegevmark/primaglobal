@@ -64,7 +64,7 @@
                 <div class="about-text">
                     <p>Prima Global stands at the forefront of modern architectural solutions, specializing in advanced cladding systems that redefine aesthetic excellence and functional performance for contemporary buildings.</p>
                     <p>Our commitment extends beyond visual appeal, deeply integrating sustainable practices with high-performance materials. This ensures not only the longevity and efficiency of our products but also guarantees timely and seamless project delivery from concept to completion.</p>
-                    <p>This innovative approach allows for the creation of truly exceptional, eco-friendly structures. We pride ourselves on solutions that not only meet but consistently exceed the highest industry standards, ensuring minimal environmental impact and lasting value for every project.</p>
+                    <p>This innovative approach allows for the creation of truly exceptional, eco-friendly structures that not only meet but consistently exceed the highest industry standards, ensuring minimal environmental impact and lasting value for every project.</p>
                 </div>
             </div>
         </section>
@@ -209,7 +209,36 @@
                     <p class="contact-person"><strong>Naama Segev-Mark, PhD</strong></p>
                     <p class="contact-location">Israel</p>
                 </div>
-                <a href="mailto:doron@keshetprima.com" class="cta-button">Send Us an Email</a>
+
+                <!-- Contact Form Starts Here -->
+                <form action="#" method="POST" class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="What is your message about?">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Type your message here..."></textarea>
+                    </div>
+                    <button type="submit" class="cta-button form-submit-button">Send Message</button>
+                    <p class="form-note">
+                        For this form to function, you'll need to integrate a service like
+                        <a href="https://formspree.io/" target="_blank" rel="noopener noreferrer">Formspree</a> or
+                        <a href="https://www.netlify.com/products/forms/" target="_blank" rel="noopener noreferrer">Netlify Forms</a>.
+                        Replace the `action="#"` attribute in the form tag with the URL provided by your chosen service.
+                    </p>
+                </form>
+                <!-- Contact Form Ends Here -->
+
             </div>
         </section>
     </main>
