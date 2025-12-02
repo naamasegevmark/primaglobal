@@ -496,7 +496,7 @@ nav {
     position: relative;
     z-index: 10;
     color: var(--text-color-light);
-    max-width: 600px;
+    max-width: 600px; /* Constrain width of both text and form */
 }
 
 .contact-content h2 {
@@ -531,6 +531,91 @@ nav {
 /* Override CTA button for contact section if needed, or just let global style apply */
 .contact-content .cta-button {
     margin-top: 40px;
+}
+
+
+/* --- Contact Form Specific Styles --- */
+.contact-form {
+    margin-top: 60px; /* Space between contact info and form */
+    text-align: left; /* Align form elements to the left */
+    width: 100%; /* Make form fill its container */
+}
+
+.contact-form h3 {
+    font-family: var(--font-secondary);
+    font-size: 2.2em;
+    color: var(--accent-color);
+    margin-bottom: 30px;
+    text-align: center; /* Center form heading */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block; /* Make label appear on its own line */
+    font-size: 1em;
+    color: var(--text-color-light);
+    margin-bottom: 8px;
+    font-weight: 400;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: calc(100% - 24px); /* Account for padding */
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent background */
+    color: var(--text-color-light);
+    font-family: var(--font-primary);
+    font-size: 1em;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resizing of textarea */
+    min-height: 120px;
+}
+
+.form-submit-button {
+    width: 100%;
+    text-align: center;
+    border: none; /* Remove default button border */
+    cursor: pointer;
+    margin-top: 20px; /* Adjust spacing */
+}
+
+.form-note {
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 30px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.form-note a {
+    color: var(--accent-color);
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.form-note a:hover {
+    color: var(--secondary-color);
 }
 
 
@@ -613,6 +698,11 @@ footer a:hover {
     .contact-content h2 { font-size: 2.5em; }
     .contact-details p { font-size: 1em; }
     .cta-button { padding: 12px 25px; font-size: 1em; }
+
+    .contact-form h3 { font-size: 1.8em; margin-bottom: 20px; }
+    .form-group input, .form-group textarea { padding: 10px; font-size: 0.95em; }
+    .form-submit-button { padding: 12px 20px; font-size: 1em; }
+    .form-note { font-size: 0.8em; margin-top: 20px; }
 }
 
 @media (max-width: 480px) {
@@ -631,4 +721,5 @@ footer a:hover {
     .image-text-overlay-wrap { min-height: 250px; margin-bottom: 30px; }
 
     .contact-content h2 { font-size: 2em; }
+    .contact-form h3 { font-size: 1.5em; }
 }
