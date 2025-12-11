@@ -239,7 +239,7 @@ nav {
 
 .about-image {
     width: 100%; /* Default to full width on small screens */
-    max-width: 500px; /* Max width for the image */
+    max-width: 2000px; /* Max width for the image */
     height: auto;
     object-fit: cover;
     flex-shrink: 0; /* Prevent image from shrinking */
