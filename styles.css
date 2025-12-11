@@ -28,7 +28,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
     text-color-light: #eee;
     font-family: var(--font-secondary);
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1.2;
     margin-top: 0;
     margin-bottom: 20px;
@@ -38,7 +38,7 @@ h1 { font-size: 3.5em; } /* Larger hero text */
 h2 { font-size: 2.8em; } /* Main section headings */
 h3 { font-size: 1.8em; } /* Sub-headings */
 p { font-size: 1.1em; margin-bottom: 20px; }
-strong { font-weight: 600; color: var(--primary-color); } /* Make strong text more prominent */
+strong { font-weight: 600; color: var(--seconadry-color); } /* Make strong text more prominent */
 
 
 a {
