@@ -35,7 +35,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { font-size: 3.5em; } /* Larger hero text */
-h2 { font-size: 2.8em; } /* Main section headings */
+h2 { font-size: 2.3em; } /* Main section headings */
 h3 { font-size: 1.5em; } /* Sub-headings */
 p { font-size: 1.1em; margin-bottom: 20px; }
 strong { font-weight: 600; color: var(--primary-color); } /* Make strong text more prominent */
@@ -175,6 +175,10 @@ nav {
 }
 
 .section-number {
+    background-color: #2c2c2c; /* Carbon Grey */
+    padding: 15px 25px;        /* Adds space around the number to make the rectangle */
+    display: inline-block;     /* Ensures the box wraps around the number correctly */
+    border-radius: 2px;   
     font-family: var(--font-secondary);
     font-size: 3em;
     color: var(--accent-color);
