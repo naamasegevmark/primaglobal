@@ -41,7 +41,7 @@ strong { font-weight: 600; color: var(--primary-color); } /* Make strong text mo
 
 
 a {
-    color: var(--scondary-color);
+    color: var(--primary-color);
     text-decoration: none;
     transition: color 0.3s ease;
 }
