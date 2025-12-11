@@ -175,13 +175,13 @@ nav {
 }
 
 .section-number {
-    background-color: #2c2c2c; /* Carbon Grey */
+    background-color: #FFD700; /* yellow */
     padding: 15px 25px;        /* Adds space around the number to make the rectangle */
     display: inline-block;     /* Ensures the box wraps around the number correctly */
     border-radius: 2px;   
     font-family: var(--font-secondary);
     font-size: 3em;
-    color: var(--accent-color);
+    color: var(--text-color-dark);
     margin-right: 20px;
     line-height: 1;
 }
