@@ -230,20 +230,12 @@ nav {
 }
 
 /* --- About Section Specific --- */
+
 .about-content {
     display: flex;
     flex-wrap: wrap; /* Allow items to wrap on smaller screens */
     gap: 40px; /* Space between image and text */
     align-items: flex-start; /* Align items to the top */
-    
-    /* NEW: Background and Text Colors */
-    background-color: var(--primary-color); /* Sets background to Black */
-    color: var(--secondary-color);          /* Sets text to White */
-    
-    /* NEW: Padding */
-    /* This is important so the text doesn't touch the edge of the black box */
-    padding: 60px; 
-    border-radius: 4px; /* Optional: Makes the corners slightly smooth */
 }
 
 .about-image {
@@ -252,18 +244,13 @@ nav {
     height: auto;
     object-fit: cover;
     flex-shrink: 0; /* Prevent image from shrinking */
-    box-shadow: 0 5px 15px rgba(255,255,255,0.1); /* Changed shadow to light gray so it glows on black */
-    
-    /* NEW: Move image to the right */
-    /* This pushes the image away from the left side (or the text) by 40px */
-    margin-left: 40px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .about-text {
     flex-grow: 1; /* Allow text to take up remaining space */
     min-width: 300px; /* Ensure text doesn't get too narrow */
 }
-
 
 /* --- Innovation Section Specific --- */
 .innovation-intro-text {
