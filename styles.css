@@ -59,7 +59,7 @@ a:hover {
 }
 
 .full-screen-section {
-    width: 100%;
+    width: 90%;
     min-height: 100vh; /* Use min-height for content flexibility */
     display: flex;
     justify-content: center;
