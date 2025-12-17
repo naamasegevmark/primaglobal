@@ -169,7 +169,7 @@ nav {
 /* Section Headers - Reusable */
 .section-header {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     margin-bottom: 40px;
     padding-top: 40px; /* Extra padding for sticky header offset */
 }
