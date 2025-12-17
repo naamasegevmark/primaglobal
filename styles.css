@@ -64,26 +64,32 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
    4. SECTION HEADERS (Yellow Box Style)
    ========================================= */
 .section-header {
-    display: flex;
-    justify-content: flex-start; /* Aligns to Left */
-    margin-bottom: 40px;
-    padding-top: 60px;
+    margin-bottom: 60px; /* More space below the header */
+    display: flex;       /* Ensures alignment */
+    align-items: center; /* Centers text vertically */
 }
 
-/* Hide the old number */
-.section-number { display: none; }
-
-/* The Yellow Box Title */
 .section-header h2 {
-    background-color: var(--accent-color);
-    color: var(--primary-color);
+    /* 1. Make it a Box */
+    background-color: var(--accent-yellow); 
+    color: var(--primary-black);
+    
+    /* 2. Make it Bold and Big */
+    font-family: var(--font-primary); /* Use the clean, heavy font */
+    font-weight: 900;                 /* Maximum boldness */
+    font-size: 2.5rem;                /* significantly larger */
+    text-transform: uppercase;        /* All caps for authority */
+    
+    /* 3. Spacing & Shape */
     display: inline-block;
-    padding: 10px 40px; /* Narrow height, Wide width */
-    font-size: 2em; /* Readable size */
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin: 0;
-    border-radius: 2px;
+    padding: 20px 60px;               /* Thick padding for a "block" look */
+    letter-spacing: 3px;              /* Wide spacing looks more "premium" */
+    line-height: 1;                   /* Keeps the text tight inside the box */
+    
+    /* 4. Unique Styling Details */
+    box-shadow: 10px 10px 0px rgba(255, 255, 255, 0.1); /* Adds a subtle "architectural" shadow */
+    border-radius: 0px;               /* Sharp corners = industrial look */
+    position: relative;               /* Ready for layering if needed */
 }
 
 /* =========================================
