@@ -169,34 +169,36 @@ nav {
 
 /* Section Headers - Reusable */
 .section-header {
-    /* 1. Reset the layout to standard block */
-    display: block; 
+    display: flex;         /* Use flexbox for control */
+    justify-content: flex-start; /* Aligns everything to the LEFT */
     margin-bottom: 40px;
     padding-top: 40px;
-    
-    /* 2. Optional: Center the bar on the page. 
-       Remove text-align: center; if you want the bar aligned to the left. */
-    text-align: center; 
 }
 
-/* Style the Headline as the Yellow Bar */
-.section-header h2 {
-    /* --- The Yellow Bar Shape --- */
-    background-color: #FFD700; /* Yellow */
-    display: inline-block;     /* wraps the bar tightly around the text length */
-                               /* Change to 'display: block;' if you want full-width bar */
-    
-    padding: 15px 60px;        /* Top/Bottom padding makes it narrow, Left/Right makes it long */
-    border-radius: 2px;        /* Optional: Sharp or slight rounded edges */
+/* Hide the number since you only want the title */
+.section-number {
+    display: none; 
+}
 
-    /* --- The Text Inside --- */
-    color: black;              /* Black text */
+/* The Headline IS the Yellow Box */
+.section-header h2 {
+    /* --- Box Styling --- */
+    background-color: #FFD700; /* Yellow Box */
+    color: black;              /* Black Text */
+    
+    /* --- Shape & Size --- */
+    display: inline-block;     /* Wraps the box around the text */
+    padding: 10px 40px;        /* 10px Top/Bottom (Narrow), 40px Left/Right (Long) */
+    border-radius: 2px;        /* Sharp corners (change to 0 for perfectly square) */
+    
+    /* --- Typography --- */
     font-family: var(--font-secondary);
     font-size: 2em;
     font-weight: 700;
-    text-transform: uppercase; /* Optional: Looks better in bars */
-    letter-spacing: 2px;
-    margin: 0;
+    margin: 0;                 /* Removes default margins */
+    text-transform: uppercase; /* Ensures it says "ABOUT" even if you typed "About" */
+    line-height: 1.2;
+    letter-spacing: 1px;
 }
 
 /* --- Hero Section Specific --- */
