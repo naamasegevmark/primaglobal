@@ -186,13 +186,6 @@ nav {
     line-height: 2;
 }
 
-.yellow-highlight-line {
-    width: 30px;
-    height: 90px;
-    background-color: var(--accent-color);
-    margin-right: 20px;
-}
-
 .section-header h2 {
     margin: 0;
     color: var(--secondary-color);
