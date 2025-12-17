@@ -177,7 +177,7 @@ nav {
 .section-number {
     background-color: #FFD700; /* yellow */
     padding: 2px 2px 2px 2px;        /* Adds space around the number to make the rectangle */
-    display: flex;     /* Ensures the box wraps around the number correctly */
+    display: block;     /* Ensures the box wraps around the number correctly */
     border-radius: 2px;   
     font-family: var(--font-secondary);
     font-size: 5em;
