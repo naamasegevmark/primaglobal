@@ -6,6 +6,7 @@
     --text-color-black: #000;/* Black */
     --text-color-dark: #333;
     --text-color-light: #eee;
+    --text-color-yellow: #FFD700; /* Yellow from brochure */
     --font-primary: 'Montserrat', sans-serif; /* Clean, modern sans-serif */
     --font-secondary: 'Playfair Display', serif; /* For headings or emphasis, elegant serif */
     --padding-section: 80px 0; /* Consistent padding for main sections */
@@ -39,7 +40,7 @@ h1 { font-size: 3.5em; } /* Larger hero text */
 h2 { font-size: 2.3em; } /* Main section headings */
 h3 { font-size: 1.5em; } /* Sub-headings */
 p { font-size: 1.1em; margin-bottom: 20px; }
-p1 {font-size: 1.5em; margin-bottom: 25px; }
+p1 {font-size: 1.5em; text-color-yellow; margin-bottom: 25px; }
 strong { font-weight: 600; color: var(--primary-color); } /* Make strong text more prominent */
 
 
