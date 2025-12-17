@@ -3,6 +3,7 @@
     --primary-color: #000; /* Black */
     --secondary-color: #fff; /* White */
     --accent-color: #FFD700; /* Yellow from brochure */
+    --text-color-black: #000;/* Black */
     --text-color-dark: #333;
     --text-color-light: #eee;
     --font-primary: 'Montserrat', sans-serif; /* Clean, modern sans-serif */
@@ -177,7 +178,7 @@ nav {
 .section-number {
      /* --- The Box --- */
     background-color: #FFD700; /* Yellow background */
-    color: var(--text-color-dark); /* Dark text (likely #333) */
+    color: var(--text-color-black); /* Dark black text (likely #000) */
     
     /* --- Size & Shape --- */
     padding: 20px 10px; /* Increased side padding slightly for a better rectangle look */
@@ -185,14 +186,14 @@ nav {
     margin-right: 20px; /* Space between the box and the text next to it */
     
     /* --- Alignment (The Fix) --- */
-    display: inline-flex; /* Use inline-flex so the box doesn't stretch across the whole screen */
+    display: flex; /* Use inline-flex so the box doesn't stretch across the whole screen */
     align-items: center;  /* Vertically center the number */
     justify-content: center; /* Horizontally center the number */
     
     /* --- Text Style --- */
     font-family: var(--font-secondary);
     font-size: 3em; /* 5em might be huge, 3em is usually safer, but adjust as needed */
-    line-height: 1; 
+    line-height: 2; 
     font-weight: 700;
 }
 
