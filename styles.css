@@ -182,8 +182,8 @@ nav {
     font-family: var(--font-secondary);
     font-size: 5em;
     color: var(--text-color-dark);
-    margin-right: 20px;
-    line-height: 2;
+    margin-right: 10px;
+    line-height: 1;
 }
 
 .yellow-highlight-line {
