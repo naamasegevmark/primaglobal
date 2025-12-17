@@ -179,11 +179,6 @@ nav {
     text-align: center; 
 }
 
-/* Hide the old number box completely */
-.section-number {
-    display: none; 
-}
-
 /* Style the Headline as the Yellow Bar */
 .section-header h2 {
     /* --- The Yellow Bar Shape --- */
