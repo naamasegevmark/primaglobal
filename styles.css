@@ -1,292 +1,188 @@
-/* --- 1. Variables & Reset --- */
+/* =========================================
+   1. VARIABLES & RESET
+   ========================================= */
 :root {
-    --primary-black: #000000;
-    --accent-yellow: #FFD700; /* Gold/Yellow from brochure */
-    --text-white: #ffffff;
-    --text-gray: #cccccc;
+    --primary-color: #000000;      /* Black */
+    --secondary-color: #ffffff;    /* White */
+    --accent-color: #FFD700;       /* Gold/Yellow */
+    --gray-dark: #1a1a1a;          /* Dark Gray */
+    --gray-light: #eeeeee;         /* Light Gray */
     
-    --font-primary: 'Montserrat', sans-serif;
-    --font-heading: 'Playfair Display', serif; /* Used for "New Facade" if desired, otherwise Montserrat */
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    --font-primary: 'Montserrat', sans-serif; 
+    --font-secondary: 'Playfair Display', serif; 
+    
+    --max-width: 1100px;
 }
 
 body {
-    background-color: var(--primary-black);
-    color: var(--text-white);
     font-family: var(--font-primary);
+    background-color: var(--primary-color);
+    color: var(--secondary-color); /* Default text is white */
+    margin: 0;
+    padding: 0;
     line-height: 1.6;
-    overflow-x: hidden;
 }
 
-/* Utility Classes */
+/* =========================================
+   2. TYPOGRAPHY
+   ========================================= */
+h1, h2, h3 {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    margin-top: 0;
+}
+
+h1 { font-size: 3.5em; letter-spacing: 2px; }
+h2 { font-size: 2.5em; }
+p { margin-bottom: 20px; font-size: 1.1em; color: var(--gray-light); }
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+/* =========================================
+   3. UTILITY CLASSES
+   ========================================= */
 .container {
-    max-width: 1200px;
+    max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 20px;
 }
 
-.text-yellow { color: var(--accent-yellow); }
-.text-white { color: var(--text-white); }
-
-/* --- 2. Navigation --- */
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: rgba(0,0,0,0.9);
-    padding: 20px 0;
-    z-index: 1000;
-    border-bottom: 1px solid #222;
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 1.5rem;
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 15px 30px;
     font-weight: 700;
-    letter-spacing: 2px;
-    color: var(--text-white);
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-}
-
-.nav-links a {
-    color: var(--text-white);
-    text-decoration: none;
-    font-weight: 400;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover {
-    color: var(--accent-yellow);
-}
-
-/* --- 3. Hero Section --- */
-.hero-section {
-    height: 100vh;
-    background-image: url('images/hero-bg.jpg'); /* You need to add this image */
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-/* Dark overlay to make text pop */
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 100%);
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    padding-left: 10%; /* Matches the left alignment in brochure */
-}
-
-.impact-word {
-    font-size: 3rem;
-    font-weight: 300;
-    margin-bottom: 10px;
+    border-radius: 2px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    line-height: 1.2;
+}
+.cta-button:hover {
+    background-color: #fff;
 }
 
-.yellow-bar-large {
-    background-color: var(--accent-yellow);
-    padding: 15px 40px;
-    display: inline-block;
-    margin-top: 20px;
-}
-
-.yellow-bar-large h1 {
-    color: var(--primary-black);
-    font-family: var(--font-primary);
-    font-weight: 700;
-    font-size: 2rem;
-    text-transform: uppercase;
-    margin: 0;
-}
-
-/* --- 4. About Section --- */
-.about-section {
-    padding: 100px 0;
-    background-color: var(--primary-black);
-    /* Adding the wireframe background effect from Page 4 */
-    background-image: url('images/about-bg.jpg'); /* Optional wireframe bg */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: right center;
-}
-
-/* The Yellow Header Bar Style */
+/* =========================================
+   4. SECTION HEADERS (Yellow Box Style)
+   ========================================= */
 .section-header {
-    margin-bottom: 50px;
-}
-
-.section-header h2 {
-    background-color: var(--accent-yellow);
-    color: var(--primary-black);
-    display: inline-block;
-    padding: 15px 60px; /* Long yellow bar style */
-    font-size: 2rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin: 0;
-}
-
-.about-text {
-    max-width: 800px;
-}
-
-.about-text p {
-    font-size: 1.5rem; /* Large readable text */
+    display: flex;
+    justify-content: flex-start; /* Aligns to Left */
     margin-bottom: 40px;
-    font-weight: 300;
-    line-height: 1.6;
+    padding-top: 60px;
 }
 
-/* --- 5. Features Section --- */
-.features-section {
-    padding: 80px 0;
-    background-color: var(--primary-black);
+/* Hide the old number */
+.section-number { display: none; }
+
+/* The Yellow Box Title */
+.section-header h2 {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    display: inline-block;
+    padding: 10px 40px; /* Narrow height, Wide width */
+    font-size: 2em; /* Readable size */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+    border-radius: 2px;
 }
 
-.features-container {
+/* =========================================
+   5. HEADER & NAV
+   ========================================= */
+header {
+    background-color: var(--primary-color);
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #333;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo a { font-weight: 700; font-size: 1.5em; color: var(--secondary-color); }
+
+.nav-links { list-style: none; display: flex; margin: 0; padding: 0; }
+.nav-links li { margin-left: 30px; }
+.nav-links a { color: var(--secondary-color); font-size: 0.9em; text-transform: uppercase; }
+.nav-links a:hover { color: var(--accent-color); }
+
+/* =========================================
+   6. HERO SECTION
+   ========================================= */
+.full-screen-section {
+    min-height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding-top: 80px;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.4; /* Dim the image */
+    z-index: -1;
+}
+
+/* =========================================
+   7. ABOUT SECTION (Black bg, Image Right)
+   ========================================= */
+.about-content {
+    display: flex;
+    align-items: center; /* Center vertically */
     justify-content: space-between;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 60px 0;
     gap: 50px;
 }
 
-.features-list {
-    flex: 1;
+.about-text {
+    flex: 1; /* Takes up half space */
 }
 
-.feature-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 60px;
-}
-
-.icon-arrow {
-    background-color: var(--text-white);
-    color: var(--primary-black);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    font-size: 1.2rem;
-    margin-right: 20px;
-    flex-shrink: 0;
-}
-
-.feature-text p {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    font-weight: 300;
-}
-
-.feature-text h3 {
-    text-transform: uppercase;
-    font-size: 1.4rem;
-    letter-spacing: 1px;
-    text-align: right; /* Aligns keywords to the right like brochure */
-}
-
-.features-image {
-    flex: 1;
+.about-image {
+    flex: 1; /* Takes up half space */
     max-width: 500px;
 }
 
-.features-image img {
+.about-image img {
     width: 100%;
     height: auto;
-    border: 1px solid #333;
+    display: block;
+    box-shadow: 10px 10px 0px var(--accent-color); /* Cool stylistic shadow */
 }
 
-/* --- 6. Contact Section --- */
-.contact-section {
-    padding: 100px 0;
-    text-align: left; /* Brochure aligns left */
-    background-color: var(--primary-black);
-    border-top: 1px solid #222;
-}
-
-.logo-large {
-    font-size: 4rem;
-    line-height: 0.9;
-    font-weight: 700;
-    color: var(--accent-yellow);
-    margin-bottom: 40px;
-}
-
-.contact-heading {
-    font-size: 1.5rem;
-    margin-bottom: 40px;
-    letter-spacing: 2px;
-}
-
-.contact-row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    font-size: 1.2rem;
-}
-
-.contact-row .icon {
-    margin-right: 15px;
-    filter: grayscale(100%); /* Keeps emojis looking monochrome if supported */
-}
-
-.contact-row a {
-    color: var(--text-white);
-    text-decoration: underline;
-    text-decoration-color: var(--accent-yellow);
-}
-
-/* --- 7. Footer --- */
-footer {
-    padding: 20px 0;
-    text-align: center;
-    font-size: 0.8rem;
-    color: #555;
-    background-color: #050505;
-}
-
-/* --- Mobile Responsiveness --- */
+/* =========================================
+   8. RESPONSIVE (Mobile)
+   ========================================= */
 @media (max-width: 768px) {
-    .hero-content { padding-left: 20px; }
-    .impact-word { font-size: 2rem; }
-    .yellow-bar-large h1 { font-size: 1.5rem; }
+    .nav-links { display: none; } /* Hide menu on mobile for now */
     
-    .section-header h2 { font-size: 1.5rem; padding: 10px 30px; }
-    .about-text p { font-size: 1.1rem; }
+    .about-content {
+        flex-direction: column; /* Stack vertically */
+    }
     
-    .features-container { flex-direction: column; }
-    .features-image { order: -1; margin-bottom: 40px; } /* Puts image on top on mobile */
-    .feature-text h3 { text-align: left; margin-top: 5px; }
+    .section-header h2 {
+        font-size: 1.5em;
+        padding: 10px 20px;
+        width: 100%; /* Full width on mobile */
+        text-align: center;
+        box-sizing: border-box;
+    }
     
-    .logo-large { font-size: 3rem; }
+    h1 { font-size: 2.5em; }
 }
