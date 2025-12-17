@@ -190,15 +190,15 @@ nav {
     
     /* --- Shape & Size --- */
     display: inline-block;     /* Wraps the box around the text */
-    padding: 10px 40px;        /* 10px Top/Bottom (Narrow), 40px Left/Right (Long) */
-    border-radius: 2px;        /* Sharp corners (change to 0 for perfectly square) */
+    padding: 10px 40px;        /* 10px Top/Bottom, 40px Left/Right */
+    border-radius: 2px;        
     
     /* --- Typography --- */
     font-family: var(--font-secondary);
-    font-size: 20em;
+    font-size: 2em;            /* CORRECTED: Changed 20em to 2em */
     font-weight: 700;
-    margin: 0;                 /* Removes default margins */
-    text-transform: uppercase; /* Ensures it says "ABOUT" even if you typed "About" */
+    margin: 0;                 
+    text-transform: uppercase; 
     line-height: 1.2;
     letter-spacing: 1px;
 }
