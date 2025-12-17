@@ -174,16 +174,8 @@ nav {
     display: flex;         /* Use flexbox for control */
     justify-content: flex-start; /* Aligns everything to the LEFT */
     margin-bottom: 40px;
-    padding-top: 40px;
-}
-
-/* Hide the number since you only want the title */
-.section-number {
-    display: none; 
-}
-
-/* The Headline IS the Yellow Box */
-.section-header h2 {
+    padding-top: 40
+        
     /* --- Box Styling --- */
     background-color: #FFD700; /* Yellow Box */
     color: black;              /* Black Text */
