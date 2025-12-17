@@ -193,7 +193,7 @@ nav {
     
     /* --- Typography --- */
     font-family: var(--font-secondary);
-    font-size: 2em;
+    font-size: 20em;
     font-weight: 700;
     margin: 0;                 /* Removes default margins */
     text-transform: uppercase; /* Ensures it says "ABOUT" even if you typed "About" */
