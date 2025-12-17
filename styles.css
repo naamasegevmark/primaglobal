@@ -169,38 +169,39 @@ nav {
 
 /* Section Headers - Reusable */
 .section-header {
-    display: inline-block;
-    align-items: baseline;
+    /* 1. Reset the layout to standard block */
+    display: block; 
     margin-bottom: 40px;
-    padding-top: 40px; /* Extra padding for sticky header offset */
+    padding-top: 40px;
+    
+    /* 2. Optional: Center the bar on the page. 
+       Remove text-align: center; if you want the bar aligned to the left. */
+    text-align: center; 
 }
 
+/* Hide the old number box completely */
 .section-number {
-     /* --- The Box --- */
-    background-color: #FFD700; /* Yellow background */
-    color: var(--text-color-black); /* Dark black text (likely #000) */
-    
-    /* --- Size & Shape --- */
-    padding: 20px 10px; /* Increased side padding slightly for a better rectangle look */
-    border-radius: 2px;
-    margin-right: 20px; /* Space between the box and the text next to it */
-    
-    /* --- Alignment (The Fix) --- */
-    display: flex; /* Use inline-flex so the box doesn't stretch across the whole screen */
-    align-items: center;  /* Vertically center the number */
-    justify-content: center; /* Horizontally center the number */
-    
-    /* --- Text Style --- */
-    font-family: var(--font-secondary);
-    font-size: 3em; /* 5em might be huge, 3em is usually safer, but adjust as needed */
-    line-height: 2; 
-    font-weight: 700;
+    display: none; 
 }
 
+/* Style the Headline as the Yellow Bar */
 .section-header h2 {
+    /* --- The Yellow Bar Shape --- */
+    background-color: #FFD700; /* Yellow */
+    display: inline-block;     /* wraps the bar tightly around the text length */
+                               /* Change to 'display: block;' if you want full-width bar */
+    
+    padding: 15px 60px;        /* Top/Bottom padding makes it narrow, Left/Right makes it long */
+    border-radius: 2px;        /* Optional: Sharp or slight rounded edges */
+
+    /* --- The Text Inside --- */
+    color: black;              /* Black text */
+    font-family: var(--font-secondary);
+    font-size: 2em;
+    font-weight: 700;
+    text-transform: uppercase; /* Optional: Looks better in bars */
+    letter-spacing: 2px;
     margin: 0;
-    color: var(--secondary-color);
-    font-size: 2em; /* Slightly smaller for section headers */
 }
 
 /* --- Hero Section Specific --- */
