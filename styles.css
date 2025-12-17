@@ -39,6 +39,7 @@ h1 { font-size: 3.5em; } /* Larger hero text */
 h2 { font-size: 2.3em; } /* Main section headings */
 h3 { font-size: 1.5em; } /* Sub-headings */
 p { font-size: 1.1em; margin-bottom: 20px; }
+p1 {font-size: 1.5em; margin-bottom: 25px; }
 strong { font-weight: 600; color: var(--primary-color); } /* Make strong text more prominent */
 
 
