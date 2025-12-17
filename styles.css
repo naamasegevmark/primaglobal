@@ -170,7 +170,7 @@ nav {
 }
 
 /* Section Headers - Reusable */
-.section-header {
+.section-header h2 {
     display: flex;         /* Use flexbox for control */
     justify-content: flex-start; /* Aligns everything to the LEFT */
     margin-bottom: 40px;
