@@ -114,7 +114,10 @@ nav {
     padding: 0 20px;
 }
 
-.logo a { font-weight: 700; font-size: 1.5em; color: var(--secondary-color); }
+.logo-image {
+    flex: 1; /* Takes up half space */
+    max-width: 500px;
+}
 
 .nav-links { list-style: none; display: flex; margin: 0; padding: 0; }
 .nav-links li { margin-left: 30px; }
