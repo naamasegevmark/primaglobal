@@ -2,32 +2,36 @@
    1. VARIABLES & RESET
    ========================================= */
 :root {
-    --primary-color: #000000;      /* Black */
-    --secondary-color: #ffffff;    /* White */
-    --accent-color: #FFD700;       /* Gold/Yellow */
-    --accent-yellow: #FFD700;      /* Explicit yellow for boxes */
-    --primary-black: #000000;
-    --gray-dark: #1a1a1a;          /* Dark Gray */
-    --gray-light: #eeeeee;         /* Light Gray */
+    --primary-black: #050505;      /* Deep Black */
+    --card-bg: #121212;            /* Slightly lighter for cards */
+    --text-white: #ffffff;
+    --text-gray: #b0b0b0;          /* Soft Gray for body text */
+    --accent-yellow: #FFD700;      /* Gold/Yellow */
     
-    --font-primary: 'Montserrat', sans-serif; 
-    --font-secondary: 'Playfair Display', serif; 
+    --font-body: 'Montserrat', sans-serif; 
+    --font-heading: 'Playfair Display', serif; 
     
-    --max-width: 1100px;
-    --section-padding: 80px 0;
+    --max-width: 1200px;           /* Standard Grid Width */
+    --section-padding: 100px 0;    /* More breathing room vertically */
+    --border-radius: 4px;
 }
 
 * {
-    box-sizing: border-box; /* Crucial for layout stability */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: var(--font-primary);
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
+    font-family: var(--font-body);
+    background-color: var(--primary-black);
+    color: var(--text-white);
+    line-height: 1.7; /* Increased line height for readability */
+    font-weight: 300;
 }
 
 img {
@@ -36,107 +40,73 @@ img {
     display: block;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+ul { list-style: none; }
+a { text-decoration: none; color: inherit; transition: 0.3s ease; }
 
 /* =========================================
    2. TYPOGRAPHY
    ========================================= */
 h1, h2, h3 {
-    font-family: var(--font-secondary);
+    font-family: var(--font-heading);
     font-weight: 700;
-    margin-top: 0;
+    line-height: 1.2;
 }
 
-h1 { font-size: 3.5em; letter-spacing: 2px; text-transform: uppercase; }
-h2 { font-size: 2.5em; }
-h3 { color: var(--accent-color); font-size: 1.5rem; margin-bottom: 15px; }
-p { margin-bottom: 20px; font-size: 1.1em; color: var(--gray-light); }
-a { text-decoration: none; color: inherit; transition: 0.3s; }
+h1 { font-size: 3.5rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem; }
+h2 { font-size: 2.2rem; margin: 0; }
+h3 { font-size: 1.4rem; color: var(--accent-yellow); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+
+p {
+    margin-bottom: 1.5rem;
+    color: var(--text-gray);
+    font-size: 1.05rem;
+}
+
+strong { color: var(--text-white); font-weight: 600; }
 
 /* =========================================
-   3. UTILITY CLASSES
+   3. UTILITIES
    ========================================= */
 .container {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 24px;
 }
 
 .text-center { text-align: center; }
-.black-bg { background-color: var(--primary-color); }
 .section-padding { padding: var(--section-padding); }
+.spacer-top { margin-top: 100px; }
 
 .cta-button {
     display: inline-block;
-    background-color: var(--accent-color);
-    color: var(--primary-color);
-    padding: 15px 30px;
-    font-weight: 700;
-    border-radius: 2px;
+    background-color: transparent;
+    color: var(--accent-yellow);
+    border: 2px solid var(--accent-yellow);
+    padding: 14px 32px;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border: 2px solid var(--accent-color);
+    font-size: 0.9rem;
+    margin-top: 20px;
     cursor: pointer;
 }
+
 .cta-button:hover {
-    background-color: transparent;
-    color: var(--accent-color);
-}
-
-.margin-top-large { margin-top: 80px; }
-
-/* =========================================
-   4. SECTION HEADERS (Yellow Box Style)
-   ========================================= */
-.section-header {
-    margin-bottom: 50px;
-    position: relative;
-    padding-top: 20px;
-}
-
-.section-number {
-    position: absolute;
-    top: -20px;
-    left: -10px;
-    font-size: 6rem;
-    font-weight: 900;
-    color: rgba(255, 255, 255, 0.1); /* Very faint number behind title */
-    z-index: 0;
-    pointer-events: none;
-}
-
-.section-header h2 {
-    position: relative;
-    z-index: 1;
-    background-color: var(--accent-yellow); 
-    color: var(--primary-black);
-    font-family: var(--font-primary);
-    font-weight: 900;
-    font-size: 2rem;
-    text-transform: uppercase;
-    display: inline-block;
-    padding: 15px 40px;
-    letter-spacing: 3px;
-    line-height: 1;
-    box-shadow: 10px 10px 0px rgba(255, 255, 255, 0.1);
-    border-radius: 0px;
+    background-color: var(--accent-yellow);
+    color: #000;
 }
 
 /* =========================================
-   5. HEADER & NAV
+   4. NAVIGATION
    ========================================= */
 header {
-    background-color: rgba(0, 0, 0, 0.95); /* Slight transparency */
-    padding: 20px 0;
+    background-color: rgba(5, 5, 5, 0.95);
+    padding: 15px 0;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 nav {
@@ -145,36 +115,33 @@ nav {
     align-items: center;
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 24px;
 }
 
+/* Updated Logo Styling */
 .logo a {
     display: flex;
     align-items: center;
-    /* Removed font styles since it's an image now */
 }
 
 .logo img {
-    height: 50px; /* This height usually matches the visual weight of the previous text */
-    width: auto;  /* Keeps the logo from stretching */
-    display: block;
+    height: 45px;  /* Optimal height for nav bar */
+    width: auto;
 }
 
-.nav-logo-img {
-    height: 40px;   /* Adjust this number to make the logo bigger or smaller */
-    width: auto;    /* Maintains the aspect ratio so the logo doesn't stretch */
-    display: block;
+.nav-links { display: flex; gap: 30px; }
+.nav-links a { 
+    color: var(--text-white); 
+    font-size: 0.85rem; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    font-weight: 500;
+    opacity: 0.8;
 }
-
-/* Optional: If you want to refine the spacing on mobile */
-@media (max-width: 768px) {
-    .nav-logo-img {
-        height: 40px; /* Slightly smaller on phones */
-    }
-}
+.nav-links a:hover { color: var(--accent-yellow); opacity: 1; }
 
 /* =========================================
-   6. HERO SECTION
+   5. HERO SECTION
    ========================================= */
 .full-screen-section {
     min-height: 100vh;
@@ -182,7 +149,7 @@ nav {
     align-items: center;
     justify-content: center;
     position: relative;
-    padding-top: 80px;
+    padding-top: 80px; /* Offset for fixed header */
 }
 
 .hero-background {
@@ -190,250 +157,287 @@ nav {
     top: 0; left: 0; width: 100%; height: 100%;
     background-size: cover;
     background-position: center;
-    opacity: 0.5;
     z-index: 0;
 }
-/* Fallback if image missing */
-.hero-background { background-color: #222; }
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6); /* Consistent darkening overlay */
+    z-index: 1;
+}
 
 .hero-content {
     position: relative;
     z-index: 2;
-    text-align: center;
-    max-width: 800px;
+    max-width: 900px;
 }
 
 .hero-subtitle {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     letter-spacing: 4px;
     text-transform: uppercase;
-    color: var(--accent-color);
+    color: var(--accent-yellow);
     margin-bottom: 40px;
 }
 
 /* =========================================
-   7. ABOUT SECTION
+   6. SECTION HEADER (Yellow Box)
    ========================================= */
-.about-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 50px;
+.section-header {
+    margin-bottom: 60px;
+    position: relative;
+    /* Removed padding-top so it sits cleaner */
 }
 
-.about-text { flex: 1; }
+.section-number {
+    position: absolute;
+    top: -45px;
+    left: -20px;
+    font-family: var(--font-heading);
+    font-size: 7rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.03); /* Very subtle watermark effect */
+    z-index: 0;
+    line-height: 1;
+    pointer-events: none;
+}
 
-.about-text p1 { /* Custom styled paragraph from your HTML */
-    display: block;
-    margin-top: 20px;
-    font-size: 1.2em;
-    font-weight: 600;
-    color: var(--secondary-color);
-    border-left: 4px solid var(--accent-color);
-    padding-left: 15px;
+.section-header h2 {
+    position: relative;
+    z-index: 1;
+    background-color: var(--accent-yellow); 
+    color: #000;
+    font-weight: 900;
+    display: inline-block;
+    padding: 12px 30px;
+    letter-spacing: 2px;
+    box-shadow: 8px 8px 0px rgba(255, 255, 255, 0.1);
+}
+
+/* =========================================
+   7. ABOUT SECTION (Updated Layout)
+   ========================================= */
+.about-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
 }
 
 .about-image {
-    flex: 1;
-    box-shadow: 15px 15px 0px rgba(255, 255, 255, 0.05); /* Architectural shadow */
-    border-radius: 2px;
+    width: 100%;
+    box-shadow: -15px 15px 0px rgba(255, 255, 255, 0.05); /* Architectural shadow */
+    filter: grayscale(20%);
+}
+
+.lead-text {
+    font-size: 1.3rem;
+    color: var(--text-white);
+    margin-bottom: 1.5rem;
+}
+
+.emphasis-box {
+    margin-top: 30px;
+    border-left: 3px solid var(--accent-yellow);
+    padding-left: 20px;
+    font-style: italic;
+    color: var(--text-white);
 }
 
 /* =========================================
    8. INNOVATION SECTION
    ========================================= */
-.innovation-intro-text {
-    max-width: 800px;
-    margin-bottom: 40px;
+.innovation-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* Text is wider than list */
+    gap: 60px;
 }
+
+.innovation-intro p { max-width: 65ch; } /* Improves readability */
 
 .innovation-list li {
     display: flex;
     align-items: flex-start;
     margin-bottom: 25px;
-    background: rgba(255,255,255,0.03); /* Subtle card bg */
+    background: var(--card-bg);
     padding: 20px;
-    border-left: 1px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    border: 1px solid #222;
 }
 
 .list-bullet {
-    color: var(--accent-color);
-    font-size: 1.5rem;
+    color: var(--accent-yellow);
+    font-size: 1.4rem;
     margin-right: 15px;
-    line-height: 1;
+    line-height: 1.2;
 }
 
 /* =========================================
-   9. TECHNICAL & DESIGN GRIDS
+   9. CARDS (Technical & Design)
    ========================================= */
-.specs-grid, .design-grid {
+.grid-layout {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* 3 Columns strict */
     gap: 30px;
 }
 
-.spec-item, .design-item {
-    background: #111;
+.card-item {
+    background: var(--card-bg);
+    border: 1px solid #222;
     padding: 30px;
-    border: 1px solid #333;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
-.spec-item:hover, .design-item:hover {
+.card-item:hover {
     transform: translateY(-5px);
-    border-color: var(--accent-color);
+    border-color: rgba(255, 215, 0, 0.3);
 }
 
-.spec-icon, .design-icon {
-    width: 50px;
-    height: 50px;
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
     margin-bottom: 15px;
 }
 
-.spec-image-container, .design-image-container {
-    margin-top: 15px;
-    height: 200px;
+.card-icon { width: 40px; height: 40px; }
+.card-icon-small { width: 30px; height: 30px; margin-bottom: 10px; }
+
+.card-image-wrap {
+    margin-top: auto; /* Pushes image to bottom of card */
+    height: 180px;
     overflow: hidden;
+    border-radius: 2px;
 }
 
-.spec-detail-image, .design-detail-image {
+.card-image-wrap img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(50%);
-    transition: 0.3s;
+    filter: grayscale(60%);
+    transition: 0.4s;
 }
 
-.spec-item:hover .spec-detail-image, 
-.design-item:hover .design-detail-image {
-    filter: grayscale(0%);
-}
+.card-item:hover img { filter: grayscale(0%); transform: scale(1.05); }
+
+/* Special layout for Design cards (Image top) */
+.top-image { margin-top: 0; margin-bottom: 20px; }
 
 /* =========================================
-   10. CROSS SECTION (Full Width Image)
+   10. ASSETS & CROSS SECTION
    ========================================= */
 .full-width-image-section {
-    width: 100%;
-    background-color: #050505;
-    padding: 40px 0;
-}
-
-.cross-section-image-wrap {
+    background-color: #000;
+    padding: 60px 0;
     text-align: center;
 }
 
 .full-width-image {
+    max-height: 600px;
     width: 100%;
-    max-height: 600px; /* Prevents it from being too tall on huge screens */
     object-fit: contain;
-}
-
-.image-caption {
-    font-style: italic;
-    opacity: 0.7;
-    margin-top: 10px;
-}
-
-/* =========================================
-   11. ASSETS SECTION
-   ========================================= */
-.assets-list li {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 20px;
-    font-size: 1.1rem;
-}
-
-.assets-list .list-bullet {
-    margin-top: 5px; /* Aligns bullet with top of text */
-}
-
-/* =========================================
-   12. CONTACT SECTION
-   ========================================= */
-.contact-background {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-size: cover;
-    background-position: center;
-    opacity: 0.3;
-    z-index: 0;
-}
-.contact-background { background-color: #111; }
-
-.contact-content {
-    position: relative;
-    z-index: 2;
-    padding: 60px 20px;
-    max-width: 600px; /* Narrower for better reading form */
     margin: 0 auto;
 }
 
-.contact-details p { margin-bottom: 10px; }
-.contact-link { color: var(--accent-color); border-bottom: 1px solid var(--accent-color); }
-.contact-person { font-size: 1.2rem; margin-top: 15px; color: #fff; }
+.image-caption { font-size: 0.9rem; margin-top: 15px; opacity: 0.6; }
 
-.contact-form {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 30px;
-    border: 1px solid #333;
-    margin-top: 40px;
-    text-align: left;
+.assets-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
 }
 
-.form-group { margin-bottom: 20px; }
-.form-group label { display: block; margin-bottom: 5px; color: #aaa; font-size: 0.9em; }
-
-.form-group input, 
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    background: #222;
-    border: 1px solid #444;
-    color: #fff;
-    font-family: var(--font-primary);
+.assets-list li {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-top: 1px solid #333;
 }
 
-.form-group input:focus, 
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--accent-color);
-}
-
-.form-submit-button { width: 100%; margin-top: 10px; }
-.form-note { font-size: 0.8em; text-align: center; margin-top: 15px; opacity: 0.5; }
+.assets-list .list-bullet { margin-bottom: 15px; font-size: 1rem; }
 
 /* =========================================
-   13. FOOTER
+   11. CONTACT SECTION
+   ========================================= */
+.contact-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 50px;
+    text-align: left;
+    background: rgba(0,0,0,0.8);
+    padding: 40px;
+    border: 1px solid #333;
+}
+
+.contact-block { margin: 30px 0; font-size: 1.1rem; }
+.contact-links { display: flex; flex-direction: column; gap: 10px; }
+.contact-link { color: var(--accent-yellow); font-weight: 500; }
+
+.contact-form-wrap h3 { color: var(--text-white); margin-bottom: 20px; }
+
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; color: #888; }
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: #fff;
+    font-family: var(--font-body);
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-yellow);
+    background: #222;
+}
+
+.form-submit-button { width: 100%; background: var(--accent-yellow); color: #000; border: none; }
+.form-submit-button:hover { background: #fff; }
+
+/* =========================================
+   12. FOOTER
    ========================================= */
 footer {
     background-color: #000;
     padding: 30px 0;
     text-align: center;
+    border-top: 1px solid #111;
     font-size: 0.9rem;
-    border-top: 1px solid #222;
+    color: #666;
 }
 
 /* =========================================
-   14. RESPONSIVE DESIGN (Mobile)
+   13. RESPONSIVE DESIGN (Mobile)
    ========================================= */
-@media (max-width: 768px) {
-    .nav-links { display: none; } /* Basic hide for mobile */
+@media (max-width: 900px) {
+    .nav-links { display: none; } /* Hide nav links on mobile */
     
-    .about-content {
-        flex-direction: column;
+    .about-wrapper, 
+    .innovation-layout, 
+    .grid-layout, 
+    .assets-list,
+    .contact-grid {
+        grid-template-columns: 1fr; /* Stack everything vertically */
+        gap: 40px;
     }
+
+    .section-number { display: none; } /* Hide giant numbers on mobile to save space */
     
-    .about-image { width: 100%; max-width: 100%; margin-top: 30px; }
+    .section-header h2 { font-size: 1.5rem; padding: 10px 20px; }
+    h1 { font-size: 2.5rem; }
     
-    .section-header h2 {
-        font-size: 1.4em;
-        padding: 15px 20px;
-        width: 100%;
-        text-align: center;
-    }
+    .about-image-col { order: -1; } /* Image on top */
     
-    h1 { font-size: 2.5em; }
-    
-    .specs-grid, .design-grid { grid-template-columns: 1fr; }
+    .contact-grid { padding: 20px; }
 }
