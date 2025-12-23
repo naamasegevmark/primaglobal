@@ -148,11 +148,16 @@ nav {
     padding: 0 20px;
 }
 
-/* Update this section in 5. HEADER & NAV */
-
 .logo a {
-    display: flex; /* Helps align the image nicely */
+    display: flex;
     align-items: center;
+    /* Removed font styles since it's an image now */
+}
+
+.logo img {
+    height: 40px; /* This height usually matches the visual weight of the previous text */
+    width: auto;  /* Keeps the logo from stretching */
+    display: block;
 }
 
 .nav-logo-img {
