@@ -161,7 +161,7 @@ nav {
 }
 
 .nav-logo-img {
-    height: 50px;   /* Adjust this number to make the logo bigger or smaller */
+    height: 40px;   /* Adjust this number to make the logo bigger or smaller */
     width: auto;    /* Maintains the aspect ratio so the logo doesn't stretch */
     display: block;
 }
