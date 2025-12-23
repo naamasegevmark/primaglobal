@@ -101,7 +101,7 @@ strong { color: var(--text-white); font-weight: 600; }
    ========================================= */
 header {
     background-color: rgba(5, 5, 5, 0.95);
-    padding: 15px 0;
+    padding: 10px 0; /* Slightly reduced top/bottom padding to make room for bigger logo */
     position: fixed;
     width: 100%;
     top: 0;
@@ -125,7 +125,7 @@ nav {
 }
 
 .logo img {
-    height: 45px;  /* Optimal height for nav bar */
+    height: 70px;  /* INCREASED SIZE HERE (was 45px) */
     width: auto;
 }
 
@@ -149,7 +149,7 @@ nav {
     align-items: center;
     justify-content: center;
     position: relative;
-    padding-top: 80px; /* Offset for fixed header */
+    padding-top: 90px; /* Increased offset to account for taller header/logo */
 }
 
 .hero-background {
@@ -187,7 +187,6 @@ nav {
 .section-header {
     margin-bottom: 60px;
     position: relative;
-    /* Removed padding-top so it sits cleaner */
 }
 
 .section-number {
@@ -423,6 +422,8 @@ footer {
 @media (max-width: 900px) {
     .nav-links { display: none; } /* Hide nav links on mobile */
     
+    .logo img { height: 50px; } /* Slightly smaller logo on mobile */
+
     .about-wrapper, 
     .innovation-layout, 
     .grid-layout, 
