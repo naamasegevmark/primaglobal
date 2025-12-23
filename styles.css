@@ -422,7 +422,7 @@ footer {
 @media (max-width: 900px) {
     .nav-links { display: none; } /* Hide nav links on mobile */
     
-    .logo img { height: 50px; } /* Slightly smaller logo on mobile */
+    .logo img { height: 70px; } /* Slightly smaller logo on mobile */
 
     .about-wrapper, 
     .innovation-layout, 
