@@ -148,12 +148,25 @@ nav {
     padding: 0 20px;
 }
 
-.logo a { font-weight: 700; font-size: 1.5em; color: var(--secondary-color); letter-spacing: 2px; }
+/* Update this section in 5. HEADER & NAV */
 
-.nav-links { list-style: none; display: flex; margin: 0; padding: 0; }
-.nav-links li { margin-left: 30px; }
-.nav-links a { color: var(--secondary-color); font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
-.nav-links a:hover { color: var(--accent-color); }
+.logo a {
+    display: flex; /* Helps align the image nicely */
+    align-items: center;
+}
+
+.nav-logo-img {
+    height: 50px;   /* Adjust this number to make the logo bigger or smaller */
+    width: auto;    /* Maintains the aspect ratio so the logo doesn't stretch */
+    display: block;
+}
+
+/* Optional: If you want to refine the spacing on mobile */
+@media (max-width: 768px) {
+    .nav-logo-img {
+        height: 40px; /* Slightly smaller on phones */
+    }
+}
 
 /* =========================================
    6. HERO SECTION
