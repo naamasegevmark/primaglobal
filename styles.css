@@ -155,7 +155,7 @@ nav {
 }
 
 .logo img {
-    height: 40px; /* This height usually matches the visual weight of the previous text */
+    height: 50px; /* This height usually matches the visual weight of the previous text */
     width: auto;  /* Keeps the logo from stretching */
     display: block;
 }
