@@ -9,10 +9,12 @@
     --accent-yellow: #ebc033;      /* Gold/Yellow #FFD700 */
     
     --font-body: 'Montserrat', sans-serif; 
-    --font-heading: 'Playfair Display', serif; 
+    /* Using Open Sans for headings */
+    --font-heading: 'Open Sans', sans-serif; 
     
     --max-width: 1200px;           /* Standard Grid Width */
-    --section-padding: 100px 0;    /* More breathing room vertically */
+    /* MODIFIED: Reduced padding so sections start higher */
+    --section-padding: 60px 0;    
     --border-radius: 4px;
 }
 
@@ -30,7 +32,7 @@ body {
     font-family: var(--font-body);
     background-color: var(--primary-black);
     color: var(--text-white);
-    line-height: 1.7; /* Increased line height for readability */
+    line-height: 1.7; 
     font-weight: 300;
 }
 
@@ -48,13 +50,13 @@ a { text-decoration: none; color: inherit; transition: 0.3s ease; }
    ========================================= */
 h1, h2, h3 {
     font-family: var(--font-heading);
-    font-weight: 700;
+    font-weight: 800; /* Made bolder for Open Sans */
     line-height: 1.2;
 }
 
-h1 { font-size: 3.5rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem; }
+h1 { font-size: 3.5rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.5rem; }
 h2 { font-size: 2.2rem; margin: 0; }
-h3 { font-size: 1.4rem; color: var(--accent-yellow); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+h3 { font-size: 1.4rem; color: var(--accent-yellow); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px; }
 
 p {
     margin-bottom: 1.5rem;
@@ -75,7 +77,7 @@ strong { color: var(--text-white); font-weight: 600; }
 
 .text-center { text-align: center; }
 .section-padding { padding: var(--section-padding); }
-.spacer-top { margin-top: 100px; }
+.spacer-top { margin-top: 60px; } /* Also reduced this spacer */
 
 .cta-button {
     display: inline-block;
@@ -83,12 +85,13 @@ strong { color: var(--text-white); font-weight: 600; }
     color: var(--accent-yellow);
     border: 2px solid var(--accent-yellow);
     padding: 14px 32px;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 0.9rem;
     margin-top: 20px;
     cursor: pointer;
+    font-family: var(--font-heading);
 }
 
 .cta-button:hover {
@@ -101,7 +104,7 @@ strong { color: var(--text-white); font-weight: 600; }
    ========================================= */
 header {
     background-color: rgba(5, 5, 5, 0.95);
-    padding: 10px 0; /* Slightly reduced top/bottom padding to make room for bigger logo */
+    padding: 10px 0; 
     position: fixed;
     width: 100%;
     top: 0;
@@ -118,14 +121,13 @@ nav {
     padding: 0 24px;
 }
 
-/* Updated Logo Styling */
 .logo a {
     display: flex;
     align-items: center;
 }
 
 .logo img {
-    height: 150px;  /* INCREASED SIZE HERE */
+    height: 150px;  /* Large size as requested */
     width: auto;
 }
 
@@ -135,8 +137,9 @@ nav {
     font-size: 0.85rem; 
     text-transform: uppercase; 
     letter-spacing: 1px; 
-    font-weight: 500;
+    font-weight: 600;
     opacity: 0.8;
+    font-family: var(--font-heading); /* Using Open Sans for menu */
 }
 .nav-links a:hover { color: var(--accent-yellow); opacity: 1; }
 
@@ -144,12 +147,13 @@ nav {
    5. HERO SECTION
    ========================================= */
 .full-screen-section {
-    min-height: 100vh;
+    /* MODIFIED: Reduced from 100vh to 85vh so "About" section peeks up */
+    min-height: 85vh; 
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    padding-top: 90px; /* Increased offset to account for taller header/logo */
+    padding-top: 150px; /* Padding for large logo */
 }
 
 .hero-background {
@@ -163,7 +167,7 @@ nav {
 .hero-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.6); /* Consistent darkening overlay */
+    background: rgba(0,0,0,0.6); 
     z-index: 1;
 }
 
@@ -179,6 +183,8 @@ nav {
     text-transform: uppercase;
     color: var(--accent-yellow);
     margin-bottom: 40px;
+    font-family: var(--font-heading);
+    font-weight: 700;
 }
 
 /* =========================================
@@ -195,8 +201,8 @@ nav {
     left: -20px;
     font-family: var(--font-heading);
     font-size: 7rem;
-    font-weight: 900;
-    color: rgba(255, 255, 255, 0.03); /* Very subtle watermark effect */
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.03); 
     z-index: 0;
     line-height: 1;
     pointer-events: none;
@@ -205,240 +211,4 @@ nav {
 .section-header h2 {
     position: relative;
     z-index: 1;
-    background-color: var(--accent-yellow); 
-    color: #000;
-    font-weight: 900;
-    display: inline-block;
-    padding: 12px 30px;
-    letter-spacing: 2px;
-    box-shadow: 8px 8px 0px rgba(255, 255, 255, 0.1);
-}
-
-/* =========================================
-   7. ABOUT SECTION (Updated Layout)
-   ========================================= */
-.about-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-}
-
-.about-image {
-    width: 100%;
-    box-shadow: -15px 15px 0px rgba(255, 255, 255, 0.05); /* Architectural shadow */
-    filter: grayscale(20%);
-}
-
-.lead-text {
-    font-size: 1.3rem;
-    color: var(--text-white);
-    margin-bottom: 1.5rem;
-}
-
-.emphasis-box {
-    margin-top: 30px;
-    border-left: 3px solid var(--accent-yellow);
-    padding-left: 20px;
-    font-style: italic;
-    color: var(--text-white);
-}
-
-/* =========================================
-   8. INNOVATION SECTION
-   ========================================= */
-.innovation-layout {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr; /* Text is wider than list */
-    gap: 60px;
-}
-
-.innovation-intro p { max-width: 65ch; } /* Improves readability */
-
-.innovation-list li {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 25px;
-    background: var(--card-bg);
-    padding: 20px;
-    border-radius: var(--border-radius);
-    border: 1px solid #222;
-}
-
-.list-bullet {
-    color: var(--accent-yellow);
-    font-size: 1.4rem;
-    margin-right: 15px;
-    line-height: 1.2;
-}
-
-/* =========================================
-   9. CARDS (Technical & Design)
-   ========================================= */
-.grid-layout {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 Columns strict */
-    gap: 30px;
-}
-
-.card-item {
-    background: var(--card-bg);
-    border: 1px solid #222;
-    padding: 30px;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-    display: flex;
-    flex-direction: column;
-}
-
-.card-item:hover {
-    transform: translateY(-5px);
-    border-color: rgba(255, 215, 0, 0.3);
-}
-
-.card-header {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 15px;
-}
-
-.card-icon { width: 40px; height: 40px; }
-.card-icon-small { width: 30px; height: 30px; margin-bottom: 10px; }
-
-.card-image-wrap {
-    margin-top: auto; /* Pushes image to bottom of card */
-    height: 180px;
-    overflow: hidden;
-    border-radius: 2px;
-}
-
-.card-image-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(60%);
-    transition: 0.4s;
-}
-
-.card-item:hover img { filter: grayscale(0%); transform: scale(1.05); }
-
-/* Special layout for Design cards (Image top) */
-.top-image { margin-top: 0; margin-bottom: 20px; }
-
-/* =========================================
-   10. ASSETS & CROSS SECTION
-   ========================================= */
-.full-width-image-section {
-    background-color: #000;
-    padding: 60px 0;
-    text-align: center;
-}
-
-.full-width-image {
-    max-height: 600px;
-    width: 100%;
-    object-fit: contain;
-    margin: 0 auto;
-}
-
-.image-caption { font-size: 0.9rem; margin-top: 15px; opacity: 0.6; }
-
-.assets-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
-.assets-list li {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    border-top: 1px solid #333;
-}
-
-.assets-list .list-bullet { margin-bottom: 15px; font-size: 1rem; }
-
-/* =========================================
-   11. CONTACT SECTION
-   ========================================= */
-.contact-wrapper {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-}
-
-.contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    margin-top: 50px;
-    text-align: left;
-    background: rgba(0,0,0,0.8);
-    padding: 40px;
-    border: 1px solid #333;
-}
-
-.contact-block { margin: 30px 0; font-size: 1.1rem; }
-.contact-links { display: flex; flex-direction: column; gap: 10px; }
-.contact-link { color: var(--accent-yellow); font-weight: 500; }
-
-.contact-form-wrap h3 { color: var(--text-white); margin-bottom: 20px; }
-
-.form-group { margin-bottom: 20px; }
-.form-group label { display: block; margin-bottom: 8px; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; color: #888; }
-.form-group input, .form-group textarea {
-    width: 100%;
-    padding: 12px;
-    background: #1a1a1a;
-    border: 1px solid #333;
-    color: #fff;
-    font-family: var(--font-body);
-}
-
-.form-group input:focus, .form-group textarea:focus {
-    outline: none;
-    border-color: var(--accent-yellow);
-    background: #222;
-}
-
-.form-submit-button { width: 100%; background: var(--accent-yellow); color: #000; border: none; }
-.form-submit-button:hover { background: #fff; }
-
-/* =========================================
-   12. FOOTER
-   ========================================= */
-footer {
-    background-color: #000;
-    padding: 30px 0;
-    text-align: center;
-    border-top: 1px solid #111;
-    font-size: 0.9rem;
-    color: #666;
-}
-
-/* =========================================
-   13. RESPONSIVE DESIGN (Mobile)
-   ========================================= */
-@media (max-width: 900px) {
-    .nav-links { display: none; } /* Hide nav links on mobile */
-    
-    .logo img { height: 70px; } /* Slightly smaller logo on mobile */
-
-    .about-wrapper, 
-    .innovation-layout, 
-    .grid-layout, 
-    .assets-list,
-    .contact-grid {
-        grid-template-columns: 1fr; /* Stack everything vertically */
-        gap: 40px;
-    }
-
-    .section-number { display: none; } /* Hide giant numbers on mobile to save space */
-    
-    .section-header h2 { font-size: 1.5rem; padding: 10px 20px; }
-    h1 { font-size: 2.5rem; }
-    
-    .about-image-col { order: -1; } /* Image on top */
-    
-    .contact-grid { padding: 20px; }
-}
+    background-color
