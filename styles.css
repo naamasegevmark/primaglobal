@@ -217,27 +217,37 @@ nav {
 /* =========================================
    7. ABOUT SECTION
    ========================================= */
+/* =========================================
+   7. ABOUT SECTION
+   ========================================= */
 .about-content {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    gap: 40px;
-    flex-wrap: wrap;              /* allow wrapping instead of forcing width */
-}
-
-.about-text {
-    flex: 1 1 50%;
-    min-width: 280px;
+    gap: 30px;
 }
 
 .about-image {
-    flex: 0 0 40%;                /* narrower image */
-    max-width: 40%;
-    max-height: 320px;            /* cap height */
-    object-fit: cover;
+    flex: 0 0 35%;          /* image on the left, ~35% width */
+    max-width: 35%;
     box-shadow: 15px 15px 0px rgba(255, 255, 255, 0.05);
     border-radius: 2px;
 }
+
+.about-text {
+    flex: 1;                /* text on the right, takes remaining space */
+}
+
+.about-text p1 {
+    display: block;
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--secondary-color);
+    border-left: 4px solid var(--accent-color);
+    padding-left: 15px;
+}
+
 
 /* =========================================
    8. INNOVATION SECTION
