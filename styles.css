@@ -104,7 +104,7 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     left: -10px;
     font-size: 6rem;
     font-weight: 900;
-    color: rgba(255, 255, 255, 0.1); 
+    color: rgba(255, 255, 255, 0.1); /* Very faint number behind title */
     z-index: 0;
     pointer-events: none;
 }
@@ -130,7 +130,7 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
    5. HEADER & NAV
    ========================================= */
 header {
-    background-color: rgba(0, 0, 0, 0.95); 
+    background-color: rgba(0, 0, 0, 0.95); /* Slight transparency */
     padding: 20px 0;
     position: fixed;
     width: 100%;
@@ -148,14 +148,14 @@ nav {
     padding: 0 20px;
 }
 
-/* Logo Styling */
+/* Logo Image Styling */
 .logo a {
     display: flex;
     align-items: center;
 }
 
 .logo img {
-    height: 40px; 
+    height: 40px; /* Adjust size here if needed (e.g. 50px) */
     width: auto;
     display: block;
 }
@@ -164,14 +164,6 @@ nav {
 .nav-links li { margin-left: 30px; }
 .nav-links a { color: var(--secondary-color); font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
 .nav-links a:hover { color: var(--accent-color); }
-
-/* Hide mobile menu icon by default */
-.mobile-menu-icon {
-    display: none;
-    font-size: 24px;
-    color: white;
-    cursor: pointer;
-}
 
 /* =========================================
    6. HERO SECTION
@@ -193,7 +185,7 @@ nav {
     opacity: 0.5;
     z-index: 0;
 }
-/* Fallback */
+/* Fallback if image missing */
 .hero-background { background-color: #222; }
 
 .hero-content {
@@ -223,7 +215,7 @@ nav {
 
 .about-text { flex: 1; }
 
-.about-text p1 { 
+.about-text p1 { /* Custom styled paragraph from your HTML */
     display: block;
     margin-top: 20px;
     font-size: 1.2em;
@@ -235,7 +227,7 @@ nav {
 
 .about-image {
     flex: 1;
-    box-shadow: 15px 15px 0px rgba(255, 255, 255, 0.05); 
+    box-shadow: 15px 15px 0px rgba(255, 255, 255, 0.05); /* Architectural shadow */
     border-radius: 2px;
 }
 
@@ -251,7 +243,7 @@ nav {
     display: flex;
     align-items: flex-start;
     margin-bottom: 25px;
-    background: rgba(255,255,255,0.03); 
+    background: rgba(255,255,255,0.03); /* Subtle card bg */
     padding: 20px;
     border-left: 1px solid var(--accent-color);
 }
@@ -310,7 +302,7 @@ nav {
 }
 
 /* =========================================
-   10. CROSS SECTION
+   10. CROSS SECTION (Full Width Image)
    ========================================= */
 .full-width-image-section {
     width: 100%;
@@ -324,7 +316,7 @@ nav {
 
 .full-width-image {
     width: 100%;
-    max-height: 600px; 
+    max-height: 600px; /* Prevents it from being too tall on huge screens */
     object-fit: contain;
 }
 
@@ -345,7 +337,7 @@ nav {
 }
 
 .assets-list .list-bullet {
-    margin-top: 5px; 
+    margin-top: 5px; /* Aligns bullet with top of text */
 }
 
 /* =========================================
@@ -365,7 +357,7 @@ nav {
     position: relative;
     z-index: 2;
     padding: 60px 20px;
-    max-width: 600px; 
+    max-width: 600px; /* Narrower for better reading form */
     margin: 0 auto;
 }
 
@@ -415,48 +407,25 @@ footer {
 }
 
 /* =========================================
-   14. RESPONSIVE DESIGN (Matching Web Design)
+   14. RESPONSIVE DESIGN (Mobile)
    ========================================= */
-@media (max-width: 900px) {
-    /* NAVIGATION */
-    .nav-links { 
-        display: none; /* In real production, this would toggle with JS */
-    }
+@media (max-width: 768px) {
+    .nav-links { display: none; } /* Basic hide for mobile */
     
-    .mobile-menu-icon {
-        display: block; /* Show hamburger icon */
-    }
-
-    /* TYPOGRAPHY SCALING */
-    h1 { font-size: 2.2em; letter-spacing: 1px; }
-    h2 { font-size: 2em; }
-    
-    /* SECTION HEADERS */
-    /* Ensure the yellow box style stays consistent on mobile */
-    .section-header h2 {
-        font-size: 1.5rem; 
-        padding: 12px 25px;
-        box-shadow: 6px 6px 0px rgba(255, 255, 255, 0.1); /* Slightly smaller shadow */
-    }
-
-    /* ABOUT SECTION */
     .about-content {
         flex-direction: column;
     }
-    .about-image { 
-        width: 100%; 
-        max-width: 100%; 
-        margin-top: 30px; 
-    }
-
-    /* GRIDS (Stacking vertically) */
-    .specs-grid, .design-grid {
-        grid-template-columns: 1fr;
-        gap: 30px; /* Maintains spacing between cards */
+    
+    .about-image { width: 100%; max-width: 100%; margin-top: 30px; }
+    
+    .section-header h2 {
+        font-size: 1.4em;
+        padding: 15px 20px;
+        width: 100%;
+        text-align: center;
     }
     
-    /* CONTACT */
-    .contact-content {
-        padding: 40px 20px;
-    }
+    h1 { font-size: 2.5em; }
+    
+    .specs-grid, .design-grid { grid-template-columns: 1fr; }
 }
