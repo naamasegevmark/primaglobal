@@ -129,7 +129,7 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 /* =========================================
    5. HEADER & NAV
    ========================================= */
-header {
+/*header {
     background-color: rgba(0, 0, 0, 0.95); /* Slight transparency */
     height: 70px; 
     padding: 0 /*padding: 5px 0;*/
@@ -138,15 +138,33 @@ header {
     top: 0;
     z-index: 1000;
     border-bottom: 1px solid #333;
+*/}
+header {
+    background-color: rgba(0, 0, 0, 0.95);
+    padding: 5px 0;              /* small vertical padding */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #333;
+    overflow: visible;           /* allow logo to stick out */
 }
 
-nav {
+/*nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 20px;
+*/}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;             /* only left/right padding */
 }
 
 /* Logo Image Styling */
