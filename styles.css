@@ -184,8 +184,8 @@ nav {
 .hero-background {
     position: absolute;
    /*the old virsion of the img position top: 0; left: 0; width: 100%; height: 100%;*/
-    top: 0px;          /* distance from top edge */
-    bottom: 0px;       /* distance from bottom edge */
+    top: 10px;          /* distance from top edge */
+    bottom: 10px;       /* distance from bottom edge */
     left: 10px;         /* distance from left edge */
     right: 10px;        /* distance from right edge */
     background-size: cover;
