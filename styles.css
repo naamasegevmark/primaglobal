@@ -77,26 +77,19 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 
 .cta-button {
     display: inline-block;
-    background: linear-gradient(145deg, #ffe766, #ffbf00) !important;
-    color: #000 !important;
-    padding: 15px 35px;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 15px 30px;
     font-weight: 700;
-    border-radius: 4px;
+    border-radius: 2px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border: 2px solid #e0aa00;
+    border: 2px solid var(--accent-color);
     cursor: pointer;
-    box-shadow: 0 6px 0 #b38600;     /* bottom “depth” */
-    position: relative;
-    top: 0;
-    transition: all 0.15s ease-in-out;
 }
-
 .cta-button:hover {
-    top: 2px;                        /* moves slightly down */
-    box-shadow: 0 3px 0 #b38600;
-    background: linear-gradient(145deg, #ffef80, #ffc933) !important;
-    color: #000 !important;
+    background-color: transparent;
+    color: var(--accent-color);
 }
 
 .margin-top-large { margin-top: 80px; }
