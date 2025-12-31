@@ -77,8 +77,8 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 
 .cta-button {
     display: inline-block;
-    background: linear-gradient(145deg, #ffe766, #ffbf00); /* subtle 3D gradient */
-    color: #000;
+    background: linear-gradient(145deg, #ffe766, #ffbf00) !important;
+    color: #000 !important;
     padding: 15px 35px;
     font-weight: 700;
     border-radius: 4px;
@@ -86,17 +86,17 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     letter-spacing: 1px;
     border: 2px solid #e0aa00;
     cursor: pointer;
-    box-shadow: 0 6px 0 #b38600;          /* bottom “depth” */
+    box-shadow: 0 6px 0 #b38600;     /* bottom “depth” */
     position: relative;
     top: 0;
     transition: all 0.15s ease-in-out;
 }
 
 .cta-button:hover {
-    top: 2px;                             /* moves slightly down */
-    box-shadow: 0 3px 0 #b38600;          /* shallower shadow */
-    background: linear-gradient(145deg, #ffef80, #ffc933);
-    color: #000;
+    top: 2px;                        /* moves slightly down */
+    box-shadow: 0 3px 0 #b38600;
+    background: linear-gradient(145deg, #ffef80, #ffc933) !important;
+    color: #000 !important;
 }
 
 .margin-top-large { margin-top: 80px; }
