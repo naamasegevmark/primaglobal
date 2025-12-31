@@ -87,6 +87,7 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     border: 2px solid var(--accent-color);
     cursor: pointer;
 }
+
 .cta-button:hover {
     background-color: transparent;
     color: var(--accent-color);
