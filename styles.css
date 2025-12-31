@@ -221,24 +221,21 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 50px;
+    gap: 40px;
+    flex-wrap: wrap;              /* allow wrapping instead of forcing width */
 }
 
-.about-text { flex: 1; }
-
-.about-text p1 { /* Custom styled paragraph from your HTML */
-    display: block;
-    margin-top: 20px;
-    font-size: 1.2em;
-    font-weight: 600;
-    color: var(--secondary-color);
-    border-left: 4px solid var(--accent-color);
-    padding-left: 15px;
+.about-text {
+    flex: 1 1 50%;
+    min-width: 280px;
 }
 
 .about-image {
-    flex: 1;
-    box-shadow: 15px 15px 0px rgba(255, 255, 255, 0.05); /* Architectural shadow */
+    flex: 0 0 40%;                /* narrower image */
+    max-width: 40%;
+    max-height: 320px;            /* cap height */
+    object-fit: cover;
+    box-shadow: 15px 15px 0px rgba(255, 255, 255, 0.05);
     border-radius: 2px;
 }
 
