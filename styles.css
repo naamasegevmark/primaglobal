@@ -104,7 +104,7 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     left: -10px;
     font-size: 6rem;
     font-weight: 900;
-    color: rgba(255, 255, 255, 0.1); /* Very faint number behind title */
+    color: rgba(255, 255, 255, 0.1); 
     z-index: 0;
     pointer-events: none;
 }
@@ -130,7 +130,7 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
    5. HEADER & NAV
    ========================================= */
 header {
-    background-color: rgba(0, 0, 0, 0.95); /* Slight transparency */
+    background-color: rgba(0, 0, 0, 0.95); 
     padding: 20px 0;
     position: fixed;
     width: 100%;
@@ -148,14 +148,14 @@ nav {
     padding: 0 20px;
 }
 
-/* Logo Image Styling */
+/* Logo Styling */
 .logo a {
     display: flex;
     align-items: center;
 }
 
 .logo img {
-    height: 40px; /* Adjust size here if needed (e.g. 50px) */
+    height: 40px; 
     width: auto;
     display: block;
 }
@@ -164,6 +164,14 @@ nav {
 .nav-links li { margin-left: 30px; }
 .nav-links a { color: var(--secondary-color); font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
 .nav-links a:hover { color: var(--accent-color); }
+
+/* Hide mobile menu icon by default */
+.mobile-menu-icon {
+    display: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
 
 /* =========================================
    6. HERO SECTION
@@ -175,3 +183,280 @@ nav {
     justify-content: center;
     position: relative;
     padding-top: 80px;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+    z-index: 0;
+}
+/* Fallback */
+.hero-background { background-color: #222; }
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    margin-bottom: 40px;
+}
+
+/* =========================================
+   7. ABOUT SECTION
+   ========================================= */
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.about-text { flex: 1; }
+
+.about-text p1 { 
+    display: block;
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--secondary-color);
+    border-left: 4px solid var(--accent-color);
+    padding-left: 15px;
+}
+
+.about-image {
+    flex: 1;
+    box-shadow: 15px 15px 0px rgba(255, 255, 255, 0.05); 
+    border-radius: 2px;
+}
+
+/* =========================================
+   8. INNOVATION SECTION
+   ========================================= */
+.innovation-intro-text {
+    max-width: 800px;
+    margin-bottom: 40px;
+}
+
+.innovation-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    background: rgba(255,255,255,0.03); 
+    padding: 20px;
+    border-left: 1px solid var(--accent-color);
+}
+
+.list-bullet {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    margin-right: 15px;
+    line-height: 1;
+}
+
+/* =========================================
+   9. TECHNICAL & DESIGN GRIDS
+   ========================================= */
+.specs-grid, .design-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.spec-item, .design-item {
+    background: #111;
+    padding: 30px;
+    border: 1px solid #333;
+    transition: transform 0.3s;
+}
+
+.spec-item:hover, .design-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+}
+
+.spec-icon, .design-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+}
+
+.spec-image-container, .design-image-container {
+    margin-top: 15px;
+    height: 200px;
+    overflow: hidden;
+}
+
+.spec-detail-image, .design-detail-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(50%);
+    transition: 0.3s;
+}
+
+.spec-item:hover .spec-detail-image, 
+.design-item:hover .design-detail-image {
+    filter: grayscale(0%);
+}
+
+/* =========================================
+   10. CROSS SECTION
+   ========================================= */
+.full-width-image-section {
+    width: 100%;
+    background-color: #050505;
+    padding: 40px 0;
+}
+
+.cross-section-image-wrap {
+    text-align: center;
+}
+
+.full-width-image {
+    width: 100%;
+    max-height: 600px; 
+    object-fit: contain;
+}
+
+.image-caption {
+    font-style: italic;
+    opacity: 0.7;
+    margin-top: 10px;
+}
+
+/* =========================================
+   11. ASSETS SECTION
+   ========================================= */
+.assets-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.assets-list .list-bullet {
+    margin-top: 5px; 
+}
+
+/* =========================================
+   12. CONTACT SECTION
+   ========================================= */
+.contact-background {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    z-index: 0;
+}
+.contact-background { background-color: #111; }
+
+.contact-content {
+    position: relative;
+    z-index: 2;
+    padding: 60px 20px;
+    max-width: 600px; 
+    margin: 0 auto;
+}
+
+.contact-details p { margin-bottom: 10px; }
+.contact-link { color: var(--accent-color); border-bottom: 1px solid var(--accent-color); }
+.contact-person { font-size: 1.2rem; margin-top: 15px; color: #fff; }
+
+.contact-form {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border: 1px solid #333;
+    margin-top: 40px;
+    text-align: left;
+}
+
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 5px; color: #aaa; font-size: 0.9em; }
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background: #222;
+    border: 1px solid #444;
+    color: #fff;
+    font-family: var(--font-primary);
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.form-submit-button { width: 100%; margin-top: 10px; }
+.form-note { font-size: 0.8em; text-align: center; margin-top: 15px; opacity: 0.5; }
+
+/* =========================================
+   13. FOOTER
+   ========================================= */
+footer {
+    background-color: #000;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    border-top: 1px solid #222;
+}
+
+/* =========================================
+   14. RESPONSIVE DESIGN (Matching Web Design)
+   ========================================= */
+@media (max-width: 900px) {
+    /* NAVIGATION */
+    .nav-links { 
+        display: none; /* In real production, this would toggle with JS */
+    }
+    
+    .mobile-menu-icon {
+        display: block; /* Show hamburger icon */
+    }
+
+    /* TYPOGRAPHY SCALING */
+    h1 { font-size: 2.2em; letter-spacing: 1px; }
+    h2 { font-size: 2em; }
+    
+    /* SECTION HEADERS */
+    /* Ensure the yellow box style stays consistent on mobile */
+    .section-header h2 {
+        font-size: 1.5rem; 
+        padding: 12px 25px;
+        box-shadow: 6px 6px 0px rgba(255, 255, 255, 0.1); /* Slightly smaller shadow */
+    }
+
+    /* ABOUT SECTION */
+    .about-content {
+        flex-direction: column;
+    }
+    .about-image { 
+        width: 100%; 
+        max-width: 100%; 
+        margin-top: 30px; 
+    }
+
+    /* GRIDS (Stacking vertically) */
+    .specs-grid, .design-grid {
+        grid-template-columns: 1fr;
+        gap: 30px; /* Maintains spacing between cards */
+    }
+    
+    /* CONTACT */
+    .contact-content {
+        padding: 40px 20px;
+    }
+}
