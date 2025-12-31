@@ -177,7 +177,7 @@ nav {
     height: 120px; /* Adjust size here if needed (e.g. 50px) */
     width: auto;
     display: block;
-    margin-top: -15px; /*this is new,  pulls it up so it overlaps bar */
+    margin-top: -30px; /*this is new,  pulls it up so it overlaps bar */
 }
 
 .nav-links { list-style: none; display: flex; margin: 0; padding: 0; }
