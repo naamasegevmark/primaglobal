@@ -131,7 +131,7 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
    ========================================= */
 header {
     background-color: rgba(0, 0, 0, 0.95);
-    padding: 8px 0;              /* thin-ish bar */
+    padding: 5px 0;              /* slightly tighter bar */
     position: fixed;
     width: 100%;
     top: 0;
@@ -141,11 +141,11 @@ header {
 
 nav {
     display: flex;
-    justify-content: space-between;
-    align-items: center;         /* centers logo and links vertically */
+    justify-content: flex-start;  /* we’ll handle spacing manually */
+    align-items: center;          /* centers logo + links vertically */
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 20px;             /* only left/right space */
+    padding: 0 20px;
 }
 
 .logo a {
@@ -154,12 +154,12 @@ nav {
 }
 
 .logo img {
-    height: 70px;                /* controls BOTH logo size and bar height */
+    height: 80px;                 /* slightly larger logo */
     width: auto;
     display: block;
 }
 
-.nav-links { list-style: none; display: flex; margin: 0; padding: 0; }
+.nav-links { list-style: none; display: flex; margin: 0; padding: 0; margin-left: 40px;   }
 .nav-links li { margin-left: 30px; }
 .nav-links a { color: var(--secondary-color); font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
 .nav-links a:hover { color: var(--accent-color); }
