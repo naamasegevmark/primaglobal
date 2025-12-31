@@ -131,7 +131,7 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
    ========================================= */
 header {
     background-color: rgba(0, 0, 0, 0.95); /* Slight transparency */
-    padding: 10px 0;
+    padding: 5px 0;
     position: fixed;
     width: 100%;
     top: 0;
@@ -155,7 +155,7 @@ nav {
 }
 
 .logo img {
-    height: 300px; /* Adjust size here if needed (e.g. 50px) */
+    height: 140px; /* Adjust size here if needed (e.g. 50px) */
     width: auto;
     display: block;
 }
