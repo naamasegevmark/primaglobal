@@ -433,3 +433,7 @@ footer {
     
     .specs-grid, .design-grid { grid-template-columns: 1fr; }
 }
+body, header, main, footer, section {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
