@@ -132,6 +132,7 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     font-size: 1.8rem;
     text-transform: uppercase;
     letter-spacing: 3px;
+    /* important: no opacity / transform / clip-path / transition here */
 }
 
 /* when section enters view, only the bar animates */
