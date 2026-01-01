@@ -120,7 +120,7 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     transition: transform 3.0s ease;   /* animation duration */
 }
 
-/* title text: 10px from the left edge of the yellow bar */
+/* title text: static, always visible */
 .section-header h2 {
     position: relative;
     z-index: 1;
@@ -132,26 +132,10 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     font-size: 1.8rem;
     text-transform: uppercase;
     letter-spacing: 3px;
-
-    opacity: 0;
-    transform: translateX(-10px);
-    transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s;
 }
 
-/* when section enters view, play the animation */
-.section-header.in-view::before {
-    transform: scaleX(1);
-}
-
-.section-header.in-view h2 {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-/* old number, if still present, stay hidden */
-.section-number {
-    display: none;
-}
+/* no special state needed */
+.section-header.in-view h2 { }
 
 /* =========================================
    5. HEADER & NAV
