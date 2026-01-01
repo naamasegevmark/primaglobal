@@ -151,7 +151,7 @@ nav {
     align-items: center;          /* centers logo + links vertically */
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 20px 0 50px;  /* top right bottom left */
 }
 
 .logo a {
