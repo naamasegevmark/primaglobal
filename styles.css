@@ -98,45 +98,46 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 /* =========================================
    4. SECTION HEADERS (Yellow Box Style)
    ========================================= */
+/* =========================================
+   4. SECTION HEADERS (Yellow Bar)
+   ========================================= */
 .section-header {
-    /*margin-bottom: 50px;*/
     position: relative;
     margin: 60px 0 40px;
-   /* padding-top: 20px;*/
+    display: flex;
+    align-items: center;      /* vertically center contents */
 }
-/* full‑width yellow bar from left screen edge */
+
+/* yellow bar fills the header height */
 .section-header::before {
     content: "";
     position: absolute;
     left: 0;
-    right: 0;              /* stretches across the screen */
-    top: 50%;
-    transform: translateY(-50%);
-    height: 48px;
+    right: 0;                 /* stretches across the screen */
+    top: 0;
+    bottom: 0;                /* full height of .section-header */
     background-color: var(--accent-yellow);
     z-index: 0;
 }
 
-/* faint section number, aligned with the title text */
+/* small section number, aligned with title start */
 .section-number {
-    position: relative; /*old:absolute;*/
-    z-index: 1; /*  z-index: 0; */
-    margin-left: 60px;     /* aligns with title text (old: top: -20px; left: -10px;)*/
-    font-size: 1rem; /*font-size: 6rem;*/
-    font-weight: 700; /* font-weight: 900;*/
-    color: rgba(0, 0, 0, 0.4); /*color: rgba(255, 255, 255, 0.1);  Very faint number behind title */
-    letter-spacing: 2px; 
-    /*pointer-events: none;*/
+    position: relative;
+    z-index: 1;
+    margin-left: 60px;        /* aligns with title text start */
+    margin-right: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.4);
+    letter-spacing: 2px;
 }
-/* title text, starting near where your logo/navigation text starts */
+
+/* title text, vertically centered via flexbox */
 .section-header h2 {
     position: relative;
     z-index: 1;
     margin: 0;
-    padding-left: 60px;        /* horizontal offset only */
-    line-height: 48px;         /* same as bar height -> vertical centering */
-    height: 48px;              /* matches .section-header::before height */ 
-  /*old version padding: 10px 0 10px 50px;   left padding ≈ logo/nav start */
+    padding-left: 0;          /* number already has left offset */
     color: var(--primary-black);
     font-family: var(--font-primary);
     font-weight: 900;
