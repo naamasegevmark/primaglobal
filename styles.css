@@ -96,23 +96,28 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 .margin-top-large { margin-top: 80px; }
 
 /* =========================================
-   4. SECTION HEADERS (Yellow Bar, no number)
+   4. SECTION HEADERS (Animated Yellow Bar, no number)
    ========================================= */
 .section-header {
     position: relative;
     margin: 60px 0 40px;
+    overflow: hidden; /* hide bar while it grows */
 }
 
-/* yellow bar across the screen */
+/* yellow bar – animated “deletion” from left to right */
 .section-header::before {
     content: "";
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
-    bottom: 0;                /* full height of .section-header */
+    bottom: 0;
     background-color: var(--accent-yellow);
     z-index: 0;
+
+    transform-origin: left center;
+    transform: scaleX(0);              /* start invisible */
+    transition: transform 0.7s ease;   /* animation duration */
 }
 
 /* title text: 10px from the left edge of the yellow bar */
@@ -120,16 +125,30 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     position: relative;
     z-index: 1;
     margin: 0;
-    padding: 10px 0 10px 10px;  /* top right bottom left -> 10px left */
+    padding: 10px 0 10px 10px;
     color: var(--primary-black);
     font-family: var(--font-primary);
     font-weight: 900;
     font-size: 1.8rem;
     text-transform: uppercase;
     letter-spacing: 3px;
+
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.4s ease 0.3s, transform 0.4s ease 0.3s;
 }
 
-/* optional: section-number no longer used, hide it if still in HTML */
+/* when section enters view, play the animation */
+.section-header.in-view::before {
+    transform: scaleX(1);
+}
+
+.section-header.in-view h2 {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* old number, if still present, stay hidden */
 .section-number {
     display: none;
 }
