@@ -143,15 +143,16 @@ header {
     top: 0;
     z-index: 1000;
     border-bottom: 1px solid #333;
+    padding-left: 50px;   /* NEW: align logo with hero background start */
 }
 
 nav {
     display: flex;
     justify-content: flex-start;  /* we’ll handle spacing manually */
     align-items: center;          /* centers logo + links vertically */
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 20px 0 50px;  /* top right bottom left */
+    max-width: none;      /* was: var(--max-width); */
+    margin: 0;            /* was: 0 auto; */
+    padding: 0 20px 0 0;  /* keep right padding, no left (header provides 50px) */
 }
 
 .logo a {
