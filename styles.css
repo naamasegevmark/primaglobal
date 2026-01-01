@@ -237,7 +237,7 @@ nav {
 }
 
 .about-image {
-    /* REVERTED: Setting image preferred width back to 600px */
+    /* MODIFIED: Making the image significantly bigger and giving it strong flex-basis */
     flex: 0 0 600px; /* Don't grow (0), don't shrink (0), prefer 600px width (600px) */
     max-width: 100%; /* Ensures it doesn't overflow on small screens when it wraps */
     height: auto; /* Maintain aspect ratio */
@@ -260,18 +260,85 @@ nav {
     padding-left: 15px;
 }
 
-/* Make sure your media query for .about-image is also correctly set: */
-@media (max-width: 768px) {
-    /* ... other responsive rules ... */
+/* =========================================
+   8. INNOVATION SECTION
+   ========================================= */
+.innovation-intro-text {
+    max-width: 800px;
+    margin-bottom: 40px;
+}
 
+.innovation-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px; /* Adds space between the bullet and the text */
+    background: rgba(255,255,255,0.03); /* Subtle card bg */
+    padding: 20px;
+    border-left: 1px solid var(--accent-color);
+    margin-bottom: 20px; /* Explicit margin between list items */
+}
+
+.innovation-list p {
+    margin-bottom: 0; /* Ensures paragraphs inside list items don't have excessive margin */
+}
+
+.list-bullet {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    line-height: 1;
+    flex-shrink: 0; /* Prevents the bullet from shrinking */
+}
+
+/* =========================================
+   11. ASSETS SECTION (Updated for consistency)
+   ========================================= */
+.assets-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px; /* ADDED: Adds space between the bullet and the text */
+    font-size: 1.1rem;
+    margin-bottom: 20px; /* ADDED: Explicit margin between list items */
+}
+
+.assets-list p { /* ADDED: Ensures paragraphs inside list items don't have excessive margin */
+    margin-bottom: 0;
+}
+
+.assets-list .list-bullet {
+    flex-shrink: 0; /* ADDED: Prevents the bullet from shrinking */
+    line-height: 1; /* ADDED: Ensures consistent vertical alignment */
+}
+
+
+/* =========================================
+   14. RESPONSIVE DESIGN (Mobile) - Ensure this section is also updated
+   ========================================= */
+@media (max-width: 768px) {
+    .nav-links { display: none; } /* Basic hide for mobile */
+    
+    .about-content {
+        flex-direction: column; /* Force stacking on small screens */
+        text-align: center; /* Centers text when stacked */
+    }
+    
     .about-image { 
         max-width: 90%; /* Adjust image size for mobile */
         margin-top: 30px;
         margin-bottom: 20px; /* Space below image when stacked */
+        /* flex-basis: auto; or flex: 1 1 auto; if you want it to behave differently on mobile */
         flex-basis: auto; /* Allow image to size naturally in column layout */
     }
     
-    /* ... rest of responsive rules ... */
+    .section-header h2 {
+        font-size: 1.4em;
+        padding: 15px 20px;
+        width: 100%;
+        text-align: center;
+    }
+    
+    h1 { font-size: 2.5em; }
+    
+    .specs-grid, .design-grid { grid-template-columns: 1fr; }
 }
 
 /* =========================================
