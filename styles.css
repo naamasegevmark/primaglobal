@@ -104,7 +104,7 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     overflow: hidden; /* hide bar while it grows */
 }
 
-/* yellow bar – animated “deletion” from left to right */
+/* yellow bar – animated from left to right */
 .section-header::before {
     content: "";
     position: absolute;
@@ -132,20 +132,11 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     font-size: 1.8rem;
     text-transform: uppercase;
     letter-spacing: 3px;
-    /* important: no opacity / transform / clip-path / transition here */
 }
 
 /* when section enters view, only the bar animates */
 .section-header.in-view::before {
     transform: scaleX(1);
-}
-
-/* no special state needed for the title */
-.section-header.in-view h2 { }
-
-/* if any old numbers remain in HTML, hide them */
-.section-number {
-    display: none;
 }
 
 /* =========================================
