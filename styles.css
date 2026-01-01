@@ -96,13 +96,11 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 .margin-top-large { margin-top: 80px; }
 
 /* =========================================
-   4. SECTION HEADERS (Yellow Bar)
+   4. SECTION HEADERS (Yellow Bar, no number)
    ========================================= */
 .section-header {
     position: relative;
     margin: 60px 0 40px;
-    display: flex;
-    align-items: center;      /* center number + title vertically */
 }
 
 /* yellow bar across the screen */
@@ -117,29 +115,23 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     z-index: 0;
 }
 
-/* NUMBER: sits directly left of the title, same line */
-.section-number {
-    position: relative;
-    z-index: 1;
-    margin-left: 60px;        /* distance from left screen edge */
-    margin-right: 12px;       /* gap between number and title */
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: rgba(0, 0, 0, 0.9);
-    letter-spacing: 2px;
-}
-
-/* TITLE: immediately after the number */
+/* title text: 10px from the left edge of the yellow bar */
 .section-header h2 {
     position: relative;
     z-index: 1;
     margin: 0;
+    padding: 10px 0 10px 10px;  /* top right bottom left -> 10px left */
     color: var(--primary-black);
     font-family: var(--font-primary);
     font-weight: 900;
     font-size: 1.8rem;
     text-transform: uppercase;
     letter-spacing: 3px;
+}
+
+/* optional: section-number no longer used, hide it if still in HTML */
+.section-number {
+    display: none;
 }
 
 /* =========================================
