@@ -101,10 +101,10 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 .section-header {
     position: relative;
     margin: 60px 0 40px;
-    overflow: hidden;
+    overflow: hidden; /* hide bar while it grows */
 }
 
-/* yellow bar – wipes in from left to right */
+/* yellow bar – animated “deletion” from left to right */
 .section-header::before {
     content: "";
     position: absolute;
@@ -116,11 +116,11 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     z-index: 0;
 
     transform-origin: left center;
-    transform: scaleX(0);
-    transition: transform 1.2s ease;   /* bar speed */
+    transform: scaleX(0);              /* start invisible */
+    transition: transform 0.7s ease;   /* animation duration */
 }
 
-/* title text */
+/* title text: 10px from the left edge of the yellow bar */
 .section-header h2 {
     position: relative;
     z-index: 1;
@@ -133,26 +133,25 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     text-transform: uppercase;
     letter-spacing: 3px;
 
-    /* start fully hidden, clipped from the left */
-    clip-path: polygon(0 0, 0 100%, 0 100%, 0 0);
-    transition: clip-path 1.2s ease;   /* same duration as bar */
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.4s ease 0.3s, transform 0.4s ease 0.3s;
 }
 
-/* when section enters view */
+/* when section enters view, play the animation */
 .section-header.in-view::before {
     transform: scaleX(1);
 }
 
 .section-header.in-view h2 {
-    /* unclip to full width -> revealed with the bar */
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 1;
+    transform: translateX(0);
 }
 
-/* section-number not used */
+/* old number, if still present, stay hidden */
 .section-number {
     display: none;
 }
-
 
 /* =========================================
    5. HEADER & NAV
