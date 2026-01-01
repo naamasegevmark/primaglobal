@@ -102,35 +102,34 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     position: relative;
     margin: 60px 0 40px;
     display: flex;
-    align-items: center;      /* vertical centering */
+    align-items: center;      /* center number + title vertically */
 }
 
-/* yellow bar fills the header height */
+/* yellow bar across the screen */
 .section-header::before {
     content: "";
     position: absolute;
     left: 0;
-    right: 0;                 /* stretches across the screen */
+    right: 0;
     top: 0;
     bottom: 0;                /* full height of .section-header */
     background-color: var(--accent-yellow);
     z-index: 0;
 }
 
-/* section number: just left of the title, same line */
+/* NUMBER: sits directly left of the title, same line */
 .section-number {
     position: relative;
     z-index: 1;
-    margin-left: 60px;        /* global left offset */
-    margin-right: 8px;        /* small gap before title */
-    font-size: 1rem;
+    margin-left: 60px;        /* distance from left screen edge */
+    margin-right: 12px;       /* gap between number and title */
+    font-size: 1.1rem;
     font-weight: 700;
-    color: rgba(0, 0, 0, 0.7); /* darker so it’s clearly visible */
+    color: rgba(0, 0, 0, 0.9);
     letter-spacing: 2px;
-    align-self: center;
 }
 
-/* title text, immediately after the number */
+/* TITLE: immediately after the number */
 .section-header h2 {
     position: relative;
     z-index: 1;
