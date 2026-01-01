@@ -133,7 +133,10 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     position: relative;
     z-index: 1;
     margin: 0;
-    padding: 10px 0 10px 50px;  /* left padding ≈ logo/nav start */
+    padding-left: 60px;        /* horizontal offset only */
+    line-height: 48px;         /* same as bar height -> vertical centering */
+    height: 48px;              /* matches .section-header::before height */ 
+  /*old version padding: 10px 0 10px 50px;   left padding ≈ logo/nav start */
     color: var(--primary-black);
     font-family: var(--font-primary);
     font-weight: 900;
