@@ -134,8 +134,18 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     letter-spacing: 3px;
 }
 
-/* no special state needed */
+/* when section enters view, only the bar animates */
+.section-header.in-view::before {
+    transform: scaleX(1);
+}
+
+/* no special state needed for the title */
 .section-header.in-view h2 { }
+
+/* if any old numbers remain in HTML, hide them */
+.section-number {
+    display: none;
+}
 
 /* =========================================
    5. HEADER & NAV
