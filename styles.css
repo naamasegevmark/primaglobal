@@ -237,8 +237,8 @@ nav {
 }
 
 .about-image {
-    /* MODIFIED: Increased flex-basis to make the image even bigger */
-    flex: 0 0 700px; /* Don't grow (0), don't shrink (0), prefer 700px width (700px) */
+    /* REVERTED: Setting image preferred width back to 600px */
+    flex: 0 0 600px; /* Don't grow (0), don't shrink (0), prefer 600px width (600px) */
     max-width: 100%; /* Ensures it doesn't overflow on small screens when it wraps */
     height: auto; /* Maintain aspect ratio */
     box-shadow: 15px 15px 0px rgba(255, 255, 255, 0.05);
@@ -260,7 +260,7 @@ nav {
     padding-left: 15px;
 }
 
-/* Ensure the responsive rule for the image on mobile is still correct */
+/* Make sure your media query for .about-image is also correctly set: */
 @media (max-width: 768px) {
     /* ... other responsive rules ... */
 
@@ -271,8 +271,8 @@ nav {
         flex-basis: auto; /* Allow image to size naturally in column layout */
     }
     
+    /* ... rest of responsive rules ... */
 }
-
 
 /* =========================================
    8. INNOVATION SECTION
