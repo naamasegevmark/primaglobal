@@ -96,16 +96,13 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 .margin-top-large { margin-top: 80px; }
 
 /* =========================================
-   4. SECTION HEADERS (Yellow Box Style)
-   ========================================= */
-/* =========================================
    4. SECTION HEADERS (Yellow Bar)
    ========================================= */
 .section-header {
     position: relative;
     margin: 60px 0 40px;
     display: flex;
-    align-items: center;      /* vertically center contents */
+    align-items: center;      /* vertical centering */
 }
 
 /* yellow bar fills the header height */
@@ -120,24 +117,24 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     z-index: 0;
 }
 
-/* small section number, aligned with title start */
+/* section number: just left of the title, same line */
 .section-number {
     position: relative;
     z-index: 1;
-    margin-left: 60px;        /* aligns with title text start */
-    margin-right: 10px;
+    margin-left: 60px;        /* global left offset */
+    margin-right: 8px;        /* small gap before title */
     font-size: 1rem;
     font-weight: 700;
-    color: rgba(0, 0, 0, 0.4);
+    color: rgba(0, 0, 0, 0.7); /* darker so it’s clearly visible */
     letter-spacing: 2px;
+    align-self: center;
 }
 
-/* title text, vertically centered via flexbox */
+/* title text, immediately after the number */
 .section-header h2 {
     position: relative;
     z-index: 1;
     margin: 0;
-    padding-left: 0;          /* number already has left offset */
     color: var(--primary-black);
     font-family: var(--font-primary);
     font-weight: 900;
