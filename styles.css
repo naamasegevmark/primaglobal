@@ -117,7 +117,7 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 
     transform-origin: left center;
     transform: scaleX(0);              /* start invisible */
-    transition: transform 0.7s ease;   /* animation duration */
+    transition: transform 1.2s ease;   /* animation duration */
 }
 
 /* title text: 10px from the left edge of the yellow bar */
@@ -135,7 +135,7 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 
     opacity: 0;
     transform: translateX(-10px);
-    transition: opacity 0.4s ease 0.3s, transform 0.4s ease 0.3s;
+    transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s;
 }
 
 /* when section enters view, play the animation */
