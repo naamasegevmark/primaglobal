@@ -227,25 +227,26 @@ nav {
 /* =========================================
    7. ABOUT SECTION
    ========================================= */
-/* =========================================
-   7. ABOUT SECTION
-   ========================================= */
 .about-content {
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 30px;
+    align-items: center; /* MODIFIED: Vertically centers the image and text box */
+    /* Removed: justify-content: space-between; (no longer needed with gap and centering) */
+    gap: 40px; /* MODIFIED: Increased space between the image and the text */
+    flex-wrap: wrap; /* ADDED: Allows items to wrap to the next line on smaller screens */
+    justify-content: center; /* ADDED: Centers items horizontally when wrapped */
 }
 
 .about-image {
-    flex: 0 0 35%;          /* image on the left, ~35% width */
-    max-width: 35%;
+    /* flex: 0 0 35%; Removed for more flexible sizing */
+    max-width: 450px; /* MODIFIED: Adjust as needed for your image size */
+    flex-shrink: 0; /* ADDED: Prevents the image from shrinking too much */
     box-shadow: 15px 15px 0px rgba(255, 255, 255, 0.05);
     border-radius: 2px;
 }
 
 .about-text {
     flex: 1;                /* text on the right, takes remaining space */
+    min-width: 300px; /* ADDED: Ensures text has a minimum width before wrapping */
 }
 
 .about-text p1 {
@@ -270,17 +271,25 @@ nav {
 .innovation-list li {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 25px;
+    /* Removed: margin-bottom: 25px; Handled by individual p margins or gap for better control */
+    gap: 15px; /* ADDED: Adds space between the bullet and the text */
     background: rgba(255,255,255,0.03); /* Subtle card bg */
     padding: 20px;
     border-left: 1px solid var(--accent-color);
+    margin-bottom: 20px; /* ADDED: Explicit margin between list items */
 }
+
+.innovation-list p { /* ADDED: Ensures paragraphs inside list items don't have excessive margin */
+    margin-bottom: 0; 
+}
+
 
 .list-bullet {
     color: var(--accent-color);
     font-size: 1.5rem;
-    margin-right: 15px;
+    /* Removed: margin-right: 15px; Replaced by gap on parent li */
     line-height: 1;
+    flex-shrink: 0; /* ADDED: Prevents the bullet from shrinking */
 }
 
 /* =========================================
@@ -360,12 +369,20 @@ nav {
 .assets-list li {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 20px;
+    /* Removed: margin-bottom: 20px; Handled by individual p margins or gap for better control */
+    gap: 15px; /* ADDED: Adds space between the bullet and the text */
     font-size: 1.1rem;
+    margin-bottom: 20px; /* ADDED: Explicit margin between list items */
+}
+
+.assets-list p { /* ADDED: Ensures paragraphs inside list items don't have excessive margin */
+    margin-bottom: 0;
 }
 
 .assets-list .list-bullet {
-    margin-top: 5px; /* Aligns bullet with top of text */
+    /* Removed: margin-top: 5px; Handled by align-items: flex-start and line-height */
+    flex-shrink: 0; /* ADDED: Prevents the bullet from shrinking */
+    line-height: 1; /* ADDED: Ensures consistent vertical alignment */
 }
 
 /* =========================================
@@ -442,9 +459,15 @@ footer {
     
     .about-content {
         flex-direction: column;
+        text-align: center; /* ADDED: Centers text when stacked */
     }
     
-    .about-image { width: 100%; max-width: 100%; margin-top: 30px; }
+    .about-image { 
+        width: 100%; 
+        max-width: 80%; /* MODIFIED: Adjust image size for mobile, was max-width: 100% */
+        margin-top: 30px;
+        margin-bottom: 20px; /* ADDED: Space below image when stacked */
+    }
     
     .section-header h2 {
         font-size: 1.4em;
