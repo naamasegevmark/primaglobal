@@ -10,6 +10,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+    const headers = document.querySelectorAll('.section-header');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                // Uncomment the next line if you only want the animation once:
+                // observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.3   // 30% of header visible triggers the animation
+    });
+
+    headers.forEach(header => observer.observe(header));
+});
+</script>
+
 <body>
     <header>
         <nav>
