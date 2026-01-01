@@ -99,23 +99,50 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
    4. SECTION HEADERS (Yellow Box Style)
    ========================================= */
 .section-header {
-    margin-bottom: 50px;
+    /*margin-bottom: 50px;*/
     position: relative;
-    padding-top: 20px;
+    margin: 60px 0 40px;
+   /* padding-top: 20px;*/
 }
-
-.section-number {
+/* full‑width yellow bar from left screen edge */
+.section-header::before {
+    content: "";
     position: absolute;
-    top: -20px;
-    left: -10px;
-    font-size: 6rem;
-    font-weight: 900;
-    color: rgba(255, 255, 255, 0.1); /* Very faint number behind title */
+    left: 0;
+    right: 0;              /* stretches across the screen */
+    top: 50%;
+    transform: translateY(-50%);
+    height: 48px;
+    background-color: var(--accent-yellow);
     z-index: 0;
-    pointer-events: none;
 }
 
+/* faint section number, aligned with the title text */
+.section-number {
+    position: relative; /*old:absolute;*/
+    z-index: 1; /*  z-index: 0; */
+    margin-left: 60px;     /* aligns with title text (old: top: -20px; left: -10px;)*/
+    font-size: 1rem; /*font-size: 6rem;*/
+    font-weight: 700; /* font-weight: 900;*/
+    color: rgba(0, 0, 0, 0.4); /*color: rgba(255, 255, 255, 0.1);  Very faint number behind title */
+    letter-spacing: 2px; 
+    /*pointer-events: none;*/
+}
+/* title text, starting near where your logo/navigation text starts */
 .section-header h2 {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding: 10px 0 10px 60px;  /* left padding ≈ logo/nav start */
+    color: var(--primary-black);
+    font-family: var(--font-primary);
+    font-weight: 900;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+/*old:.section-header h2 {
     position: relative;
     z-index: 1;
     background-color: var(--accent-yellow); 
@@ -129,8 +156,7 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
     letter-spacing: 3px;
     line-height: 1;
     box-shadow: 10px 10px 0px rgba(255, 255, 255, 0.1);
-    border-radius: 0px;
-}
+    border-radius: 0px; }*/
 
 /* =========================================
    5. HEADER & NAV
