@@ -225,58 +225,56 @@ nav {
 }
 
 /* =========================================
-   7. ABOUT SECTION (RE-ORGANIZED LAYOUT)
+   7. ABOUT SECTION (BIG IMAGE, CITATION BOTTOM)
    ========================================= */
 
 .about-content {
     display: flex;
-    flex-wrap: wrap; /* CRITICAL: Allows items to wrap to a new line */
-    align-items: flex-start; /* Aligns top of image with top of text */
+    flex-wrap: wrap; /* Allows the citation to drop to the next line */
+    align-items: center; /* Vertically centers the image and the side text */
     justify-content: space-between;
     gap: 40px;
 }
 
 .about-image {
-    /* Sets the image width. You can change 350px to whatever size you prefer */
-    flex: 0 0 350px; 
-    max-width: 100%;
+    /* MODIFIED: Increased size to 550px */
+    flex: 0 0 550px; 
+    max-width: 100%; /* Safety for smaller screens */
     height: auto;
     box-shadow: 15px 15px 0px rgba(255, 255, 255, 0.05);
     border-radius: 2px;
 }
 
 .about-text {
-    flex: 1; /* Takes up the remaining space to the right of the image */
-    min-width: 300px; 
+    flex: 1; /* Takes the remaining space */
+    min-width: 250px; /* Allowed it to get slightly narrower before wrapping */
 }
 
-/* This targets the <p1> tag which is now a direct child of .about-content */
+/* Citation Style for <p1> */
 .about-content p1 {
     display: block;
-    width: 100%; /* Forces it to span the full width */
-    flex-basis: 100%; /* Ensures it breaks onto a new line */
-    margin-top: 20px; /* Space between the top row and this text */
+    width: 100%; /* Spans full width underneath */
+    flex-basis: 100%;
+    margin-top: 30px; /* Space above the citation */
     
-    /* Styling for the text */
-    font-size: 1.2em;
-    font-weight: 600;
+    /* Styling */
+    font-style: italic; /* "Inclined at an angle" */
+    font-weight: 300;   /* "Thin" */
+    font-size: 1.3em;   /* Slightly larger for impact */
+    line-height: 1.5;
     color: var(--secondary-color);
-    border-left: 4px solid var(--accent-color);
-    padding-left: 15px;
+    
+    /* Yellow vertical line */
+    border-left: 4px solid var(--accent-color); 
+    padding-left: 20px;
 }
 
 /* Mobile Responsiveness */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+    /* Trigger stacking a bit earlier since the image is huge now */
     .about-content {
         flex-direction: column;
     }
-    
-    .about-image {
-        width: 100%;
-        flex: auto; /* Reset the fixed width on mobile */
-        margin-bottom: 20px;
-    }
-}
 
 /* =========================================
    8. INNOVATION SECTION
