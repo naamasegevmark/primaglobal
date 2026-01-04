@@ -232,7 +232,7 @@ nav {
     display: flex;
     flex-wrap: wrap; /* Essential for the layout to break correctly */
     align-items: center; /* Vertically centers image and text */
-    gap: 40px; 
+     gap: 20px 40px; /*  left - vertical space, right - horizontal space */
     justify-content: center;
 }
 
