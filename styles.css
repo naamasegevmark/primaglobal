@@ -238,7 +238,7 @@ nav {
 
 /* MODIFIED: Reduced image size to 450px for better resolution and balance */
 .about-image {
-    flex: 0 0 450px; /* Don't grow, don't shrink, prefer 450px width */
+    flex: 0 0 450px; /* Don't grow, don't shrink, prefer 350px width */
     max-width: 100%; 
     height: auto; 
     box-shadow: 15px 15px 0px rgba(255, 255, 255, 0.05);
