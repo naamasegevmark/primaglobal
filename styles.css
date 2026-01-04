@@ -258,7 +258,7 @@ nav {
     margin-top: 20px;
     
     /* Citation Styling: Italic, Thin, Yellow Line */
-    font-style: italic; 
+    font-style: serif; 
     font-weight: 300;   
     font-size: 1.3em;
     color: var(--secondary-color);
