@@ -225,35 +225,39 @@ nav {
 }
 
 /* =========================================
-   7. ABOUT SECTION
+   7. ABOUT SECTION (RE-ORGANIZED LAYOUT)
    ========================================= */
+
 .about-content {
-    display: flex !important;
-    flex-direction: row !important; /* Forces horizontal row */
-    align-items: center !important;
-    justify-content: flex-start !important; /* Aligns to start (left) */
-    gap: 40px !important;
-    flex-wrap: wrap !important;
+    display: flex;
+    flex-wrap: wrap; /* CRITICAL: Allows items to wrap to a new line */
+    align-items: flex-start; /* Aligns top of image with top of text */
+    justify-content: space-between;
+    gap: 40px;
 }
 
 .about-image {
-    width: 40% !important; /* Explicitly sets width to 40% of container */
-    max-width: 450px !important; /* Cap it at 450px */
-    flex: 0 0 auto !important; /* Stop flex from messing with size */
-    height: auto !important;
+    /* Sets the image width. You can change 350px to whatever size you prefer */
+    flex: 0 0 350px; 
+    max-width: 100%;
+    height: auto;
     box-shadow: 15px 15px 0px rgba(255, 255, 255, 0.05);
-    margin-right: 0 !important; /* Reset margins */
+    border-radius: 2px;
 }
 
 .about-text {
-    width: 55% !important; /* Gives the text the rest of the space */
-    flex: 1 1 auto !important;
-    min-width: 300px !important;
+    flex: 1; /* Takes up the remaining space to the right of the image */
+    min-width: 300px; 
 }
 
-.about-text p1 {
+/* This targets the <p1> tag which is now a direct child of .about-content */
+.about-content p1 {
     display: block;
-    margin-top: 20px;
+    width: 100%; /* Forces it to span the full width */
+    flex-basis: 100%; /* Ensures it breaks onto a new line */
+    margin-top: 20px; /* Space between the top row and this text */
+    
+    /* Styling for the text */
     font-size: 1.2em;
     font-weight: 600;
     color: var(--secondary-color);
@@ -261,20 +265,16 @@ nav {
     padding-left: 15px;
 }
 
-/* MOBILE OVERRIDE - Keep this below the code above */
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
     .about-content {
-        flex-direction: column !important; /* Stack vertically on mobile */
+        flex-direction: column;
     }
     
     .about-image {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin-bottom: 30px !important;
-    }
-    
-    .about-text {
-        width: 100% !important;
+        width: 100%;
+        flex: auto; /* Reset the fixed width on mobile */
+        margin-bottom: 20px;
     }
 }
 
