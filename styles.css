@@ -263,7 +263,7 @@ nav {
     font-style: var(--font-third);
     font-weight: 300;   
     font-size: 1.1em;
-    color: var(--secondary-color);
+    color: var(--gray-light);
     border-left: 6px solid var(--accent-color);
     padding-left: 15px;
 }
