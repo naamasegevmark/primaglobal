@@ -260,7 +260,7 @@ nav {
     /* Citation Styling: Italic, Thin, Yellow Line */
     /*font-style: italic; /* Keeps the text italic */
     font-family: 'Merriweather'; /*var(--font-secondary); /* ADDED: Serif font (Playfair Display) */
-    font-weight: 300;   
+    font-weight: 400;   
     font-size: 1.5em;
     color: var(--gray-light); /* Light grey color */
     border-left: 6px solid var(--accent-color);
