@@ -12,6 +12,7 @@
     
     --font-primary: 'Montserrat', sans-serif; 
     --font-secondary: 'Playfair Display', serif; 
+    --font-third: 'Times New Roman', Times, serif;/*my addition*/
     
     --max-width: 1100px;
     --section-padding: 80px 0;
@@ -258,7 +259,8 @@ nav {
     margin-top: 20px;
     
     /* Citation Styling: Italic, Thin, Yellow Line */
-    font-style: var(--font-secondary);
+    font-style: italic;
+    font-style: var(--font-third);
     font-weight: 300;   
     font-size: 1.1em;
     color: var(--secondary-color);
