@@ -260,7 +260,7 @@ nav {
     /* Citation Styling: Italic, Thin, Yellow Line */
     font-style: var(--font-secondary);
     font-weight: 300;   
-    font-size: 1.3em;
+    font-size: 1.1em;
     color: var(--secondary-color);
     border-left: 6px solid var(--accent-color);
     padding-left: 15px;
