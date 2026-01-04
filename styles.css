@@ -236,10 +236,9 @@ nav {
     justify-content: center;
 }
 
-/* MODIFIED: Reduced image size to 450px for better resolution and balance */
 .about-image {
     flex: 0 0 350px; /* image size */
-    max-width: 100%; 
+    max-width: 50%; 
     height: auto; 
     box-shadow: 15px 15px 0px rgba(255, 255, 255, 0.05);
     border-radius: 2px;
