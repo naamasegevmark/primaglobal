@@ -259,13 +259,18 @@ nav {
     margin-top: 20px;
     
     /* Citation Styling: Italic, Thin, Yellow Line */
-    font-style: italic;
-    font-style: var(--font-third);
+    font-style: italic; /* Keeps the text italic */
+    font-family: var(--font-secondary); /* ADDED: Serif font (Playfair Display) */
     font-weight: 300;   
     font-size: 1.1em;
-    color: var(--gray-light);
+    color: var(--gray-light); /* Light grey color */
     border-left: 6px solid var(--accent-color);
     padding-left: 15px;
+
+    /* ADDED: Skewed effect */
+    transform: skewX(-5deg); /* Skews the text slightly to the left */
+    /* Add this if you want the border to also skew with the text (optional) */
+    /* transform-origin: top left; */
 }
 
 /* Mobile Responsiveness */
