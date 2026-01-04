@@ -237,6 +237,7 @@ nav {
 }
 
 .about-image {
+    border-radius: 8px;
     flex: 0 0 350px; /* image size */
     max-width: 50%; 
     height: auto; 
