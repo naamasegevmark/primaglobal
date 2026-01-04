@@ -232,12 +232,12 @@ nav {
     display: flex;
     flex-wrap: wrap; /* Essential for the layout to break correctly */
     align-items: center; /* Vertically centers image and text */
-     gap: 20px 40px; /*  left - vertical space, right - horizontal space */
+    gap: 10px 40px; /*  left - vertical space, right - horizontal space */
     justify-content: center;
 }
 
 .about-image {
-    border-radius: 8px;
+    border-radius: 10px;
     flex: 0 0 350px; /* image size */
     max-width: 50%; 
     height: auto; 
