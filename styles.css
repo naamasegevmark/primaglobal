@@ -262,8 +262,8 @@ nav {
     font-weight: 300;   
     font-size: 1.3em;
     color: var(--secondary-color);
-    border-left: 4px solid var(--accent-color);
-    padding-left: 20px;
+    border-left: 6px solid var(--accent-color);
+    padding-left: 15px;
 }
 
 /* Mobile Responsiveness */
