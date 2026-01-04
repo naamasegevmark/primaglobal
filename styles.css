@@ -228,25 +228,27 @@ nav {
    7. ABOUT SECTION
    ========================================= */
 .about-content {
-    display: flex;
-    align-items: center; /* Vertically centers the image and text box */
-    gap: 40px; /* Adds space between the image and the text */
-    flex-wrap: wrap; /* Allows items to wrap nicely on smaller screens */
-    justify-content: center; /* Centers the whole block if the screen is huge */
+    display: flex !important;
+    flex-direction: row !important; /* Forces horizontal row */
+    align-items: center !important;
+    justify-content: flex-start !important; /* Aligns to start (left) */
+    gap: 40px !important;
+    flex-wrap: wrap !important;
 }
 
 .about-image {
-    /* MODIFIED: Reduced size to approx 450px */
-    flex: 0 0 450px; /* Preferred width is now smaller */
-    max-width: 100%; /* Responsive safety */
-    height: auto; 
+    width: 40% !important; /* Explicitly sets width to 40% of container */
+    max-width: 450px !important; /* Cap it at 450px */
+    flex: 0 0 auto !important; /* Stop flex from messing with size */
+    height: auto !important;
     box-shadow: 15px 15px 0px rgba(255, 255, 255, 0.05);
-    border-radius: 2px;
+    margin-right: 0 !important; /* Reset margins */
 }
 
 .about-text {
-    flex: 1; /* Takes up the remaining space on the right */
-    min-width: 300px; /* Prevents text from getting too squished */
+    width: 55% !important; /* Gives the text the rest of the space */
+    flex: 1 1 auto !important;
+    min-width: 300px !important;
 }
 
 .about-text p1 {
@@ -257,6 +259,23 @@ nav {
     color: var(--secondary-color);
     border-left: 4px solid var(--accent-color);
     padding-left: 15px;
+}
+
+/* MOBILE OVERRIDE - Keep this below the code above */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column !important; /* Stack vertically on mobile */
+    }
+    
+    .about-image {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-bottom: 30px !important;
+    }
+    
+    .about-text {
+        width: 100% !important;
+    }
 }
 
 /* =========================================
