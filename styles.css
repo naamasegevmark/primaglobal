@@ -225,7 +225,7 @@ nav {
 }
 
 /* =========================================
-   7. ABOUT SECTION
+   7. ABOUT SECTION (Image Smaller)
    ========================================= */
 
 .about-content {
@@ -236,9 +236,9 @@ nav {
     justify-content: center;
 }
 
-/* Reverting image to the previous balanced size (600px) */
+/* MODIFIED: Reduced image size to 450px for better resolution and balance */
 .about-image {
-    flex: 0 0 600px; /* Don't grow, don't shrink, prefer 600px */
+    flex: 0 0 450px; /* Don't grow, don't shrink, prefer 450px width */
     max-width: 100%; 
     height: auto; 
     box-shadow: 15px 15px 0px rgba(255, 255, 255, 0.05);
@@ -267,7 +267,7 @@ nav {
 }
 
 /* Mobile Responsiveness */
-@media (max-width: 900px) {
+@media (max-width: 900px) { /* Changed from 768px to 900px for a smoother transition */
     .about-content {
         flex-direction: column;
         text-align: center;
