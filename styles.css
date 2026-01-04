@@ -262,7 +262,7 @@ nav {
     /*font-style: italic; /* Keeps the text italic */
     font-family: var(--font-secondary); /* ADDED: Serif font (Playfair Display) */
     font-weight: 300;   
-    font-size: 1.1em;
+    font-size: 1.3em;
     color: var(--gray-light); /* Light grey color */
     border-left: 6px solid var(--accent-color);
     padding-left: 15px;
