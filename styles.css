@@ -155,11 +155,11 @@ header {
 
 nav {
     display: flex;
-    justify-content: flex-start;  /* we’ll handle spacing manually */
-    align-items: center;          /* centers logo + links vertically */
-    max-width: none;      /* was: var(--max-width); */
-    margin: 0;            /* was: 0 auto; */
-    padding: 0 20px 0 10px;  /* top right bottom left */
+    justify-content: flex-start;  /* Ensures content aligns to the left */
+    align-items: center;          /* Centers logo + links vertically */
+    max-width: none;              /* Allows nav to span full width if needed */
+    margin: 0;
+    padding: 0 20px 0 10px;       /* top right bottom left padding for nav content */
 }
 
 .logo a {
@@ -173,18 +173,30 @@ nav {
     display: block;
 }
 
+/* MODIFIED: Re-introducing nav-links and nav-links li for precise spacing and hover effects */
+.nav-links {
+    list-style: none; /* Removes bullet points */
+    display: flex;    /* Arranges list items horizontally */
+    margin: 0;        /* Removes default margin */
+    padding: 0;       /* Removes default padding */
+    margin-left: 40px; /* This sets the initial gap after the logo image */
+}
+.nav-links li {
+    margin-left: 30px; /* This creates the gap between each navigation link */
+}
 .nav-links a {
     color: var(--secondary-color);
     font-size: 0.85em;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 600;
-    transition: color 0.3s ease, transform 0.3s ease; /* ADDED for smooth animation */
-    display: inline-block; /* ADDED: Important for transform: scale to work correctly */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth animation for color and size */
+    display: inline-block; /* Crucial for transform: scale to work correctly */
+    transform-origin: left center; /* Scales from the left, keeping links aligned */
 }
 .nav-links a:hover {
-    color: var(--accent-color); /* Changes text color to yellow */
-    transform: scale(1.1); /* ENLARGES the text by 10% on hover */
+    color: var(--accent-color); /* Changes text color to yellow on hover */
+    transform: scale(1.1); /* Enlarges the text by 10% on hover */
 }
 
 /* =========================================
