@@ -271,7 +271,7 @@ nav {
 @media (max-width: 900px) { /* Changed from 768px to 900px for a smoother transition */
     .about-content {
         flex-direction: column;
-        text-align: center;
+        text-align: left;
     }
     
     .about-image {
