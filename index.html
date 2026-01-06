@@ -84,10 +84,9 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
 </section>
 
-        <!-- Innovation Section -->
+                <!-- Innovation Section -->
         <section id="innovation" class="container black-bg section-padding">
             <div class="section-header">
-                <!-- <span class="section-number">02</span> -->
                 <h2>PRIMA'S INNOVATION</h2>
             </div>
             <div class="innovation-intro-text">
@@ -96,20 +95,23 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
 
             <h3>We offer:</h3>
-            <ul class="innovation-list">
-                <li>
-                    <span class="list-bullet">&#10148;</span>
-                    <p><strong>Detailed Engineering Design:</strong> Custom-tailored solutions are at the core of our service. Our expert engineering design is crafted precisely to bring every unique architectural vision and aspiration to life, ensuring optimal performance and aesthetics.</p>
-                </li>
-                <li>
-                    <span class="list-bullet">&#10148;</span>
-                    <p><strong>Flexible Installation Methods:</strong> We provide two highly efficient installation approaches. Clients can choose between integrating our modules <strong>alongside the primary structure</strong> during construction or applying them <strong>after</strong> the main structural work is complete, offering maximum project flexibility and adaptability.</p>
-                </li>
-                <li>
-                    <span class="list-bullet">&#10148;</span>
-                    <p><strong>Eco-Friendly Solutions:</strong> Our deep commitment to sustainability is reflected in our modules. They utilize <strong>30% less concrete</strong> compared to traditional methods, significantly reducing the carbon footprint. Furthermore, all components are <strong>locally manufactured</strong>, which supports regional economies and minimizes transportation emissions, contributing to a greener construction process.</p>
-                </li>
-            </ul>
+            <div class="innovation-grid"> <!-- CHANGED: ul to div, class changed to innovation-grid -->
+                <div class="innovation-item"> <!-- CHANGED: li to div, class changed to innovation-item -->
+                    <img src="images/icon-design.png" alt="Detailed Engineering Design Icon" class="innovation-icon">
+                    <h4>Detailed Engineering Design</h4>
+                    <p>Custom-tailored solutions are at the core of our service. Our expert engineering design is crafted precisely to bring every unique architectural vision and aspiration to life, ensuring optimal performance and aesthetics.</p>
+                </div>
+                <div class="innovation-item"> <!-- CHANGED: li to div, class changed to innovation-item -->
+                    <img src="images/icon-installation.png" alt="Flexible Installation Methods Icon" class="innovation-icon">
+                    <h4>Flexible Installation Methods</h4>
+                    <p>We provide two highly efficient installation approaches. Clients can choose between integrating our modules <strong>alongside the primary structure</strong> during construction or applying them <strong>after</strong> the main structural work is complete, offering maximum project flexibility and adaptability.</p>
+                </div>
+                <div class="innovation-item"> <!-- CHANGED: li to div, class changed to innovation-item -->
+                    <img src="images/icon-eco.png" alt="Eco-Friendly Solutions Icon" class="innovation-icon">
+                    <h4>Eco-Friendly Solutions</h4>
+                    <p>Our deep commitment to sustainability is reflected in our modules. They utilize <strong>30% less concrete</strong> compared to traditional methods, significantly reducing the carbon footprint. Furthermore, all components are <strong>locally manufactured</strong>, which supports regional economies and minimizes transportation emissions, contributing to a greener construction process.</p>
+                </div>
+            </div> <!-- End innovation-grid -->
         </section>
 
         <!-- Technical Specs & Design Info Section -->
