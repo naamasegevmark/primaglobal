@@ -315,6 +315,10 @@ nav {
     margin-bottom: 20px; 
 }
 
+/* ADDED: This rule ensures the first paragraph starts at the very top */
+.about-text p:first-child {
+    margin-top: 0; /* Removes the top margin from the very first paragraph */
+}
 /* Keeping the citation style for <p1> underneath everything */
 .about-content p1 {
     display: block;
