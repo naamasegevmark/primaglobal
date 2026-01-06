@@ -263,7 +263,8 @@ nav {
     margin-top: 20px;
     
     /* Citation Styling */
-    font-family: 'PT Serif'; /* Needs to be imported in HTML <head> */
+    font-family: 'PT Serif", serif;
+    font-style: normal;
     font-weight: 400;   
     font-size: 1.6em;
     color: var(--gray-light); /* Light grey color */
