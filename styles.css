@@ -297,27 +297,33 @@ nav {
     justify-content: flex-start;
 }
 
-/* NEW CONTAINER FOR IMAGES: This column will hold and stack your images */
+/* Container for images (this will be the flex item that sits right of text) */
 .about-image-column {
     display: flex; /* Makes this a flex container itself */
     flex-direction: column; /* Stacks its children (images) vertically */
     flex: 0 0 350px; /* This column will have a fixed width for the images */
     max-width: 50%; /* Ensures it doesn't get too wide on large screens */
-    gap: 20px; /* ADDED: Space between the two images stacked vertically */
+    gap: 20px; /* Space between the two images stacked vertically */
 }
 
-.about-image { /* Applies to both images within about-image-column */
+/* General styling for all images within the column */
+.about-image {
     width: 100%; /* Image fills the width of its parent column */
-    height: auto; /* Default: Let height adjust naturally */
-    object-fit: cover;
+    height: 100%; /* Image fills the height of its allocated flex space */
+    object-fit: cover; /* Ensures the image covers the area, cropping if aspect ratio doesn't match */
     box-shadow: 15px 15px 0px rgba(255, 255, 255, 0.05);
     border-radius: 2px;
 }
 
-/* To make images share vertical space equally if the column stretches to match text height */
-.about-image-column .about-image {
-    flex: 1; /* Each image will grow/shrink to fill available vertical space in the column */
+/* Specific sizing for the two images to make one larger than the other */
+.about-image.main-image {
+    flex: 2; /* The first image takes 2 parts of the available vertical space */
 }
+
+.about-image.secondary-image {
+    flex: 1; /* The second image takes 1 part of the available vertical space (making it smaller) */
+}
+
 
 .about-text {
     flex: 1; /* Takes up remaining space on the left */
@@ -363,8 +369,8 @@ nav {
         gap: 15px; /* Adjust gap between images on mobile */
     }
     .about-image-column .about-image {
-        flex: none; /* No longer force equal height on mobile */
-        height: auto; /* Let images scale naturally */
+        flex: none; /* No longer force proportional height on mobile */
+        height: auto; /* Let images scale naturally (proportional to their intrinsic ratio) */
         width: 100%; /* Fill the column width */
     }
     .about-content p1 {
