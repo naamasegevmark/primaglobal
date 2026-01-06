@@ -336,32 +336,78 @@ nav {
 }
 
 /* =========================================
-   8. INNOVATION SECTION
+   8. INNOVATION SECTION (CarbonBlue Style)
    ========================================= */
 .innovation-intro-text {
     max-width: 800px;
-    margin-bottom: 40px;
+    margin: 0 auto 40px auto; /* Centers the intro text and adds bottom margin */
+    text-align: center; /* Centers the text within its max-width */
 }
 
-.innovation-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px; /* Adds space between the bullet and the text */
-    background: rgba(255,255,255,0.03); /* Subtle card bg */
-    padding: 20px;
-    border-left: 1px solid var(--accent-color);
-    margin-bottom: 20px; /* Explicit margin between list items */
+.innovation-intro-text p {
+    font-size: 1.15em; /* Slightly larger text for the intro */
 }
 
-.innovation-list p {
-    margin-bottom: 0; /* Ensures paragraphs inside list items don't have excessive margin */
+/* Ensure the "We offer" H3 is centered above the grid */
+#innovation h3 {
+    text-align: center;
+    margin-bottom: 30px; /* Space between H3 and the grid */
+    font-size: 2em; /* Make "We offer" more prominent */
+    color: var(--secondary-color); /* Make it white */
 }
 
-.list-bullet {
-    color: var(--accent-color);
-    font-size: 1.5rem;
-    line-height: 1;
-    flex-shrink: 0; /* Prevents the bullet from shrinking */
+
+.innovation-grid { /* This is the container for your service items */
+    display: grid;
+    /* Creates a responsive 3-column grid. Items will shrink down to 280px minimum before wrapping */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px; /* Space between the grid items (cards) */
+}
+
+.innovation-item { /* Each individual service card */
+    background: var(--gray-dark); /* Dark grey background for the card */
+    padding: 30px;
+    border: 1px solid #333; /* Subtle border */
+    border-radius: 5px; /* Slightly rounded corners */
+    text-align: center; /* Centers icon, title, and text within the card */
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Subtle initial shadow */
+}
+
+.innovation-item:hover {
+    transform: translateY(-8px); /* Card lifts up on hover */
+    border-color: var(--accent-color); /* Border highlights yellow on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Shadow becomes more pronounced */
+}
+
+.innovation-icon {
+    width: 60px; /* Size of the icon */
+    height: 60px;
+    margin: 0 auto 20px auto; /* Centers the icon and adds space below it */
+    filter: brightness(0) invert(1) grayscale(1); /* Optional: If icons are black, this makes them white */
+    /* If your icons are already white/light, you can remove the filter line */
+}
+
+.innovation-item h4 {
+    font-family: var(--font-secondary); /* Use Playfair Display for the title */
+    font-size: 1.6rem; /* Size of the item title */
+    color: var(--secondary-color); /* White color for the title */
+    margin-top: 0; /* Remove default top margin */
+    margin-bottom: 10px; /* Space between title and description */
+}
+
+.innovation-item p {
+    font-size: 1em; /* Slightly smaller for the description text */
+    color: var(--gray-light); /* Light grey for descriptions */
+    margin-bottom: 0; /* Remove default bottom margin */
+}
+
+/* Responsive adjustments for smaller screens, ensure the grid adapts */
+@media (max-width: 768px) {
+    .innovation-grid {
+        /* On smaller screens, you might want 1 column instead of 2 or 3 */
+        grid-template-columns: 1fr; /* Forces a single column layout */
+    }
 }
 
 /* =========================================
