@@ -234,7 +234,6 @@ nav {
 }
 
 .about-image {
-    /* Removed redundant border-radius: 10px; */
     flex: 0 0 350px; /* image size */
     max-width: 50%; /* Ensuring it doesn't get too wide on large screens */
     height: 100%; /* Makes the image fill the entire height allocated by align-items: stretch */
@@ -248,7 +247,6 @@ nav {
     min-width: 300px; 
 }
 
-/* Added: Increase font size for paragraphs in the .about-text section */
 .about-text p {
     font-size: 1.2em; /* Adjusted font size */
     margin-bottom: 20px; 
@@ -263,13 +261,11 @@ nav {
     
     /* Citation Styling */
     font-family: 'PT Serif', serif; /* FIXED: Corrected syntax for PT Serif */
-    font-style: italic; /* Re-added for "inclined at an angle" */
-    font-weight: 400;   /* Current weight */
+    font-weight: 400;   
     font-size: 1.5em;
     color: var(--gray-light); /* Light grey color */
     border-left: 6px solid var(--accent-color);
     padding-left: 15px;
-    transform: skewX(-5deg); /* Re-added for "skewed" effect */
 }
 
 /* =========================================
