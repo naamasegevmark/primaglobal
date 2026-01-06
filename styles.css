@@ -251,7 +251,7 @@ nav {
 
 /* Added: Increase font size for paragraphs in the .about-text section */
 .about-text p {
-    font-size: 1.2em; /* Adjusted font size */
+    font-size: 1.0em; /* Adjusted font size */
     margin-bottom: 20px; 
 }
 
