@@ -240,7 +240,7 @@ nav {
     flex: 0 0 350px; /* image size */
     max-width: 50%; /* Ensuring it doesn't get too wide on large screens */
     height: 100%; /*This makes the image fill the entire height that the flex container has allocated for it (with align-items: stretch)*/
-    object-fit: cover;
+    object-fit: cover; /*scale the image to fill the entire content box*/
     box-shadow: 15px 15px 0px rgba(255, 255, 255, 0.05);
     border-radius: 2px;
 }
@@ -252,7 +252,7 @@ nav {
 
 /* Added: Increase font size for paragraphs in the .about-text section */
 .about-text p {
-    font-size: 1.0em; /* Adjusted font size */
+    font-size: 1.2em; /* Adjusted font size */
     margin-bottom: 20px; 
 }
 
