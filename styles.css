@@ -290,20 +290,33 @@ nav {
 
 .about-content {
     display: flex;
-    flex-direction: row-reverse; /* MODIFIED: Puts items in reverse order (text first, image second) */
+    flex-direction: row-reverse; /* Text left, Image column right */
     flex-wrap: wrap;
-    align-items: stretch; /* Vertically aligns items to fill height */
-    gap: 5px 40px; /* 5px vertical space, 40px horizontal space */
-    justify-content: flex-start; /* Aligns content to the start of the reversed flow (i.e., text left, image right) */
+    align-items: stretch; /* Image column and text block stretch to match taller content */
+    gap: 5px 40px; /* 5px vertical space between rows, 40px horizontal space between columns */
+    justify-content: flex-start;
 }
 
-.about-image {
-    flex: 0 0 350px; /* image size */
-    max-width: 50%; /* Ensuring it doesn't get too wide on large screens */
-    height: 100%; /* Makes the image fill the entire height allocated by align-items: stretch */
-    object-fit: cover; /* Scales image to fill content box without distortion */
+/* NEW CONTAINER FOR IMAGES: This column will hold and stack your images */
+.about-image-column {
+    display: flex; /* Makes this a flex container itself */
+    flex-direction: column; /* Stacks its children (images) vertically */
+    flex: 0 0 350px; /* This column will have a fixed width for the images */
+    max-width: 50%; /* Ensures it doesn't get too wide on large screens */
+    gap: 20px; /* ADDED: Space between the two images stacked vertically */
+}
+
+.about-image { /* Applies to both images within about-image-column */
+    width: 100%; /* Image fills the width of its parent column */
+    height: auto; /* Default: Let height adjust naturally */
+    object-fit: cover;
     box-shadow: 15px 15px 0px rgba(255, 255, 255, 0.05);
-    border-radius: 2px; /* Final border-radius */
+    border-radius: 2px;
+}
+
+/* To make images share vertical space equally if the column stretches to match text height */
+.about-image-column .about-image {
+    flex: 1; /* Each image will grow/shrink to fill available vertical space in the column */
 }
 
 .about-text {
@@ -337,11 +350,25 @@ nav {
     padding-left: 15px;
 }
 
-/* --- Responsive adjustment --- */
+/* Responsive adjustment for image column */
 @media (max-width: 900px) {
     .about-content {
-        flex-direction: column; /* On mobile, still stack normally (image then text) */
+        flex-direction: column; /* On mobile, stack normally (text then image column) */
         text-align: left;
+    }
+    .about-image-column {
+        flex: auto; /* Allow column to size naturally on mobile */
+        max-width: 90%; /* Limit its width */
+        margin: 30px auto 20px auto; /* Center it and add margins */
+        gap: 15px; /* Adjust gap between images on mobile */
+    }
+    .about-image-column .about-image {
+        flex: none; /* No longer force equal height on mobile */
+        height: auto; /* Let images scale naturally */
+        width: 100%; /* Fill the column width */
+    }
+    .about-content p1 {
+        text-align: left; /* Align citation text left on mobile */
     }
     /* ... other mobile styles ... */
 }
