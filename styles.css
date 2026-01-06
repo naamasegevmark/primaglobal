@@ -285,15 +285,16 @@ nav {
 
 
 /* =========================================
-   7. ABOUT SECTION 
+   7. ABOUT SECTION
    ========================================= */
 
 .about-content {
     display: flex;
-    flex-wrap: wrap; /* Essential for the layout to break correctly */
+    flex-direction: row-reverse; /* MODIFIED: Puts items in reverse order (text first, image second) */
+    flex-wrap: wrap;
     align-items: stretch; /* Vertically aligns items to fill height */
     gap: 5px 40px; /* 5px vertical space, 40px horizontal space */
-    justify-content: center;
+    justify-content: flex-start; /* Aligns content to the start of the reversed flow (i.e., text left, image right) */
 }
 
 .about-image {
@@ -306,19 +307,20 @@ nav {
 }
 
 .about-text {
-    flex: 1; /* Takes up remaining space */
-    min-width: 300px; 
+    flex: 1; /* Takes up remaining space on the left */
+    min-width: 300px;
 }
 
 .about-text p {
-    font-size: 1.1em; /* Adjusted font size */
-    margin-bottom: 20px; 
+    font-size: 1.2em; /* Adjusted font size */
+    margin-bottom: 20px;
 }
 
-/* ADDED: This rule ensures the first paragraph starts at the very top */
+/* This rule ensures the first paragraph starts at the very top */
 .about-text p:first-child {
     margin-top: 0; /* Removes the top margin from the very first paragraph */
 }
+
 /* Keeping the citation style for <p1> underneath everything */
 .about-content p1 {
     display: block;
@@ -327,12 +329,21 @@ nav {
     margin-top: 20px;
     
     /* Citation Styling */
-    font-family: 'Playfair Display', serif; /* FIXED: Corrected syntax for PT Serif */
+    font-family: 'PT Serif', serif; /* Corrected syntax for PT Serif */
     font-weight: 400;   
     font-size: 1.5em;
     color: var(--gray-light); /* Light grey color */
     border-left: 6px solid var(--accent-color);
     padding-left: 15px;
+}
+
+/* --- Responsive adjustment --- */
+@media (max-width: 900px) {
+    .about-content {
+        flex-direction: column; /* On mobile, still stack normally (image then text) */
+        text-align: left;
+    }
+    /* ... other mobile styles ... */
 }
 
 /* =========================================
