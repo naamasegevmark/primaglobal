@@ -14,7 +14,9 @@
     --font-secondary: 'Playfair Display', serif; 
     
     --max-width: 1100px;
-    --section-padding: 40px 0;
+    --section-padding: 60px 0; /* Decreased vertical padding */
+   
+   /*padding: top, right, bottom, left*/
 }
 
 * {
@@ -173,7 +175,7 @@ nav {
     display: block;
 }
 
-/* MODIFIED: Re-introducing nav-links and nav-links li for precise spacing and hover effects */
+/* Re-introducing nav-links and nav-links li for precise spacing and hover effects */
 .nav-links {
     list-style: none; /* Removes bullet points */
     display: flex;    /* Arranges list items horizontally */
@@ -192,7 +194,7 @@ nav {
     font-weight: 600;
     transition: color 0.3s ease, transform 0.3s ease; /* Smooth animation for color and size */
     display: inline-block; /* Crucial for transform: scale to work correctly */
-    transform-origin: center; /* Scales from the left, keeping links aligned */
+    transform-origin: left center; /* Scales from the left, keeping links aligned */
 }
 .nav-links a:hover {
     color: var(--accent-color); /* Changes text color to yellow on hover */
@@ -214,17 +216,17 @@ nav {
 
 .hero-background {
     position: absolute;
-    top: 20px; /* MODIFIED: Slightly reduce top/bottom offset for more background visibility */
+    top: 20px; /* Slightly reduce top/bottom offset for more background visibility */
     bottom: 20px;
     left: 50px;
     right: 50px;
     background-size: cover;
     background-position: center;
-    opacity: 0.4; /* MODIFIED: Slightly darker background for better text contrast */
+    opacity: 0.4; /* Slightly darker background for better text contrast */
     z-index: 0;
-    border-radius: 15px; /* MODIFIED: Larger border radius for a softer, more modern look */
+    border-radius: 15px; /* Larger border radius for a softer, more modern look */
     
-    /* ADDED: Dark gradient overlay for more depth and text contrast */
+    /* Dark gradient overlay for more depth and text contrast */
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/hero-building.png');
     /* Fallback if image missing */
     background-color: #222; 
@@ -235,14 +237,14 @@ nav {
     z-index: 2;
     text-align: center;
     max-width: 800px;
-    /* ADDED: Initial state for fade-in animation */
+    /* Initial state for fade-in animation */
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInSlideUp 1s ease-out forwards;
     animation-delay: 0.5s; /* Delay for content to appear after background loads */
 }
 
-/* ADDED: Keyframe animation for content */
+/* Keyframe animation for content */
 @keyframes fadeInSlideUp {
     to {
         opacity: 1;
@@ -251,19 +253,19 @@ nav {
 }
 
 .hero-content h1 {
-    font-size: 4.5em; /* MODIFIED: Made H1 larger for more impact */
-    letter-spacing: 3px; /* MODIFIED: Slightly more letter spacing */
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* ADDED: Text shadow for depth */
-    margin-bottom: 20px; /* ADDED: Some space below H1 */
+    font-size: 4.5em; /* Made H1 larger for more impact */
+    letter-spacing: 3px; /* Slightly more letter spacing */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Text shadow for depth */
+    margin-bottom: 20px; /* Some space below H1 */
 }
 
 .hero-subtitle {
-    font-size: 1.4rem; /* MODIFIED: Made subtitle larger */
-    letter-spacing: 5px; /* MODIFIED: More letter spacing for emphasis */
+    font-size: 1.4rem; /* Made subtitle larger */
+    letter-spacing: 5px; /* More letter spacing for emphasis */
     text-transform: uppercase;
     color: var(--accent-color);
-    margin-bottom: 50px; /* MODIFIED: More space below subtitle */
-    font-weight: 600; /* MODIFIED: Made subtitle a bit bolder */
+    margin-bottom: 50px; /* More space below subtitle */
+    font-weight: 600; /* Made subtitle a bit bolder */
 }
 
 .cta-button {
@@ -274,23 +276,17 @@ nav {
 .cta-button:hover {
     background-color: transparent;
     color: var(--accent-color);
-    transform: scale(1.05); /* ADDED: Subtle grow effect on hover */
-    box-shadow: 0 0 15px var(--accent-color); /* ADDED: Glow effect on hover */
+    transform: scale(1.05); /* Subtle grow effect on hover */
+    box-shadow: 0 0 15px var(--accent-color); /* Glow effect on hover */
 }
 
-/* You might want to adjust the padding-top of .full-screen-section if your header height changes */
-/* If the header is 90px (e.g., logo height), you might use: */
-/* .full-screen-section { min-height: calc(100vh - 90px); padding-top: 0; } */
-/* But given your padding-top: 80px;, it implies the 100vh starts from below the header. */
-
-
 /* =========================================
-   7. ABOUT SECTION
+   7. ABOUT SECTION 
    ========================================= */
 
 .about-content {
     display: flex;
-    flex-direction: row-reverse; /* Text left, Image column right */
+    flex-direction: row; /* MODIFIED: Text left, Image column right */
     flex-wrap: wrap;
     align-items: stretch; /* Image column and text block stretch to match taller content */
     gap: 5px 40px; /* 5px vertical space between rows, 40px horizontal space between columns */
@@ -313,6 +309,15 @@ nav {
     object-fit: cover; /* Ensures the image covers the area, cropping if aspect ratio doesn't match */
     box-shadow: 15px 15px 0px rgba(255, 255, 255, 0.05);
     border-radius: 2px;
+    transition: transform 0.3s ease; /* ADDED: Smooth transition for hover effect */
+    position: relative; /* ADDED: To ensure z-index works if needed */
+    z-index: 1; /* ADDED: To bring image forward on hover */
+}
+
+/* Hover effect for all images */
+.about-image:hover {
+    transform: scale(1.05); /* ADDED: Enlarges the image by 5% on hover */
+    z-index: 2; /* ADDED: Brings the hovered image slightly above others */
 }
 
 /* Specific sizing for the two images to make one larger than the other */
@@ -354,29 +359,6 @@ nav {
     color: var(--gray-light); /* Light grey color */
     border-left: 6px solid var(--accent-color);
     padding-left: 15px;
-}
-
-/* Responsive adjustment for image column */
-@media (max-width: 900px) {
-    .about-content {
-        flex-direction: column; /* On mobile, stack normally (text then image column) */
-        text-align: left;
-    }
-    .about-image-column {
-        flex: auto; /* Allow column to size naturally on mobile */
-        max-width: 90%; /* Limit its width */
-        margin: 30px auto 20px auto; /* Center it and add margins */
-        gap: 15px; /* Adjust gap between images on mobile */
-    }
-    .about-image-column .about-image {
-        flex: none; /* No longer force proportional height on mobile */
-        height: auto; /* Let images scale naturally (proportional to their intrinsic ratio) */
-        width: 100%; /* Fill the column width */
-    }
-    .about-content p1 {
-        text-align: left; /* Align citation text left on mobile */
-    }
-    /* ... other mobile styles ... */
 }
 
 /* =========================================
@@ -444,14 +426,6 @@ nav {
     font-size: 1em; /* Slightly smaller for the description text */
     color: var(--gray-light); /* Light grey for descriptions */
     margin-bottom: 0; /* Remove default bottom margin */
-}
-
-/* Responsive adjustments for smaller screens, ensure the grid adapts */
-@media (max-width: 768px) {
-    .innovation-grid {
-        /* On smaller screens, you might want 1 column instead of 2 or 3 */
-        grid-template-columns: 1fr; /* Forces a single column layout */
-    }
 }
 
 /* =========================================
@@ -620,19 +594,23 @@ footer {
     
     /* About Section */
     .about-content {
-        flex-direction: column;
+        flex-direction: column; /* On mobile, stack normally (text then image column) */
         text-align: left; /* Aligned left on mobile */
     }
-    .about-image { 
-        max-width: 90%; /* Adjust image size for mobile */
-        margin-top: 30px;
-        margin-bottom: 20px; /* Space below image when stacked */
-        flex-basis: auto; /* Allow image to size naturally in column layout */
+    .about-image-column {
+        flex: auto; /* Allow column to size naturally on mobile */
+        max-width: 90%; /* Limit its width */
+        margin: 30px auto 20px auto; /* Center it and add margins */
+        gap: 15px; /* Adjust gap between images on mobile */
+    }
+    .about-image-column .about-image {
+        flex: none; /* No longer force proportional height on mobile */
+        height: auto; /* Let images scale naturally (proportional to their intrinsic ratio) */
+        width: 100%; /* Fill the column width */
     }
     .about-content p1 {
         text-align: left; /* Align citation text left on mobile */
     }
-
     /* Section Headers */
     .section-header h2 {
         font-size: 1.4em;
