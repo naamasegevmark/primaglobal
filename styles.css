@@ -177,7 +177,6 @@ nav {
 .nav-links li { margin-left: 30px; }
 .nav-links a { color: var(--secondary-color); font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
 .nav-links a:hover { color: var(--accent-color); }
-
 /* =========================================
    6. HERO SECTION
    ========================================= */
@@ -187,39 +186,81 @@ nav {
     align-items: center;
     justify-content: center;
     position: relative;
-    padding-top: 80px;
+    padding-top: 80px; /* Adjust if your fixed header height changes */
+    overflow: hidden; /* Ensures any subtle animations or shadows don't cause scrollbars */
 }
 
 .hero-background {
     position: absolute;
-    top: 0px;          /* distance from top edge */
-    bottom: 0px;       /* distance from bottom edge */
-    left: 50px;         /* distance from left edge */
-    right: 50px;        /* distance from right edge */
+    top: 20px; /* MODIFIED: Slightly reduce top/bottom offset for more background visibility */
+    bottom: 20px;
+    left: 50px;
+    right: 50px;
     background-size: cover;
     background-position: center;
-    opacity: 0.5;
+    opacity: 0.4; /* MODIFIED: Slightly darker background for better text contrast */
     z-index: 0;
-    border-radius: 4px; /* optional: soften corners */
+    border-radius: 15px; /* MODIFIED: Larger border radius for a softer, more modern look */
+    
+    /* ADDED: Dark gradient overlay for more depth and text contrast */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/hero-building.png');
+    /* Fallback if image missing */
+    background-color: #222; 
 }
-
-/* Fallback if image missing */
-.hero-background { background-color: #222; }
 
 .hero-content {
     position: relative;
     z-index: 2;
     text-align: center;
     max-width: 800px;
+    /* ADDED: Initial state for fade-in animation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp 1s ease-out forwards;
+    animation-delay: 0.5s; /* Delay for content to appear after background loads */
+}
+
+/* ADDED: Keyframe animation for content */
+@keyframes fadeInSlideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content h1 {
+    font-size: 4.5em; /* MODIFIED: Made H1 larger for more impact */
+    letter-spacing: 3px; /* MODIFIED: Slightly more letter spacing */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* ADDED: Text shadow for depth */
+    margin-bottom: 20px; /* ADDED: Some space below H1 */
 }
 
 .hero-subtitle {
-    font-size: 1.2rem;
-    letter-spacing: 4px;
+    font-size: 1.4rem; /* MODIFIED: Made subtitle larger */
+    letter-spacing: 5px; /* MODIFIED: More letter spacing for emphasis */
     text-transform: uppercase;
     color: var(--accent-color);
-    margin-bottom: 40px;
+    margin-bottom: 50px; /* MODIFIED: More space below subtitle */
+    font-weight: 600; /* MODIFIED: Made subtitle a bit bolder */
 }
+
+.cta-button {
+    /* Existing CTA styles are good, but you might want to add a subtle hover */
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: transparent;
+    color: var(--accent-color);
+    transform: scale(1.05); /* ADDED: Subtle grow effect on hover */
+    box-shadow: 0 0 15px var(--accent-color); /* ADDED: Glow effect on hover */
+}
+
+/* You might want to adjust the padding-top of .full-screen-section if your header height changes */
+/* If the header is 90px (e.g., logo height), you might use: */
+/* .full-screen-section { min-height: calc(100vh - 90px); padding-top: 0; } */
+/* But given your padding-top: 80px;, it implies the 100vh starts from below the header. */
+
 
 /* =========================================
    7. ABOUT SECTION 
