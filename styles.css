@@ -259,7 +259,7 @@ nav {
     
     /* Citation Styling: Italic, Thin, Yellow Line */
     /*font-style: italic; /* Keeps the text italic */
-    font-family: 'Merriweather'; /*var(--font-secondary); /* ADDED: Serif font (Playfair Display) */
+    font-family: 'PT Serif'; /*var(--font-secondary); /* ADDED: Serif font (Playfair Display) */
     font-weight: 400;   
     font-size: 1.8em;
     color: var(--gray-light); /* Light grey color */
