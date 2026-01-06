@@ -194,7 +194,7 @@ nav {
     font-weight: 600;
     transition: color 0.3s ease, transform 0.3s ease; /* Smooth animation for color and size */
     display: inline-block; /* Crucial for transform: scale to work correctly */
-    transform-origin: left center; /* Scales from the left, keeping links aligned */
+    transform-origin: center; /* Scales from the left, keeping links aligned */
 }
 .nav-links a:hover {
     color: var(--accent-color); /* Changes text color to yellow on hover */
