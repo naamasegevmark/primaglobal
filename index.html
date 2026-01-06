@@ -63,26 +63,28 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
         </section>
         
-     <!-- About Prima Section -->
+          <!-- About Prima Section -->
            <section id="about" class="container black-bg section-padding">
            <div class="section-header">
-           <h2>ABOUT PRIMA GLOBAL</h2>
+           <h2>ABOUT PRIMA</h2>
            </div>
            <div class="about-content">
-              <!-- 1. The Image -->
-                <img src="images/Prima-about.jpg" alt="Modern Cladding Building" class="about-image">
-        
-             <!-- 2. The Text Paragraphs (Top Right) -->
+              <!-- 1. The Text Paragraphs (Left Column) -->
              <div class="about-text">
-        
-               <p><strong>Prima Global </strong> emerged from a fundamental need to drive innovation within the building cladding sector. Our mission is to engineer exteriors that embody both resilience and accuracy. </p>
-               <p>We have developed a groundbreaking <strong> construction methodology </strong> that replaces traditional, often cumbersome techniques with a streamlined, high-performance approach.</p> 
-               <p>Our industrial, pre-cast cladding system combines aesthetic design flexibility with uncompromising structural integrity.</p>
-               <p>Our <strong>patented solution</strong> represents the pinnacle of advanced engineering and operational efficiency. Designed to meet the highest global standards of safety, sustainability and durability, Prima Global ensures long-term value and architectural excellence for every project.</p>
+               <p><strong>Prima Global</strong> emerged from a fundamental need to drive innovation within the building cladding sector. Our mission is to engineer exteriors that embody both resilience and surgical accuracy.</p>
+               <p>We developed a new construction method that replaces traditional, cumbersome techniques with a streamlined, high-performance approach.</p>
+               <p><strong>We developed industrial, pre-cast cladding system that deliver both design flexibility and structural performance.</strong></p> 
+               <p>Our patented system Solution combines advanced engineering and efficiency to meet top standards of safety, sustainability, durability and cost-effectiveness. </p>
             </div>
 
-            <!-- 3. The P1 Text (Moved OUTSIDE the div above so it can go underneath everything) -->
-            <p1>At Prima Global we go beyond simply supplying panels, we deliver a new standard.</p1>
+            <!-- NEW: Container for the images (this will be the flex item that sits right of text) -->
+            <div class="about-image-column">
+                <img src="images/Prima-about.jpg" alt="Modern Cladding Building" class="about-image">
+                <img src="images/Prima-about.png" alt="Another building image" class="about-image secondary-image"> <!-- ADDED: Second image -->
+            </div>
+
+            <!-- 3. The P1 Text (Still full width underneath) -->
+            <p1>At Prima Global we go beyond simply supplying panels, we deliver a new standard for building cladding systems.</p1>
             </div>
 </section>
 
