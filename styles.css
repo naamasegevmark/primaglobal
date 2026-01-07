@@ -410,10 +410,10 @@ nav {
 
 /* Specific background images for each item */
 .innovation-item.item-1 {
-    background-image: url('images/innovation2.jpeg'); /* REPLACE with your actual image path */
+    background-image: url('images/innovation11.jpg'); /* REPLACE with your actual image path */
 }
 .innovation-item.item-2 {
-    background-image: url('images/innovation11.jpg'); /* REPLACE with your actual image path */
+    background-image: url('images/innovation2.jpeg'); /* REPLACE with your actual image path */
 }
 .innovation-item.item-3 {
     background-image: url('images/innovation11.jpg'); /* REPLACE with your actual image path */
