@@ -390,43 +390,86 @@ nav {
     gap: 30px; /* Space between the grid items (cards) */
 }
 
-.innovation-item { /* Each individual service card */
-    background: var(--gray-dark); /* Dark grey background for the card */
-    padding: 30px;
+.innovation-item { /* Each individual service card now acts as an image container */
+    position: relative; /* Needed for absolute positioning of the overlay */
+    overflow: hidden; /* Ensures overlay content doesn't spill out */
+    min-height: 300px; /* Gives the image-card a minimum height */
+    background-size: cover; /* Makes the background image cover the entire item */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat;
     border: 1px solid #333; /* Subtle border */
     border-radius: 5px; /* Slightly rounded corners */
-    text-align: center; /* Centers icon, title, and text within the card */
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+    cursor: pointer; /* Indicates it's interactive */
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Subtle initial shadow */
+    
+    /* Initially apply a slight dark overlay to make text pop when visible */
+    background-color: rgba(0, 0, 0, 0.2); 
+    background-blend-mode: multiply; /* Blends the color with the image */
 }
+
+/* Specific background images for each item */
+.innovation-item.item-1 {
+    background-image: url('images/innovation-visual-1.jpg'); /* REPLACE with your actual image path */
+}
+.innovation-item.item-2 {
+    background-image: url('images/innovation-visual-2.jpg'); /* REPLACE with your actual image path */
+}
+.innovation-item.item-3 {
+    background-image: url('images/innovation-visual-3.jpg'); /* REPLACE with your actual image path */
+}
+
 
 .innovation-item:hover {
     transform: translateY(-8px); /* Card lifts up on hover */
     border-color: var(--accent-color); /* Border highlights yellow on hover */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Shadow becomes more pronounced */
+    background-color: rgba(0, 0, 0, 0.0); /* Remove the slight dark overlay on hover */
 }
 
-.innovation-icon {
-    width: 60px; /* Size of the icon */
-    height: 60px;
-    margin: 0 auto 20px auto; /* Centers the icon and adds space below it */
-    filter: brightness(0) invert(1) grayscale(1); /* Optional: If icons are black, this makes them white */
-    /* If your icons are already white/light, you can remove the filter line */
+/* Styles for the overlay that appears on hover */
+.innovation-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Dark, semi-transparent background for text */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    opacity: 0; /* Hidden by default */
+    transform: translateY(100%); /* Start off-screen at the bottom */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition for appearance */
 }
 
-.innovation-item h4 {
-    font-family: var(--font-secondary); /* Use Playfair Display for the title */
-    font-size: 1.6rem; /* Size of the item title */
-    color: var(--secondary-color); /* White color for the title */
-    margin-top: 0; /* Remove default top margin */
-    margin-bottom: 10px; /* Space between title and description */
+.innovation-item:hover .innovation-overlay {
+    opacity: 1; /* Fully visible on hover */
+    transform: translateY(0); /* Slides into view */
 }
 
-.innovation-item p {
-    font-size: 1em; /* Slightly smaller for the description text */
-    color: var(--gray-light); /* Light grey for descriptions */
-    margin-bottom: 0; /* Remove default bottom margin */
+/* Styling for the text elements inside the overlay */
+.innovation-overlay h4 {
+    font-family: var(--font-secondary);
+    font-size: 1.8rem; /* Slightly larger title for impact */
+    color: var(--accent-color); /* Gold color for the title */
+    margin-top: 0;
+    margin-bottom: 15px; /* More space below title */
 }
+
+.innovation-overlay p {
+    font-size: 1.1em; /* Clear and readable text size */
+    color: var(--secondary-color); /* White color for the description */
+    margin-bottom: 0;
+}
+
+
+/* REMOVED: .innovation-icon styles are no longer needed */
+/* The previous .innovation-item h4 and .innovation-item p selectors are replaced by .innovation-overlay h4 and .innovation-overlay p */
+
 
 /* =========================================
    9. TECHNICAL & DESIGN GRIDS
@@ -622,6 +665,11 @@ footer {
     /* Typography */
     h1 { font-size: 2.5em; }
     
+    /* Innovation Section: Adjust min-height for hover cards on mobile */
+    .innovation-item {
+        min-height: 250px; /* Slightly reduce height on smaller screens */
+    }
+
     /* Grids */
     .specs-grid, .design-grid { grid-template-columns: 1fr; }
 }
