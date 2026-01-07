@@ -297,7 +297,7 @@ nav {
 .about-image-column {
     display: flex; /* Makes this a flex container itself */
     flex-direction: column; /* Stacks its children (images) vertically */
-    flex: 0 0 350px; /* This column will have a fixed width for the images */
+    flex: 0 0 400px; /* This column will have a fixed width for the images */
     max-width: 50%; /* Ensures it doesn't get too wide on large screens */
     gap: 20px; /* Space between the two images stacked vertically */
 }
@@ -336,7 +336,7 @@ nav {
 }
 
 .about-text p {
-    font-size: 1.2em; /* Adjusted font size */
+    font-size: 1.0em; /* Adjusted font size */
     margin-bottom: 20px;
 }
 
