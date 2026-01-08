@@ -64,21 +64,24 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
         </section>
         
-        <!-- NEW SECTION: The Future of Facades -->
+        <!-- NEW SECTION: The Future of Facades (Interactive Comparison) -->
         <section id="future-facades" class="container black-bg section-padding text-center">
             <div class="section-header">
                 <h2>The Future of Façades: Lighter. Faster. Safer.</h2>
             </div>
-            <div class="product-comparison-grid">
-                <div class="comparison-item">
-                    <!-- REPLACE with your actual image path for 'without product' -->
-                    <img src="images/without.jpeg" alt="Does this image reminds you of your costruction site?">
-                    <h3>Without the Product</h3>
-                </div>
-                <div class="comparison-item">
-                    <!-- REPLACE with your actual image path for 'with product' -->
-                    <img src="images/with.jpeg" alt="This is how it will look like with Prima Global">
-                    <h3>With the Product</h3>
+            <div class="product-comparison-container">
+                <div class="product-comparison-card">
+                    <!-- Initial state: "Without the Product" -->
+                    <div class="comparison-state comparison-state-without">
+                        <img src="images/without.jpeg" alt="Does this image remind you of your construction site?" class="comparison-image">
+                        <h3 class="comparison-title">Without the Product</h3>
+                    </div>
+
+                    <!-- Overlay state: "With the Product" - hidden by default, shown on hover -->
+                    <div class="comparison-state comparison-state-with">
+                        <img src="images/with.jpeg" alt="This is how it will look like with Prima Global" class="comparison-image">
+                        <h3 class="comparison-title">With the Product</h3>
+                    </div>
                 </div>
             </div>
         </section>
