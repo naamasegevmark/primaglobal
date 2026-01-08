@@ -64,21 +64,37 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
         </section>
         
-        <!-- NEW SECTION: The Future of Facades -->
+        <!-- NEW SECTION: The Future of Facades (Click Interaction) -->
         <section id="future-facades" class="container black-bg section-padding text-center">
             <div class="section-header">
                 <h2>The Future of Façades: Lighter. Faster. Safer.</h2>
             </div>
-            <div class="product-comparison-grid">
-                <div class="comparison-item">
-                    <!-- REPLACE with your actual image path for 'without product' -->
-                    <img src="images/without.jpeg" alt="Building facade without Prima Global product">
-                    <h3>Is this image reminds you of your construction site? </h3>
+            
+            <div class="comparison-container" id="comparisonContainer">
+                <!-- State 1: Without Product (Visible initially) -->
+                <div class="comparison-state state-before" id="stateBefore">
+                    <!-- Title ABOVE image -->
+                    <div class="comparison-text-top">
+                        <h3>Does this image remind you of your construction site?</h3>
+                    </div>
+                    <div class="image-wrapper">
+                        <img src="images/without.jpeg" alt="Construction site without Prima Global">
+                        <!-- The Reveal Button -->
+                        <button class="reveal-button" onclick="toggleComparison()">See the Solution &rarr;</button>
+                    </div>
                 </div>
-                <div class="comparison-item">
-                    <!-- REPLACE with your actual image path for 'with product' -->
-                    <img src="images/with.jpeg" alt="Building facade with Prima Global product">
-                    <h3>This is how it will look lite with PRIMA GLOBAL</h3>
+
+                <!-- State 2: With Product (Hidden initially) -->
+                <div class="comparison-state state-after" id="stateAfter">
+                    <div class="image-wrapper">
+                        <img src="images/with.jpeg" alt="Construction site with Prima Global">
+                        <!-- Button to go back (optional, mostly for UX) -->
+                        <button class="reveal-button back-button" onclick="toggleComparison()">&larr; Back</button>
+                    </div>
+                    <!-- Title BELOW image -->
+                    <div class="comparison-text-bottom">
+                        <h3>This is how it will look with PRIMA GLOBAL</h3>
+                    </div>
                 </div>
             </div>
         </section>
@@ -122,19 +138,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="innovation-item item-1">
                     <div class="innovation-overlay">
                         <h4>Detailed Engineering Design</h4>
-                        <p>Custom-tailored solutions are at the core of our service. Our expert engineering design is crafted precisely to bring every unique architectural vision and aspiration to life, ensuring optimal performance and aesthetics.</p>
+                        <p>Custom-tailored engineering design, crafted precisely to bring every unique architectural vision and aspiration to life, ensuring optimal performance and aesthetics.</p>
                     </div>
                 </div>
                 <div class="innovation-item item-2">
                     <div class="innovation-overlay">
                         <h4>Flexible Installation Methods</h4>
-                        <p>We provide two highly efficient installation approaches. Clients can choose between integrating our modules alongside the primary structure during construction or applying them after the main structural work is complete, offering maximum project flexibility and adaptability.</p>
+                        <p>Choose between two efficient installation approaches – integrating during construction or applying after – for maximum project flexibility and adaptability.</p>
                     </div>
                 </div>
                 <div class="innovation-item item-3">
                     <div class="innovation-overlay">
                         <h4>Eco-Friendly Solutions</h4>
-                        <p>Our deep commitment to sustainability is reflected in our modules. They utilize <strong>30% less concrete</strong> compared to traditional methods, significantly reducing the carbon footprint. Furthermore, all components are <strong>locally manufactured</strong>, which supports regional economies and minimizes transportation emissions, contributing to a greener construction process.</p>
+                        <p>Committed to sustainability, our modules use 30% less concrete, significantly reducing carbon footprint. All components are locally manufactured, boosting economies and cutting emissions for a greener construction.</p>
                     </div>
                 </div>
             </div> <!-- End innovation-grid -->
@@ -287,5 +303,14 @@ document.addEventListener('DOMContentLoaded', function () {
             <p>&copy; 2025 Prima Global. All rights reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
         </div>
     </footer>
+
+    <!-- SCRIPT FOR COMPARISON TOGGLE -->
+    <script>
+        function toggleComparison() {
+            const container = document.getElementById('comparisonContainer');
+            // Toggle the 'revealed' class on the container
+            container.classList.toggle('revealed');
+        }
+    </script>
 </body>
 </html>
