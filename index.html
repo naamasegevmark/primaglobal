@@ -59,33 +59,10 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="hero-content container text-center">
                 <h1>PRIMA CLADDING SYSTEM</h1>
                 <p class="hero-subtitle">DESIGNED TO INSPIRE</p>
-                <!-- UPDATED CTA BUTTON HREF -->
-                <a href="#future-facades" class="cta-button">Discover Our Innovation</a>
+                <a href="#about" class="cta-button">Discover Our Innovation</a>
             </div>
         </section>
         
-        <!-- NEW SECTION: The Future of Facades (Interactive Comparison) -->
-        <section id="future-facades" class="container black-bg section-padding text-center">
-            <div class="section-header">
-                <h2>The Future of Façades: Lighter. Faster. Safer.</h2>
-            </div>
-            <div class="product-comparison-container">
-                <div class="product-comparison-card">
-                    <!-- Initial state: "Without the Product" -->
-                    <div class="comparison-state comparison-state-without">
-                        <img src="images/without.jpeg" alt="Does this image remind you of your construction site?" class="comparison-image">
-                        <h3 class="comparison-title">Without the Product</h3>
-                    </div>
-
-                    <!-- Overlay state: "With the Product" - hidden by default, shown on hover -->
-                    <div class="comparison-state comparison-state-with">
-                        <img src="images/with.jpeg" alt="This is how it will look like with Prima Global" class="comparison-image">
-                        <h3 class="comparison-title">With the Product</h3>
-                    </div>
-                </div>
-            </div>
-        </section>
-
               <!-- About Prima Section -->
            <section id="about" class="container black-bg section-padding">
            <div class="section-header">
@@ -95,9 +72,9 @@ document.addEventListener('DOMContentLoaded', function () {
               <!-- 1. The Text Paragraphs (Left Column) -->
              <div class="about-text">
                <p><strong>Prima Global</strong> emerged from a fundamental need to drive innovation within the building cladding sector. Our mission is to engineer exteriors that embody both resilience and accuracy.</p>
-               <p>We developed a new construction method that replaces traditional, cumbersome techniques with a streamlined, high-performance approach.</p>
+               <p>We developed a <strong>new construction method</strong> that replaces traditional, cumbersome techniques with a streamlined, high-performance approach.</p>
                <p>We offer <strong>industrial, pre-cast U/HPC cladding system</strong> that deliver both design flexibility and structural performance.</p> 
-               <p>Our patented system solution combines advanced engineering and efficiency to meet top standards of safety, sustainability, durability and cost-effectiveness. </p>
+               <p>Our <strong>patented</strong> system solution combines advanced engineering and efficiency to meet top standards of safety, sustainability, durability and cost-effectiveness. </p>
             </div>
 
             <!-- This is the container for your images, which will sit to the right of the text -->
@@ -122,21 +99,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
             <h3>WHAT DO WE OFFER YOU?</h3>
                 <h3> The Future of Façades: Lighter. Faster. Safer.</h3>
-            <div class="innovation-grid"> <!-- CHANGED: ul to div, class changed to innovation-grid -->
-                <div class="innovation-item"> <!-- CHANGED: li to div, class changed to innovation-item -->
-                    <img src="images/innovation1.jpg" alt="Detailed Engineering Design Icon" class="innovation-icon">
-                    <h4>Detailed Engineering Design</h4>
-                    <p>Custom-tailored solutions are at the core of our service. Our expert engineering design is crafted precisely to bring every unique architectural vision and aspiration to life, ensuring optimal performance and aesthetics.</p>
+            <div class="innovation-grid">
+                <div class="innovation-item item-1">
+                    <div class="innovation-overlay">
+                        <h4>Detailed Engineering Design</h4>
+                        <p>Custom-tailored engineering design, crafted precisely to bring every unique architectural vision and aspiration to life, ensuring optimal performance and aesthetics.</p>
+                    </div>
                 </div>
-                <div class="innovation-item"> <!-- CHANGED: li to div, class changed to innovation-item -->
-                    <img src="images/icon-installation.png" alt="Flexible Installation Methods Icon" class="innovation-icon">
-                    <h4>Flexible Installation Methods</h4>
-                    <p>We provide two highly efficient installation approaches. Clients can choose between integrating our modules <strong>alongside the primary structure</strong> during construction or applying them <strong>after</strong> the main structural work is complete, offering maximum project flexibility and adaptability.</p>
+                <div class="innovation-item item-2">
+                    <div class="innovation-overlay">
+                        <h4>Flexible Installation Methods</h4>
+                        <p>Choose between two efficient installation approaches – integrating during construction or applying after – for maximum project flexibility and adaptability.</p>
+                    </div>
                 </div>
-                <div class="innovation-item"> <!-- CHANGED: li to div, class changed to innovation-item -->
-                    <img src="images/icon-eco.png" alt="Eco-Friendly Solutions Icon" class="innovation-icon">
-                    <h4>Eco-Friendly Solutions</h4>
-                    <p>Our deep commitment to sustainability is reflected in our modules. They utilize <strong>30% less concrete</strong> compared to traditional methods, significantly reducing the carbon footprint. Furthermore, all components are <strong>locally manufactured</strong>, which supports regional economies and minimizes transportation emissions, contributing to a greener construction process.</p>
+                <div class="innovation-item item-3">
+                    <div class="innovation-overlay">
+                        <h4>Eco-Friendly Solutions</h4>
+                        <p>Committed to sustainability, our modules use 30% less concrete, significantly reducing carbon footprint. All components are locally manufactured, boosting economies and cutting emissions for a greener construction.</p>
+                    </div>
                 </div>
             </div> <!-- End innovation-grid -->
         </section>
