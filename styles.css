@@ -362,15 +362,16 @@ nav {
 }
 
 /* =========================================
-   7.1. FUTURE FACADES SECTION (Interactive Click)
+   7.1. FUTURE FACADES SECTION (Interactive Click - Refined)
    ========================================= */
 
 .comparison-container {
     position: relative;
-    max-width: 700px; /* Adjusted max-width for smaller image presentation */
+    max-width: 650px; /* Adjust for a slightly larger, but still contained, card */
     margin: 40px auto;
-    /* Min-height needs to accommodate the image-card + padding + titles */
-    min-height: 550px; 
+    /* Min-height needs to accommodate the image-card + padding + titles + buttons */
+    /* Approx: 350px (image) + 2*20px (card padding) + 2*title height + 2*button height + margins */
+    min-height: 600px; 
 }
 
 /* Shared styling for both states to stack them on top of each other */
@@ -379,11 +380,11 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    /* Flexbox used to center the image-card vertically within its state */
+    height: 100%; /* Important for absolute positioning to cover entire container */
     display: flex;
-    flex-direction: column; /* Stack image and any additional text/buttons */
-    align-items: center; /* Center horizontally */
-    justify-content: center; /* Center vertically if space allows */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centers the whole content block vertically */
     transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 }
 
@@ -399,7 +400,7 @@ nav {
 .state-after {
     opacity: 0;
     visibility: hidden;
-    z-index: 5; /* Lower z-index so 'before' covers it when both have opacity > 0 */
+    z-index: 5;
 }
 
 /* When 'revealed' class is added to container via JS: Flip visibility */
@@ -416,73 +417,66 @@ nav {
 
 /* --- IMAGE CARD STYLING --- */
 .image-card {
-    position: relative; /* Crucial for absolute positioning of title overlays and button */
     background-color: var(--gray-dark);
-    padding: 0; /* No padding directly on image-card, padding handled by title boxes */
+    padding: 0; /* No padding here, image fills it */
     border-radius: 5px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    width: 100%;
-    /* Fixed aspect ratio or height for images to ensure consistent size */
-    height: 400px; /* Reduced image height for better detail visibility */
-    overflow: hidden; /* Ensures title boxes/buttons don't spill out */
-    margin-bottom: 0; /* Remove default margin from last element */
+    width: 100%; /* Image card takes full width of comparison-container */
+    height: 350px; /* Fixed height for image. Reduced from 400px */
+    overflow: hidden;
+    margin-top: 20px; /* Space between top title box and image */
+    margin-bottom: 20px; /* Space between image and button/bottom title */
+    display: flex; /* Helps ensure image fills it without extra space */
+    justify-content: center;
+    align-items: center;
 }
 
 .image-card img {
     width: 100%;
-    height: 100%; /* Image fills the image-card container */
+    height: 100%;
     object-fit: cover;
     display: block;
     border-radius: 3px;
-    filter: brightness(0.6); /* Darken image for better text readability */
+    filter: brightness(0.7); /* Slightly less dark, to show more detail */
 }
 
-/* --- TITLE OVERLAY STYLING --- */
-.image-title-overlay-top-left,
-.image-title-overlay-bottom {
-    position: absolute;
-    padding: 10px 15px;
-    border-radius: 3px;
-    z-index: 20; /* Ensure titles are above the image */
-    max-width: calc(100% - 30px); /* Account for padding */
+/* --- TITLE BOX STYLING --- */
+.comparison-title-box {
+    width: 100%; /* Takes full width */
+    padding: 15px 20px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
-.image-title-overlay-top-left {
-    top: 15px;
-    left: 15px;
+.comparison-title-box h3 {
+    font-family: var(--font-primary);
+    font-size: 1.3em; /* Slightly smaller for better fit */
+    margin: 0; /* Remove default margins from h3 */
+    line-height: 1.3;
+}
+
+/* Specific styling for the 'Without' title box (gray with black text) */
+.title-box-gray {
     background-color: var(--gray-light); /* Light grey box */
 }
-
-.image-title-overlay-top-left h3 {
+.title-box-gray h3 {
     color: var(--primary-black); /* Black text */
-    font-family: var(--font-primary); /* Using primary font for these labels */
-    font-size: 1.1em;
-    margin: 0; /* Remove default margins from h3 */
-    text-align: left;
 }
 
-.image-title-overlay-bottom {
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
+/* Specific styling for the 'With' title box (yellow with black text) */
+.title-box-yellow {
     background-color: var(--accent-color); /* Bright yellow box */
+}
+.title-box-yellow h3 {
     color: var(--primary-black); /* Black text */
 }
 
-.image-title-overlay-bottom h3 {
-    color: var(--primary-black); /* Black text */
-    font-family: var(--font-primary);
-    font-size: 1.1em;
-    margin: 0; /* Remove default margins from h3 */
-    text-align: center;
-}
 
-
-/* --- BUTTON STYLING (UNCHANGED DESIGN, JUST POSITIONING) --- */
+/* --- BUTTON STYLING (DESIGN REMAINS, POSITIONING ADJUSTED) --- */
 .reveal-button {
-    position: absolute; /* Positioned relative to .image-card */
-    bottom: 15px; /* Aligned with the bottom padding of the image card */
-    right: 15px; /* Aligned with the right padding of the image card */
+    /* No absolute positioning needed here, flex parent handles it */
+    margin-top: 20px; /* Space between image-card/title and button */
     background-color: transparent;
     color: var(--accent-color);
     font-family: var(--font-primary);
@@ -497,7 +491,7 @@ nav {
     transition: all 0.3s ease;
     outline: none;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    z-index: 20; /* Ensure button is above the image */
+    z-index: 20; /* Ensure button is above other content in case of overlap */
 }
 
 .reveal-button:hover {
@@ -507,10 +501,8 @@ nav {
     box-shadow: 0 6px 15px rgba(255, 215, 0, 0.2); /* Golden glow */
 }
 
-/* Back button specific style (optional tweak) */
+/* Back button specific style */
 .back-button {
-    left: 15px; /* Positioned left */
-    right: auto; /* Override right:15px from .reveal-button */
     border-color: #555;
     color: #888;
 }
@@ -526,20 +518,20 @@ nav {
 @media (max-width: 600px) {
     .comparison-container {
         max-width: 90%; /* Allow it to take more width on small screens */
-        min-height: 480px; /* Adjust min-height for mobile */
+        min-height: 500px; /* Adjusted min-height for mobile */
     }
     .image-card {
-        height: 300px; /* Smaller image height on mobile */
+        height: 250px; /* Smaller image height on mobile */
     }
-    .image-title-overlay-top-left h3,
-    .image-title-overlay-bottom h3 {
-        font-size: 1em; /* Smaller text on mobile */
+    .comparison-title-box h3 {
+        font-size: 1.1em; /* Smaller text on mobile */
     }
     .reveal-button {
         font-size: 0.8em;
         padding: 10px 20px;
     }
 }
+
 /* =========================================
    8. INNOVATION SECTION 
    ========================================= */
