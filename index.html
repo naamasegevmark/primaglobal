@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
         </section>
         
-                      <!-- NEW SECTION: The Future of Facades (Click Interaction) -->
+                             <!-- NEW SECTION: The Future of Façades (Click Interaction - Refined) -->
         <section id="future-facades" class="container black-bg section-padding text-center">
             <div class="section-header">
                 <h2>The Future of Façades: Lighter. Faster. Safer.</h2>
@@ -75,28 +75,24 @@ document.addEventListener('DOMContentLoaded', function () {
                 
                 <!-- State 1: Without Product (Visible initially) -->
                 <div class="comparison-state state-before">
+                    <div class="comparison-title-box title-box-gray">
+                        <h3>Does this image remind you of your construction site?</h3>
+                    </div>
                     <div class="image-card">
                         <img src="images/without.jpeg" alt="Construction site without Prima Global">
-                        <!-- Title for 'Without' image - positioned top-left -->
-                        <div class="image-title-overlay-top-left">
-                            <h3>Does this image remind you of your construction site?</h3>
-                        </div>
-                        <!-- Button to reveal 'With' image - positioned bottom-right -->
-                        <button class="reveal-button" onclick="toggleComparison()">See the Solution</button>
                     </div>
+                    <button class="reveal-button" onclick="toggleComparison()">YES!</button>
                 </div>
 
                 <!-- State 2: With Product (Hidden initially) -->
                 <div class="comparison-state state-after">
                     <div class="image-card">
                         <img src="images/with.jpeg" alt="Construction site with Prima Global">
-                        <!-- Title for 'With' image - positioned at bottom -->
-                        <div class="image-title-overlay-bottom">
-                            <h3>This is how it will look with PRIMA GLOBAL</h3>
-                        </div>
-                        <!-- Button to go back - positioned bottom-left -->
-                        <button class="reveal-button back-button" onclick="toggleComparison()">Back</button>
                     </div>
+                    <div class="comparison-title-box title-box-yellow">
+                        <h3>This is how it will look with PRIMA GLOBAL</h3>
+                    </div>
+                    <button class="reveal-button back-button" onclick="toggleComparison()">Back</button>
                 </div>
 
             </div>
