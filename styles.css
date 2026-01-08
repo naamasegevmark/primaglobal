@@ -362,95 +362,10 @@ nav {
 }
 
 /* =========================================
-   7.1. FUTURE FACADES SECTION (Interactive Comparison)
-   ========================================= */
-.product-comparison-container {
-    max-width: 700px; /* Adjust max-width for the single comparison card */
-    margin: 50px auto; /* Center the card and provide vertical space */
-    border-radius: 5px;
-    overflow: hidden; /* Ensures content inside stays within bounds */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    position: relative; /* Needed for positioning the card's content */
-}
-
-.product-comparison-card {
-    position: relative;
-    width: 100%;
-    height: 400px; /* Fixed height for the card. Adjust as needed */
-    transition: transform 0.3s ease; /* For subtle lift effect on hover */
-}
-
-.product-comparison-card:hover {
-    transform: translateY(-8px); /* Card lifts up on hover */
-    /* Add a subtle border or shadow change if desired */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-}
-
-.comparison-state {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Vertically center content */
-    align-items: center; /* Horizontally center content */
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    padding: 20px;
-    text-align: center;
-}
-
-.comparison-state-without {
-    opacity: 1;
-    visibility: visible;
-    z-index: 1; /* Ensures it's visible by default */
-}
-
-.comparison-state-with {
-    opacity: 0;
-    visibility: hidden;
-    z-index: 2; /* Will appear above 'without' state on hover */
-}
-
-.product-comparison-card:hover .comparison-state-without {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.product-comparison-card:hover .comparison-state-with {
-    opacity: 1;
-    visibility: visible;
-}
-
-.comparison-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1; /* Place image behind text */
-    filter: brightness(0.5); /* Darken image for better text readability */
-}
-
-.comparison-title {
-    position: relative; /* Ensures title is above the darkened image */
-    z-index: 1;
-    color: var(--secondary-color); /* White text */
-    font-family: var(--font-primary);
-    font-weight: 600;
-    font-size: 1.6em; /* Adjust title size */
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.9); /* Add text shadow for contrast */
-    margin: 0; /* Remove default margin */
-}
-
-/* =========================================
    8. INNOVATION SECTION 
    ========================================= */
 .innovation-intro-text {
-    max-width: 1500px;
+    max-width: 1800px;
     margin: 0 auto 40px auto; /* Centers the intro text and adds bottom margin */
     text-align: center; /* Centers the text within its max-width */
 }
@@ -475,44 +390,86 @@ nav {
     gap: 30px; /* Space between the grid items (cards) */
 }
 
-.innovation-item { /* Each individual service card */
-    background: var(--gray-dark); /* Dark grey background for the card */
-    padding: 30px;
+.innovation-item { /* Each individual service card now acts as an image container */
+    position: relative; /* Needed for absolute positioning of the overlay */
+    overflow: hidden; /* Ensures overlay content doesn't spill out */
+    min-height: 300px; /* Gives the image-card a minimum height */
+    background-size: cover; /* Makes the background image cover the entire item */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat;
     border: 1px solid #333; /* Subtle border */
     border-radius: 5px; /* Slightly rounded corners */
-    text-align: center; /* Centers icon, title, and text within the card */
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+    cursor: pointer; /* Indicates it's interactive */
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Subtle initial shadow */
-    min-height: 300px; /* Ensures consistent height across items */
+    
+    /* Initially apply a slight dark overlay to make text pop when visible */
+    background-color: rgba(0, 0, 0, 0.2); 
+    background-blend-mode: multiply; /* Blends the color with the image */
 }
+
+/* Specific background images for each item */
+.innovation-item.item-1 {
+    background-image: url('images/innovation11.jpg'); /* REPLACE with your actual image path */
+}
+.innovation-item.item-2 {
+    background-image: url('images/innovation2.jpeg'); /* REPLACE with your actual image path */
+}
+.innovation-item.item-3 {
+    background-image: url('images/innovation3.jpg'); /* REPLACE with your actual image path */
+}
+
 
 .innovation-item:hover {
     transform: translateY(-8px); /* Card lifts up on hover */
     border-color: var(--accent-color); /* Border highlights yellow on hover */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Shadow becomes more pronounced */
+    background-color: rgba(0, 0, 0, 0.0); /* Remove the slight dark overlay on hover */
 }
 
-.innovation-icon {
-    width: 60px; /* Size of the icon */
-    height: 60px;
-    margin: 0 auto 20px auto; /* Centers the icon and adds space below it */
-    filter: brightness(0) invert(1) grayscale(1); /* Optional: If icons are black, this makes them white */
-    /* If your icons are already white/light, you can remove the filter line */
+/* Styles for the overlay that appears on hover */
+.innovation-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Dark, semi-transparent background for text */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    opacity: 0; /* Hidden by default */
+    transform: translateY(100%); /* Start off-screen at the bottom */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition for appearance */
 }
 
-.innovation-item h4 {
-    font-family: var(--font-secondary); /* Use Playfair Display for the title */
-    font-size: 1.6rem; /* Size of the item title */
-    color: var(--secondary-color); /* White color for the title */
-    margin-top: 0; /* Remove default top margin */
-    margin-bottom: 10px; /* Space between title and description */
+.innovation-item:hover .innovation-overlay {
+    opacity: 1; /* Fully visible on hover */
+    transform: translateY(0); /* Slides into view */
 }
 
-.innovation-item p {
-    font-size: 1em; /* Slightly smaller for the description text */
-    color: var(--gray-light); /* Light grey for descriptions */
-    margin-bottom: 0; /* Remove default bottom margin */
+/* Styling for the text elements inside the overlay */
+.innovation-overlay h4 {
+    font-family: var(--font-secondary);
+    font-size: 1.6rem; /* Slightly larger title for impact */
+    color: var(--accent-color); /* Gold color for the title */
+    margin-top: 0;
+    margin-bottom: 6px; /* More space below title */
 }
+
+.innovation-overlay p {
+    font-size: 1.1em; /* Clear and readable text size */
+    color: var(--secondary-color); /* White color for the description */
+    margin-bottom: 0;
+}
+
+
+/* REMOVED: .innovation-icon styles are no longer needed */
+/* The previous .innovation-item h4 and .innovation-item p selectors are replaced by .innovation-overlay h4 and .innovation-overlay p */
+
 
 /* =========================================
    9. TECHNICAL & DESIGN GRIDS
@@ -707,21 +664,13 @@ footer {
     
     /* Typography */
     h1 { font-size: 2.5em; }
-
-    /* NEW SECTION: Future Facades - ensure responsiveness */
-    .product-comparison-card {
-        height: 300px; /* Adjust height for smaller screens */
-    }
-    .comparison-title {
-        font-size: 1.3em;
-    }
     
     /* Innovation Section: Adjust min-height for hover cards on mobile */
-    /* This rule is now part of .innovation-item, applying to the reverted structure */
     .innovation-item {
-        min-height: 250px; /* Ensure cards remain a good height */
+        min-height: 250px; /* Slightly reduce height on smaller screens */
     }
 
     /* Grids */
     .specs-grid, .design-grid { grid-template-columns: 1fr; }
 }
+ 
