@@ -64,38 +64,33 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
         </section>
         
-        <!-- NEW SECTION: The Future of Facades (Click Interaction) -->
+              <!-- NEW SECTION: The Future of Facades (Click Interaction) -->
         <section id="future-facades" class="container black-bg section-padding text-center">
             <div class="section-header">
                 <h2>The Future of Façades: Lighter. Faster. Safer.</h2>
             </div>
             
+            <!-- This container holds the centered card -->
             <div class="comparison-container" id="comparisonContainer">
+                
                 <!-- State 1: Without Product (Visible initially) -->
-                <div class="comparison-state state-before" id="stateBefore">
-                    <!-- Title ABOVE image -->
-                    <div class="comparison-text-top">
-                        <h3>Does this image remind you of your construction site?</h3>
-                    </div>
-                    <div class="image-wrapper">
+                <div class="comparison-state state-before">
+                    <h3 class="comparison-title-top">Does this image remind you of your construction site?</h3>
+                    <div class="image-card">
                         <img src="images/without.jpeg" alt="Construction site without Prima Global">
-                        <!-- The Reveal Button -->
-                        <button class="reveal-button" onclick="toggleComparison()">See the Solution &rarr;</button>
                     </div>
+                    <button class="reveal-button" onclick="toggleComparison()">See the Solution</button>
                 </div>
 
                 <!-- State 2: With Product (Hidden initially) -->
-                <div class="comparison-state state-after" id="stateAfter">
-                    <div class="image-wrapper">
+                <div class="comparison-state state-after">
+                    <div class="image-card">
                         <img src="images/with.jpeg" alt="Construction site with Prima Global">
-                        <!-- Button to go back (optional, mostly for UX) -->
-                        <button class="reveal-button back-button" onclick="toggleComparison()">&larr; Back</button>
                     </div>
-                    <!-- Title BELOW image -->
-                    <div class="comparison-text-bottom">
-                        <h3>This is how it will look with PRIMA GLOBAL</h3>
-                    </div>
+                    <h3 class="comparison-title-bottom">This is how it will look with PRIMA GLOBAL</h3>
+                    <button class="reveal-button back-button" onclick="toggleComparison()">Back</button>
                 </div>
+
             </div>
         </section>
 
