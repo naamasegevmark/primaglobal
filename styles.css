@@ -362,47 +362,137 @@ nav {
 }
 
 /* =========================================
-   7.1. FUTURE FACADES SECTION
+   7.1. FUTURE FACADES SECTION (Interactive Click)
    ========================================= */
-.product-comparison-grid {
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive 2-column grid */
-    gap: 30px; 
-    margin-top: 50px;
+
+.comparison-container {
+    position: relative;
+    max-width: 600px; /* Limits width to make images smaller/contained */
+    margin: 40px auto;
+    /* Reserve height to prevent layout shifts. Adjust if images are taller/shorter. */
+    min-height: 550px; 
 }
 
-.comparison-item {
-    text-align: center;
+/* Shared styling for both states to stack them on top of each other */
+.comparison-state {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+/* --- STATE VISIBILITY LOGIC --- */
+
+/* Initially: Before is Visible, After is Hidden */
+.state-before {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+}
+
+.state-after {
+    opacity: 0;
+    visibility: hidden;
+    z-index: 5;
+}
+
+/* When 'revealed' class is added to container via JS: Flip visibility */
+.comparison-container.revealed .state-before {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.comparison-container.revealed .state-after {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+}
+
+/* --- IMAGE STYLING --- */
+.image-card {
     background-color: var(--gray-dark);
-    padding: 20px;
+    padding: 15px;
     border-radius: 5px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    margin-bottom: 25px; /* Space between image and button/title */
 }
 
-.comparison-item:hover {
-    transform: translateY(-8px); /* Lifts up on hover */
-    border-color: var(--accent-color); /* Highlight border on hover */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* More pronounced shadow */
-}
-
-.comparison-item img {
-    max-width: 100%;
-    height: 350px; /* Fixed height for visual consistency */
-    object-fit: cover; /* Ensures images cover the area without distortion */
+.image-card img {
+    width: 100%;
+    height: 350px; /* Fixed height to keep images uniform */
+    object-fit: cover;
+    display: block;
     border-radius: 3px;
+}
+
+/* --- TEXT STYLING --- */
+.comparison-title-top {
     margin-bottom: 20px;
-}
-
-.comparison-item h3 {
-    font-family: var(--font-primary); /* Using primary font for these labels */
-    font-weight: 600;
-    font-size: 1.4em;
     color: var(--secondary-color);
-    margin-top: 0;
-    margin-bottom: 0; /* Remove default paragraph margin */
+    font-family: var(--font-primary);
+    font-size: 1.4em;
 }
 
+.comparison-title-bottom {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+    font-family: var(--font-primary);
+    font-size: 1.4em;
+    color: var(--accent-color); /* Highlight the solution title in Gold */
+}
+
+/* --- BUTTON STYLING --- */
+.reveal-button {
+    background-color: transparent;
+    color: var(--accent-color);
+    font-family: var(--font-primary);
+    font-size: 0.9em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 12px 30px;
+    border: 2px solid var(--accent-color);
+    border-radius: 30px; /* Rounded pill shape */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.reveal-button:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 215, 0, 0.2); /* Golden glow */
+}
+
+/* Back button specific style (optional tweak) */
+.back-button {
+    border-color: #555;
+    color: #888;
+}
+
+.back-button:hover {
+    background-color: #555;
+    color: #fff;
+    box-shadow: none;
+}
+
+/* Mobile Adjustment */
+@media (max-width: 600px) {
+    .image-card img {
+        height: 250px;
+    }
+    .comparison-container {
+        min-height: 450px;
+    }
+}
 
 /* =========================================
    8. INNOVATION SECTION 
