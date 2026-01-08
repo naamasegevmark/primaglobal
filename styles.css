@@ -367,10 +367,9 @@ nav {
 
 .comparison-container {
     position: relative;
-    max-width: 650px; /* Adjust for a slightly larger, but still contained, card */
+    max-width: 650px; /* Overall width of the comparison block */
     margin: 40px auto;
-    /* Min-height needs to accommodate the image-card + padding + titles + buttons */
-    /* Approx: 350px (image) + 2*20px (card padding) + 2*title height + 2*button height + margins */
+    /* This min-height is a base, it will adjust dynamically based on image content */
     min-height: 600px; 
 }
 
@@ -384,7 +383,7 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Centers the whole content block vertically */
+    justify-content: center; /* Centers the whole content block vertically within its state */
     transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 }
 
@@ -418,26 +417,30 @@ nav {
 /* --- IMAGE CARD STYLING --- */
 .image-card {
     background-color: var(--gray-dark);
-    padding: 0; /* No padding here, image fills it */
+    padding: 0; 
     border-radius: 5px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     width: 100%; /* Image card takes full width of comparison-container */
-    height: 350px; /* Fixed height for image. Reduced from 400px */
-    overflow: hidden;
+    /* REMOVED FIXED HEIGHT to allow image to scale naturally */
+    /* Add a max-height to prevent extremely tall images from taking over the screen */
+    max-height: 450px; /* Maximum height the image area can take */
+    overflow: hidden; /* Hide any overflow if image or inner content is too large */
     margin-top: 20px; /* Space between top title box and image */
     margin-bottom: 20px; /* Space between image and button/bottom title */
-    display: flex; /* Helps ensure image fills it without extra space */
+    display: flex; /* Still useful for vertical alignment inside if needed */
     justify-content: center;
     align-items: center;
 }
 
 .image-card img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto; /* IMPORTANT: Let height be determined by aspect ratio */
+    max-height: 100%; /* Ensures image doesn't exceed its card's max-height */
+    object-fit: contain; /* IMPORTANT: Scales the entire image to fit without cropping */
     display: block;
     border-radius: 3px;
-    filter: brightness(0.7); /* Slightly less dark, to show more detail */
+    background-color: var(--primary-black); /* Fill empty space (if any) with black */
+    filter: brightness(0.8); /* Slightly brighten as full image often needs more light */
 }
 
 /* --- TITLE BOX STYLING --- */
@@ -451,31 +454,30 @@ nav {
 
 .comparison-title-box h3 {
     font-family: var(--font-primary);
-    font-size: 1.3em; /* Slightly smaller for better fit */
-    margin: 0; /* Remove default margins from h3 */
+    font-size: 1.3em;
+    margin: 0;
     line-height: 1.3;
 }
 
 /* Specific styling for the 'Without' title box (gray with black text) */
 .title-box-gray {
-    background-color: var(--gray-light); /* Light grey box */
+    background-color: var(--gray-light);
 }
 .title-box-gray h3 {
-    color: var(--primary-black); /* Black text */
+    color: var(--primary-black);
 }
 
 /* Specific styling for the 'With' title box (yellow with black text) */
 .title-box-yellow {
-    background-color: var(--accent-color); /* Bright yellow box */
+    background-color: var(--accent-color);
 }
 .title-box-yellow h3 {
-    color: var(--primary-black); /* Black text */
+    color: var(--primary-black);
 }
 
 
-/* --- BUTTON STYLING (DESIGN REMAINS, POSITIONING ADJUSTED) --- */
+/* --- BUTTON STYLING (UNCHANGED DESIGN, POSITIONING ADJUSTED) --- */
 .reveal-button {
-    /* No absolute positioning needed here, flex parent handles it */
     margin-top: 20px; /* Space between image-card/title and button */
     background-color: transparent;
     color: var(--accent-color);
@@ -491,17 +493,16 @@ nav {
     transition: all 0.3s ease;
     outline: none;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    z-index: 20; /* Ensure button is above other content in case of overlap */
+    z-index: 20;
 }
 
 .reveal-button:hover {
     background-color: var(--accent-color);
     color: var(--primary-color);
     transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(255, 215, 0, 0.2); /* Golden glow */
+    box-shadow: 0 6px 15px rgba(255, 215, 0, 0.2);
 }
 
-/* Back button specific style */
 .back-button {
     border-color: #555;
     color: #888;
@@ -517,14 +518,14 @@ nav {
 /* Mobile Adjustment */
 @media (max-width: 600px) {
     .comparison-container {
-        max-width: 90%; /* Allow it to take more width on small screens */
+        max-width: 90%;
         min-height: 500px; /* Adjusted min-height for mobile */
     }
     .image-card {
-        height: 250px; /* Smaller image height on mobile */
+        max-height: 300px; /* Smaller max-height on mobile */
     }
     .comparison-title-box h3 {
-        font-size: 1.1em; /* Smaller text on mobile */
+        font-size: 1.1em;
     }
     .reveal-button {
         font-size: 0.8em;
