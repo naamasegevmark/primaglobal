@@ -453,13 +453,13 @@ nav {
 
 /* Specific background images for each item */
 .innovation-item.item-1 {
-    background-image: url('images/innovation-visual-1.jpg'); /* REPLACE with your actual image path */
+    background-image: url('images/innovation11.jpg'); /* REPLACE with your actual image path */
 }
 .innovation-item.item-2 {
-    background-image: url('images/innovation-visual-2.jpg'); /* REPLACE with your actual image path */
+    background-image: url('images/innovation2.jpeg'); /* REPLACE with your actual image path */
 }
 .innovation-item.item-3 {
-    background-image: url('images/innovation-visual-3.jpg'); /* REPLACE with your actual image path */
+    background-image: url('images/innovation3.jpeg'); /* REPLACE with your actual image path */
 }
 
 
@@ -497,10 +497,10 @@ nav {
 /* Styling for the text elements inside the overlay */
 .innovation-overlay h4 {
     font-family: var(--font-secondary);
-    font-size: 1.8rem; /* Slightly larger title for impact */
+    font-size: 1.6rem; /* Slightly larger title for impact */
     color: var(--accent-color); /* Gold color for the title */
     margin-top: 0;
-    margin-bottom: 15px; /* More space below title */
+    margin-bottom: 5px; /* More space below title */
 }
 
 .innovation-overlay p {
