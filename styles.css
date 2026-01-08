@@ -316,7 +316,7 @@ nav {
 
 /* Hover effect for all images */
 .about-image:hover {
-    transform: scale(1.05); /* ADDED: Enlarges the image by 5% on hover */
+    transform: scale(1.10); /* ADDED: Enlarges the image by 10% on hover */
     z-index: 2; /* ADDED: Brings the hovered image slightly above others */
 }
 
@@ -355,7 +355,7 @@ nav {
     /* Citation Styling */
     font-family: 'PT Serif', serif; /* Corrected syntax for PT Serif */
     font-weight: 400;   
-    font-size: 1.5em;
+    font-size: 1.7em;
     color: var(--gray-light); /* Light grey color */
     border-left: 6px solid var(--accent-color);
     padding-left: 15px;
