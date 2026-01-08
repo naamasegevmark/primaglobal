@@ -644,49 +644,102 @@ nav {
 
 
 /* =========================================
-   9. TECHNICAL & DESIGN GRIDS
+   9. OUR PRODUCT SECTION (Combined Technical & Design)
    ========================================= */
-.specs-grid, .design-grid {
+.our-product-content {
+    display: flex;
+    flex-wrap: wrap; /* Allows stacking on smaller screens */
+    gap: 40px; /* Space between the image and the list */
+    align-items: flex-start; /* Align items to the top */
+    margin-top: 40px;
+}
+
+.product-main-image-container {
+    flex: 1; /* Takes up available space */
+    min-width: 450px; /* Minimum width for the image container before wrapping */
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.product-main-image-container img {
+    width: 100%;
+    height: auto; /* Ensures the image scales proportionally */
+    display: block;
+    object-fit: cover; /* Ensures image covers area, might crop slightly if aspect ratio differs */
+}
+
+.product-main-image-container:hover {
+    transform: translateY(-8px); /* Subtle lift on hover */
+}
+
+.product-features-list {
+    flex: 1.5; /* Takes more space than the image, e.g., 60% vs 40% */
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Two columns for features on wider screens */
+    gap: 20px; /* Space between feature items */
 }
 
-.spec-item, .design-item {
-    background: #111;
-    padding: 30px;
+.product-feature-item {
+    background: var(--gray-dark);
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center; /* Align icon and text vertically */
+    gap: 15px; /* Space between icon and text */
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid #333;
-    transition: transform 0.3s;
+    min-height: 100px; /* Ensure consistent height for items */
 }
 
-.spec-item:hover, .design-item:hover {
+.product-feature-item:hover {
     transform: translateY(-5px);
-    border-color: var(--accent-color);
+    background-color: #2a2a2a; /* Slightly lighter on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 10px var(--accent-color); /* Subtle glow */
 }
 
-.spec-icon, .design-icon {
+.product-feature-icon {
     width: 50px;
     height: 50px;
-    margin-bottom: 15px;
+    flex-shrink: 0; /* Prevents icon from shrinking */
+    filter: brightness(0) invert(1) grayscale(1); /* Makes icons white */
 }
 
-.spec-image-container, .design-image-container {
-    margin-top: 15px;
-    height: 200px;
-    overflow: hidden;
+.product-feature-item p {
+    margin: 0; /* Remove default paragraph margin */
+    font-size: 1em; /* Adjust font size for better readability in list */
+    color: var(--gray-light);
+    text-align: left;
 }
 
-.spec-detail-image, .design-detail-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(50%);
-    transition: 0.3s;
-}
-
-.spec-item:hover .spec-detail-image, 
-.design-item:hover .design-detail-image {
-    filter: grayscale(0%);
+/* Responsive adjustments for this section */
+@media (max-width: 900px) {
+    .our-product-content {
+        flex-direction: column; /* Stack image and features list vertically */
+        align-items: center; /* Center items when stacked */
+    }
+    .product-main-image-container {
+        min-width: unset; /* Remove min-width restriction */
+        width: 100%; /* Take full width */
+        max-width: 600px; /* Max-width for the image on smaller screens */
+    }
+    .product-features-list {
+        width: 100%; /* Take full width */
+        grid-template-columns: 1fr; /* Stack features into a single column */
+    }
+    .product-feature-item {
+        flex-direction: column; /* Stack icon and text within item */
+        text-align: center;
+        gap: 5px;
+        min-height: 120px; /* Adjust min-height for stacked content */
+    }
+    .product-feature-icon {
+        margin-bottom: 10px;
+    }
+    .product-feature-item p {
+        text-align: center;
+    }
 }
 
 /* =========================================
