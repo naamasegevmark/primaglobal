@@ -362,10 +362,53 @@ nav {
 }
 
 /* =========================================
+   7.1. FUTURE FACADES SECTION
+   ========================================= */
+.product-comparison-grid {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive 2-column grid */
+    gap: 30px; 
+    margin-top: 50px;
+}
+
+.comparison-item {
+    text-align: center;
+    background-color: var(--gray-dark);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.comparison-item:hover {
+    transform: translateY(-8px); /* Lifts up on hover */
+    border-color: var(--accent-color); /* Highlight border on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* More pronounced shadow */
+}
+
+.comparison-item img {
+    max-width: 100%;
+    height: 350px; /* Fixed height for visual consistency */
+    object-fit: cover; /* Ensures images cover the area without distortion */
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+.comparison-item h3 {
+    font-family: var(--font-primary); /* Using primary font for these labels */
+    font-weight: 600;
+    font-size: 1.4em;
+    color: var(--secondary-color);
+    margin-top: 0;
+    margin-bottom: 0; /* Remove default paragraph margin */
+}
+
+
+/* =========================================
    8. INNOVATION SECTION 
    ========================================= */
 .innovation-intro-text {
-    max-width: 1800px;
+    max-width: 1500px;
     margin: 0 auto 40px auto; /* Centers the intro text and adds bottom margin */
     text-align: center; /* Centers the text within its max-width */
 }
@@ -410,13 +453,13 @@ nav {
 
 /* Specific background images for each item */
 .innovation-item.item-1 {
-    background-image: url('images/innovation11.jpg'); /* REPLACE with your actual image path */
+    background-image: url('images/innovation-visual-1.jpg'); /* REPLACE with your actual image path */
 }
 .innovation-item.item-2 {
-    background-image: url('images/innovation2.jpeg'); /* REPLACE with your actual image path */
+    background-image: url('images/innovation-visual-2.jpg'); /* REPLACE with your actual image path */
 }
 .innovation-item.item-3 {
-    background-image: url('images/innovation3.jpg'); /* REPLACE with your actual image path */
+    background-image: url('images/innovation-visual-3.jpg'); /* REPLACE with your actual image path */
 }
 
 
@@ -454,10 +497,10 @@ nav {
 /* Styling for the text elements inside the overlay */
 .innovation-overlay h4 {
     font-family: var(--font-secondary);
-    font-size: 1.6rem; /* Slightly larger title for impact */
+    font-size: 1.8rem; /* Slightly larger title for impact */
     color: var(--accent-color); /* Gold color for the title */
     margin-top: 0;
-    margin-bottom: 6px; /* More space below title */
+    margin-bottom: 15px; /* More space below title */
 }
 
 .innovation-overlay p {
@@ -664,6 +707,14 @@ footer {
     
     /* Typography */
     h1 { font-size: 2.5em; }
+
+    /* NEW SECTION: Future Facades - ensure responsiveness */
+    .product-comparison-grid {
+        grid-template-columns: 1fr; /* Stack vertically on small screens */
+    }
+    .comparison-item img {
+        height: 250px; /* Adjust image height for mobile */
+    }
     
     /* Innovation Section: Adjust min-height for hover cards on mobile */
     .innovation-item {
