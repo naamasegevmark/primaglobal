@@ -316,7 +316,7 @@ nav {
 
 /* Hover effect for all images */
 .about-image:hover {
-    transform: scale(1.10); /* ADDED: Enlarges the image by 10% on hover */
+    transform: scale(1.20); /* ADDED: Enlarges the image by 10% on hover */
     z-index: 2; /* ADDED: Brings the hovered image slightly above others */
 }
 
