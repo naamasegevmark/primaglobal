@@ -234,31 +234,49 @@ nav {
     z-index: 2;
     text-align: center;
     max-width: 800px;
-    /* REMOVED the old fadeInSlideUp animation from here. */
-    /* Children will now animate individually */
+    /* No animation on parent, children animate individually */
 }
 
-/* PRIMA CLADDING SYSTEM - Clarify Animation */
+/* PRIMA CLADDING SYSTEM (H1) - Self-Drawing/Clarify Animation */
 .hero-content h1 {
     font-size: 4.5em;
     letter-spacing: 3px;
     margin-bottom: 20px;
-    opacity: 0; /* Start hidden */
-    filter: blur(10px); /* Start blurry */
-    transform: scale(0.9); /* Start slightly smaller */
-    animation: clarifyAnimation 1.2s ease-out 0.5s forwards; /* Animates for 1.2s, starts after 0.5s delay */
+    color: var(--secondary-color); /* Ensure text color is set for clarity */
+
+    /* Initial state for animation */
+    opacity: 0;
+    filter: blur(20px); /* Start very blurry */
+    /* Clip-path starts text completely hidden from the right */
+    clip-path: inset(0 100% 0 0); 
+
+    /* Apply the animation */
+    animation: 
+        clarifyDraw 
+        1.8s ease-out 0.5s forwards; /* Longer duration, starts after 0.5s delay */
 }
 
-/* Keyframe for Clarify Animation */
-@keyframes clarifyAnimation {
-    to {
+/* Keyframe for Clarify/Self-Drawing Animation */
+@keyframes clarifyDraw {
+    0% {
+        opacity: 0;
+        filter: blur(20px);
+        clip-path: inset(0 100% 0 0);
+    }
+    50% { /* Halfway through, text starts to become visible and less blurry */
+        opacity: 0.8;
+        filter: blur(5px);
+        clip-path: inset(0 50% 0 0);
+    }
+    100% {
         opacity: 1;
         filter: blur(0);
-        transform: scale(1); /* End at normal size */
+        clip-path: inset(0 0% 0 0); /* Fully revealed */
     }
 }
 
-/* DESIGNED TO INSPIRE - Rise Animation */
+
+/* DESIGNED TO INSPIRE (Subtitle) - Pop-up Animation */
 .hero-subtitle {
     font-size: 1.4rem;
     letter-spacing: 5px;
@@ -266,12 +284,18 @@ nav {
     color: var(--accent-color);
     margin-bottom: 50px;
     font-weight: 600;
-    opacity: 0; /* Start hidden */
-    transform: translateY(30px); /* Start below final position */
-    animation: riseAnimation 1s ease-out 1.7s forwards; /* Starts after H1 finishes (0.5s delay + 1.2s H1 duration) */
+    
+    /* Initial state for pop-up animation */
+    opacity: 0;
+    transform: scale(0.8); /* Start smaller */
+
+    /* Apply the animation */
+    animation: 
+        popUpAnimation 
+        0.8s ease-out 2.3s forwards; /* Starts after clarifyDraw (0.5s delay + 1.8s clarifyDraw duration) */
 }
 
-/* CTA Button - Rise Animation */
+/* CTA Button - Pop-up Animation */
 .cta-button {
     display: inline-block; /* Essential for transform to work correctly */
     background-color: var(--accent-color);
@@ -284,16 +308,22 @@ nav {
     border: 2px solid var(--accent-color);
     cursor: pointer;
     transition: all 0.3s ease; /* Keep original hover transition */
-    opacity: 0; /* Start hidden */
-    transform: translateY(30px); /* Start below final position */
-    animation: riseAnimation 1s ease-out 1.7s forwards; /* Same delay as subtitle */
+
+    /* Initial state for pop-up animation */
+    opacity: 0;
+    transform: scale(0.8); /* Start smaller */
+    
+    /* Apply the animation */
+    animation: 
+        popUpAnimation 
+        0.8s ease-out 2.3s forwards; /* Same delay as subtitle */
 }
 
-/* Keyframe for Rise Animation */
-@keyframes riseAnimation {
+/* Keyframe for Pop-up Animation */
+@keyframes popUpAnimation {
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: scale(1); /* Pop up to normal size */
     }
 }
 
