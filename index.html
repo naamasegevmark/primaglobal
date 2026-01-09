@@ -46,8 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <li><a href="#about">About</a></li>
                 <li><a href="#innovation">Innovation</a></li>
                 <li><a href="#our-product">Our Product</a></li>
-                <!-- UPDATED NAV LINK: Former "Our Strengths" is now "Projects Gallery" -->
-                <li><a href="#projects-gallery">Projects Gallery</a></li>
+                <li><a href="#assets">Our Strengths</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -60,44 +59,13 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="hero-content container text-center">
                 <h1>PRIMA CLADDING SYSTEM</h1>
                 <p class="hero-subtitle">DESIGNED TO INSPIRE</p>
-                <!-- UPDATED CTA BUTTON HREF -->
-                <a href="#future-facades" class="cta-button">Discover Our Innovation</a>
+                <!-- UPDATED CTA BUTTON HREF TO #about -->
+                <a href="#about" class="cta-button">Discover Our Innovation</a>
             </div>
         </section>
         
-                             <!-- NEW SECTION: The Future of Façades (Click Interaction - Refined) -->
-        <section id="future-facades" class="container black-bg section-padding text-center">
-            <div class="section-header">
-                <h2>The Future of Façades: Lighter. Faster. Safer.</h2>
-            </div>
-            
-            <!-- This container holds the centered card that switches states -->
-            <div class="comparison-container" id="comparisonContainer">
-                
-                <!-- State 1: Without Product (Visible initially) -->
-                <div class="comparison-state state-before">
-                    <div class="comparison-title-box title-box-gray">
-                        <h3>Does this image remind you of your construction site?</h3>
-                    </div>
-                    <div class="image-card">
-                        <img src="images/without.jpeg" alt="Construction site without Prima Global">
-                    </div>
-                    <button class="reveal-button" onclick="toggleComparison()">YES!</button>
-                </div>
-
-                <!-- State 2: With Product (Hidden initially) -->
-                <div class="comparison-state state-after">
-                    <div class="image-card">
-                        <img src="images/with.jpeg" alt="Construction site with Prima Global">
-                    </div>
-                    <div class="comparison-title-box title-box-yellow">
-                        <h3>This is how it will look with PRIMA GLOBAL</h3>
-                    </div>
-                    <button class="reveal-button back-button" onclick="toggleComparison()">Back</button>
-                </div>
-
-            </div>
-        </section>
+        <!-- REMOVED SECTION: The Future of Façades (Click Interaction - Refined) -->
+        <!-- The entire <section id="future-facades"> block has been removed -->
 
               <!-- About Prima Section -->
            <section id="about" class="container black-bg section-padding">
@@ -193,24 +161,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                 </div>
             </div>
-            <!-- RESTORED PRIMA'S STRENGTHS CONTENT HERE (from original #assets section) -->
-            <div class="section-header margin-top-large">
-                <h2>PRIMA'S STRENGTHS</h2>
-            </div>
-            <ul class="assets-list">
-                <li>
-                    <span class="list-bullet">&#9650;</span>
-                    <p>Our intellectual property is meticulously protected by <strong>multiple global patents</strong>, ensuring the uniqueness and proprietary nature of the Prima Cladding System, providing exclusive value to our clients.</p>
-                </li>
-                <li>
-                    <span class="list-bullet">&#9650;</span>
-                    <p>The Prima system has been rigorously <strong>certified by David Engineers</strong>, a globally recognized and leading international construction firm. This independent validation attests to its robust design, superior engineering, and reliability.</p>
-                </li>
-                <li>
-                    <span class="list-bullet">&#9650;</span>
-                    <p>Our custom cladding solutions are fully <strong>ISO quality-compliant</strong>, demonstrating our adherence to the highest international quality management standards. Furthermore, they are certified to the <strong>EN 13501-1 standard (A1)</strong> for fire resistance, guaranteeing paramount safety and performance in building applications.</p>
-                </li>
-            </ul>
         </section>
 
         <!-- NEW SECTION: Projects Gallery (re-purposed from original #assets) -->
@@ -264,6 +214,7 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
         </section>
 
+
         <!-- Cross Section Image -->
         <section id="cross-section" class="full-width-image-section">
             <div class="cross-section-image-wrap">
@@ -272,7 +223,26 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
         </section>
         
-        <!-- CONTACT SECTION REMAINS UNCHANGED -->
+        <!-- Prima's Assets Section (Moved Strengths content back here) -->
+        <section id="assets" class="container black-bg section-padding">
+            <div class="section-header">
+                <h2>PRIMA'S STRENGTHS</h2>
+            </div>
+            <ul class="assets-list">
+                <li>
+                    <span class="list-bullet">&#9650;</span>
+                    <p>Our intellectual property is meticulously protected by <strong>multiple global patents</strong>, ensuring the uniqueness and proprietary nature of the Prima Cladding System, providing exclusive value to our clients.</p>
+                </li>
+                <li>
+                    <span class="list-bullet">&#9650;</span>
+                    <p>The Prima system has been rigorously <strong>certified by David Engineers</strong>, a globally recognized and leading international construction firm. This independent validation attests to its robust design, superior engineering, and reliability.</p>
+                </li>
+                <li>
+                    <span class="list-bullet">&#9650;</span>
+                    <p>Our custom cladding solutions are fully <strong>ISO quality-compliant</strong>, demonstrating our adherence to the highest international quality management standards. Furthermore, they are certified to the <strong>EN 13501-1 standard (A1)</strong> for fire resistance, guaranteeing paramount safety and performance in building applications.</p>
+                </li>
+            </ul>
+        </section>
 
         <!-- Contact Us Section -->
         <section id="contact" class="full-screen-section black-bg text-center">
@@ -281,7 +251,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 <h2>CONNECT WITH PRIMA GLOBAL</h2>
                 <div class="contact-details">
                     <p>We invite you to reach out to Prima Global to discuss your next visionary project or to inquire further about our innovative cladding solutions. Our team is ready to assist you.</p>
-                    <p>Email: <a href="mailto:naama@primaglobal.co" class="contact-link">naama@primaglobal.co</a></p>
+                    <p>Email: <a href="mailto:doron@keshetprima.com" class="contact-link">doron@keshetprima.com</a></p>
+                    <p>Phone: <a href="tel:+972505207450" class="contact-link">+972-50-520-7450</a></p>
+                    <p class="contact-person"><strong>Doron Geshuri</strong></p>
+                    <p class="contact-person"><strong>Naama Segev-Mark, PhD</strong></p>
+                    <p class="contact-location">Israel</p>
                 </div>
 
                 <!-- Contact Form Starts Here -->
@@ -323,13 +297,7 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
     </footer>
 
-    <!-- SCRIPT FOR COMPARISON TOGGLE -->
-    <script>
-        function toggleComparison() {
-            const container = document.getElementById('comparisonContainer');
-            // Toggle the 'revealed' class on the container
-            container.classList.toggle('revealed');
-        }
-    </script>
+    <!-- REMOVED SCRIPT FOR COMPARISON TOGGLE -->
+    <!-- The JavaScript function toggleComparison() is no longer needed -->
 </body>
 </html>
