@@ -836,6 +836,12 @@ footer {
     
     /* Typography */
     h1 { font-size: 2.5em; }
+   
+   .hero-content h1 { 
+    font-size: 2.2em; 
+    line-height: 1.1;
+    letter-spacing: 1px;
+  }
 
     /* Innovation Section: Adjust min-height for hover cards on mobile */
     .innovation-item {
