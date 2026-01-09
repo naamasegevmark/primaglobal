@@ -618,17 +618,19 @@ nav {
     color: var(--accent-color); /* Color the bullet */
 }
 
+
 /* =========================================
-   10. PROJECTS GALLERY SECTION (formerly Assets)
+   10. PROJECTS GALLERY SECTION (now assigned to #assets)
    ========================================= */
-#projects-gallery .projects-grid {
+/* All selectors now target #assets since projects gallery content is moved there */
+#assets .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     margin-top: 40px;
 }
 
-#projects-gallery .project-item {
+#assets .project-item {
     position: relative;
     overflow: hidden;
     border-radius: 5px;
@@ -636,7 +638,7 @@ nav {
     cursor: pointer;
 }
 
-#projects-gallery .project-item img {
+#assets .project-item img {
     width: 100%;
     height: 250px; /* Fixed height for gallery images */
     object-fit: cover; /* Cover the area, cropping if needed */
@@ -644,12 +646,12 @@ nav {
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-#projects-gallery .project-item:hover img {
+#assets .project-item:hover img {
     transform: scale(1.08); /* Slight zoom on hover */
     filter: brightness(0.6); /* Darken image on hover */
 }
 
-#projects-gallery .project-info {
+#assets .project-info {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -661,18 +663,18 @@ nav {
     transition: transform 0.3s ease;
 }
 
-#projects-gallery .project-item:hover .project-info {
+#assets .project-item:hover .project-info {
     transform: translateY(0); /* Slide up on hover */
 }
 
-#projects-gallery .project-info h3 {
+#assets .project-info h3 {
     font-family: var(--font-primary);
     font-size: 1.2em;
     margin: 0 0 5px 0;
     color: var(--accent-color);
 }
 
-#projects-gallery .project-info p {
+#assets .project-info p {
     font-size: 0.9em;
     margin: 0;
     color: var(--gray-light);
@@ -705,26 +707,9 @@ nav {
 }
 
 /* =========================================
-   12. ASSETS SECTION
+   12. ASSETS SECTION (This section is now defunct as its content was moved. The ID #assets now hosts the Projects Gallery)
    ========================================= */
-.assets-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px; /* Adds space between the bullet and the text */
-    font-size: 1.1rem;
-    margin-bottom: 20px; /* Explicit margin between list items */
-}
-
-.assets-list p { /* Ensures paragraphs inside list items don't have excessive margin */
-    margin-bottom: 0;
-}
-
-.assets-list .list-bullet {
-    flex-shrink: 0; /* Prevents the bullet from shrinking */
-    line-height: 1; /* Ensures consistent vertical alignment */
-    font-size: 1.2em; /* Make bullet slightly larger */
-    color: var(--accent-color); /* Color the bullet */
-}
+/* Removed specific styling for #assets since its content (assets-list) is now part of #our-product and its ID now refers to the Projects Gallery */
 
 /* =========================================
    13. CONTACT SECTION
@@ -861,14 +846,15 @@ footer {
         text-align: center;
     }
     /* Projects Gallery Section Responsive Adjustments */
-    #projects-gallery .projects-grid {
+    /* All selectors now target #assets since projects gallery content is moved there */
+    #assets .projects-grid {
         grid-template-columns: 1fr; /* Stack into a single column on mobile */
     }
-    #projects-gallery .project-item img {
+    #assets .project-item img {
         height: 200px; /* Adjust image height for mobile gallery */
     }
     /* Assets (Strengths) list responsive */
-    .assets-list {
+    #our-product .assets-list { /* Now targets assets-list within our-product */
         grid-template-columns: 1fr; /* Stack assets into a single column on mobile */
     }
 }
