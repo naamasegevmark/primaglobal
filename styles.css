@@ -216,20 +216,17 @@ nav {
 
 .hero-background {
     position: absolute;
-    top: 20px; /* Slightly reduce top/bottom offset for more background visibility */
+    top: 20px;
     bottom: 20px;
     left: 50px;
     right: 50px;
     background-size: cover;
     background-position: center;
-    opacity: 0.4; /* Slightly darker background for better text contrast */
+    opacity: 0.4;
     z-index: 0;
-    border-radius: 15px; /* Larger border radius for a softer, more modern look */
-    
-    /* Dark gradient overlay for more depth and text contrast */
+    border-radius: 15px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/hero-building.png');
-    /* Fallback if image missing */
-    background-color: #222; 
+    background-color: #222;
 }
 
 .hero-content {
@@ -237,58 +234,67 @@ nav {
     z-index: 2;
     text-align: center;
     max-width: 800px;
-    /* Initial state for fade-in animation */
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInSlideUp 1s ease-out forwards;
-    animation-delay: 0.5s; /* Delay for content to appear after background loads */
+    /* REMOVED the old fadeInSlideUp animation from here. */
+    /* Children will now animate individually */
 }
 
-/* Keyframe animation for content */
-@keyframes fadeInSlideUp {
+/* PRIMA CLADDING SYSTEM - Clarify Animation */
+.hero-content h1 {
+    font-size: 4.5em;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    opacity: 0; /* Start hidden */
+    filter: blur(10px); /* Start blurry */
+    transform: scale(0.9); /* Start slightly smaller */
+    animation: clarifyAnimation 1.2s ease-out 0.5s forwards; /* Animates for 1.2s, starts after 0.5s delay */
+}
+
+/* Keyframe for Clarify Animation */
+@keyframes clarifyAnimation {
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: scale(1); /* End at normal size */
+    }
+}
+
+/* DESIGNED TO INSPIRE - Rise Animation */
+.hero-subtitle {
+    font-size: 1.4rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    margin-bottom: 50px;
+    font-weight: 600;
+    opacity: 0; /* Start hidden */
+    transform: translateY(30px); /* Start below final position */
+    animation: riseAnimation 1s ease-out 1.7s forwards; /* Starts after H1 finishes (0.5s delay + 1.2s H1 duration) */
+}
+
+/* CTA Button - Rise Animation */
+.cta-button {
+    display: inline-block; /* Essential for transform to work correctly */
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 15px 30px;
+    font-weight: 700;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid var(--accent-color);
+    cursor: pointer;
+    transition: all 0.3s ease; /* Keep original hover transition */
+    opacity: 0; /* Start hidden */
+    transform: translateY(30px); /* Start below final position */
+    animation: riseAnimation 1s ease-out 1.7s forwards; /* Same delay as subtitle */
+}
+
+/* Keyframe for Rise Animation */
+@keyframes riseAnimation {
     to {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-.hero-content h1 {
-    font-size: 4.5em; /* Made H1 larger for more impact */
-    letter-spacing: 3px; /* Slightly more letter spacing */
-    margin-bottom: 20px; /* Some space below H1 */
-    /* NEW: Illumination Animation */
-    animation: illuminateText 4s infinite alternate ease-in-out; /* Apply the animation */
-}
-
-/* NEW: Keyframe Animation for Illumination Effect */
-@keyframes illuminateText {
-    0%, 100% {
-        color: var(--secondary-color); /* Original white text */
-        text-shadow: 0 0 5px rgba(255, 255, 255, 0.2), /* Subtle white inner glow */
-                     0 0 10px rgba(0, 0, 0, 0.7); /* Deeper black shadow for contrast */
-        filter: brightness(100%); /* Normal brightness */
-    }
-    50% {
-        color: #FFFFFF; /* Slightly brighter white */
-        text-shadow: 0 0 15px var(--accent-color), /* Soft yellow/gold outer glow */
-                     0 0 25px var(--accent-color),
-                     0 0 35px rgba(255, 255, 255, 0.4); /* Wider, brighter white glow */
-        filter: brightness(120%); /* Overall slight increase in brightness */
-    }
-}
-
-.hero-subtitle {
-    font-size: 1.4rem; /* Made subtitle larger */
-    letter-spacing: 5px; /* More letter spacing for emphasis */
-    text-transform: uppercase;
-    color: var(--accent-color);
-    margin-bottom: 50px; /* More space below subtitle */
-    font-weight: 600; /* Made subtitle a bit bolder */
-}
-
-.cta-button {
-    /* Existing CTA styles are good, but you might want to add a subtle hover */
-    transition: all 0.3s ease;
 }
 
 .cta-button:hover {
@@ -297,6 +303,7 @@ nav {
     transform: scale(1.05); /* Subtle grow effect on hover */
     box-shadow: 0 0 15px var(--accent-color); /* Glow effect on hover */
 }
+
 
 /* =========================================
    7. ABOUT SECTION 
