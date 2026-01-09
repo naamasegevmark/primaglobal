@@ -747,7 +747,7 @@ nav {
     position: relative;
     z-index: 2;
     padding: 60px 20px;
-    max-width: 600px; /* Narrower for better reading form */
+    max-width: 800px; /* Narrower for better reading form */
     margin: 0 auto;
 }
 
