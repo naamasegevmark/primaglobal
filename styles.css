@@ -234,48 +234,35 @@ nav {
     z-index: 2;
     text-align: center;
     max-width: 800px;
-    /* No animation on parent, children animate individually */
 }
 
-/* PRIMA CLADDING SYSTEM (H1) - Clarify/Self-Drawing Animation */
+/* PRIMA CLADDING SYSTEM (H1) - Pop-up Animation */
 .hero-content h1 {
     font-size: 4.5em;
     letter-spacing: 3px;
     margin-bottom: 20px;
-    color: var(--secondary-color); /* Ensure text color is set for clarity */
+    color: var(--secondary-color); 
 
-    /* Initial state for animation */
+    /* Initial state for pop-up animation */
     opacity: 0;
-    filter: blur(20px); /* Start very blurry */
-    clip-path: inset(0 100% 0 0); /* Start hidden from the right */
+    transform: scale(0.7); /* Start smaller */
 
-    /* Apply the animation: Faster duration, starts immediately */
+    /* Apply the animation: Fast duration, starts immediately */
     animation: 
-        clarifyDraw 
-        1.5s ease-out 0s forwards; /* Duration 1.5s, no initial delay */
+        popUpEffect 
+        0.8s ease-out 0s forwards; /* 0.8s duration, 0s delay */
 }
 
-/* Keyframe for Clarify/Self-Drawing Animation */
-@keyframes clarifyDraw {
-    0% {
-        opacity: 0;
-        filter: blur(20px);
-        clip-path: inset(0 100% 0 0);
-    }
-    50% { 
-        opacity: 0.8;
-        filter: blur(5px);
-        clip-path: inset(0 50% 0 0);
-    }
-    100% {
+/* Keyframe for Pop-up Effect */
+@keyframes popUpEffect {
+    to {
         opacity: 1;
-        filter: blur(0);
-        clip-path: inset(0 0% 0 0); /* Fully revealed */
+        transform: scale(1); /* End at normal size */
     }
 }
 
 
-/* DESIGNED TO INSPIRE (Subtitle) - Pop-up/Rise Animation with Overlap */
+/* DESIGNED TO INSPIRE (Subtitle) - Simple Fade In */
 .hero-subtitle {
     font-size: 1.4rem;
     letter-spacing: 5px;
@@ -284,17 +271,16 @@ nav {
     margin-bottom: 50px;
     font-weight: 600;
     
-    /* Initial state for pop-up animation */
+    /* Initial state for simple fade-in */
     opacity: 0;
-    transform: translateY(20px) scale(0.9); /* Start slightly below and smaller */
 
-    /* Apply the animation: Starts BEFORE H1 finishes */
+    /* Apply the animation: Starts AFTER H1 finishes (0.8s H1 duration + 0.1s buffer) */
     animation: 
-        risePopUpAnimation 
-        1s ease-out 1s forwards; /* Starts at 1s, while H1 is still animating */
+        fadeIn 
+        0.5s ease-out 0.9s forwards; /* 0.5s duration, 0.9s delay */
 }
 
-/* CTA Button - Pop-up/Rise Animation with Staggered Overlap */
+/* CTA Button - Simple Fade In */
 .cta-button {
     display: inline-block; /* Essential for transform to work correctly */
     background-color: var(--accent-color);
@@ -308,21 +294,19 @@ nav {
     cursor: pointer;
     transition: all 0.3s ease; /* Keep original hover transition */
 
-    /* Initial state for pop-up animation */
+    /* Initial state for simple fade-in */
     opacity: 0;
-    transform: translateY(20px) scale(0.9); /* Start slightly below and smaller */
     
-    /* Apply the animation: Starts slightly AFTER subtitle, still overlapping H1 */
+    /* Apply the animation: Starts AFTER H1 finishes (0.8s H1 duration + 0.1s buffer, same as subtitle) */
     animation: 
-        risePopUpAnimation 
-        1s ease-out 1.2s forwards; /* Staggered delay */
+        fadeIn 
+        0.5s ease-out 0.9s forwards; /* 0.5s duration, 0.9s delay */
 }
 
-/* Keyframe for Rise and Pop-up Animation */
-@keyframes risePopUpAnimation {
+/* Keyframe for Simple Fade In */
+@keyframes fadeIn {
     to {
         opacity: 1;
-        transform: translateY(0) scale(1); /* Rise to normal position and size */
     }
 }
 
