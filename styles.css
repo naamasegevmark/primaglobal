@@ -1,1020 +1,303 @@
-/* =========================================
-   1. VARIABLES & RESET
-   ========================================= */
-:root {
-    --primary-color: #000000;      /* Black */
-    --secondary-color: #ffffff;    /* White */
-    --accent-color: #FFD700;       /* Gold/Yellow */
-    --accent-yellow: #FFD700;      /* Explicit yellow for boxes */
-    --primary-black: #000000;
-    --gray-dark: #1a1a1a;          /* Dark Gray */
-    --gray-light: #eeeeee;         /* Light Gray */
-    
-    --font-primary: 'Montserrat', sans-serif; 
-    --font-secondary: 'PT Serif', serif; /*old version: 'Playfair Display', serif; */
-    
-    --max-width: 1100px;
-    --section-padding: 45px 0; /* Decreased vertical padding */
-   
-   /*padding: top, right, bottom, left*/
-}
-
-* {
-    box-sizing: border-box; /* Crucial for layout stability */
-}
-
-body {
-    font-family: var(--font-primary);
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-}
-
-html, body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden; /* Consolidated here */
-}
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-/* =========================================
-   2. TYPOGRAPHY
-   ========================================= */
-h1, h2, h3 {
-    font-family: var(--font-secondary);
-    font-weight: 700;
-    margin-top: 0;
-}
-
-h1 { font-size: 3.5em; letter-spacing: 2px; text-transform: uppercase; }
-h2 { font-size: 2.5em; }
-h3 { color: var(--accent-color); font-size: 1.5rem; margin-bottom: 15px; }
-p { margin-bottom: 20px; font-size: 1.1em; color: var(--gray-light); }
-a { text-decoration: none; color: inherit; transition: 0.3s; }
-
-/* =========================================
-   3. UTILITY CLASSES
-   ========================================= */
-.container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.text-center { text-align: center; }
-.black-bg { background-color: var(--primary-color); }
-.section-padding { padding: var(--section-padding); }
-
-.cta-button {
-    display: inline-block;
-    background-color: var(--accent-color);
-    color: var(--primary-color);
-    padding: 15px 30px;
-    font-weight: 700;
-    border-radius: 2px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border: 2px solid var(--accent-color);
-    cursor: pointer;
-}
-
-.cta-button:hover {
-    background-color: transparent;
-    color: var(--accent-color);
-}
-
-.margin-top-large { margin-top: 80px; }
-
-/* =========================================
-   4. SECTION HEADERS (Animated Yellow Bar, no number)
-   ========================================= */
-.section-header {
-    position: relative;
-    margin: 60px 0 40px;
-    overflow: hidden; /* hide bar while it grows */
-}
-
-/* yellow bar – animated from left to right */
-.section-header::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background-color: var(--accent-yellow); /* rgba(255, 215, 0, 0.5);*/
-    z-index: 0;
-
-    transform-origin: left center;
-    transform: scaleX(0);              /* start invisible */
-    transition: transform 3.0s ease;   /* animation duration */
-}
-
-/* title text: static, always visible */
-.section-header h2 {
-    position: relative;
-    z-index: 1;
-    margin: 0;
-    padding: 10px 0 10px 20px;
-    color: var(--primary-black);
-    font-family: var(--font-secondary); /* Using Playfair Display */
-    font-weight: 700; /* Bold */
-    font-size: 1.8rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-}
-
-/* when section enters view, only the bar animates */
-.section-header.in-view::before {
-    transform: scaleX(1);
-}
-
-/* =========================================
-   5. HEADER & NAV
-   ========================================= */
-header {
-    background-color: rgba(0, 0, 0, 0.95);
-    padding: 5px 0;              /* slightly tighter bar */
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid #333;
-    padding-left: 50px;   /* NEW: align logo with hero background start */
-}
-
-nav {
-    display: flex;
-    justify-content: flex-start;  /* Ensures content aligns to the left */
-    align-items: center;          /* Centers logo + links vertically */
-    max-width: none;              /* Allows nav to span full width if needed */
-    margin: 0;
-    padding: 0 20px 0 10px;       /* top right bottom left padding for nav content */
-}
-
-.logo a {
-    display: flex;
-    align-items: center;
-}
-
-.logo img {
-    height: 90px;                 /* slightly larger logo */
-    width: auto;
-    display: block;
-}
-
-/* Re-introducing nav-links and nav-links li for precise spacing and hover effects */
-.nav-links {
-    list-style: none; /* Removes bullet points */
-    display: flex;    /* Arranges list items horizontally */
-    margin: 0;        /* Removes default margin */
-    padding: 0;       /* Removes default padding */
-    margin-left: 40px; /* This sets the initial gap after the logo image */
-}
-.nav-links li {
-    margin-left: 30px; /* This creates the gap between each navigation link */
-}
-.nav-links a {
-    color: var(--secondary-color);
-    font-size: 0.85em;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 600;
-    transition: color 0.3s ease, transform 0.3s ease; /* Smooth animation for color and size */
-    display: inline-block; /* Crucial for transform: scale to work correctly */
-    transform-origin: center; /* Scales from the left, keeping links aligned */
-}
-.nav-links a:hover {
-    color: var(--accent-color); /* Changes text color to yellow on hover */
-    transform: scale(1.1); /* Enlarges the text by 10% on hover */
-}
-
-/* =========================================
-   6. HERO SECTION
-   ========================================= */
-.full-screen-section {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding-top: 80px; /* Adjust if your fixed header height changes */
-    overflow: hidden; /* Ensures any subtle animations or shadows don't cause scrollbars */
-}
-
-.hero-background {
-    position: absolute;
-    top: 20px;
-    bottom: 20px;
-    left: 50px;
-    right: 50px;
-    background-size: cover;
-    background-position: center;
-    opacity: 0.4;
-    z-index: 0;
-    border-radius: 15px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/hero-building.png');
-    background-color: #222;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    max-width: 800px;
-}
-
-/* PRIMA CLADDING SYSTEM (H1) - Pop-up Animation */
-.hero-content h1 {
-    font-size: 4.5em;
-    letter-spacing: 3px;
-    margin-bottom: 20px;
-    color: var(--secondary-color); 
-
-    /* Initial state for pop-up animation */
-    opacity: 0;
-    transform: scale(0.7); /* Start smaller */
-
-    /* Apply the animation: Fast duration, starts immediately */
-    animation: 
-        popUpEffect 
-        0.8s ease-out 0s forwards; /* 0.8s duration, 0s delay */
-}
-
-/* Keyframe for Pop-up Effect */
-@keyframes popUpEffect {
-    to {
-        opacity: 1;
-        transform: scale(1); /* End at normal size */
-    }
-}
-
-
-/* DESIGNED TO INSPIRE (Subtitle) - Simple Fade In */
-.hero-subtitle {
-    font-size: 1.4rem;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--accent-color);
-    margin-bottom: 50px;
-    font-weight: 600;
-    
-    /* Initial state for simple fade-in */
-    opacity: 0;
-
-    /* Apply the animation: Starts AFTER H1 finishes (0.8s H1 duration + 0.1s buffer) */
-    animation: 
-        fadeIn 
-        0.5s ease-out 0.9s forwards; /* 0.5s duration, 0.9s delay */
-}
-
-/* CTA Button - Simple Fade In */
-.cta-button {
-    display: inline-block; /* Essential for transform to work correctly */
-    background-color: var(--accent-color);
-    color: var(--primary-color);
-    padding: 15px 30px;
-    font-weight: 700;
-    border-radius: 2px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border: 2px solid var(--accent-color);
-    cursor: pointer;
-    transition: all 0.3s ease; /* Keep original hover transition */
-
-    /* Initial state for simple fade-in */
-    opacity: 0;
-    
-    /* Apply the animation: Starts AFTER H1 finishes (0.8s H1 duration + 0.1s buffer, same as subtitle) */
-    animation: 
-        fadeIn 
-        0.5s ease-out 0.9s forwards; /* 0.5s duration, 0.9s delay */
-}
-
-/* Keyframe for Simple Fade In */
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
-}
-
-.cta-button:hover {
-    background-color: transparent;
-    color: var(--accent-color);
-    transform: scale(1.05); /* Subtle grow effect on hover */
-    box-shadow: 0 0 15px var(--accent-color); /* Glow effect on hover */
-}
-
-
-/* =========================================
-   7. ABOUT SECTION 
-   ========================================= */
-
-.about-content {
-    display: flex;
-    flex-direction: row; /* MODIFIED: Text left, Image column right */
-    flex-wrap: wrap;
-    align-items: stretch; /* Image column and text block stretch to match taller content */
-    gap: 5px 40px; /* 5px vertical space between rows, 40px horizontal space between columns */
-    justify-content: flex-start;
-}
-
-/* Container for images (this will be the flex item that sits right of text) */
-.about-image-column {
-    display: flex; /* Makes this a flex container itself */
-    flex-direction: column; /* Stacks its children (images) vertically */
-    flex: 0 0 400px; /* This column will have a fixed width for the images */
-    max-width: 50%; /* Ensures it doesn't get too wide on large screens */
-    gap: 20px; /* Space between the two images stacked vertically */
-}
-
-/* General styling for all images within the column */
-.about-image {
-    width: 100%; /* Image fills the width of its parent column */
-    height: 100%; /* Image fills the height of its allocated flex space */
-    object-fit: cover; /* Ensures the image covers the area, cropping if aspect ratio doesn't match */
-    box-shadow: 15px 15px 0px rgba(255, 255, 255, 0.05);
-    border-radius: 2px;
-    transition: transform 0.3s ease; /* ADDED: Smooth transition for hover effect */
-    position: relative; /* ADDED: To ensure z-index works if needed */
-    z-index: 1; /* ADDED: To bring image forward on hover */
-}
-
-/* Hover effect for all images */
-.about-image:hover {
-    transform: scale(1.10); /* ADDED: Enlarges the image by 10% on hover */
-    z-index: 2; /* ADDED: Brings the hovered image slightly above others */
-}
-
-/* Specific sizing for the two images to make one larger than the other */
-.about-image.main-image {
-    flex: 2; /* The first image takes 2 parts of the available vertical space */
-}
-
-.about-image.secondary-image {
-    flex: 1; /* The second image takes 1 part of the available vertical space (making it smaller) */
-}
-
-
-.about-text {
-    flex: 1; /* Takes up remaining space on the left */
-    min-width: 300px;
-}
-
-.about-text p {
-    font-size: 1.2em; /* Adjusted font size */
-    margin-bottom: 20px;
-}
-
-/* This rule ensures the first paragraph starts at the very top */
-.about-text p:first-child {
-    margin-top: 0; /* Removes the top margin from the very first paragraph */
-}
-
-/* Keeping the citation style for <p1> underneath everything */
-.about-content p1 {
-    display: block;
-    width: 100%; /* Forces it to a new line */
-    flex-basis: 100%;
-    margin-top: 20px;
-    
-    /* Citation Styling */
-    font-family: 'PT Serif', serif; /* Corrected syntax for PT Serif */
-    font-weight: 400;   
-    font-size: 1.7em;
-    color: var(--gray-light); /* Light grey color */
-    border-left: 6px solid var(--accent-color);
-    padding-left: 15px;
-}
-
-/* =========================================
-   7.1. FUTURE FACADES SECTION (Interactive Click - Refined)
-   ========================================= */
-
-.comparison-container {
-    position: relative;
-    max-width: 650px; /* Overall width of the comparison block */
-    margin: 40px auto;
-    /* This min-height is a base, it will adjust dynamically based on image content */
-    min-height: 600px; 
-}
-
-/* Shared styling for both states to stack them on top of each other */
-.comparison-state {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; /* Important for absolute positioning to cover entire container */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Centers the whole content block vertically within its state */
-    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
-}
-
-/* --- STATE VISIBILITY LOGIC --- */
-
-/* Initially: Before is Visible, After is Hidden */
-.state-before {
-    opacity: 1;
-    visibility: visible;
-    z-index: 10;
-}
-
-.state-after {
-    opacity: 0;
-    visibility: hidden;
-    z-index: 5;
-}
-
-/* When 'revealed' class is added to container via JS: Flip visibility */
-.comparison-container.revealed .state-before {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.comparison-container.revealed .state-after {
-    opacity: 1;
-    visibility: visible;
-    z-index: 10;
-}
-
-/* --- IMAGE CARD STYLING --- */
-.image-card {
-    background-color: var(--gray-dark);
-    padding: 0; 
-    border-radius: 5px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    width: 100%; /* Image card takes full width of comparison-container */
-    /* REMOVED FIXED HEIGHT to allow image to scale naturally */
-    /* Add a max-height to prevent extremely tall images from taking over the screen */
-    max-height: 450px; /* Maximum height the image area can take */
-    overflow: hidden; /* Hide any overflow if image or inner content is too large */
-    margin-top: 20px; /* Space between top title box and image */
-    margin-bottom: 20px; /* Space between image and button/bottom title */
-    display: flex; /* Still useful for vertical alignment inside if needed */
-    justify-content: center;
-    align-items: center;
-}
-
-.image-card img {
-    width: 100%;
-    height: auto; /* IMPORTANT: Let height be determined by aspect ratio */
-    max-height: 100%; /* Ensures image doesn't exceed its card's max-height */
-    object-fit: contain; /* IMPORTANT: Scales the entire image to fit without cropping */
-    display: block;
-    border-radius: 3px;
-    background-color: var(--primary-black); /* Fill empty space (if any) with black */
-    filter: brightness(0.8); /* Slightly brighten as full image often needs more light */
-}
-
-/* --- TITLE BOX STYLING --- */
-.comparison-title-box {
-    width: 100%; /* Takes full width */
-    padding: 15px 20px;
-    border-radius: 5px;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-}
-
-.comparison-title-box h3 {
-    font-family: var(--font-primary);
-    font-size: 1.3em;
-    margin: 0;
-    line-height: 1.3;
-}
-
-/* Specific styling for the 'Without' title box (gray with black text) */
-.title-box-gray {
-    background-color: var(--gray-light);
-}
-.title-box-gray h3 {
-    color: var(--primary-black);
-}
-
-/* Specific styling for the 'With' title box (yellow with black text) */
-.title-box-yellow {
-    background-color: var(--accent-color);
-}
-.title-box-yellow h3 {
-    color: var(--primary-black);
-}
-
-
-/* --- BUTTON STYLING (UNCHANGED DESIGN, POSITIONING ADJUSTED) --- */
-.reveal-button {
-    margin-top: 20px; /* Space between image-card/title and button */
-    background-color: transparent;
-    color: var(--accent-color);
-    font-family: var(--font-primary);
-    font-size: 0.9em;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 12px 30px;
-    border: 2px solid var(--accent-color);
-    border-radius: 30px; /* Rounded pill shape */
-    cursor: pointer;
-    transition: all 0.3s ease;
-    outline: none;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    z-index: 20;
-}
-
-.reveal-button:hover {
-    background-color: var(--accent-color);
-    color: var(--primary-color);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(255, 215, 0, 0.2);
-}
-
-.back-button {
-    border-color: #555;
-    color: #888;
-}
-
-.back-button:hover {
-    background-color: #555;
-    color: #fff;
-    box-shadow: none;
-}
-
-
-/* =========================================
-   8. INNOVATION SECTION 
-   ========================================= */
-.innovation-intro-text {
-    max-width: 1500px;
-    margin: 0 auto 40px auto; /* Centers the intro text and adds bottom margin */
-    text-align: center; /* Centers the text within its max-width */
-}
-
-.innovation-intro-text p {
-    font-size: 1.15em; /* Slightly larger text for the intro */
-}
-
-/* Ensure the "We offer" H3 is centered above the grid */
-#innovation h3 {
-    text-align: center;
-    margin-bottom: 30px; /* Space between H3 and the grid */
-    font-size: 2em; /* Make "We offer" more prominent */
-    color: var(--secondary-color); /* Make it white */
-}
-
-
-.innovation-grid { /* This is the container for your service items */
-    display: grid;
-    /* Creates a responsive 3-column grid. Items will shrink down to 280px minimum before wrapping */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px; /* Space between the grid items (cards) */
-}
-
-.innovation-item { /* Each individual service card now acts as an image container */
-    position: relative; /* Needed for absolute positioning of the overlay */
-    overflow: hidden; /* Ensures overlay content doesn't spill out */
-    min-height: 300px; /* Gives the image-card a minimum height */
-    background-size: cover; /* Makes the background image cover the entire item */
-    background-position: center; /* Centers the background image */
-    background-repeat: no-repeat;
-    border: 1px solid #333; /* Subtle border */
-    border-radius: 5px; /* Slightly rounded corners */
-    cursor: pointer; /* Indicates it's interactive */
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Subtle initial shadow */
-    
-    /* Initially apply a slight dark overlay to make text pop when visible */
-    background-color: rgba(0, 0, 0, 0.2); 
-    background-blend-mode: multiply; /* Blends the color with the image */
-}
-
-/* Specific background images for each item */
-.innovation-item.item-1 {
-    background-image: url('images/innovation11.jpg'); /* REPLACE with your actual image path */
-}
-.innovation-item.item-2 {
-    background-image: url('images/innovation2.jpeg'); /* REPLACE with your actual image path */
-}
-.innovation-item.item-3 {
-    background-image: url('images/innovation3.jpg'); /* REPLACE with your actual image path */
-}
-
-
-.innovation-item:hover {
-    transform: translateY(-8px); /* Card lifts up on hover */
-    border-color: var(--accent-color); /* Border highlights yellow on hover */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Shadow becomes more pronounced */
-    background-color: rgba(0, 0, 0, 0.0); /* Remove the slight dark overlay on hover */
-}
-
-/* Styles for the overlay that appears on hover */
-.innovation-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.85); /* Dark, semi-transparent background for text */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    text-align: center;
-    opacity: 0; /* Hidden by default */
-    transform: translateY(100%); /* Start off-screen at the bottom */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition for appearance */
-}
-
-.innovation-item:hover .innovation-overlay {
-    opacity: 1; /* Fully visible on hover */
-    transform: translateY(0); /* Slides into view */
-}
-
-/* Styling for the text elements inside the overlay */
-.innovation-overlay h4 {
-    font-family: var(--font-secondary);
-    font-size: 1.6rem; /* Slightly larger title for impact */
-    color: var(--accent-color); /* Gold color for the title */
-    margin-top: 0;
-    margin-bottom: 5px; /* More space below title */
-}
-
-.innovation-overlay p {
-    font-size: 1.1em; /* Clear and readable text size */
-    color: var(--secondary-color); /* White color for the description */
-    margin-bottom: 0;
-}
-
-
-/* =========================================
-   9. OUR PRODUCT SECTION (Combined Technical & Design + Strengths)
-   ========================================= */
-.our-product-content {
-    display: flex;
-    flex-wrap: wrap; /* Allows stacking on smaller screens */
-    gap: 40px; /* Space between the image and the list */
-    align-items: flex-start; /* Align items to the top */
-    margin-top: 40px;
-}
-
-.product-main-image-container {
-    flex: 1; /* Takes up available space */
-    min-width: 450px; /* Minimum width for the image container before wrapping */
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease;
-}
-
-.product-main-image-container img {
-    width: 100%;
-    height: auto; /* Ensures the image scales proportionally */
-    display: block;
-    object-fit: cover; /* Ensures image covers area, might crop slightly if aspect ratio differs */
-}
-
-.product-main-image-container:hover {
-    transform: translateY(-8px); /* Subtle lift on hover */
-}
-
-.product-features-list {
-    flex: 1.5; /* Takes more space than the image, e.g., 60% vs 40% */
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Two columns for features on wider screens */
-    gap: 20px; /* Space between feature items */
-}
-
-.product-feature-item {
-    background: var(--gray-dark);
-    padding: 20px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center; /* Align icon and text vertically */
-    gap: 15px; /* Space between icon and text */
-    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid #333;
-    min-height: 100px; /* Ensure consistent height for items */
-}
-
-.product-feature-item:hover {
-    transform: translateY(-5px);
-    background-color: #2a2a2a; /* Slightly lighter on hover */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 10px var(--accent-color); /* Subtle glow */
-}
-
-.product-feature-icon {
-    width: 50px;
-    height: 50px;
-    flex-shrink: 0; /* Prevents icon from shrinking */
-    filter: brightness(0) invert(1) grayscale(1); /* Makes icons white */
-}
-
-.product-feature-item p {
-    margin: 0; /* Remove default paragraph margin */
-    font-size: 1em; /* Adjust font size for better readability in list */
-    color: var(--gray-light);
-    text-align: left;
-}
-
-/* Styles for the "Prima's Strengths" content that is now part of Our Product section */
-/* Moved from old #assets section, now applies to .assets-list inside #our-product */
-#our-product .assets-list {
-    display: grid; /* Use grid for a more organized layout */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
-    gap: 30px; /* Space between list items */
-    margin-top: 40px; /* Space above the list */
-    width: 100%; /* Take full width of its parent */
-}
-
-#our-product .assets-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px; /* Adds space between the bullet and the text */
-    font-size: 1.1rem;
-    margin-bottom: 0; /* Remove default margin from li, gap handles spacing */
-    background: var(--gray-dark); /* Add background for list items */
-    padding: 25px;
-    border-radius: 5px;
-    border: 1px solid #333;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-#our-product .assets-list li:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4), 0 0 10px var(--accent-color);
-    border-color: var(--accent-color);
-}
-
-#our-product .assets-list p { /* Ensures paragraphs inside list items don't have excessive margin */
-    margin-bottom: 0;
-}
-
-#our-product .assets-list .list-bullet {
-    flex-shrink: 0; /* Prevents the bullet from shrinking */
-    line-height: 1; /* Ensures consistent vertical alignment */
-    font-size: 1.2em; /* Make bullet slightly larger */
-    color: var(--accent-color); /* Color the bullet */
-}
-
-/* =========================================
-   10. PROJECTS GALLERY SECTION (formerly Assets)
-   ========================================= */
-#projects-gallery .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-#projects-gallery .project-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 5px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-}
-
-#projects-gallery .project-item img {
-    width: 100%;
-    height: 250px; /* Fixed height for gallery images */
-    object-fit: cover; /* Cover the area, cropping if needed */
-    display: block;
-    transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-#projects-gallery .project-item:hover img {
-    transform: scale(1.08); /* Slight zoom on hover */
-    filter: brightness(0.6); /* Darken image on hover */
-}
-
-#projects-gallery .project-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 15px;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)); /* Gradient overlay */
-    color: var(--secondary-color);
-    transform: translateY(100%); /* Hidden by default */
-    transition: transform 0.3s ease;
-}
-
-#projects-gallery .project-item:hover .project-info {
-    transform: translateY(0); /* Slide up on hover */
-}
-
-#projects-gallery .project-info h3 {
-    font-family: var(--font-primary);
-    font-size: 1.2em;
-    margin: 0 0 5px 0;
-    color: var(--accent-color);
-}
-
-#projects-gallery .project-info p {
-    font-size: 0.9em;
-    margin: 0;
-    color: var(--gray-light);
-}
-
-
-/* =========================================
-   11. CROSS SECTION (Full Width Image)
-   ========================================= */
-.full-width-image-section {
-    width: 100%;
-    background-color: #050505;
-    padding: 40px 0;
-}
-
-.cross-section-image-wrap {
-    text-align: center;
-}
-
-.full-width-image {
-    width: 100%;
-    max-height: 600px; /* Prevents it from being too tall on huge screens */
-    object-fit: contain;
-}
-
-.image-caption {
-    font-style: italic;
-    opacity: 0.7;
-    margin-top: 10px;
-}
-
-/* =========================================
-   12. CONTACT SECTION
-   ========================================= */
-.contact-background {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-size: cover;
-    background-position: center;
-    opacity: 0.3;
-    z-index: 0;
-}
-.contact-background { background-color: #111; }
-
-.contact-content {
-    position: relative;
-    z-index: 2;
-    padding: 60px 20px;
-    max-width: 600px; /* Narrower for better reading form */
-    margin: 0 auto;
-}
-
-.contact-details p { margin-bottom: 10px; }
-.contact-link { color: var(--accent-color); border-bottom: 1px solid var(--accent-color); }
-.contact-person { font-size: 1.2rem; margin-top: 15px; color: #fff; }
-
-.contact-form {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 30px;
-    border: 1px solid #333;
-    margin-top: 40px;
-    text-align: left;
-}
-
-.form-group { margin-bottom: 20px; }
-.form-group label { display: block; margin-bottom: 5px; color: #aaa; font-size: 0.9em; }
-
-.form-group input, 
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    background: #222;
-    border: 1px solid #444;
-    color: #fff;
-    font-family: var(--font-primary);
-}
-
-.form-group input:focus, 
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--accent-color);
-}
-
-.form-submit-button { width: 100%; margin-top: 10px; }
-.form-note { font-size: 0.8em; text-align: center; margin-top: 15px; opacity: 0.5; }
-
-/* =========================================
-   13. FOOTER
-   ========================================= */
-footer {
-    background-color: #000;
-    padding: 30px 0;
-    text-align: center;
-    font-size: 0.9rem;
-    border-top: 1px solid #222;
-}
-
-/* =========================================
-   14. RESPONSIVE DESIGN (Mobile)
-   ========================================= */
-@media (max-width: 900px) { /* Consolidated media query */
-    /* Navigation */
-    .nav-links { display: none; }
-    
-    /* About Section */
-    .about-content {
-        flex-direction: column; /* On mobile, stack normally (text then image column) */
-        text-align: left; /* Aligned left on mobile */
-    }
-    .about-image-column {
-        flex: auto; /* Allow column to size naturally on mobile */
-        max-width: 90%; /* Limit its width */
-        margin: 30px auto 20px auto; /* Center it and add margins */
-        gap: 15px; /* Adjust gap between images on mobile */
-    }
-    .about-image-column .about-image {
-        flex: none; /* No longer force proportional height on mobile */
-        height: auto; /* Let images scale naturally (proportional to their intrinsic ratio) */
-        width: 100%; /* Fill the column width */
-    }
-    .about-content p1 {
-        text-align: left; /* Align citation text left on mobile */
-    }
-    /* Section Headers */
-    .section-header h2 {
-        font-size: 1.4em;
-        padding: 15px 20px;
-        width: 100%;
-        text-align: center;
-    }
-    
-    /* Typography */
-    h1 { font-size: 2.5em; }
-
-    /* NEW SECTION: Future Facades - ensure responsiveness */
-    .comparison-container {
-        max-width: 90%;
-        min-height: 500px;
-    }
-    .image-card {
-        max-height: 300px;
-    }
-    .comparison-title-box h3 {
-        font-size: 1.1em;
-    }
-    .reveal-button {
-        font-size: 0.8em;
-        padding: 10px 20px;
-    }
-    
-    /* Innovation Section: Adjust min-height for hover cards on mobile */
-    .innovation-item {
-        min-height: 250px; /* Slightly reduce height on smaller screens */
-    }
-
-    /* OUR PRODUCT SECTION - Responsive Adjustments */
-    .our-product-content {
-        flex-direction: column; /* Stack image and features list vertically */
-        align-items: center; /* Center items when stacked */
-    }
-    .product-main-image-container {
-        min-width: unset; /* Remove min-width restriction */
-        width: 100%; /* Take full width */
-        max-width: 600px; /* Max-width for the image on smaller screens */
-    }
-    .product-features-list {
-        width: 100%; /* Take full width */
-        grid-template-columns: 1fr; /* Stack features into a single column */
-    }
-    .product-feature-item {
-        flex-direction: column; /* Stack icon and text within item */
-        text-align: center;
-        gap: 5px;
-        min-height: 120px; /* Adjust min-height for stacked content */
-    }
-    .product-feature-icon {
-        margin-bottom: 10px;
-    }
-    .product-feature-item p {
-        text-align: center;
-    }
-    /* Projects Gallery Section Responsive Adjustments */
-    #projects-gallery .projects-grid {
-        grid-template-columns: 1fr; /* Stack into a single column on mobile */
-    }
-    #projects-gallery .project-item img {
-        height: 200px; /* Adjust image height for mobile gallery */
-    }
-    /* Assets (Strengths) list responsive - now inside #our-product */
-    #our-product .assets-list {
-        grid-template-columns: 1fr; /* Stack assets into a single column on mobile */
-    }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prima Global - Innovative Cladding Systems</title>
+    <meta name="description" content="Prima Global offers innovative, sustainable and high-performance cladding systems designed to inspire and create eco-friendly architectural structures.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+    const headers = document.querySelectorAll('.section-header');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                // Uncomment the next line if you only want the animation once:
+                // observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.3   // 30% of header visible triggers the animation
+    });
+
+    headers.forEach(header => observer.observe(header));
+});
+</script>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="#">
+                    <!-- Ensure your filename matches exactly -->
+                    <img src="images/PRIMA global logo zoom.jpeg" alt="Prima Global Logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#innovation">Innovation</a></li>
+                <li><a href="#our-product">Our Product</a></li>
+                <li><a href="#assets">Our Strengths</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="full-screen-section black-bg">
+            <div class="hero-background" style="background-image: url('images/hero-building.png');"></div>
+            <div class="hero-content container text-center">
+                <h1>PRIMA CLADDING SYSTEM</h1>
+                <p class="hero-subtitle">DESIGNED TO INSPIRE</p>
+                <!-- UPDATED CTA BUTTON HREF TO #about -->
+                <a href="#about" class="cta-button">Discover Our Innovation</a>
+            </div>
+        </section>
+        
+        <!-- REMOVED SECTION: The Future of Façades (Click Interaction - Refined) -->
+        <!-- The entire <section id="future-facades"> block has been removed -->
+
+              <!-- About Prima Section -->
+           <section id="about" class="container black-bg section-padding">
+           <div class="section-header">
+           <h2>ABOUT PRIMA GLOBAL</h2>
+           </div>
+           <div class="about-content">
+              <!-- 1. The Text Paragraphs (Left Column) -->
+             <div class="about-text">
+               <p><strong>Prima Global</strong> emerged from a fundamental need to drive innovation within the building cladding sector. Our mission is to engineer exteriors that embody both resilience and accuracy.</p>
+               <p>We developed a <strong>new construction method</strong> that replaces traditional, cumbersome techniques with a streamlined, high-performance approach.</p>
+               <p>We offer <strong>industrial, pre-cast U/HPC cladding system</strong> that deliver both design flexibility and structural performance.</p> 
+               <p>Our <strong>patented</strong> system solution combines advanced engineering and efficiency to meet top standards of safety, sustainability, durability and cost-effectiveness. </p>
+            </div>
+
+            <!-- This is the container for your images, which will sit to the right of the text -->
+            <div class="about-image-column">
+                <img src="images/Prima-about.jpg" alt="Modern Cladding Building" class="about-image main-image"> <!-- Added class "main-image" -->
+                <img src="images/Prima-about-2.png" alt="Another building image" class="about-image secondary-image"> <!-- Added class "secondary-image" -->
+            </div>
+
+            <!-- 3. The P1 Text (Still full width underneath) -->
+            <p1>At Prima Global we go beyond simply supplying panels, we deliver a new standard.</p1>
+            </div>
+</section>
+
+                <!-- Innovation Section -->
+        <section id="innovation" class="container black-bg section-padding">
+            <div class="section-header">
+                <h2>PRIMA'S INNOVATION</h2>
+            </div>
+            <div class="innovation-intro-text">
+                <p>At Prima Global, our pioneering façade modules eliminate heavy concrete backing, reducing wall loads by up to 75%. This breakthrough accelerates construction, improves sustainability and offers architects unparalleled design flexibility.</p>
+            </div>
+
+            <h3>WHAT DO WE OFFER YOU?</h3>
+            <div class="innovation-grid">
+                <div class="innovation-item item-1">
+                    <div class="innovation-overlay">
+                        <h4>Detailed Engineering Design</h4>
+                        <p>Custom-tailored engineering design, crafted precisely to bring every unique architectural vision and aspiration to life, ensuring optimal performance and aesthetics.</p>
+                    </div>
+                </div>
+                <div class="innovation-item item-2">
+                    <div class="innovation-overlay">
+                        <h4>Flexible Installation Methods</h4>
+                        <p>Choose between two efficient installation approaches – integrating during construction or applying after – for maximum project flexibility and adaptability.</p>
+                    </div>
+                </div>
+                <div class="innovation-item item-3">
+                    <div class="innovation-overlay">
+                        <h4>Eco-Friendly Solutions</h4>
+                        <p>Committed to sustainability, our modules use 30% less concrete, significantly reducing carbon footprint. All components are locally manufactured, boosting economies and cutting emissions for a greener construction.</p>
+                    </div>
+                </div>
+            </div> <!-- End innovation-grid -->
+        </section>
+
+               <!-- NEW SECTION: Our Product -->
+        <section id="our-product" class="container black-bg section-padding">
+            <div class="section-header">
+                <h2>OUR PRODUCT</h2>
+            </div>
+            <div class="our-product-content">
+                <div class="product-main-image-container">
+                    <!-- REPLACE with your actual main image path for this section -->
+                    <img src="images/scheme.png" alt="Prima Global Product Overview">
+                </div>
+                <div class="product-features-list">
+                    <div class="product-feature-item">
+                        <img src="images/iconKG.png" alt="Module Dimensions Icon" class="product-feature-icon">
+                        <p><strong>Module Dimensions:</strong> Robust and adaptable building blocks, 50 mm thickness.</p>
+                    </div>
+                    <div class="product-feature-item">
+                        <img src="images/icon-load.png" alt="Reduced Load Icon" class="product-feature-icon">
+                        <p><strong>Reduced Load:</strong> Only 125 kg/sqm!</p>
+                    </div>
+                    <div class="product-feature-item">
+                        <img src="images/icon-assembly.png" alt="Efficient Assembly Icon" class="product-feature-icon">
+                        <p><strong>Efficient Assembly:</strong> Rapid installation with 4-5 units per module.</p>
+                    </div>
+                    <div class="product-feature-item">
+                        <img src="images/icon-flexible.png" alt="Flexible Composition Icon" class="product-feature-icon">
+                        <p><strong>Flexible Composition:</strong> Complete design freedom to integrate windows & custom openings.</p>
+                    </div>
+                    <div class="product-feature-item">
+                        <img src="images/icon-texture.png" alt="Texture Variety Icon" class="product-feature-icon">
+                        <p><strong>Texture Variety:</strong> A world of colours and textures</p>
+                    </div>
+                    <div class="product-feature-item">
+                        <img src="images/icon-curvature.png" alt="Dynamic Curvature Icon" class="product-feature-icon">
+                        <p><strong>Dynamic Curvature:</strong> Embrace architectural fluidity to shape corners and edges uniquely.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW SECTION: Projects Gallery (re-purposed from original #assets) -->
+        <section id="projects-gallery" class="container black-bg section-padding">
+            <div class="section-header">
+                <h2>PROJECTS GALLERY</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-item">
+                    <img src="images/project-1.jpg" alt="Project Example 1">
+                    <div class="project-info">
+                        <h3>Residential Towers</h3>
+                        <p>Modern residential complex showcasing elegant façade solutions.</p>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="images/project-2.jpg" alt="Project Example 2">
+                    <div class="project-info">
+                        <h3>Commercial Hub</h3>
+                        <p>Dynamic design for a high-traffic urban commercial building.</p>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="images/project-3.jpg" alt="Project Example 3">
+                    <div class="project-info">
+                        <h3>Sustainable Office Building</h3>
+                        <p>Eco-friendly design integrating natural light and efficient cladding.</p>
+                    </div>
+                </div>
+                 <div class="project-item">
+                    <img src="images/project-4.jpg" alt="Project Example 4">
+                    <div class="project-info">
+                        <h3>Mixed-Use Development</h3>
+                        <p>Innovative facades combining retail, office, and living spaces.</p>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="images/project-5.jpg" alt="Project Example 5">
+                    <div class="project-info">
+                        <h3>Hospitality Complex</h3>
+                        <p>Aesthetic and durable cladding for a luxury hotel and resort.</p>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="images/project-6.jpg" alt="Project Example 6">
+                    <div class="project-info">
+                        <h3>Educational Institution</h3>
+                        <p>Durable and functional facades for a modern university campus.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Cross Section Image -->
+        <section id="cross-section" class="full-width-image-section">
+            <div class="cross-section-image-wrap">
+                <img src="images/cross-section.jpg" alt="Prima Cladding System Cross Section Diagram" class="full-width-image">
+                <p class="image-caption">Detailed Cross Section of the Prima Cladding System</p>
+            </div>
+        </section>
+        
+        <!-- Prima's Assets Section (Moved Strengths content back here) -->
+        <section id="assets" class="container black-bg section-padding">
+            <div class="section-header">
+                <h2>PRIMA'S STRENGTHS</h2>
+            </div>
+            <ul class="assets-list">
+                <li>
+                    <span class="list-bullet">&#9650;</span>
+                    <p>Our intellectual property is meticulously protected by <strong>multiple global patents</strong>, ensuring the uniqueness and proprietary nature of the Prima Cladding System, providing exclusive value to our clients.</p>
+                </li>
+                <li>
+                    <span class="list-bullet">&#9650;</span>
+                    <p>The Prima system has been rigorously <strong>certified by David Engineers</strong>, a globally recognized and leading international construction firm. This independent validation attests to its robust design, superior engineering, and reliability.</p>
+                </li>
+                <li>
+                    <span class="list-bullet">&#9650;</span>
+                    <p>Our custom cladding solutions are fully <strong>ISO quality-compliant</strong>, demonstrating our adherence to the highest international quality management standards. Furthermore, they are certified to the <strong>EN 13501-1 standard (A1)</strong> for fire resistance, guaranteeing paramount safety and performance in building applications.</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Contact Us Section -->
+        <section id="contact" class="full-screen-section black-bg text-center">
+            <div class="contact-background" style="background-image: url('images/contact-building.jpg');"></div>
+            <div class="contact-content container">
+                <h2>CONNECT WITH PRIMA GLOBAL</h2>
+                <div class="contact-details">
+                    <p>We invite you to reach out to Prima Global to discuss your next visionary project or to inquire further about our innovative cladding solutions. Our team is ready to assist you.</p>
+                    <p>Email: <a href="mailto:doron@keshetprima.com" class="contact-link">doron@keshetprima.com</a></p>
+                    <p>Phone: <a href="tel:+972505207450" class="contact-link">+972-50-520-7450</a></p>
+                    <p class="contact-person"><strong>Doron Geshuri</strong></p>
+                    <p class="contact-person"><strong>Naama Segev-Mark, PhD</strong></p>
+                    <p class="contact-location">Israel</p>
+                </div>
+
+                <!-- Contact Form Starts Here -->
+                <form action="#" method="POST" class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="What is your message about?">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Type your message here..."></textarea>
+                    </div>
+                    <button type="submit" class="cta-button form-submit-button">Send Message</button>
+                    <p class="form-note">
+                        For this form to function, you'll need to integrate a service like
+                        <a href="https://formspree.io/" target="_blank" rel="noopener noreferrer">Formspree</a> or
+                        <a href="https://www.netlify.com/products/forms/" target="_blank" rel="noopener noreferrer">Netlify Forms</a>.
+                        Replace the `action="#"` attribute in the form tag with the URL provided by your chosen service.
+                    </p>
+                </form>
+                <!-- Contact Form Ends Here -->
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Prima Global. All rights reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <!-- REMOVED SCRIPT FOR COMPARISON TOGGLE -->
+    <!-- The JavaScript function toggleComparison() is no longer needed -->
+</body>
+</html>
