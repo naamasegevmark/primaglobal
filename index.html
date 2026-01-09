@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <li><a href="#about">About</a></li>
                 <li><a href="#innovation">Innovation</a></li>
                 <li><a href="#our-product">Our Product</a></li>
-                <li><a href="#assets">Our Strengths</a></li>
+                <li><a href="#assets">Projects Gallery</a></li> <!-- UPDATED: Navigation link text -->
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
             </div> <!-- End innovation-grid -->
         </section>
 
-               <!-- NEW SECTION: Our Product -->
+               <!-- NEW SECTION: Our Product (Now includes Prima's Strengths) -->
         <section id="our-product" class="container black-bg section-padding">
             <div class="section-header">
                 <h2>OUR PRODUCT</h2>
@@ -161,10 +161,37 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                 </div>
             </div>
+
+            <!-- PRIMA'S STRENGTHS (Moved from separate section) -->
+            <div class="section-header" style="margin-top: 60px;"> <!-- Added inline style to provide spacing -->
+                <h2>PRIMA'S STRENGTHS</h2>
+            </div>
+            <ul class="assets-list">
+                <li>
+                    <span class="list-bullet">&#9650;</span>
+                    <p>Our intellectual property is meticulously protected by <strong>multiple global patents</strong>, ensuring the uniqueness and proprietary nature of the Prima Cladding System, providing exclusive value to our clients.</p>
+                </li>
+                <li>
+                    <span class="list-bullet">&#9650;</span>
+                    <p>The Prima system has been rigorously <strong>certified by David Engineers</strong>, a globally recognized and leading international construction firm. This independent validation attests to its robust design, superior engineering, and reliability.</p>
+                </li>
+                <li>
+                    <span class="list-bullet">&#9650;</span>
+                    <p>Our custom cladding solutions are fully <strong>ISO quality-compliant</strong>, demonstrating our adherence to the highest international quality management standards. Furthermore, they are certified to the <strong>EN 13501-1 standard (A1)</strong> for fire resistance, guaranteeing paramount safety and performance in building applications.</p>
+                </li>
+            </ul>
         </section>
 
-        <!-- NEW SECTION: Projects Gallery (re-purposed from original #assets) -->
-        <section id="projects-gallery" class="container black-bg section-padding">
+        <!-- Cross Section Image -->
+        <section id="cross-section" class="full-width-image-section">
+            <div class="cross-section-image-wrap">
+                <img src="images/cross-section.jpg" alt="Prima Cladding System Cross Section Diagram" class="full-width-image">
+                <p class="image-caption">Detailed Cross Section of the Prima Cladding System</p>
+            </div>
+        </section>
+        
+        <!-- PROJECTS GALLERY (Formerly Prima's Assets) -->
+        <section id="assets" class="container black-bg section-padding">
             <div class="section-header">
                 <h2>PROJECTS GALLERY</h2>
             </div>
@@ -214,35 +241,6 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
         </section>
 
-
-        <!-- Cross Section Image -->
-        <section id="cross-section" class="full-width-image-section">
-            <div class="cross-section-image-wrap">
-                <img src="images/cross-section.jpg" alt="Prima Cladding System Cross Section Diagram" class="full-width-image">
-                <p class="image-caption">Detailed Cross Section of the Prima Cladding System</p>
-            </div>
-        </section>
-        
-        <!-- Prima's Assets Section (Moved Strengths content back here) -->
-        <section id="assets" class="container black-bg section-padding">
-            <div class="section-header">
-                <h2>PRIMA'S STRENGTHS</h2>
-            </div>
-            <ul class="assets-list">
-                <li>
-                    <span class="list-bullet">&#9650;</span>
-                    <p>Our intellectual property is meticulously protected by <strong>multiple global patents</strong>, ensuring the uniqueness and proprietary nature of the Prima Cladding System, providing exclusive value to our clients.</p>
-                </li>
-                <li>
-                    <span class="list-bullet">&#9650;</span>
-                    <p>The Prima system has been rigorously <strong>certified by David Engineers</strong>, a globally recognized and leading international construction firm. This independent validation attests to its robust design, superior engineering, and reliability.</p>
-                </li>
-                <li>
-                    <span class="list-bullet">&#9650;</span>
-                    <p>Our custom cladding solutions are fully <strong>ISO quality-compliant</strong>, demonstrating our adherence to the highest international quality management standards. Furthermore, they are certified to the <strong>EN 13501-1 standard (A1)</strong> for fire resistance, guaranteeing paramount safety and performance in building applications.</p>
-                </li>
-            </ul>
-        </section>
 
         <!-- Contact Us Section -->
         <section id="contact" class="full-screen-section black-bg text-center">
