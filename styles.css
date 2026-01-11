@@ -617,19 +617,18 @@ nav {
     background-size: cover;
     background-position: center;
     border: 1px solid #333;
-    /* Dark overlay by default so white text pops */
     box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
 
 /* Background Images for Strengths - REPLACE these with your actual images */
 .strength-card.card-1 {
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('images/project-1.jpg'); 
+    background-image: url('images/project-1.jpg'); 
 }
 .strength-card.card-2 {
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('images/project-2.jpg');
+    background-image: url('images/project-2.jpg');
 }
 .strength-card.card-3 {
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('images/project-3.jpg');
+    background-image: url('images/project-3.jpg');
 }
 
 /* Hover State: The hovered card grows */
@@ -638,14 +637,15 @@ nav {
     border-color: var(--accent-color);
 }
 
-/* Inner Content Styling */
+/* Inner Content Styling - MOVED TO TOP */
 .strength-content {
     position: absolute;
-    bottom: 0;
+    top: 0;   /* Changed from bottom: 0 to top: 0 */
     left: 0;
     width: 100%;
     padding: 30px;
-    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    /* Gradient starts dark at top, transparent at bottom */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
     color: var(--secondary-color);
     white-space: nowrap; /* Prevents text wrap initially */
 }
@@ -659,7 +659,6 @@ nav {
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: all 0.3s ease;
-    /* On mobile or closed state, rotate text if preferred, but usually keeping it standard is safer */
 }
 
 /* Paragraph Styling - Hidden initially */
@@ -680,9 +679,37 @@ nav {
     max-height: 200px; /* Enough space for text */
 }
 
+/* Stronger background on hover for readability */
 .strength-card:hover .strength-content {
-    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 100%);
 }
+
+/* =========================================
+   RESPONSIVE (Mobile) for Accordion
+   ========================================= */
+@media (max-width: 900px) {
+    .strengths-accordion {
+        flex-direction: column; /* Stack vertically on mobile */
+        height: auto; /* Let height grow naturally */
+    }
+    
+    .strength-card {
+        height: 120px; /* Collapsed height on mobile */
+        flex: none; /* Disable flex growing logic for row layout */
+        width: 100%;
+        transition: height 0.4s ease; /* Animate height instead */
+    }
+
+    .strength-card:hover {
+        flex: none; /* Disable flex grow */
+        height: 300px; /* Expanded height on mobile tap */
+    }
+    
+    .strength-content p {
+        white-space: normal; 
+    }
+}
+
 
 /* =========================================
    RESPONSIVE (Mobile) for Accordion
