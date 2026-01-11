@@ -637,7 +637,7 @@ nav {
     border-color: var(--accent-color);
 }
 
-/* Inner Content Styling - TOP & CENTERED */
+/* Inner Content Styling - TOP, Title Centered, Text Left */
 .strength-content {
     position: absolute;
     top: 0;
@@ -648,16 +648,14 @@ nav {
     background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
     color: var(--secondary-color);
     
-    /* Centering Logic */
     display: flex;
     flex-direction: column;
-    align-items: center; /* Horizontally center items */
-    text-align: center;  /* Ensure text lines are centered */
-    
-    white-space: nowrap; /* Prevents text wrap initially */
+    /* Removed align-items: center; which was centering all children */
+    text-align: left;  /* Default alignment for text within this container */
+    /* Removed white-space: nowrap; from here */
 }
 
-/* Title Styling */
+/* Title Styling - Specifically Centered */
 .strength-content h3 {
     font-family: var(--font-secondary);
     font-size: 1.5rem;
@@ -666,7 +664,8 @@ nav {
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: all 0.3s ease;
-    width: 100%; /* Ensures text align center works properly */
+    text-align: center; /* Explicitly center the title */
+    /* Removed width: 100%; as it's not needed for centering block-level text */
 }
 
 /* Paragraph Styling - Hidden initially */
@@ -677,7 +676,7 @@ nav {
     margin: 0;
     opacity: 0; /* Invisible by default */
     max-height: 0; /* Takes no vertical space */
-    white-space: normal; /* Allow wrapping when visible */
+    white-space: normal; /* Allow wrapping when visible (important when visible) */
     transition: opacity 0.4s ease 0.2s, max-height 0.4s ease 0.2s; /* Delay for smoothness */
 }
 
@@ -690,6 +689,32 @@ nav {
 /* Stronger background on hover for readability */
 .strength-card:hover .strength-content {
     background: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 100%);
+}
+
+/* =========================================
+   RESPONSIVE (Mobile) for Accordion
+   ========================================= */
+@media (max-width: 900px) {
+    .strengths-accordion {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .strength-card {
+        height: 120px;
+        flex: none;
+        width: 100%;
+        transition: height 0.4s ease;
+    }
+
+    .strength-card:hover {
+        flex: none;
+        height: 300px;
+    }
+    
+    .strength-content p {
+        white-space: normal; 
+    }
 }
 
 /* =========================================
