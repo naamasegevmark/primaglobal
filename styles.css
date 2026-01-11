@@ -595,45 +595,120 @@ nav {
     flex-grow: 1; /* Allow text to take remaining space */
 }
 
-/* Styles for the "Prima's Strengths" content that is now part of Our Product section */
-/* Moved from old #assets section, now applies to .assets-list inside #our-product */
-#our-product .assets-list {
-    display: grid; /* Use grid for a more organized layout */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
-    gap: 30px; /* Space between list items */
-    margin-top: 40px; /* Space above the list */
-    width: 100%; /* Take full width of its parent */
-}
+/* =========================================
+   NEW: STRENGTHS ACCORDION ANIMATION
+   ========================================= */
 
-#our-product .assets-list li {
+.strengths-accordion {
     display: flex;
-    align-items: flex-start;
-    gap: 15px; /* Adds space between the bullet and the text */
-    font-size: 1.1rem;
-    margin-bottom: 0; /* Remove default margin from li, gap handles spacing */
-    background: var(--gray-dark); /* Add background for list items */
-    padding: 25px;
-    border-radius: 5px;
-    border: 1px solid #333;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    width: 100%;
+    height: 450px; /* Adjust height as needed */
+    gap: 15px;
+    margin-top: 40px;
 }
 
-#our-product .assets-list li:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4), 0 0 10px var(--accent-color);
+.strength-card {
+    position: relative;
+    flex: 1; /* All cards start with equal width */
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth expansion ease */
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #333;
+    /* Dark overlay by default so white text pops */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+/* Background Images for Strengths - REPLACE these with your actual images */
+.strength-card.card-1 {
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('images/project-1.jpg'); 
+}
+.strength-card.card-2 {
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('images/project-2.jpg');
+}
+.strength-card.card-3 {
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('images/project-3.jpg');
+}
+
+/* Hover State: The hovered card grows */
+.strength-card:hover {
+    flex: 3; /* Grows to take up 3x the space of others */
     border-color: var(--accent-color);
 }
 
-#our-product .assets-list p { /* Ensures paragraphs inside list items don't have excessive margin */
-    margin-bottom: 0;
+/* Inner Content Styling */
+.strength-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    color: var(--secondary-color);
+    white-space: nowrap; /* Prevents text wrap initially */
 }
 
-#our-product .assets-list .list-bullet {
-    flex-shrink: 0; /* Prevents the bullet from shrinking */
-    line-height: 1; /* Ensures consistent vertical alignment */
-    font-size: 1.2em; /* Make bullet slightly larger */
-    color: var(--accent-color); /* Color the bullet */
+/* Title Styling */
+.strength-content h3 {
+    font-family: var(--font-secondary);
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    /* On mobile or closed state, rotate text if preferred, but usually keeping it standard is safer */
+}
+
+/* Paragraph Styling - Hidden initially */
+.strength-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--secondary-color);
+    margin: 0;
+    opacity: 0; /* Invisible by default */
+    max-height: 0; /* Takes no vertical space */
+    white-space: normal; /* Allow wrapping when visible */
+    transition: opacity 0.4s ease 0.2s, max-height 0.4s ease 0.2s; /* Delay for smoothness */
+}
+
+/* Reveal Text on Hover */
+.strength-card:hover .strength-content p {
+    opacity: 1;
+    max-height: 200px; /* Enough space for text */
+}
+
+.strength-card:hover .strength-content {
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 100%);
+}
+
+/* =========================================
+   RESPONSIVE (Mobile) for Accordion
+   ========================================= */
+@media (max-width: 900px) {
+    .strengths-accordion {
+        flex-direction: column; /* Stack vertically on mobile */
+        height: auto; /* Let height grow naturally */
+    }
+    
+    .strength-card {
+        height: 120px; /* Collapsed height on mobile */
+        flex: none; /* Disable flex growing logic for row layout */
+        width: 100%;
+        transition: height 0.4s ease; /* Animate height instead */
+    }
+
+    .strength-card:hover {
+        flex: none; /* Disable flex grow */
+        height: 300px; /* Expanded height on mobile tap */
+    }
+    
+    .strength-content p {
+        /* Ensure text logic remains the same */
+        white-space: normal; 
+    }
 }
 
 
