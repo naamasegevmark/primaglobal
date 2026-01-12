@@ -13,10 +13,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <!-- Google Material Symbols Link -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
-    <script>
+<script>
 document.addEventListener('DOMContentLoaded', function () {
     const headers = document.querySelectorAll('.section-header');
 
@@ -24,12 +23,10 @@ document.addEventListener('DOMContentLoaded', function () {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('in-view');
-                // Uncomment the next line if you only want the animation once:
-                // observer.unobserve(entry.target);
             }
         });
     }, {
-        threshold: 0.3   // 30% of header visible triggers the animation
+        threshold: 0.3
     });
 
     headers.forEach(header => observer.observe(header));
@@ -41,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function () {
         <nav>
             <div class="logo">
                 <a href="#">
-                    <!-- Ensure your filename matches exactly -->
                     <img src="images/PRIMA global logo zoom.jpeg" alt="Prima Global Logo">
                 </a>
             </div>
@@ -49,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <li><a href="#about">About</a></li>
                 <li><a href="#innovation">Innovation</a></li>
                 <li><a href="#our-product">Our Product</a></li>
-                <li><a href="#assets">Projects Gallery</a></li> <!-- UPDATED: Navigation link text -->
+                <li><a href="#assets">Projects Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -62,21 +58,16 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="hero-content container text-center">
                 <h1>PRIMA CLADDING SYSTEM</h1>
                 <p class="hero-subtitle">DESIGNED TO INSPIRE</p>
-                <!-- UPDATED CTA BUTTON HREF TO #about -->
                 <a href="#about" class="cta-button">Discover Our Innovation</a>
             </div>
         </section>
         
-        <!-- REMOVED SECTION: The Future of Façades (Click Interaction - Refined) -->
-        <!-- The entire <section id="future-facades"> block has been removed -->
-
-              <!-- About Prima Section -->
-           <section id="about" class="container black-bg section-padding">
+        <!-- About Prima Section -->
+        <section id="about" class="container black-bg section-padding">
            <div class="section-header">
-           <h2>ABOUT PRIMA GLOBAL</h2>
+               <h2>ABOUT PRIMA GLOBAL</h2>
            </div>
            <div class="about-content">
-              <!-- 1. The Text Paragraphs (Left Column) -->
              <div class="about-text">
                <p><strong>Prima Global</strong> emerged from a fundamental need to drive innovation within the building cladding sector. Our mission is to engineer exteriors that embody both resilience and accuracy.</p>
                <p>We developed a <strong>new construction method</strong> that replaces traditional, cumbersome techniques with a streamlined, high-performance approach.</p>
@@ -84,18 +75,16 @@ document.addEventListener('DOMContentLoaded', function () {
                <p>Our <strong>patented</strong> system solution combines advanced engineering and efficiency to meet top standards of safety, sustainability, durability and cost-effectiveness. </p>
             </div>
 
-            <!-- This is the container for your images, which will sit to the right of the text -->
             <div class="about-image-column">
-                <img src="images/Prima-about.jpg" alt="Modern Cladding Building" class="about-image main-image"> <!-- Added class "main-image" -->
-                <img src="images/Prima-about-2.png" alt="Another building image" class="about-image secondary-image"> <!-- Added class "secondary-image" -->
+                <img src="images/Prima-about.jpg" alt="Modern Cladding Building" class="about-image main-image">
+                <img src="images/Prima-about-2.png" alt="Another building image" class="about-image secondary-image">
             </div>
 
-            <!-- 3. The P1 Text (Still full width underneath) -->
             <p1>At Prima Global we go beyond simply supplying panels, we deliver a new standard.</p1>
             </div>
-</section>
+        </section>
 
-                <!-- Innovation Section -->
+        <!-- Innovation Section -->
         <section id="innovation" class="container black-bg section-padding">
             <div class="section-header">
                 <h2>PRIMA'S INNOVATION</h2>
@@ -124,80 +113,79 @@ document.addEventListener('DOMContentLoaded', function () {
                         <p>Committed to sustainability, our modules use 30% less concrete, significantly reducing carbon footprint. All components are locally manufactured, boosting economies and cutting emissions for a greener construction.</p>
                     </div>
                 </div>
-            </div> <!-- End innovation-grid -->
+            </div>
         </section>
 
-               <!-- NEW SECTION: Our Product (Now includes Prima's Strengths) -->
+        <!-- Our Product Section -->
         <section id="our-product" class="container black-bg section-padding">
             <div class="section-header">
                 <h2>OUR PRODUCT</h2>
             </div>
             <div class="our-product-content">
                 <div class="product-main-image-container">
-                    <!-- REPLACE with your actual main image path for this section -->
                     <img src="images/scheme.png" alt="Prima Global Product Overview">
                 </div>
                 <div class="product-features-list">
                     <div class="product-feature-item">
-                        <span class="material-symbols-outlined">deployed_code</span>
+                        <span class="material-symbols-outlined product-feature-icon">deployed_code</span>
                        <p><strong>Module Dimensions:</strong> Robust and adaptable building blocks, 50 mm thickness.</p>
                     </div>
                     <div class="product-feature-item">
-                         <span class="material-symbols-outlined">weight</span>
+                         <span class="material-symbols-outlined product-feature-icon">weight</span>
                         <p><strong>Reduced Mechnical Load:</strong> Only 125 kg/sqm!</p>
                     </div>
                     <div class="product-feature-item">
-                         <span class="material-symbols-outlined">width_normal</span>
+                         <span class="material-symbols-outlined product-feature-icon">width_normal</span>
                         <p><strong>Efficient Assembly:</strong> Rapid installation with 4-5 units per module.</p>
                     </div>
                     <div class="product-feature-item">
-                        <span class="material-symbols-outlined">space_dashboard</span>
+                        <span class="material-symbols-outlined product-feature-icon">space_dashboard</span>
                         <p><strong>Flexible Composition:</strong> Complete design freedom to integrate windows & custom openings.</p>
                     </div>
                     <div class="product-feature-item">
-                         <span class="material-symbols-outlined">brush</span>
+                         <span class="material-symbols-outlined product-feature-icon">brush</span>
                         <p><strong>Texture Variety:</strong> A world of colours and textures.</p>
                     </div>
                     <div class="product-feature-item">
-                         <span class="material-symbols-outlined">architecture</span>
+                         <span class="material-symbols-outlined product-feature-icon">architecture</span>
                         <p><strong>Dynamic Curvature:</strong> Embrace architectural fluidity to shape corners and edges uniquely.</p>
                     </div>
                 </div>
             </div>
 
-         <!-- PRIMA'S STRENGTHS (New Accordion Layout) -->
-         <div class="section-header" style="margin-top: 80px;">
-            <h2>PRIMA'S STRENGTHS</h2>
-        </div>
+            <!-- PRIMA'S STRENGTHS (Accordion Layout) -->
+            <div class="section-header" style="margin-top: 80px;">
+                <h2>PRIMA'S STRENGTHS</h2>
+            </div>
             
-        <div class="strengths-accordion">
-          <!-- Strength 1: Patents -->
-            <div class="strength-card card-1">
-             <div class="strength-content">
-                <h3>Global Patents</h3>
-                <p>Our intellectual property is protected by multiple global patents, ensuring the uniqueness and proprietary nature of the Prima Cladding System, providing exclusive value to our clients.</p>
-             </div>
-            </div>
+            <div class="strengths-accordion">
+                <!-- Strength 1 -->
+                <div class="strength-card card-1">
+                    <div class="strength-content">
+                        <h3>Global Patents</h3>
+                        <p>Our intellectual property is protected by multiple global patents, ensuring the uniqueness and proprietary nature of the Prima Cladding System, providing exclusive value to our clients.</p>
+                    </div>
+                </div>
 
-        <!-- Strength 2: Certification -->
-            <div class="strength-card card-2">
-              <div class="strength-content">
-                <h3>Certified Engineering</h3>
-                 <p>Rest assured: The Prima Global system is rigorously certified by David Engineers. This independent validation confirms its robust design, superior engineering, and unwavering reliability.</p>
-              </div>
-            </div>
+                <!-- Strength 2 -->
+                <div class="strength-card card-2">
+                    <div class="strength-content">
+                        <h3>Certified Engineering</h3>
+                        <p>Rest assured: The Prima Global system is rigorously certified by David Engineers. This independent validation confirms its robust design, superior engineering, and unwavering reliability.</p>
+                    </div>
+                </div>
 
-         <!-- Strength 3: Compliance -->
-            <div class="strength-card card-3">
-              <div class="strength-content">
-               <h3>ISO & Fire Safety</h3>
-               <p>Our custom cladding solutions are fully ISO quality-compliant & certified to the EN 13501-1 standard (A1) for fire resistance, guaranteeing paramount safety and performance.</p>
-              </div>
+                <!-- Strength 3 -->
+                <div class="strength-card card-3">
+                    <div class="strength-content">
+                        <h3>ISO & Fire Safety</h3>
+                        <p>Our custom cladding solutions are fully ISO quality-compliant & certified to the EN 13501-1 standard (A1) for fire resistance, guaranteeing paramount safety and performance.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-</section>
+        </section>
         
-        <!-- PROJECTS GALLERY (Formerly Prima's Assets) -->
+        <!-- PROJECTS GALLERY -->
         <section id="assets" class="container black-bg section-padding">
             <div class="section-header">
                 <h2>PROJECTS GALLERY</h2>
@@ -207,47 +195,40 @@ document.addEventListener('DOMContentLoaded', function () {
                     <img src="images/project-1.jpg" alt="Project Example 1">
                     <div class="project-info">
                         <h3>Residential Towers</h3>
-                        <!-- Removed descriptive text -->
                     </div>
                 </div>
                 <div class="project-item">
                     <img src="images/project-2.jpg" alt="Project Example 2">
                     <div class="project-info">
                         <h3>Commercial Hub</h3>
-                        <!-- Removed descriptive text -->
                     </div>
                 </div>
                 <div class="project-item">
                     <img src="images/project-3.jpg" alt="Project Example 3">
                     <div class="project-info">
                         <h3>Sustainable Office Building</h3>
-                        <!-- Removed descriptive text -->
                     </div>
                 </div>
                  <div class="project-item">
                     <img src="images/project-4.jpg" alt="Project Example 4">
                     <div class="project-info">
                         <h3>Mixed-Use Development</h3>
-                        <!-- Removed descriptive text -->
                     </div>
                 </div>
                 <div class="project-item">
                     <img src="images/project-5.jpg" alt="Project Example 5">
                     <div class="project-info">
                         <h3>Hospitality Complex</h3>
-                        <!-- Removed descriptive text -->
                     </div>
                 </div>
                 <div class="project-item">
                     <img src="images/project-6.jpg" alt="Project Example 6">
                     <div class="project-info">
                         <h3>Educational Institution</h3>
-                        <!-- Removed descriptive text -->
                     </div>
                 </div>
             </div>
         </section>
-
 
         <!-- Contact Us Section -->
         <section id="contact" class="full-screen-section black-bg text-center">
@@ -259,7 +240,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     <p>Email: <a href="mailto:sales@primaglobal.co" class="contact-link">sales@primaglobal.co</a></p>
                 </div>
 
-                <!-- Contact Form Starts Here -->
                 <form action="#" method="POST" class="contact-form">
                     <h3>Send Us a Message</h3>
                     <div class="form-group">
@@ -281,13 +261,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     <button type="submit" class="cta-button form-submit-button">Send Message</button>
                     <p class="form-note">
                         For this form to function, you'll need to integrate a service like
-                        <a href="https://formspree.io/" target="_blank" rel="noopener noreferrer">Formspree</a> or
-                        <a href="https://www.netlify.com/products/forms/" target="_blank" rel="noopener noreferrer">Netlify Forms</a>.
-                        Replace the `action="#"` attribute in the form tag with the URL provided by your chosen service.
+                        <a href="https://formspree.io/" target="_blank" rel="noopener noreferrer">Formspree</a>.
                     </p>
                 </form>
-                <!-- Contact Form Ends Here -->
-
             </div>
         </section>
     </main>
@@ -297,8 +273,5 @@ document.addEventListener('DOMContentLoaded', function () {
             <p>&copy; 2025 Prima Global. All rights reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
         </div>
     </footer>
-
-    <!-- REMOVED SCRIPT FOR COMPARISON TOGGLE -->
-    <!-- The JavaScript function toggleComparison() is no longer needed -->
 </body>
 </html>
