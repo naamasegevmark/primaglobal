@@ -171,7 +171,7 @@ nav {
 }
 
 .logo a { display: flex; align-items: center; }
-.logo img { height: 80px; width: auto; display: block; }
+.logo img { height: 80px; width: auto; display: block; } /* Logo size */
 
 .nav-links {
     list-style: none;
@@ -467,7 +467,7 @@ nav {
 
 .product-feature-item {
     display: flex;
-    align-items: center; /* FIXED: Changed back to center for vertical alignment */
+    align-items: center;
     gap: 15px;
     padding: 15px 20px;
     transition: background-color 0.3s ease;
@@ -483,9 +483,19 @@ nav {
     background-color: #2a2a2a;
 }
 
-    .product-feature-icon {
-        margin-bottom: 0; /* Remove bottom margin */
-    }
+/* Icon Styling - Optical adjustment using transform */
+.product-feature-icon {
+    font-size: 30px;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    flex-shrink: 0;
+    line-height: 1;
+    transform: translateY(-2px); /* <<< START WITH -2PX, THEN ADJUST FOR OPTICAL ALIGNMENT */
+}
 
 .product-feature-item p {
     margin: 0;
@@ -494,30 +504,20 @@ nav {
     text-align: left;
     flex-grow: 1;
 }
-/* Add this new CSS rule to your styles.css file */
-.facade-tagline {
-    font-family: var(--font-secondary); /* Use your elegant secondary font */
-    font-style: italic;
-    font-size: 2.5em; /* Make it prominent, adjust as needed */
-    color: var(--accent-color); /* Use the accent color to highlight */
-    text-align: center;
-    margin-top: 60px;   /* Add space above */
-    margin-bottom: 60px; /* Add space below */
-    padding: 0 20px;    /* Ensure it doesn't touch edges on small screens */
-    max-width: 900px;   /* Keep line length readable */
-    margin-left: auto;  /* Center the block itself */
-    margin-right: auto; /* Center the block itself */
-}
 
-/* -------------------------------------------
-   RESPONSIVE ADJUSTMENTS FOR THE NEW TAGLINE
-   ------------------------------------------- */
-@media (max-width: 900px) {
-    .facade-tagline {
-        font-size: 1.4em; /* Smaller font size on mobile */
-        margin-top: 40px;
-        margin-bottom: 40px;
-    }
+/* Tagline for Our Product section */
+.facade-tagline {
+    font-family: var(--font-secondary);
+    font-style: italic;
+    font-size: 2.5em;
+    color: var(--accent-color);
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    padding: 0 20px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* =========================================
@@ -545,8 +545,8 @@ nav {
     box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
 
-.strength-card.card-1 { background-image: url('images/hero-building.png'); }
-.strength-card.card-2 { background-image: url('images/hero-building.png'); }
+.strength-card.card-1 { background-image: url('images/hero-building.png'); } /* Note: These are placeholder images */
+.strength-card.card-2 { background-image: url('images/hero-building.png'); } /* Remember to update them */
 .strength-card.card-3 { background-image: url('images/hero-building.png'); }
 
 .strength-card:hover {
@@ -575,7 +575,7 @@ nav {
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: all 0.3s ease;
-    text-align: center; /* Title Centered */
+    text-align: center;
 }
 
 .strength-content p {
@@ -749,22 +749,23 @@ footer {
         text-align: center;
     }
     
-    h1 { font-size: 2.5em; }
+    h1 { font-size: 2.5em; } /* General H1, will be overridden for hero H1 below */
    
     .hero-content h1 { 
-        font-size: 3em; 
+        font-size: 3em; /* Hero H1: Larger, distinct from subtitle */
         line-height: 1.1;
         letter-spacing: 1px;
     }
-   .hero-subtitle { /* ADDED: Explicitly define subtitle size for mobile */
-        font-size: 1.1rem; /* Make it clearly smaller than the new h1 */
-        letter-spacing: 3px; /* Adjust letter spacing for better fit */
-        margin-bottom: 30px; /* Reduce space below subtitle */
+    
+    .hero-subtitle { /* Hero subtitle for mobile */
+        font-size: 1.1rem;
+        letter-spacing: 3px;
+        margin-bottom: 30px;
     }
   
-    .cta-button {
-        padding: 12px 25px; /* DECREASED: Smaller padding */
-        font-size: 0.9em;   /* DECREASED: Smaller font size */
+    .cta-button { /* CTA button for mobile */
+        padding: 12px 25px;
+        font-size: 0.9em;
     }
    
     .innovation-item { min-height: 250px; }
@@ -786,7 +787,11 @@ footer {
         padding: 15px 20px;
         min-height: unset;
     }
-    .product-feature-icon { margin-bottom: 0; }
+    .product-feature-icon { 
+        margin-bottom: 0;
+        /* Keep transform here for optical adjustment on mobile too */
+        transform: translateY(-2px); 
+    }
     .product-feature-item p { text-align: left; }
 
     /* Accordion Mobile */
@@ -805,6 +810,13 @@ footer {
         height: 300px;
     }
     .strength-content p { white-space: normal; }
+    
+    /* Tagline for Our Product section on mobile */
+    .facade-tagline {
+        font-size: 1.4em;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
 
     #assets .projects-grid { grid-template-columns: 1fr; }
     #assets .project-item img { height: 200px; }
