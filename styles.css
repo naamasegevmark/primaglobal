@@ -171,7 +171,7 @@ nav {
 }
 
 .logo a { display: flex; align-items: center; }
-.logo img { height: 90px; width: auto; display: block; }
+.logo img { height: 80px; width: auto; display: block; }
 
 .nav-links {
     list-style: none;
