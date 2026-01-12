@@ -750,12 +750,23 @@ footer {
     }
     
     h1 { font-size: 2.5em; }
+   
     .hero-content h1 { 
-        font-size: 2.4em; 
+        font-size: 3em; 
         line-height: 1.1;
         letter-spacing: 1px;
     }
-
+   .hero-subtitle { /* ADDED: Explicitly define subtitle size for mobile */
+        font-size: 1.1rem; /* Make it clearly smaller than the new h1 */
+        letter-spacing: 3px; /* Adjust letter spacing for better fit */
+        margin-bottom: 30px; /* Reduce space below subtitle */
+    }
+  
+    .cta-button {
+        padding: 12px 25px; /* DECREASED: Smaller padding */
+        font-size: 0.9em;   /* DECREASED: Smaller font size */
+    }
+   
     .innovation-item { min-height: 250px; }
 
     .our-product-content {
