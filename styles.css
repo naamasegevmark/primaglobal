@@ -489,18 +489,19 @@ nav {
 
 /* Icon Styling */
 .product-feature-icon {
-    font-size: 30px;
-    width: 45px;
-    height: 45px;
+    font-size: 30px; /* Your current setting */
+    width: 45px;     /* Your current setting */
+    height: 45px;    /* Your current setting */
     display: flex;
     align-items: center;
     justify-content: center;
     color: #ffffff;
     flex-shrink: 0;
-    /*line-height: 1; /* Keeping this to ensure the symbol itself is centered within its 50x50 span */
-    position: relative;
-    top: -8px; 
+    line-height: 1;
+    transform: translateY(-2px); /* <<< START WITH -2PX, THEN ADJUST */
+    
 }
+
 
 .product-feature-item p {
     margin: 0;
