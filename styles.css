@@ -49,6 +49,26 @@ ul {
     margin: 0;
 }
 
+/* Google Material Symbols Settings */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Default size */
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+}
+
 /* =========================================
    2. TYPOGRAPHY
    ========================================= */
@@ -580,11 +600,16 @@ nav {
     /* REMOVED: transform, box-shadow as these are now on the parent .product-features-list */
 }
 
+/* Updated styling for Google Icons */
 .product-feature-icon {
-    width: 50px;
-    height: 50px;
-    flex-shrink: 0; /* Prevents icon from shrinking */
-    filter: brightness(0) invert(1) grayscale(1); /* Makes icons white */
+    font-size: 40px; /* Adjust size to match your old images */
+    width: 50px;     /* Keep width for alignment */
+    height: 50px;    /* Keep height for alignment */
+    display: flex;   /* Centers the icon in the 50x50 box */
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;  /* Sets the icon color to WHITE */
+    flex-shrink: 0;  
 }
 
 .product-feature-item p {
