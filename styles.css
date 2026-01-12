@@ -498,6 +498,31 @@ nav {
     text-align: left;
     flex-grow: 1;
 }
+/* Add this new CSS rule to your styles.css file */
+.facade-tagline {
+    font-family: var(--font-secondary); /* Use your elegant secondary font */
+    font-style: italic;
+    font-size: 2em; /* Make it prominent, adjust as needed */
+    color: var(--accent-color); /* Use the accent color to highlight */
+    text-align: center;
+    margin-top: 60px;   /* Add space above */
+    margin-bottom: 60px; /* Add space below */
+    padding: 0 20px;    /* Ensure it doesn't touch edges on small screens */
+    max-width: 900px;   /* Keep line length readable */
+    margin-left: auto;  /* Center the block itself */
+    margin-right: auto; /* Center the block itself */
+}
+
+/* -------------------------------------------
+   RESPONSIVE ADJUSTMENTS FOR THE NEW TAGLINE
+   ------------------------------------------- */
+@media (max-width: 900px) {
+    .facade-tagline {
+        font-size: 1.4em; /* Smaller font size on mobile */
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+}
 
 /* =========================================
    STRENGTHS ACCORDION ANIMATION
