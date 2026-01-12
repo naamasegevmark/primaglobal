@@ -502,7 +502,7 @@ nav {
 .facade-tagline {
     font-family: var(--font-secondary); /* Use your elegant secondary font */
     font-style: italic;
-    font-size: 2em; /* Make it prominent, adjust as needed */
+    font-size: 4em; /* Make it prominent, adjust as needed */
     color: var(--accent-color); /* Use the accent color to highlight */
     text-align: center;
     margin-top: 60px;   /* Add space above */
