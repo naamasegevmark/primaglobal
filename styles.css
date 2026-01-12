@@ -417,20 +417,22 @@ nav {
     margin-bottom: 0;
 }
 
+/* ... (your existing CSS before section 9) ... */
+
 /* =========================================
-   9. OUR PRODUCT SECTION 
+   9. OUR PRODUCT SECTION (Combined Technical & Design + Strengths)
    ========================================= */
 .our-product-content {
     display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    align-items: stretch;
+    flex-wrap: wrap; /* Allows stacking on smaller screens */
+    gap: 40px; /* Space between the image and the list */
+    align-items: stretch; /* Stretches siblings to the height of the tallest */
     margin-top: 40px;
 }
 
 .product-main-image-container {
-    flex: 1;
-    min-width: 450px;
+    flex: 1; /* Takes up available space */
+    min-width: 450px; /* Minimum width for the image container before wrapping */
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
@@ -439,59 +441,72 @@ nav {
 
 .product-main-image-container img {
     width: 100%;
-    height: auto;
+    height: auto; /* Ensures the image scales proportionally */
     display: block;
-    object-fit: cover;
+    object-fit: cover; /* Ensures image covers area, might crop slightly if aspect ratio differs */
 }
 
-.product-main-image-container:hover { transform: translateY(-8px); }
+.product-main-image-container:hover {
+    transform: translateY(-8px); /* Subtle lift on hover */
+}
 
 /* Single Box Layout for List */
 .product-features-list {
-    flex: 1.5;
-    display: flex;
-    flex-direction: column;
+    flex: 1.5; /* Takes more space than the image, e.g., 60% vs 40% */
+    display: flex; /* Make it a flex container */
+    flex-direction: column; /* Stack items vertically */
     background: var(--gray-dark);
     border-radius: 5px;
     border: 1px solid #333;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease;
-    padding: 10px 0;
+    transition: transform 0.3s ease; /* Hover for the entire box */
+    padding: 10px 0; /* Vertical padding for the whole box */
 }
 
-.product-features-list:hover { transform: translateY(-8px); }
+.product-features-list:hover {
+    transform: translateY(-8px); /* Subtle lift on hover for the entire box */
+}
 
 .product-feature-item {
     display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 15px 20px;
-    transition: background-color 0.3s ease;
-    flex-shrink: 0;
+    align-items: baseline; /* CHANGED: Aligns icon baseline with text baseline */
+    gap: 15px; /* Space between icon and text */
+    padding: 15px 20px; /* Padding for each list item */
+    transition: background-color 0.3s ease; /* Only background color transition */
+    flex-shrink: 0; /* Prevents item from shrinking */
 }
 
-.product-feature-item:not(:last-child) { border-bottom: 1px solid #2a2a2a; }
-.product-feature-item:hover { background-color: #2a2a2a; }
+/* Add a separator line between items, but not on the last one */
+.product-feature-item:not(:last-child) {
+    border-bottom: 1px solid #2a2a2a; 
+}
+
+.product-feature-item:hover {
+    background-color: #2a2a2a; /* Slightly lighter on hover */
+}
 
 /* Icon Styling */
 .product-feature-icon {
-    font-size: 40px; 
-    width: 50px;     
-    height: 50px;    
-    display: flex;   
+    font-size: 40px; /* Adjust size to match your old images */
+    width: 50px;     /* Keep width for alignment */
+    height: 50px;    /* Keep height for alignment */
+    display: flex;   /* Centers the icon in the 50x50 box */
     align-items: center;
     justify-content: center;
-    color: #ffffff;  
-    flex-shrink: 0;  
+    color: #ffffff;  /* Sets the icon color to WHITE */
+    flex-shrink: 0;
+    line-height: 1; /* ADDED: Helps font icon align better to baseline */
 }
 
 .product-feature-item p {
-    margin: 0;
-    font-size: 1em;
+    margin: 0; /* Remove default paragraph margin */
+    font-size: 1em; /* Adjust font size for better readability in list */
     color: var(--gray-light);
     text-align: left;
-    flex-grow: 1;
+    flex-grow: 1; /* Allow text to take remaining space */
 }
+
+/* ... (rest of your CSS, including the strengths accordion and responsive styles) ... */
 
 /* =========================================
    NEW: STRENGTHS ACCORDION ANIMATION
