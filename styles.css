@@ -499,7 +499,7 @@ nav {
     flex-shrink: 0;
     line-height: 1; /* Keeping this to ensure the symbol itself is centered within its 50x50 span */
     position: relative;
-    top: -2px; 
+    top: -3px; 
 }
 
 .product-feature-item p {
