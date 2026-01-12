@@ -422,7 +422,7 @@ nav {
 /* ... (your existing CSS before section 9) ... */
 
 /* =========================================
-   9. OUR PRODUCT SECTION (Combined Technical & Design + Strengths)
+   9. OUR PRODUCT SECTION (Combined Technical, Design, Strengths)
    ========================================= */
 .our-product-content {
     display: flex;
@@ -500,7 +500,7 @@ nav {
 }
 
 /* =========================================
-   NEW: STRENGTHS ACCORDION ANIMATION
+   STRENGTHS ACCORDION ANIMATION
    ========================================= */
 
 .strengths-accordion {
@@ -524,9 +524,9 @@ nav {
     box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
 
-.strength-card.card-1 { background-image: url('images/project-1.jpg'); }
-.strength-card.card-2 { background-image: url('images/project-2.jpg'); }
-.strength-card.card-3 { background-image: url('images/project-3.jpg'); }
+.strength-card.card-1 { background-image: url('images/hero-building.png'); }
+.strength-card.card-2 { background-image: url('images/hero-building.png'); }
+.strength-card.card-3 { background-image: url('images/hero-building.png'); }
 
 .strength-card:hover {
     flex: 3;
