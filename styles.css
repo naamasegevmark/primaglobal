@@ -751,11 +751,12 @@ footer {
     nav {
         justify-content: flex-start; /* Align items to the left */
     }
-
     .logo {
-        margin-right: auto; /* Allow the logo to take space on the left */
+        margin-right: 10px; /* Adjust margin to move logo further left */
+        padding-left: 0; /* Remove or reduce left padding, if any */
+        padding-right: 0; /* Remove right padding if needed */
     }
-
+    
     .menu-icon {
         margin-left: auto; /* Move the menu icon to the right */
     }
