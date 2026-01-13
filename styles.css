@@ -730,13 +730,18 @@ footer {
   .hero-subtitle { font-size: 1.1rem; letter-spacing: 3px; margin-bottom: 30px; }
   .cta-button { padding: 12px 25px; font-size: 0.9em; }
 
+  /* Mobile nav */
   .nav-links { display: none; background-color: #333; padding: 10px; }
-  .menu-icon { display: block; margin-left: auto; padding-right: 20px; }
+  .menu-icon { display: block; margin-left: auto; padding-right: 20px; cursor: pointer; position: relative; z-index: 2001; }
   nav { padding: 0; justify-content: space-between; }
   .logo { margin-left: 0; }
   .nav-active {
-    display: flex !important; flex-direction: column; position: absolute;
-    background-color: #333; top: 60px; width: 100%; z-index: 999;
+    display: flex !important;
+    flex-direction: column;
+    position: fixed;
+    top: 60px; left: 0; right: 0;
+    background-color: #333;
+    z-index: 2000;
   }
   .nav-links li { margin: 20px 0; padding-left: 15px; }
 
@@ -763,35 +768,35 @@ footer {
 
   .facade-tagline { font-size: 1.4em; }
 
-   /* Fit content within the box */
-.strength-content {
-  padding: 12px;
-  height: 100%;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
+  /* Our Strengths: fit content and lighten overlay on mobile */
+  .strength-card { min-height: 220px; }
 
- .strength-content h3 {
-  font-size: 1rem;
-  margin: 0 0 8px 0;
-  text-align: center; / or left */
-}
+  .strength-content {
+    padding: 12px;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0.05));
+  }
+  .strength-card:hover .strength-content {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 100%);
+  }
 
-.strength-content p {
-  font-size: 0.95em;
-  line-height: 1.4;
-  margin: 0;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 6; / adjust lines to fit */
-  -webkit-box-orient: vertical;
-}
-/* Our Strengths: lighter overlay on mobile */
-.strength-content {
-  background: linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0.05));
-}
-.strength-card:hover .strength-content {
-  background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 100%);
+  .strength-content h3 {
+    font-size: 1rem;
+    margin: 0 0 8px 0;
+    text-align: center; /* or: left */
+  }
+
+  .strength-content p {
+    font-size: 0.95em;
+    line-height: 1.4;
+    margin: 0;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 6; /* adjust lines to fit */
+    -webkit-box-orient: vertical;
+  }
 }
