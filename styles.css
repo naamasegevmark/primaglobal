@@ -715,6 +715,9 @@ footer {
     border-top: 1px solid #222;
 }
 
+/* =========================================
+   15. media
+   ========================================= */
 @media (max-width: 900px) {
     .container { padding: 0 28px; }
     .full-screen-section { padding: 80px 16px 0 16px; }
@@ -742,23 +745,18 @@ footer {
     /* Menu icon for mobile */
     .menu-icon {
         display: block; /* Show menu icon on mobile */
-        margin-left: 0; /* Ensure no left margin */
+        margin-left: auto; /* Push the menu icon to the right */
+        padding-right: 10px; /* Optional: Space between the menu icon and edge */
     }
 
     /* Align the logo and menu icon */
     nav {
         padding: 0; /* Ensure no padding around the nav */
-        justify-content: flex-start; /* Align items to the left */
+        justify-content: space-between; /* Space items across the nav to have logo on left and menu icon on right */
     }
 
     .logo {
-        margin: 0; /* Reset margins */
-        padding: 0; /* Reset padding */
-        margin-right: 10px; /* Optional right margin for space */
-    }
-
-    .menu-icon {
-        margin-left: 0; /* Move menu icon to the right */
+        margin-left: 10px; /* Align logo to the left edge of the hero image */
     }
 
     /* Show nav links when active */
@@ -776,7 +774,6 @@ footer {
         margin: 20px 0; /* Adjust for spacing */
     }
 
-    /* Additional styles below... */
     .about-content {
         flex-direction: column;
         text-align: left;
@@ -824,44 +821,5 @@ footer {
 
     .product-features-list { width: 100%; }
    
-    .product-feature-item {
-        flex-direction: row;
-        text-align: left;
-        gap: 15px;
-        padding: 15px 20px;
-        min-height: unset;
-    }
-    
-    .product-feature-icon { 
-        margin-bottom: 0;
-        transform: translateY(-2px); 
-    }
-    
-    .product-feature-item p { text-align: left; }
+    .product-feature-item
 
-    .strengths-accordion {
-        flex-direction: column;
-        height: auto;
-    }
-    
-    .strength-card {
-        height: 120px;
-        flex: none;
-        width: 100%;
-        transition: height 0.4s ease;
-    }
-    
-    .strength-card:hover {
-        flex: none;
-        height: 300px;
-    }
-    
-    .strength-content p { white-space: normal; }
-
-    /* Tagline for Our Product section on mobile */
-    .facade-tagline {
-        font-size: 1.4em;
-        margin-top: 40px;
-        margin-bottom: 40px;
-    }
-}
