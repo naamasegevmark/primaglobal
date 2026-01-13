@@ -740,13 +740,17 @@ footer {
         font-size: 0.9em;
     }
    
-    .nav-links { display: none; } 
+    .nav-links { 
+        display: none; 
+        background-color: #333; /* Change background color to dark grey */
+        padding: 10px; /* Optional: Add padding to the nav links */
+    } 
 
     /* Menu icon for mobile */
     .menu-icon {
         display: block; /* Show menu icon on mobile */
         margin-left: auto; /* Push the menu icon to the right */
-        padding-right: 15px; /* Optional: Space between the menu icon and edge */
+        padding-right: 15px; /* Space between the menu icon and edge */
     }
 
     /* Align the logo and menu icon */
@@ -759,12 +763,11 @@ footer {
         margin-left: 0px; /* Align logo to the left edge of the hero image */
     }
 
-    /* Show nav links when active */
     .nav-active {
         display: flex !important; /* Show links when nav is active */
         flex-direction: column; /* Stack links vertically */
         position: absolute; /* Position it absolutely */
-        background-color: rgba(0, 0, 0, 0.95); /* Adjust background as necessary */
+        background-color: #333; /* Change background color to dark grey */
         top: 60px; /* Adjust as needed */
         width: 100%;
         z-index: 999; /* Ensure it is on top */
@@ -772,6 +775,7 @@ footer {
 
     .nav-links li {
         margin: 20px 0; /* Adjust for spacing */
+        padding-left: 15px; /* Add padding to the left of menu text */
     }
 
     .about-content {
@@ -820,6 +824,5 @@ footer {
     }
 
     .product-features-list { width: 100%; }
-   
-    .product-feature-item
+}
 
