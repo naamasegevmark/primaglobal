@@ -647,7 +647,7 @@ nav {
 
 @media (max-width: 900px) {
     #Projects Gallery .projects-grid {grid-template-columns: repeat(2, 1fr); /* Adjust to 2 columns on smaller screens */ }
-
+}
 /* =========================================
    13. CONTACT SECTION
    ========================================= */
