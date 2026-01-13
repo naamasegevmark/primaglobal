@@ -753,11 +753,12 @@ footer {
         justify-content: flex-start; /* Align items to the left */
     }
    
-    .logo {
-        margin-right: 0px; /* Adjust margin to move logo further left */
-        padding-left: 0; /* Remove or reduce left padding, if any */
-        padding-right: 0; /* Remove right padding if needed */
+   .logo {
+    flex-grow: 1; /* Make the logo take available space on the left */
     }
+
+   /*.logo {
+        margin-right: 0px; /* Adjust margin to move logo further left */padding-left: 0; /* Remove or reduce left padding, if any */padding-right: 0; /* Remove right padding if needed */}*/
     
     .menu-icon {
         margin-left: auto; /* Move the menu icon to the right */
