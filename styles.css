@@ -811,8 +811,7 @@ footer {
   opacity: 0;
   max-height: 0;
   overflow: hidden;
-  transition: opacity .3s, max-height .3s;
-}
+  transition: opacity .3s, max-height .3s;}
 
 /* show and allow scroll when active (tap) or hover */
 .strength-card.active .strength-content p,
@@ -820,9 +819,9 @@ footer {
   opacity: 1;
   max-height: 60vh;
   overflow: auto;
-  -webkit-overflow-scrolling: touch;
-}
+  -webkit-overflow-scrolling: touch;}
 
 /* allow tap to expand like hover */
 .strength-card.active { flex: 3; }
+   
 }
