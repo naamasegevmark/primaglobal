@@ -196,6 +196,13 @@ nav {
     color: var(--accent-color);
     transform: scale(1.1);
 }
+.nav-links a.active-link {
+    background-color: var(--accent-color); /* Yellow background */
+    color: var(--primary-black) !important; /* Black text */
+    padding: 5px 10px; /* Add some spacing so the background looks good */
+    border-radius: 4px; /* Optional: rounded corners */
+    transform: scale(1.1); /* Keep the size increase */
+}
 
 /* Hide hamburger on desktop */
 .menu-icon { display: none; }
