@@ -836,4 +836,25 @@ footer {
 }
 
 .facade-tagline { font-size: 1.4em; }
+/* Our Strengths accordion: mobile tweaks /
+.strengths-accordion { flex-direction: column; height: auto; gap: 12px; }
+.strength-card { flex: none; height: 180px; }
+.strength-card:hover { flex: none; } / disable hover expansion on mobile */
+
+.strength-content { padding: 16px; }
+.strength-content h3 {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  margin: 0;
+  transform: rotate(-90deg);         /* rotate title counter-clockwise /
+  transform-origin: left bottom;
+  font-size: 1.1rem;                 / adjust to fit */
+  text-align: left;
+}
+
+/* Keep paragraph hidden until tap */
+.strength-content p { opacity: 0; max-height: 0; }
+.strength-card:active .strength-content p,
+.strength-card:focus-within .strength-content p { opacity: 1; max-height: 220px; }
 
