@@ -751,7 +751,7 @@ footer {
   /* innovation */
   .innovation-item { min-height: 250px; }
   #innovation .innovation-intro-text { text-align: left; }
-  #innovation .innovation-intro-text p { font-size: 1em; line-height: 1.7; }
+  #innovation .innovation-intro-text p { font-size: 1.1em; line-height: 1.7; }
   #innovation h3 { text-align: left; font-size: 1.4em; margin-bottom: 20px; }
   .innovation-overlay { padding: 16px; }
   .innovation-overlay h4 { font-size: 1.2rem; }
