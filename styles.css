@@ -746,7 +746,7 @@ footer {
     .menu-icon {
         display: block; /* Show menu icon on mobile */
         margin-left: auto; /* Push the menu icon to the right */
-        padding-right: 5px; /* Optional: Space between the menu icon and edge */
+        padding-right: 10px; /* Optional: Space between the menu icon and edge */
     }
 
     /* Align the logo and menu icon */
@@ -756,7 +756,7 @@ footer {
     }
 
     .logo {
-        margin-left: 10px; /* Align logo to the left edge of the hero image */
+        margin-left: 0px; /* Align logo to the left edge of the hero image */
     }
 
     /* Show nav links when active */
