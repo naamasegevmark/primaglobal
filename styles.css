@@ -752,7 +752,7 @@ footer {
    flex-direction: column;
    position: fixed;
    top: 60px; left: 0; right: 0;
-   background-color: #333;
+    background-color: rgba(0, 0, 0, 0.9); /* Transparent black for the mobile dropdown */
    z-index: 2000;}
 
   .nav-links li { margin: 20px 0; padding-left: 15px; }
