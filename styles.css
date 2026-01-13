@@ -193,7 +193,7 @@ nav {
     transform-origin: center;
 }
 .nav-links a:hover {
-    color: #FFD700; /*var(--accent-color);*/
+    color: red !important; /*var(--accent-color);*/
     transform: scale(1.1);
 }
 
