@@ -197,6 +197,9 @@ nav {
     transform: scale(1.1);
 }
 
+/* Hide hamburger on desktop */
+.menu-icon { display: none; }
+
 /* =========================================
    6. HERO SECTION
    ========================================= */
