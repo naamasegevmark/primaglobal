@@ -741,7 +741,7 @@ footer {
         height: auto;
         width: 100%;
     }
-    .about-content p1 { text-align: left; }
+    .about-content p1 { text-align: left;  font-size: 1.4em;}
     
     .section-header h2 {
         font-size: 1.4em;
