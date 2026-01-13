@@ -726,16 +726,8 @@ footer {
   .full-screen-section { padding: 80px 16px 0 16px; }
   .hero-background { left: 20px; right: 20px; }
 
-  .hero-content h1 {
-    font-size: 3em;
-    line-height: 1.1;
-    letter-spacing: 1px;
-  }
-  .hero-subtitle {
-    font-size: 1.1rem;
-    letter-spacing: 3px;
-    margin-bottom: 30px;
-  }
+  .hero-content h1 { font-size: 3em; line-height: 1.1; letter-spacing: 1px; }
+  .hero-subtitle { font-size: 1.1rem; letter-spacing: 3px; margin-bottom: 30px; }
   .cta-button { padding: 12px 25px; font-size: 0.9em; }
 
   .nav-links { display: none; background-color: #333; padding: 10px; }
@@ -743,13 +735,8 @@ footer {
   nav { padding: 0; justify-content: space-between; }
   .logo { margin-left: 0; }
   .nav-active {
-    display: flex !important;
-    flex-direction: column;
-    position: absolute;
-    background-color: #333;
-    top: 60px;
-    width: 100%;
-    z-index: 999;
+    display: flex !important; flex-direction: column; position: absolute;
+    background-color: #333; top: 60px; width: 100%; z-index: 999;
   }
   .nav-links li { margin: 20px 0; padding-left: 15px; }
 
@@ -776,7 +763,7 @@ footer {
 
   .facade-tagline { font-size: 1.4em; }
 
-  /* Our Strengths accordion: mobile with visible, centered, rotated titles /
+  /* Our Strengths accordion: mobile */
   .strengths-accordion {
     display: flex;
     flex-direction: column;
@@ -787,26 +774,35 @@ footer {
     position: relative;
     min-height: 180px;
     flex: 1;
+    overflow: hidden;
   }
-  / keep desktop hover effect; tap behavior handled by JS if added */
   .strength-card.active { flex: 3; }
 
-  .strength-content { padding: 0; }
+  .strength-content { padding: 0; position: relative; }
+
+  /* Title: visible, centered, rotated by default */
   .strength-content h3 {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 50%; left: 50%;
     transform: translate(-50%, -50%) rotate(-90deg);
     transform-origin: center;
     margin: 0;
     font-size: 1.1rem;
     text-align: center;
     white-space: nowrap;
+    z-index: 2;
+    opacity: 1;
+    transition: opacity .25s ease;
+    pointer-events: none;
   }
+  /* Hide title on expand (tap) */
+  .strength-card.active .strength-content h3 { opacity: 0; }
+
+  /* Description hidden by default; shown when active */
   .strength-content p {
     opacity: 0;
     max-height: 0;
-    transition: opacity .3s, max-height .3s;
+    transition: opacity .3s ease, max-height .3s ease;
   }
   .strength-card.active .strength-content p {
     opacity: 1;
