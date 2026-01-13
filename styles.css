@@ -730,19 +730,17 @@ footer {
   .hero-subtitle { font-size: 1.1rem; letter-spacing: 3px; margin-bottom: 30px; }
   .cta-button { padding: 12px 25px; font-size: 0.9em; }
 
-  /* Mobile nav */
-  .nav-links { display: none; background-color: #333; padding: 10px; }
-  .menu-icon { display: block; margin-left: auto; padding-right: 20px; cursor: pointer; position: relative; z-index: 2001; }
-  nav { padding: 0; justify-content: space-between; }
-  .logo { margin-left: 0; }
-  .nav-active {
-    display: flex !important;
-    flex-direction: column;
-    position: fixed;
-    top: 60px; left: 0; right: 0;
-    background-color: #333;
-    z-index: 2000;
-  }
+/* Mobile nav */
+#nav-links { display: none; background-color: #333; padding: 10px; }
+#nav-links.nav-active {
+  display: flex !important;
+  flex-direction: column;
+  position: fixed;
+  top: 60px; left: 0; right: 0;
+  background-color: #333;
+  z-index: 2000;
+}
+
   .nav-links li { margin: 20px 0; padding-left: 15px; }
 
   .about-content { flex-direction: column; text-align: left; }
