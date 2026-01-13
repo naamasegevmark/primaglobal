@@ -722,130 +722,80 @@ footer {
    13. media
    ========================================= */
 @media (max-width: 900px) {
-    .container { padding: 0 28px; }
-    .full-screen-section { padding: 80px 16px 0 16px; }
-    .hero-background { left: 20px; right: 20px; }
-   
-    .hero-content h1 { 
-        font-size: 3em; /* Hero H1: Larger, distinct from subtitle */
-        line-height: 1.1;
-        letter-spacing: 1px;
-    }
-    
-    .hero-subtitle { 
-        font-size: 1.1rem;
-        letter-spacing: 3px;
-        margin-bottom: 30px;
-    }
-  
-    .cta-button { 
-        padding: 12px 25px;
-        font-size: 0.9em;
-    }
-   
-    .nav-links { 
-        display: none; 
-        background-color: #333; /* Change background color to dark grey */
-        padding: 10px; /* Optional: Add padding to the nav links */
-    } 
+  .container { padding: 0 28px; }
+  .full-screen-section { padding: 80px 16px 0 16px; }
+  .hero-background { left: 20px; right: 20px; }
 
-    /* Menu icon for mobile */
-    .menu-icon {
-        display: block; /* Show menu icon on mobile */
-        margin-left: auto; /* Push the menu icon to the right */
-        padding-right: 20px; /* Space between the menu icon and edge */
-    }
+  .hero-content h1 {
+    font-size: 3em;
+    line-height: 1.1;
+    letter-spacing: 1px;
+  }
+  .hero-subtitle {
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+  }
+  .cta-button { padding: 12px 25px; font-size: 0.9em; }
 
-    /* Align the logo and menu icon */
-    nav {
-        padding: 0; /* Ensure no padding around the nav */
-        justify-content: space-between; /* Space items across the nav to have logo on left and menu icon on right */
-    }
+  .nav-links { display: none; background-color: #333; padding: 10px; }
+  .menu-icon { display: block; margin-left: auto; padding-right: 20px; }
+  nav { padding: 0; justify-content: space-between; }
+  .logo { margin-left: 0; }
+  .nav-active {
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    background-color: #333;
+    top: 60px;
+    width: 100%;
+    z-index: 999;
+  }
+  .nav-links li { margin: 20px 0; padding-left: 15px; }
 
-    .logo {
-        margin-left: 0px; /* Align logo to the left edge of the hero image */
-    }
+  .about-content { flex-direction: column; text-align: left; }
+  .about-image-column { flex: auto; max-width: 90%; margin: 30px auto 20px; gap: 15px; }
+  .about-image-column .about-image { flex: none; height: auto; width: 100%; }
+  .about-content p1 { text-align: left; font-size: 1.4em; }
 
-    .nav-active {
-        display: flex !important; /* Show links when nav is active */
-        flex-direction: column; /* Stack links vertically */
-        position: absolute; /* Position it absolutely */
-        background-color: #333; /* Change background color to dark grey */
-        top: 60px; /* Adjust as needed */
-        width: 100%;
-        z-index: 999; /* Ensure it is on top */
-    }
+  .section-header h2 { font-size: 1.4em; padding: 15px 20px; width: 100%; text-align: center; }
+  h1 { font-size: 2.5em; }
 
-    .nav-links li {
-        margin: 20px 0; /* Adjust for spacing */
-        padding-left: 15px; /* Add padding to the left of menu text */
-    }
+  /* innovation */
+  .innovation-item { min-height: 250px; }
+  #innovation .innovation-intro-text { text-align: left; }
+  #innovation .innovation-intro-text p { font-size: 1em; line-height: 1.7; }
+  #innovation h3 { text-align: left; font-size: 1.4em; margin-bottom: 20px; }
+  .innovation-overlay { padding: 16px; }
+  .innovation-overlay h4 { font-size: 1.2rem; }
+  .innovation-overlay p { font-size: 0.95em; }
 
-    .about-content {
-        flex-direction: column;
-        text-align: left;
-    }
+  .our-product-content { flex-direction: column; align-items: center; }
+  .product-main-image-container { min-width: unset; width: 100%; max-width: 600px; }
+  .product-features-list { width: 100%; }
 
-    .about-image-column {
-        flex: auto;
-        max-width: 90%;
-        margin: 30px auto 20px auto;
-        gap: 15px;
-    }
+  .facade-tagline { font-size: 1.4em; }
 
-    .about-image-column .about-image {
-        flex: none;
-        height: auto;
-        width: 100%;
-    }
-
-    .about-content p1 { 
-        text-align: left;  
-        font-size: 1.4em;
-    }
-
-    .section-header h2 {
-        font-size: 1.4em; 
-        padding: 15px 20px; 
-        width: 100%; 
-        text-align: center;
-    }
-   
-    h1 { font-size: 2.5em; } /* General H1, will be overridden for hero H1 below */
-   
-   /*  innovation  */
-   
-    .innovation-item { min-height: 250px; }
-    .innovation-intro-text { text-align: left;}
-    .innovation-intro-text p {font-size: 1em;    /* or 0.95em /line-height: 1.7;  / optional for readability */}
- 
-   .innovation h3 {text-align: left; font-size: 1.4em; margin-bottom: 20px;} 
-   .innovation-overlay { padding: 16px; }
-   .innovation-overlay h4 { font-size: 1.2rem; }
-   .innovation-overlay p { font-size: 0.95em; }
-   
-    .our-product-content {flex-direction: column; align-items: center;}
-
-    .product-main-image-container {
-        min-width: unset;
-        width: 100%;
-        max-width: 600px;
-    }
-
-    .product-features-list { width: 100%; }
-}
-
-.facade-tagline { font-size: 1.4em; }
-
-  /* Mobile accordion with visible, centered, rotated titles */
-  .strengths-accordion { flex-direction: column; height: auto; gap: 12px; }
-  .strength-card { flex: 1; height: 180px; }
+  /* Our Strengths accordion: mobile with visible, centered, rotated titles /
+  .strengths-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: auto;
+  }
+  .strength-card {
+    position: relative;
+    min-height: 180px;
+    flex: 1;
+  }
+  / keep desktop hover effect; tap behavior handled by JS if added */
   .strength-card.active { flex: 3; }
 
   .strength-content { padding: 0; }
   .strength-content h3 {
     position: absolute;
-    top: 50%; left: 50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%) rotate(-90deg);
     transform-origin: center;
     margin: 0;
@@ -853,7 +803,13 @@ footer {
     text-align: center;
     white-space: nowrap;
   }
-
-  .strength-content p { opacity: 0; max-height: 0; transition: opacity .3s, max-height .3s; }
-  .strength-card.active .strength-content p { opacity: 1; max-height: 220px; }
+  .strength-content p {
+    opacity: 0;
+    max-height: 0;
+    transition: opacity .3s, max-height .3s;
+  }
+  .strength-card.active .strength-content p {
+    opacity: 1;
+    max-height: 220px;
+  }
 }
