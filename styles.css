@@ -762,3 +762,29 @@ footer {
   .product-features-list { width: 100%; }
 
   .facade-tagline { font-size: 1.4em; }
+
+   /* Fit content within the box */
+.strength-content {
+  padding: 12px;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+ .strength-content h3 {
+  font-size: 1rem;
+  margin: 0 0 8px 0;
+  text-align: center; / or left */
+}
+
+.strength-content p {
+  font-size: 0.95em;
+  line-height: 1.4;
+  margin: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 6; / adjust lines to fit */
+  -webkit-box-orient: vertical;
+}
