@@ -747,18 +747,20 @@ footer {
         display: block; /* Show menu icon on mobile */
     }
 
-    /* Align logo and menu icon */
+    /* Align the logo and menu icon */
     nav {
         padding: 0; /* Ensure no padding around the nav */
         justify-content: flex-start; /* Align items to the left */
     }
-   
-   .logo {
-    flex-grow: 1; /* Make the logo take available space on the left */
+
+    .logo {
+        margin: 0; /* Reset margins */
+        padding: 0; /* Reset padding */
+        margin-right: 10px; /* Optional: add a small right margin if needed */
     }
 
     .menu-icon {
-        margin-left: auto; /* Move the menu icon to the right */
+        margin-left: auto; /* Move menu icon to the right */
     }
 
     /* Show nav links when active */
@@ -766,13 +768,12 @@ footer {
         display: flex !important; /* Show links when nav is active */
         flex-direction: column; /* Stack links vertically */
         position: absolute; /* Position it absolutely */
-        background-color: rgba(0, 0, 0, 0.95); /* Adjust background as necessary */
+        background-color: rgba(0, 0, 0, 0.95); /* Background color */
         top: 60px; /* Adjust as needed */
         width: 100%;
         z-index: 999; /* Ensure it is on top */
     }
 
-    /* Continue with other styles... */
     .nav-links li {
         margin: 20px 0; /* Adjust for spacing */
     }
@@ -860,4 +861,11 @@ footer {
 
     /* Tagline for Our Product section on mobile */
     .facade-tagline {
-        font-size: 
+        font-size: 1.4em;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+    
+    #projects-gallery .projects-grid {
+        grid-template-columns: repeat(2, 1fr); /* Adjust to 2 columns on smaller screens */
+
