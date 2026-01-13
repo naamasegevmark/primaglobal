@@ -522,7 +522,7 @@ nav {
 }
 
 /* =========================================
-   STRENGTHS ACCORDION ANIMATION
+   9.1 STRENGTHS ACCORDION ANIMATION
    ========================================= */
 
 .strengths-accordion {
@@ -651,7 +651,7 @@ nav {
 }
 
 /* =========================================
-   13. CONTACT SECTION
+   11. CONTACT SECTION
    ========================================= */
 .contact-background {
     position: absolute;
@@ -705,7 +705,7 @@ nav {
 .form-note { font-size: 0.8em; text-align: center; margin-top: 15px; opacity: 0.5; }
 
 /* =========================================
-   14. FOOTER
+   12. FOOTER
    ========================================= */
 footer {
     background-color: #000;
@@ -716,7 +716,7 @@ footer {
 }
 
 /* =========================================
-   15. media
+   13. media
    ========================================= */
 @media (max-width: 900px) {
     .container { padding: 0 28px; }
