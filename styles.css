@@ -749,11 +749,12 @@ footer {
 
     /* Align logo and menu icon */
     nav {
+        padding: 0; /* Ensure no padding around the nav */
         justify-content: flex-start; /* Align items to the left */
     }
    
     .logo {
-        margin-right: 10px; /* Adjust margin to move logo further left */
+        margin-right: 0px; /* Adjust margin to move logo further left */
         padding-left: 0; /* Remove or reduce left padding, if any */
         padding-right: 0; /* Remove right padding if needed */
     }
