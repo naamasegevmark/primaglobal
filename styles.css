@@ -836,21 +836,24 @@ footer {
 }
 
 .facade-tagline { font-size: 1.4em; }
-/* Our Strengths accordion: mobile tweaks /
+/* Our Strengths accordion: mobile */
 .strengths-accordion { flex-direction: column; height: auto; gap: 12px; }
 .strength-card { flex: none; height: 180px; }
-.strength-card:hover { flex: none; } / disable hover expansion on mobile */
+.strength-card:hover { flex: none; }
 
-.strength-content { padding: 16px; }
+.strength-content { padding: 0; }
+
+/* Centered, rotated title /
 .strength-content h3 {
   position: absolute;
-  left: 14px;
-  bottom: 14px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  transform-origin: center;
   margin: 0;
-  transform: rotate(-90deg);         /* rotate title counter-clockwise /
-  transform-origin: left bottom;
-  font-size: 1.1rem;                 / adjust to fit */
-  text-align: left;
+  font-size: 1.1rem;   / adjust as needed /
+  text-align: center;
+  white-space: nowrap; / optional to keep on one line */
 }
 
 /* Keep paragraph hidden until tap */
