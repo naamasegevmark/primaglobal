@@ -816,8 +816,9 @@ footer {
    /*  innovation  */
    
     .innovation-item { min-height: 250px; }
-    .innovation-intro-text { text-align: left; font-size: 1rem; }
-   /* 2) Tweak “WHAT DO WE OFFER YOU?” and cards for mobile */
+    .innovation-intro-text { text-align: left;}
+    .innovation-intro-text p {font-size: 1em;    /* or 0.95em /line-height: 1.7;  / optional for readability */}
+ 
    .innovation h3 {text-align: left; font-size: 1.4em; margin-bottom: 20px;} 
    .innovation-overlay { padding: 16px; }
    .innovation-overlay h4 { font-size: 1.2rem; }
