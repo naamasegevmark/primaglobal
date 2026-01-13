@@ -798,4 +798,31 @@ footer {
     -webkit-line-clamp: 6; /* adjust lines to fit */
     -webkit-box-orient: vertical;
   }
+   /* Our Strengths: keep accordion, show full text on tap */
+.strength-card { min-height: 240px; touch-action: manipulation; }
+.strength-content { padding: 16px; }
+.strength-content h3 { font-size: 1.05rem; margin: 0 0 8px; text-align: center; }
+
+/* default hidden (keep accordion look) */
+.strength-content p {
+  font-size: 0.95em;
+  line-height: 1.5;
+  margin: 0;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity .3s, max-height .3s;
+}
+
+/* show and allow scroll when active (tap) or hover */
+.strength-card.active .strength-content p,
+.strength-card:hover .strength-content p {
+  opacity: 1;
+  max-height: 60vh;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* allow tap to expand like hover */
+.strength-card.active { flex: 3; }
 }
