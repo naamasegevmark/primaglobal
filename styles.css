@@ -836,28 +836,24 @@ footer {
 }
 
 .facade-tagline { font-size: 1.4em; }
-/* Our Strengths accordion: mobile */
-.strengths-accordion { flex-direction: column; height: auto; gap: 12px; }
-.strength-card { flex: none; height: 180px; }
-.strength-card:hover { flex: none; }
 
-.strength-content { padding: 0; }
+  /* Mobile accordion with visible, centered, rotated titles */
+  .strengths-accordion { flex-direction: column; height: auto; gap: 12px; }
+  .strength-card { flex: 1; height: 180px; }
+  .strength-card.active { flex: 3; }
 
-/* Centered, rotated title /
-.strength-content h3 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-90deg);
-  transform-origin: center;
-  margin: 0;
-  font-size: 1.1rem;   / adjust as needed /
-  text-align: center;
-  white-space: nowrap; / optional to keep on one line */
+  .strength-content { padding: 0; }
+  .strength-content h3 {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    transform-origin: center;
+    margin: 0;
+    font-size: 1.1rem;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .strength-content p { opacity: 0; max-height: 0; transition: opacity .3s, max-height .3s; }
+  .strength-card.active .strength-content p { opacity: 1; max-height: 220px; }
 }
-
-/* Keep paragraph hidden until tap */
-.strength-content p { opacity: 0; max-height: 0; }
-.strength-card:active .strength-content p,
-.strength-card:focus-within .strength-content p { opacity: 1; max-height: 220px; }
-
