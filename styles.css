@@ -509,11 +509,11 @@ nav {
     flex-grow: 1;
 }
 
-/* Tagline for Our Product section */
+/* Tagline for Our Product section - The future of... */
 .facade-tagline {
     font-family: var(--font-secondary);
     font-style: italic;
-    font-size: 2.2em;
+    font-size: 1.8em;
     color: var(--accent-color);
     text-align: center;
     margin-top: 60px;
