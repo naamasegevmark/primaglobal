@@ -604,8 +604,8 @@ nav {
    ========================================= */
 #Projects Gallery .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(3, 1fr); /* Set exactly 3 columns */
+    gap: 30px; /* Space between items */
     margin-top: 40px;
 }
 
@@ -651,6 +651,11 @@ nav {
     color: var(--accent-color);
 }
 
+@media (max-width: 900px) {
+    #Projects Gallery .projects-grid {
+        grid-template-columns: repeat(2, 1fr); /* Adjust to 2 columns on smaller screens */
+    }
+}
 /* =========================================
    13. CONTACT SECTION
    ========================================= */
