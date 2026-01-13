@@ -650,7 +650,6 @@ nav {
     color: var(--accent-color);
 }
 
-
 /* =========================================
    13. CONTACT SECTION
    ========================================= */
@@ -742,59 +741,58 @@ footer {
     }
    
     .nav-links { display: none; } 
-   
-   /* Menu icon for mobile */
- /* Hide the menu icon by default */
-.menu-icon {
-    display: none; /* Hide by default */
-}
 
-/* Media query for mobile layout */
-@media (max-width: 900px) {
+    /* Menu icon for mobile */
     .menu-icon {
         display: block; /* Show menu icon on mobile */
     }
-    
-    .nav-links {
-        display: none; /* Hide nav links by default on mobile */
+
+    /* Show nav links when active */
+    .nav-active {
+        display: flex !important; /* Show links when nav is active */
+        flex-direction: column; /* Stack links vertically */
+        position: absolute; /* Position it absolutely */
+        background-color: rgba(0, 0, 0, 0.95); /* Adjust background as necessary */
+        top: 60px; /* Adjust as needed */
+        width: 100%;
+        z-index: 999; /* Ensure it is on top */
     }
-}
 
-/* Show nav links when active */
-.nav-active {
-    display: flex !important; /* Show links when nav is active */
-    flex-direction: column; /* Stack links vertically */
-    position: absolute; /* Position it absolutely */
-    background-color: rgba(0, 0, 0, 0.95); /* Adjust background as necessary */
-    top: 60px; /* Adjust as needed */
-    width: 100%;
-    z-index: 999; /* Ensure it is on top */
-}
+    .nav-links li {
+        margin: 20px 0; /* Adjust for spacing */
+    }
 
-.nav-links li {
-    margin: 20px 0; /* Adjust for spacing */
-}
-
-    
     .about-content {
         flex-direction: column;
         text-align: left;
     }
+
     .about-image-column {
         flex: auto;
         max-width: 90%;
         margin: 30px auto 20px auto;
         gap: 15px;
     }
+
     .about-image-column .about-image {
         flex: none;
         height: auto;
         width: 100%;
     }
-    .about-content p1 { text-align: left;  font-size: 1.4em;}
+
+    .about-content p1 { 
+        text-align: left;  
+        font-size: 1.4em;
+    }
     
-    .section-header h2 {font-size: 1.4em; padding: 15px 20px; width: 100%; text-align: center;}
-                    h1 { font-size: 2.5em; } /* General H1, will be overridden for hero H1 below */
+    .section-header h2 {
+        font-size: 1.4em; 
+        padding: 15px 20px; 
+        width: 100%; 
+        text-align: center;
+    }
+   
+    h1 { font-size: 2.5em; } /* General H1, will be overridden for hero H1 below */
    
     .innovation-item { min-height: 250px; }
 
@@ -802,14 +800,15 @@ footer {
         flex-direction: column;
         align-items: center;
     }
+
     .product-main-image-container {
         min-width: unset;
         width: 100%;
         max-width: 600px;
     }
-   
+
     .product-features-list { width: 100%; }
-   
+
     .product-feature-item {
         flex-direction: row;
         text-align: left;
@@ -817,27 +816,31 @@ footer {
         padding: 15px 20px;
         min-height: unset;
     }
+
     .product-feature-icon { 
         margin-bottom: 0;
-        /* Keep transform here for optical adjustment on mobile too */
         transform: translateY(-2px); 
     }
+
     .product-feature-item p { text-align: left; }
 
     .strengths-accordion {
         flex-direction: column;
         height: auto;
     }
+
     .strength-card {
         height: 120px;
         flex: none;
         width: 100%;
         transition: height 0.4s ease;
     }
+
     .strength-card:hover {
         flex: none;
         height: 300px;
     }
+
     .strength-content p { white-space: normal; }
     
     /* Tagline for Our Product section on mobile */
@@ -847,6 +850,7 @@ footer {
         margin-bottom: 40px;
     }
 
-    #Projects-gallery .projects-grid { grid-template-columns: 1fr; }
-    #Projects-gallery .project-item img { height: 200px; }
-}
+    /* Gallery layout adjustments */
+    #projects-gallery .projects-grid {
+        grid-template-columns: repeat(2,
+
