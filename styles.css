@@ -767,61 +767,46 @@ footer {
   .facade-tagline { font-size: 1.4em; }
 
   /* Our Strengths: fit content and lighten overlay on mobile */
-  .strength-card { min-height: 220px; }
+   
+   /* Our Strengths: keep accordion and show full text on tap */
+  .strengths-accordion { display: flex; flex-direction: column; gap: 12px; height: auto; }
+  .strength-card { flex: 1; min-height: 260px; touch-action: manipulation; }
+  .strength-card.active { flex: 3; }
 
   .strength-content {
-    padding: 12px;
+    padding: 16px;
     height: 100%;
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     background: linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0.05));
   }
-   
- .strength-card:hover .strength-content {
-  background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 100%);
-  }
-   
+
   .strength-content h3 {
-    font-size: 1rem;
-    margin: 0 0 8px 0;
-    text-align: center; /* or: left */
+    font-size: 1.05rem;
+    margin: 0 0 8px;
+    text-align: center;
   }
 
+  /* Hidden by default (accordion), no clamp /
   .strength-content p {
     font-size: 0.95em;
-    line-height: 1.4;
+    line-height: 1.5;
     margin: 0;
+    display: block;               / override -webkit-box /
+    -webkit-line-clamp: unset;    / remove clamp /
+    -webkit-box-orient: initial;  / reset */
+    opacity: 0;
+    max-height: 0;
     overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 6; /* adjust lines to fit */
-    -webkit-box-orient: vertical;
-  }
-   /* Our Strengths: keep accordion, show full text on tap */
-.strength-card { min-height: 240px; touch-action: manipulation; }
-.strength-content { padding: 16px; }
-.strength-content h3 { font-size: 1.05rem; margin: 0 0 8px; text-align: center; }
+    transition: opacity .3s, max-height .3s;}
 
-/* default hidden (keep accordion look) */
-.strength-content p {
-  font-size: 0.95em;
-  line-height: 1.5;
-  margin: 0;
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: opacity .3s, max-height .3s;}
-
-/* show and allow scroll when active (tap) or hover */
-.strength-card.active .strength-content p,
-.strength-card:hover .strength-content p {
-  opacity: 1;
-  max-height: 60vh;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;}
-
-/* allow tap to expand like hover */
-.strength-card.active { flex: 3; }
+  /* Show on hover/tap; allow scrolling if long */
+  .strength-card.active .strength-content p,
+  .strength-card:hover .strength-content p {
+    opacity: 1;
+    max-height: 65vh;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;}
    
 }
