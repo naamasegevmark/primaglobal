@@ -282,7 +282,6 @@ For this form to function, you'll need to integrate a service like
    document.addEventListener('DOMContentLoaded', function () {
      const menuIcon = document.getElementById('menu-icon');
      const navLinks = document.getElementById('nav-links');
-     // 1. Select all the links inside the menu
      const menuItems = document.querySelectorAll('.nav-links a');
 
      // Toggle menu when hamburger icon is clicked
@@ -290,15 +289,23 @@ For this form to function, you'll need to integrate a service like
        navLinks.classList.toggle('nav-active'); 
      });
 
-     // 2. Add event listener to every link
+     // Loop through every menu link
      menuItems.forEach(item => {
-       item.addEventListener('click', () => {
-         // 3. Remove the active class to hide the menu
+       item.addEventListener('click', function() {
+         
+         // 1. Remove 'active-link' class from ALL links first
+         menuItems.forEach(link => link.classList.remove('active-link'));
+
+         // 2. Add 'active-link' class to the ONE that was clicked
+         this.classList.add('active-link');
+
+         // 3. Close the mobile menu (from previous step)
          navLinks.classList.remove('nav-active');
        });
      });
    });
 </script>
+
 
 
 </body>
