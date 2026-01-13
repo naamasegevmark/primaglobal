@@ -729,13 +729,13 @@ footer {
         letter-spacing: 1px;
     }
     
-    .hero-subtitle { /* Hero subtitle for mobile */
+    .hero-subtitle { 
         font-size: 1.1rem;
         letter-spacing: 3px;
         margin-bottom: 30px;
     }
   
-    .cta-button { /* CTA button for mobile */
+    .cta-button { 
         padding: 12px 25px;
         font-size: 0.9em;
     }
@@ -745,6 +745,19 @@ footer {
     /* Menu icon for mobile */
     .menu-icon {
         display: block; /* Show menu icon on mobile */
+    }
+
+    /* Align logo and menu icon */
+    nav {
+        justify-content: flex-start; /* Align items to the left */
+    }
+
+    .logo {
+        margin-right: auto; /* Allow the logo to take space on the left */
+    }
+
+    .menu-icon {
+        margin-left: auto; /* Move the menu icon to the right */
     }
 
     /* Show nav links when active */
@@ -758,6 +771,7 @@ footer {
         z-index: 999; /* Ensure it is on top */
     }
 
+    /* Continue with other styles... */
     .nav-links li {
         margin: 20px 0; /* Adjust for spacing */
     }
@@ -784,7 +798,7 @@ footer {
         text-align: left;  
         font-size: 1.4em;
     }
-    
+
     .section-header h2 {
         font-size: 1.4em; 
         padding: 15px 20px; 
@@ -808,7 +822,7 @@ footer {
     }
 
     .product-features-list { width: 100%; }
-
+   
     .product-feature-item {
         flex-direction: row;
         text-align: left;
@@ -816,41 +830,33 @@ footer {
         padding: 15px 20px;
         min-height: unset;
     }
-
+    
     .product-feature-icon { 
         margin-bottom: 0;
         transform: translateY(-2px); 
     }
-
+    
     .product-feature-item p { text-align: left; }
 
     .strengths-accordion {
         flex-direction: column;
         height: auto;
     }
-
+    
     .strength-card {
         height: 120px;
         flex: none;
         width: 100%;
         transition: height 0.4s ease;
     }
-
+    
     .strength-card:hover {
         flex: none;
         height: 300px;
     }
-
-    .strength-content p { white-space: normal; }
     
+    .strength-content p { white-space: normal; }
+
     /* Tagline for Our Product section on mobile */
     .facade-tagline {
-        font-size: 1.4em;
-        margin-top: 40px;
-        margin-bottom: 40px;
-    }
-
-    /* Gallery layout adjustments */
-    #projects-gallery .projects-grid {
-        grid-template-columns: repeat(2,
-
+        font-size: 
