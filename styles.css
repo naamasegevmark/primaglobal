@@ -182,16 +182,7 @@ nav {
     margin-left: 40px;
 }
 .nav-links li { margin-left: 30px; }
-.nav-links a {
-    color: var(--secondary-color);
-    font-size: 0.85em;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 600;
-    transition: color 0.3s ease, transform 0.3s ease;
-    display: inline-block;
-    transform-origin: center;
-}
+
 .nav-links a:hover {
     color: var(--accent-color);
     transform: scale(1.1);
@@ -748,7 +739,16 @@ footer {
    top: 60px; left: 0; right: 0;
     background-color: rgba(0, 0, 0, 0.9); /* Transparent black for the mobile dropdown */
    z-index: 2000;}
-   
+.nav-links a {
+    color: var(--secondary-color);
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    transform-origin: center;
+}   
 .nav-links a.active-link {
     background-color: var(--accent-color); /* Yellow background */
     color: var(--primary-black) !important; /* Black text */
