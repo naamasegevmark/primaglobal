@@ -746,7 +746,7 @@ footer {
     .menu-icon {
         display: block; /* Show menu icon on mobile */
         margin-left: auto; /* Push the menu icon to the right */
-        padding-right: 10px; /* Optional: Space between the menu icon and edge */
+        padding-right: 15px; /* Optional: Space between the menu icon and edge */
     }
 
     /* Align the logo and menu icon */
