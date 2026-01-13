@@ -280,14 +280,26 @@ For this form to function, you'll need to integrate a service like
   
 <script>
    document.addEventListener('DOMContentLoaded', function () {
-   const menuIcon = document.getElementById('menu-icon');
-   const navLinks = document.getElementById('nav-links');
+     const menuIcon = document.getElementById('menu-icon');
+     const navLinks = document.getElementById('nav-links');
+     // 1. Select all the links inside the menu
+     const menuItems = document.querySelectorAll('.nav-links a');
 
-      menuIcon.addEventListener('click', function () {
-      navLinks.classList.toggle('nav-active'); // Toggle active class to show/hide nav links
+     // Toggle menu when hamburger icon is clicked
+     menuIcon.addEventListener('click', function () {
+       navLinks.classList.toggle('nav-active'); 
+     });
+
+     // 2. Add event listener to every link
+     menuItems.forEach(item => {
+       item.addEventListener('click', () => {
+         // 3. Remove the active class to hide the menu
+         navLinks.classList.remove('nav-active');
        });
+     });
    });
 </script>
+
 
 </body>
 </html>
