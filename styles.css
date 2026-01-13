@@ -728,27 +728,25 @@ footer {
   .hero-content h1 { font-size: 3em; line-height: 1.1; letter-spacing: 1px; }
   .hero-subtitle { font-size: 1.1rem; letter-spacing: 3px; margin-bottom: 30px; }
   .cta-button { padding: 12px 25px; font-size: 0.9em; }
-
 /* Mobile nav */
-.menu-icon {
-  display: block;
-  margin-left: auto;
-  padding-right: 20px;
-  cursor: pointer;
-  font-size: 28px;
-  line-height: 1;
-  z-index: 2001;}
+  .menu-icon {
+    display: block;
+    margin-left: auto;
+    padding-right: 20px;
+    cursor: pointer;
+    font-size: 28px;
+    line-height: 1;
+    z-index: 2001;}
    
-.nav { justify-content: space-between; padding: 0; }
-#nav-links { display: none; background-color: #333; padding: 10px; }
-#nav-links.nav-active {
-  display: flex !important;
-  flex-direction: column;
-  position: fixed;
-  top: 60px; left: 0; right: 0;
-  background-color: #333;
-  z-index: 2000;
-}
+ nav { justify-content: space-between; padding: 0; }
+   #nav-links { display: none; background-color: #333; padding: 10px; }
+   #nav-links.nav-active {
+   display: flex !important;
+   flex-direction: column;
+   position: fixed;
+   top: 60px; left: 0; right: 0;
+   background-color: #333;
+   z-index: 2000;}
 
   .nav-links li { margin: 20px 0; padding-left: 15px; }
 
@@ -760,7 +758,7 @@ footer {
   .section-header h2 { font-size: 1.4em; padding: 15px 20px; width: 100%; text-align: center; }
   h1 { font-size: 2.5em; }
 
-  /* innovation */
+/* innovation */
   .innovation-item { min-height: 250px; }
   #innovation .innovation-intro-text { text-align: left; }
   #innovation .innovation-intro-text p { font-size: 1.1em; line-height: 1.7; }
@@ -775,7 +773,7 @@ footer {
 
   .facade-tagline { font-size: 1.4em; }
    
-   /* Our Strengths: keep accordion and show full text on tap */
+/* Our Strengths: keep accordion and show full text on tap */
   .strengths-accordion { display: flex; flex-direction: column; gap: 12px; height: auto; }
   .strength-card { flex: 1; min-height: 260px; touch-action: manipulation; }
   .strength-card.active { flex: 3; }
