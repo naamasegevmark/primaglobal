@@ -725,12 +725,21 @@ footer {
   .container { padding: 0 28px; }
   .full-screen-section { padding: 80px 16px 0 16px; }
   .hero-background { left: 20px; right: 20px; }
-
   .hero-content h1 { font-size: 3em; line-height: 1.1; letter-spacing: 1px; }
   .hero-subtitle { font-size: 1.1rem; letter-spacing: 3px; margin-bottom: 30px; }
   .cta-button { padding: 12px 25px; font-size: 0.9em; }
 
 /* Mobile nav */
+.menu-icon {
+  display: block;
+  margin-left: auto;
+  padding-right: 20px;
+  cursor: pointer;
+  font-size: 28px;
+  line-height: 1;
+  z-index: 2001;}
+   
+.nav { justify-content: space-between; padding: 0; }
 #nav-links { display: none; background-color: #333; padding: 10px; }
 #nav-links.nav-active {
   display: flex !important;
@@ -765,8 +774,6 @@ footer {
   .product-features-list { width: 100%; }
 
   .facade-tagline { font-size: 1.4em; }
-
-  /* Our Strengths: fit content and lighten overlay on mobile */
    
    /* Our Strengths: keep accordion and show full text on tap */
   .strengths-accordion { display: flex; flex-direction: column; gap: 12px; height: auto; }
