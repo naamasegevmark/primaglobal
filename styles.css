@@ -799,3 +799,21 @@ footer {
     -webkit-box-orient: vertical;
   }
 }
+
+.strengths-accordion { display: flex; flex-direction: column; gap: 12px; height: auto; }
+.strength-card { min-height: 280px; } / increase if needed */
+.strength-content { padding: 16px; }
+.strength-content h3 { font-size: 1.05rem; margin: 0 0 8px; text-align: center; }
+
+
+.strength-content p {
+  font-size: 0.95em;
+  line-height: 1.5;
+  margin: 0;
+  display: block;
+  -webkit-line-clamp: unset;
+  -webkit-box-orient: initial;
+  max-height: calc(100% - 34px); / title space */
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
