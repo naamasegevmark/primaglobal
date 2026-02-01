@@ -471,17 +471,32 @@ nav {
     object-fit: cover;
 }
 
-/* עיצוב סלייד המלל */
+/* מבטיח שהרשימה בתוך הסלייד נראית כמו המקור */
 .feature-slide {
-    background-color: var(--gray-dark);
-    padding: 40px;
+    background-color: var(--gray-dark); /* הרקע הכהה המקורי שלך */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .feature-slide .product-features-list {
-    width: 100%;
-    max-width: 500px;
+    flex: none; /* מבטל את הגמישות כדי לשמור על הרוחב המקורי */
+    width: 90%;
+    max-width: 600px;
+    background: transparent; /* מסתמך על רקע הסלייד */
+    border: none;
+    box-shadow: none;
 }
 
+/* מוודא שהטקסט לבן וקריא */
+.product-feature-item p {
+    color: var(--gray-light);
+    font-size: 1.1em;
+}
+
+.product-feature-icon {
+    color: var(--accent-color); /* האייקונים בצהוב המקורי */
+}
 /* חצים */
 .carousel-btn {
     position: absolute;
