@@ -382,8 +382,12 @@ nav {
     cursor: pointer;
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    background-color: rgba(0, 0, 0, 0.2); 
-    background-blend-mode: multiply;
+   /* background-color: rgba(0, 0, 0, 0.2); */
+   /* background-blend-mode: multiply;*/
+   /* Brighter Settings */
+    background-color: transparent; /* Removed the dark tint */
+    background-blend-mode: normal; /* Standard image display */
+    filter: brightness(1.1);       /* Subtle 10% brightness boost */
 }
 
 .innovation-item.item-1 { background-image: url('images/innovation1.jpg'); } 
