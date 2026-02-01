@@ -517,7 +517,15 @@ nav {
     color: black;
     border: none;
     font-size: 24px;
-    padding: 15px;
+   /* הגדרת גודל קבוע וביטול פדינג */
+    width: 50px;  /* רוחב קבוע */
+    height: 50px; /* גובה קבוע זהה */
+    padding: 0;
+   /* מרכז את החץ בתוך העיגול */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
     cursor: pointer;
     z-index: 10;
     border-radius: 50%;
