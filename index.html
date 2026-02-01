@@ -1,128 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prima Global - Innovative Cladding Systems</title>
-  <meta name="description" content="Prima Global offers innovative, sustainable and high-performance cladding systems designed to inspire and create eco-friendly architectural structures.">
-  <link rel="icon" type="image/png" href="images/Favicon.png">     
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prima Global - Innovative Cladding Systems</title>
+    <meta name="description" content="Prima Global offers innovative, sustainable and high-performance cladding systems designed to inspire and create eco-friendly architectural structures.">
+    <link rel="icon" type="image/png" href="images/Favicon.png">     
+    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-<!-- Google Material Symbols Link -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
-  
-<script>
-   document.addEventListener('DOMContentLoaded', function () {
-   const headers = document.querySelectorAll('.section-header');
-
-   const observer = new IntersectionObserver((entries) => {
-   entries.forEach(entry => {
-   if (entry.isIntersecting) {
-   entry.target.classList.add('in-view');}});
-    }, {
-       threshold: 0.3
-        });
-
-   headers.forEach(header => observer.observe(header));
-   });
-</script>
 
 <body>
-  
-   <header>
-   <nav>
-     <div class="logo">
-       <a href="#">
-       <img src="images/PrimaGlobalLogo.png" alt="Prima Global Logo">
-       </a>
-     </div>
-       <div class="menu-icon" id="menu-icon">
-       ☰ <!-- Hamburger icon -->
-     </div>
-       <ul class="nav-links" id="nav-links">
-       <li><a href="#about">About</a></li>
-       <li><a href="#innovation">Innovation</a></li>
-       <li><a href="#our-product">Our Product</a></li>
-       <li><a href="#Projects-gallery">Projects Gallery</a></li>
-       <li><a href="#contact">Contact</a></li>
-       </ul>
-    </nav>
-</header>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <a href="#"><img src="images/Prima_Logo.png" alt="Prima Global Logo"></a>
+            </div>
+            <span class="material-symbols-outlined menu-icon" onclick="toggleMenu()">menu</span>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#innovation">Innovation</a></li>
+                <li><a href="#our-product">Our Product</a></li>
+                <li><a href="#Projects-gallery">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
- <main>
-  <!-- Hero Section -->
-    <section id="hero" class="full-screen-section black-bg">
-     <div class="hero-background" style="background-image: url('images/hero-building.png');"></div>
-     <div class="hero-content container text-center">
-     <h1>PRIMA CLADDING SYSTEM</h1>
-     <p class="hero-subtitle">DESIGNED TO INSPIRE</p>
-     <a href="#about" class="cta-button">Discover Our Innovation</a>
-    </div>
-   </section>
+    <section id="hero" class="full-screen-section">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <h1>PRIMA GLOBAL</h1>
+            <p class="hero-subtitle">Innovative Cladding Systems</p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
 
- <!-- About Prima Section -->
-   <section id="about" class="container black-bg section-padding">
-    <div class="section-header">
-     <h2>ABOUT PRIMA GLOBAL</h2>
-   </div>
-   <div class="about-content">
-   <div class="about-text">
-      <p><strong>Prima Global</strong> emerged from a fundamental need to drive innovation within the building cladding sector. Our mission is to engineer exteriors that embody both resilience and accuracy.</p>
-      <p>We developed a <strong>new construction method</strong> that replaces traditional, cumbersome techniques with a streamlined, high-performance approach.</p>
-      <p>We offer <strong>industrial, pre-cast U/HPC cladding system</strong> that deliver both design flexibility and structural performance.</p> 
-      <p>Our <strong>patented</strong> system solution combines advanced engineering and efficiency to meet top standards of safety, sustainability, durability and cost-effectiveness. </p>
-   </div>
+    <section id="about" class="section-padding container">
+        <div class="section-header">
+            <h2>About Us</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-image-column">
+                <img src="images/about-main.jpg" alt="Architecture" class="about-image main-image">
+                <img src="images/about-sub.jpg" alt="Design" class="about-image secondary-image">
+            </div>
+            <div class="about-text">
+                <p>Prima Global is a leader in high-performance architectural solutions, specializing in advanced cladding systems that combine aesthetics with structural integrity.</p>
+                <p1>Transforming visions into sustainable landmarks.</p1>
+            </div>
+        </div>
+    </section>
 
-   <div class="about-image-column">
-        <img src="images/Prima-about.jpg" alt="Modern Cladding Building" class="about-image main-image">
-        <img src="images/Prima-about-2.png" alt="Another building image" class="about-image secondary-image">
-     </div>
+    <section id="innovation" class="section-padding container">
+        <div class="section-header">
+            <h2>Innovation</h2>
+        </div>
+        <div class="innovation-grid">
+            <div class="innovation-item item-1">
+                <div class="innovation-overlay">
+                    <h4>Smart Materials</h4>
+                    <p>Utilizing sustainable components for long-term durability.</p>
+                </div>
+            </div>
+            <div class="innovation-item item-2">
+                <div class="innovation-overlay">
+                    <h4>Precision Engineering</h4>
+                    <p>Every panel is crafted for perfect fit and performance.</p>
+                </div>
+            </div>
+            <div class="innovation-item item-3">
+                <div class="innovation-overlay">
+                    <h4>Thermal Efficiency</h4>
+                    <p>Optimizing energy consumption through advanced insulation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <p1>At Prima Global we go beyond simply supplying panels, we deliver a new standard.</p1>
-   </div>
-   </section>
-
-<!-- Innovation Section -->
-   <section id="innovation" class="container black-bg section-padding">
-   <div class="section-header">
-     <h2>PRIMA'S INNOVATION</h2>
-   </div>
-  <div class="innovation-intro-text">
-     <p>At Prima Global, our pioneering façade modules eliminate heavy concrete backing, reducing wall loads by up to 75%. This breakthrough accelerates construction, improves sustainability and offers architects unparalleled design flexibility.</p>
-  </div>
-
-     <h3>WHAT DO WE OFFER YOU?</h3>
-    <div class="innovation-grid">
-     <div class="innovation-item item-1">
-     <div class="innovation-overlay">
-       <h4>Detailed Engineering Design</h4>
-        <p>Custom-tailored engineering design, crafted precisely to bring every unique architectural vision and aspiration to life, ensuring optimal performance and aesthetics.</p>
-    </div>
-  </div>
-<div class="innovation-item item-2">
-<div class="innovation-overlay">
-<h4>Flexible Installation Methods</h4>
-<p>Choose between two efficient installation approaches – integrating during construction or applying after – for maximum project flexibility and adaptability.</p>
-</div>
-</div>
-<div class="innovation-item item-3">
-<div class="innovation-overlay">
-<h4>Eco-Friendly Solutions</h4>
-<p>Committed to sustainability, our modules use 30% less concrete, significantly reducing carbon footprint. All components are locally manufactured, boosting economies and cutting emissions for a greener construction.</p>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Our Product Section -->
-<section id="our-product" class="section-padding">
-    <div class="container">
+    <section id="our-product" class="section-padding container">
         <div class="section-header">
             <h2>Our Product</h2>
         </div>
@@ -133,206 +93,129 @@
 
             <div class="product-slider" id="productSlider">
                 <div class="product-slide">
-                    <img src="images/product1.jpg" alt="Product 1">
+                    <img src="images/innovation1.jpg" alt="Product View 1">
                 </div>
                 <div class="product-slide">
-                    <img src="images/product2.jpg" alt="Product 2">
+                    <img src="images/innovation2.jpeg" alt="Product View 2">
                 </div>
                 <div class="product-slide">
-                    <img src="images/product3.jpg" alt="Product 3">
+                    <img src="images/profile1.jpg" alt="Product View 3">
                 </div>
                 <div class="product-slide feature-slide">
                     <div class="product-features-list">
                         <div class="product-feature-item">
-                            <span class="material-symbols-outlined product-feature-icon">eco</span>
-                            <p>Sustainable Cladding Solutions</p>
-                        </div>
-                        <div class="product-feature-item">
                             <span class="material-symbols-outlined product-feature-icon">architecture</span>
-                            <p>Modern Architectural Design</p>
+                            <p><strong>Technical Excellence:</strong> Precise engineering for complex architectural requirements.</p>
                         </div>
                         <div class="product-feature-item">
-                            <span class="material-symbols-outlined product-feature-icon">shield</span>
-                            <p>High Durability & Performance</p>
+                            <span class="material-symbols-outlined product-feature-icon">format_paint</span>
+                            <p><strong>Design Flexibility:</strong> Wide range of finishes, textures, and colors to bring any vision to life.</p>
                         </div>
                         <div class="product-feature-item">
-                            <span class="material-symbols-outlined product-feature-icon">verified</span>
-                            <p>Certified Safety Standards</p>
+                            <span class="material-symbols-outlined product-feature-icon">bolt</span>
+                            <p><strong>Installation Efficiency:</strong> Streamlined systems designed for faster and safer onsite assembly.</p>
+                        </div>
+                        <div class="product-feature-item">
+                            <span class="material-symbols-outlined product-feature-icon">eco</span>
+                            <p><strong>Sustainable Focus:</strong> Eco-friendly materials that contribute to green building certifications.</p>
+                        </div>
+                        <div class="product-feature-item">
+                            <span class="material-symbols-outlined product-feature-icon">verified_user</span>
+                            <p><strong>Proven Durability:</strong> Rigorously tested to withstand extreme weather conditions.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
         <p class="facade-tagline">"The future of sustainable architecture starts with smart cladding."</p>
-    </div>
-</section>
+    </section>
 
-<!-- PRIMA'S STRENGTHS (Accordion Layout) -->
-<p class="facade-tagline">The Future of Façades: Lighter. Faster. Safer.</p>
-<div class="section-header" style="margin-top: 80px;">
-<h2>PRIMA'S STRENGTHS</h2>
-</div>
+    <section id="Projects-gallery" class="section-padding container">
+        <div class="section-header">
+            <h2>Projects</h2>
+        </div>
+        <div class="projects-grid">
+            <div class="project-item">
+                <img src="images/project1.jpg" alt="Project 1">
+                <div class="project-info"><h3>Business Center</h3></div>
+            </div>
+            <div class="project-item">
+                <img src="images/project2.jpg" alt="Project 2">
+                <div class="project-info"><h3>Luxury Residential</h3></div>
+            </div>
+            <div class="project-item">
+                <img src="images/project3.jpg" alt="Project 3">
+                <div class="project-info"><h3>Urban Development</h3></div>
+            </div>
+        </div>
+    </section>
 
-<div class="strengths-accordion">
-<!-- Strength 1 -->
-<div class="strength-card card-1">
-<div class="strength-content">
-<h3>Global Patents</h3>
-<p>Our intellectual property is protected by multiple global patents, ensuring the uniqueness and proprietary nature of the Prima Cladding System, providing exclusive value to our clients.</p>
-</div>
-</div>
+    <section id="contact" class="section-padding container text-center">
+        <div class="section-header">
+            <h2>Contact Us</h2>
+        </div>
+        <div class="contact-content">
+            <p>Ready to start your next project? Let's build something extraordinary together.</p>
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="cta-button form-submit-button">Send Message</button>
+            </form>
+        </div>
+    </section>
 
-<!-- Strength 2 -->
-<div class="strength-card card-2">
-<div class="strength-content">
-<h3>Certified Engineering</h3>
-<p>Rest assured: The Prima Global system is rigorously certified by David Engineers. This independent validation confirms its robust design, superior engineering, and unwavering reliability.</p>
-</div>
-</div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Prima Global. All Rights Reserved.</p>
+        </div>
+    </footer>
 
-<!-- Strength 3 -->
-<div class="strength-card card-3">
-<div class="strength-content">
-<h3>ISO & Fire Safety</h3>
-<p>Our custom cladding solutions are fully ISO quality-compliant & certified to the EN 13501-1 standard (A1) for fire resistance, guaranteeing paramount safety and performance.</p>
-</div>
-</div>
-</div>
-</section>
-
-<!-- PROJECTS GALLERY -->
-<section id="Projects-gallery" class="container black-bg section-padding">
-<div class="section-header">
-<h2>PROJECTS GALLERY</h2>
-</div>
-<div class="projects-grid">
-<div class="project-item">
-<img src="images/gallery1.jpeg" alt="Project Example 1">
-<div class="project-info">
-<h3>Residential Towers</h3>
-</div>
-</div>
-<div class="project-item">
-<img src="images/gallery2.jpeg" alt="Project Example 2">
-<div class="project-info">
-<h3>Commercial Hub</h3>
-</div>
-</div>
-<div class="project-item">
-<img src="images/gallery3.jpeg" alt="Project Example 3">
-<div class="project-info">
-<h3>Sustainable Office Building</h3>
-</div>
-</div>
-<div class="project-item">
-<img src="images/gallery4.jpeg" alt="Project Example 4">
-<div class="project-info">
-<h3>Mixed-Use Development</h3>
-</div>
-</div>
-<div class="project-item">
-<img src="images/gallery5.jpeg" alt="Project Example 5">
-<div class="project-info">
-<h3>Hospitality Complex</h3>
-</div>
-</div>
-<div class="project-item">
-<img src="images/gallery6.jpeg" alt="Project Example 6">
-<div class="project-info">
-<h3>Educational Institution</h3>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Contact Us Section -->
-<section id="contact" class="full-screen-section black-bg text-center">
-<div class="contact-background" style="background-image: url('images/contact-building.jpg');"></div>
-<div class="contact-content container">
-<h2>For more information contact us</h2>
-<div class="contact-details">
-<p>We invite you to reach out to Prima Global to discuss your next visionary project or to inquire further about our innovative cladding solutions. Our team is ready to assist you.</p>
-<p>Email: <a href="mailto:sales@primaglobal.co" class="contact-link">sales@primaglobal.co</a></p>
-</div>
-  
- <form action="https://formspree.io/f/xjggkewn" method="POST" class="contact-form">
-<h3>Send Us a Message</h3>
-<div class="form-group">
-<label for="name">Your Name</label>
-<input type="text" id="name" name="name" required placeholder="Enter your full name">
-</div>
-<div class="form-group">
-<label for="email">Your Email</label>
-<input type="email" id="email" name="email" required placeholder="Enter your email address">
-</div>
-<div class="form-group">
-<label for="subject">Subject</label>
-<input type="text" id="subject" name="subject" placeholder="What is your message about?">
-</div>
-<div class="form-group">
-<label for="message">Your Message</label>
-<textarea id="message" name="message" rows="5" required placeholder="Type your message here..."></textarea>
-</div>
-<button type="submit" class="cta-button form-submit-button">Send Message</button>
-</form>
-
-</div>
-</section>
-</main>
-
-<footer>
-<div class="container">
-<p>&copy; 2025 Prima Global. All rights reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
-</div>
-</footer>
-  
-<script>
-   document.addEventListener('DOMContentLoaded', function () {
-     const menuIcon = document.getElementById('menu-icon');
-     const navLinks = document.getElementById('nav-links');
-     const menuItems = document.querySelectorAll('.nav-links a');
-
-     // Toggle menu when hamburger icon is clicked
-     menuIcon.addEventListener('click', function () {
-       navLinks.classList.toggle('nav-active'); 
-     });
-
-     // Loop through every menu link
-     menuItems.forEach(item => {
-       item.addEventListener('click', function() {
-         
-         // 1. Remove 'active-link' class from ALL links first
-         menuItems.forEach(link => link.classList.remove('active-link'));
-
-         // 2. Add 'active-link' class to the ONE that was clicked
-         this.classList.add('active-link');
-
-         // 3. Close the mobile menu (from previous step)
-         navLinks.classList.remove('nav-active');
-       });
-     });
-   });
-</script>
-<script>
-    let currentSlide = 0;
-    function moveSlide(direction) {
-        const slider = document.getElementById('productSlider');
-        const slides = document.querySelectorAll('.product-slide');
-        const totalSlides = slides.length;
-
-        currentSlide += direction;
-
-        if (currentSlide >= totalSlides) {
-            currentSlide = 0;
-        } else if (currentSlide < 0) {
-            currentSlide = totalSlides - 1;
+    <script>
+        // Hamburger Menu Toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('nav-links');
+            navLinks.classList.toggle('nav-active');
         }
 
-        const offset = -currentSlide * 100;
-        slider.style.transform = `translateX(${offset}%)`;
-    }
-</script>
+        // Product Carousel Logic
+        let currentSlide = 0;
+        function moveSlide(direction) {
+            const slider = document.getElementById('productSlider');
+            const slides = document.querySelectorAll('.product-slide');
+            const totalSlides = slides.length;
+
+            currentSlide += direction;
+
+            if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            } else if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            }
+
+            const offset = -currentSlide * 100;
+            slider.style.transform = `translateX(${offset}%)`;
+        }
+
+        // Section Header Animation (Intersection Observer)
+        document.addEventListener('DOMContentLoaded', function () {
+            const headers = document.querySelectorAll('.section-header');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            headers.forEach(header => observer.observe(header));
+        });
+    </script>
 </body>
 </html>
-
