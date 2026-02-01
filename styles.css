@@ -464,11 +464,13 @@ nav {
 
 .product-slide {
     min-width: 100%;
-    height: 550px; /* הגדלתי מעט כדי שהטקסט יכנס בנוחות */
+    height: 500px; /* הגדלתי מעט כדי שהטקסט יכנס בנוחות */
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #1a1a1a;
+    padding: 40px; 
+    box-sizing: border-box;
 }
 
 .product-slide img {
