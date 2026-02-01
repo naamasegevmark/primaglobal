@@ -192,7 +192,7 @@ nav {
     display: flex;                       /* Uses flexbox to arrange list items horizontally */
     margin: 0;                           /* Removes default outer spacing */
     padding: 0;                          /* Removes default inner spacing (indentation) */
-    margin-left: 40px;                   /* Adds 40px space to the left of the navigation links */
+    margin-left: 30px;                   /* Adds 40px space to the left of the navigation links */
 }
 
 /*This rule styles the <li> (list item) elements within your navigation list.*/
