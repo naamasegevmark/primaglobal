@@ -391,6 +391,11 @@ nav {
 }
 
 .innovation-item.item-1 { background-image: url('images/innovation1.jpg'); } 
+.innovation-item.item-1 { 
+    background-image: url('images/innovation1.jpg'); 
+    background-size: contain; /* Shows the full image without cropping */
+    background-color: #1a1a1a; /* Adds a dark background if the image ratio doesn't match the box */
+}
 .innovation-item.item-2 { background-image: url('images/innovation2.jpeg'); }
 .innovation-item.item-3 { background-image: url('images/profile1.jpg'); }
 
