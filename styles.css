@@ -200,10 +200,15 @@ nav {
     margin-left: 30px;                   /* Adds 30px space between each navigation list item */
 }
 
-/*This rule defines styles that apply specifically when the user's mouse cursor hovers over a navigation link (<a> tag inside .nav-links).*/
+/* אפקט מעבר על לינקים בתפריט */
+.nav-links a {
+    display: inline-block; /* הכרחי כדי שה-scale יעבוד על טקסט */
+    transition: transform 0.3s ease, color 0.3s ease; /* אנימציה חלקה לשני השינויים */
+}
+
 .nav-links a:hover {
-    color: var(--accent-color);          /* Changes text color to accent yellow on hover */
-    transform: scale(1.1);               /* Enlarges the link text by 10% on hover */
+    color: var(--accent-color);  /* הופך לצהוב */
+    transform: scale(1.15);      /* מגדיל את הטקסט ב-15% */
 }
 
 .menu-icon {
