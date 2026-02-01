@@ -390,7 +390,6 @@ nav {
     filter: brightness(1.1);       /* Subtle 10% brightness boost */
 }
 
-.innovation-item.item-1 { background-image: url('images/innovation1.jpg'); } 
 .innovation-item.item-1 { 
     background-image: url('images/innovation1.jpg'); 
     background-size: contain; /* Shows the full image without cropping */
