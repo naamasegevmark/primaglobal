@@ -545,6 +545,19 @@ nav {
 .prev { left: 20px; }
 .next { right: 20px; }
 
+/* עיצוב משפט הסלוגן */
+.facade-tagline {
+    font-family: var(--font-secondary); /* פונט סריפי כמו הכותרות */
+    font-size: 1.4rem;                  /* גודל הטקסט */
+    color: var(--accent-color);         /* צבע זהב */
+    text-align: center;                 /* מרכזי */
+    font-style: italic;                 /* נטוי - מוסיף אלגנטיות */
+    letter-spacing: 2px;                /* ריווח בין אותיות */
+    margin-bottom: 10px;                /* מרווח מהכותרת שמתחתיו */
+    text-transform: uppercase;          /* הופך לאותיות גדולות אם תרצה */
+    display: block;                     /* מבטיח שהוא תופס שורה לבד */
+}
+
 /* =========================================
    9.1 STRENGTHS ACCORDION ANIMATION
    ========================================= */
