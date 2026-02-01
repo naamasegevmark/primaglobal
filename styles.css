@@ -396,7 +396,7 @@ nav {
     background-color: #ffffff; /* Adds a dark background if the image ratio doesn't match the box #1a1a1a*/
 }
 .innovation-item.item-2 { background-image: url('images/innovation2.jpeg'); }
-.innovation-item.item-3 { background-image: url('images/innovation3.jpg'); }
+.innovation-item.item-3 { background-image: url('images/profile1.jpg'); }
 
 .innovation-item:hover {
     transform: translateY(-8px);
@@ -567,9 +567,9 @@ nav {
     box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
 
-.strength-card.card-1 { background-image: url('images/hero-building.png'); } /* Note: These are placeholder images */
-.strength-card.card-2 { background-image: url('images/hero-building.png'); } /* Remember to update them */
-.strength-card.card-3 { background-image: url('images/hero-building.png'); }
+.strength-card.card-1 { background-image: url('images/image1.jpg'); } /* Note: These are placeholder images */
+.strength-card.card-2 { background-image: url('images/image2.jpg'); } /* Remember to update them */
+.strength-card.card-3 { background-image: url('images/image3.jpg'); }
 
 .strength-card:hover {
     flex: 3;
