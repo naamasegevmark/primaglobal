@@ -388,7 +388,7 @@ nav {
 
 .innovation-item.item-1 { background-image: url('images/innovation1.jpg'); } 
 .innovation-item.item-2 { background-image: url('images/innovation2.jpeg'); }
-.innovation-item.item-3 { background-image: url('images/innovation3.jpg'); }
+.innovation-item.item-3 { background-image: url('images/profile1.jpg'); }
 
 .innovation-item:hover {
     transform: translateY(-8px);
