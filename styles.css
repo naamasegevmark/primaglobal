@@ -445,7 +445,7 @@ nav {
 }
 
 /* =========================================
-   9. PRODUCT CAROUSEL CSS
+   9. PRODUCT CAROUSEL 
    ========================================= */
 /* קונטיינר הקרוסלה */
 .product-carousel-container {
@@ -474,7 +474,10 @@ nav {
 .product-slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    /* contain מבטיח שכל התמונה תיכנס למסגרת בלי להיחתך */
+    object-fit: contain; 
+    /* הוספת רקע כהה למקרה שהתמונה לא ממלאת את כל הרוחב */
+    background-color: #1a1a1a; 
 }
 
 /* עיצוב הסלייד עם הרשימה */
