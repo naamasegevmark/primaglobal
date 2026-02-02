@@ -421,7 +421,7 @@ nav {
 }
 
 .innovation-overlay h4 {
-    color: var(--accent-color);
+    color: #8f2708; /*var(--accent-color);*/
     margin-bottom: 10px;
     font-size: 1.4rem;
 }
