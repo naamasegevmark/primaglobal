@@ -1,176 +1,1032 @@
-/* ==========================================================================
-   1. GLOBAL STYLES & VARIABLES
-   ========================================================================== */
+/* =========================================
+   1. VARIABLES & RESET
+   ========================================= */
 :root {
+    --primary-color: #000000; 
+    --secondary-color: #ffffff;
     --accent-color: #FFD700;
-    --bg-black: #000000;
-    --border-color: #222222;
-    --text-muted: #888888;
-    --font-primary: 'Montserrat', sans-serif;
-    --font-serif: 'Playfair Display', serif;
+    --accent-yellow: #FFD700;
+    --primary-black: #000000;
+    --gray-dark: #1a1a1a;
+    --gray-light: #eeeeee;
+    
+    --font-primary: 'Montserrat', sans-serif; 
+    --font-secondary: 'PT Serif', serif;
+    
+    --max-width: 1100px;
+    --section-padding: 45px 0;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { background-color: var(--bg-black); color: #ffffff; font-family: var(--font-primary); line-height: 1.6; overflow-x: hidden; }
-.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-.section-padding { padding: 80px 0; }
+* { box-sizing: border-box; }
+
+html {scroll-behavior: smooth;}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Google Material Symbols Settings */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* =========================================
+   2. TYPOGRAPHY
+   ========================================= */
+h1, h2, h3 {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    margin-top: 0;
+}
+
+h1 { font-size: 3.5em; letter-spacing: 2px; text-transform: uppercase; }
+h2 { font-size: 2.5em; }
+h3 { color: var(--accent-color); font-size: 1.5rem; margin-bottom: 15px; }
+p { margin-bottom: 20px; font-size: 1.1em; color: var(--gray-light); }
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+/* =========================================
+   3. UTILITY CLASSES
+   ========================================= */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 .text-center { text-align: center; }
-.black-bg { background-color: var(--bg-black); }
+.black-bg { background-color: var(--primary-color); }
+.section-padding { padding: var(--section-padding); }
 
-/* ==========================================================================
-   2. NAVIGATION 
-   ========================================================================== */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 5%;
-    background: rgba(0, 0, 0, 0.95);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.logo img { height: 75px; width: auto; } /* Larger Logo */
-
-.nav-links { display: flex; list-style: none; gap: 30px; }
-.nav-links a {
-    color: #fff;
-    text-decoration: none;
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 15px 30px;
+    font-weight: 700;
+    border-radius: 2px;
     text-transform: uppercase;
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: 0.3s;
+    letter-spacing: 1px;
+    border: 2px solid var(--accent-color);
+    cursor: pointer;
 }
-.nav-links a:hover { color: var(--accent-color); }
-.menu-icon { display: none; cursor: pointer; color: #fff; }
 
-/* ==========================================================================
-   3. TITLES & HEADERS
-   ========================================================================== */
-.section-header { margin-bottom: 40px; position: relative; }
-.section-header h2 { font-size: 2.2rem; text-transform: uppercase; letter-spacing: 2px; }
-.section-header::after {
-    content: ''; position: absolute; left: 0; bottom: -10px;
-    width: 70px; height: 3px; background-color: var(--accent-color);
+.cta-button:hover {
+    background-color: transparent;
+    color: var(--accent-color);
 }
-.subsection-title { color: var(--accent-color); text-transform: uppercase; margin: 25px 0; font-size: 1.1rem; }
 
-/* ==========================================================================
-   4. HERO SECTION 
-   ========================================================================== */
-#hero {
+.margin-top-large { margin-top: 80px; }
+
+/* =========================================
+   4. SECTION HEADERS
+   ========================================= */
+.section-header {
     position: relative;
-    height: 100vh; /* Full screen height */
-    width: 100%;
+    margin: 60px 0 40px;
+    overflow: hidden;
+}
+
+.section-header::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: var(--accent-yellow);
+    z-index: 0;
+    transform-origin: left center;
+    transform: scaleX(0);
+    transition: transform 3.0s ease;
+}
+
+.section-header h2 {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding: 10px 0 10px 20px;
+    color: var(--primary-black);
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.section-header.in-view::before { transform: scaleX(1); }
+
+/* =========================================
+   5. HEADER & NAV
+   ========================================= */
+/*This rule styles the entire <header> HTML element*/
+header {
+    background-color: rgba(0, 0, 0, 0.95); /* Sets the background color to semi-transparent black */
+    padding: 5px 0;                       /* Adds 5px padding top/bottom, 0 left/right */
+    position: fixed;                      /* Fixes the header's position relative to the viewport */
+    width: 100%;                          /* Makes the header span the full width of the screen */
+    top: 0;                               /* Positions the header at the very top of the viewport */
+    z-index: 1000;                        /* Ensures the header stays on top of other content */
+    border-bottom: 1px solid #333;        /* Adds a subtle 1px dark grey border at the bottom */
+    padding-left: 50px;                   /* Adds 50px padding to the left side of the header */
+}
+
+/*This rule styles the <nav> HTML element, which is typically used for navigation links.*/
+nav {
+    display: flex;                       /* Uses flexbox for layout, aligning items horizontally */
+    justify-content: flex-start;         /* Aligns items (logo, nav links) to the start (left) */
+    align-items: center;                 /* Vertically centers items within the nav bar */
+    max-width: none;                     /* Overrides any max-width to allow full width */
+    margin: 0;                           /* Removes default outer spacing */
+    padding: 0 20px 0 10px;              /* Sets padding: 0 top, 20px right, 0 bottom, 10px left */
+}
+
+/*This rule styles the <a> (anchor) tag that is inside an element with the class logo. This is typically wrapping your logo image.*/
+.logo a {
+    display: flex;                       /* Uses flexbox to align content within the logo link */
+    align-items: center;                 /* Vertically centers the logo image within the link */
+}
+
+/*This rule styles the <img> (image) tag that is inside an element with the class logo. This is your actual logo image*/
+.logo img {
+    height: 80px;                        /* Sets the fixed height of the logo image */
+    width: auto;                         /* Allows the width to adjust proportionally */
+    display: block;                      /* Ensures the image behaves as a block element */
+}
+
+/*This rule styles the <ul> (unordered list) element that contains your navigation links (About, Innovation, etc.)*/
+.nav-links {
+    list-style: none;                    /* Removes default bullet points from the list */
+    display: flex;                       /* Uses flexbox to arrange list items horizontally */
+    margin: 0;                           /* Removes default outer spacing */
+    padding: 0;                          /* Removes default inner spacing (indentation) */
+    margin-left: 30px;                   /* Adds 40px space to the left of the navigation links */
+}
+
+/*This rule styles the <li> (list item) elements within your navigation list.*/
+.nav-links li {
+    margin-left: 30px;                   /* Adds 30px space between each navigation list item */
+}
+
+/* אפקט מעבר על לינקים בתפריט */
+.nav-links a {
+    display: inline-block; /* הכרחי כדי שה-scale יעבוד על טקסט */
+    transition: transform 0.3s ease, color 0.3s ease; /* אנימציה חלקה לשני השינויים */
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);  /* הופך לצהוב */
+    transform: scale(1.15);      /* מגדיל את הטקסט ב-15% */
+}
+
+.menu-icon {
+    display: none;                       /* Hides the hamburger menu icon on larger screens (desktop) */
+}
+
+/* =========================================
+   6. HERO SECTION
+   ========================================= */
+.full-screen-section {
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #111; /* Fallback: if image fails, you see dark grey */
+    position: relative;
+    padding-top: 80px;
     overflow: hidden;
 }
 
 .hero-background {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url('images/hero-building.png') no-repeat center center;
+    top: 20px;
+    bottom: 20px;
+    left: 50px;
+    right: 50px;
     background-size: cover;
-    z-index: 1; /* Moves image to the back */
-}
-
-.serif-title {
-    font-family: var(--font-serif); /* Uses Playfair Display */
-    font-size: 4.5rem;
-    font-weight: 400; /* Serif titles usually look better lighter */
-    font-style: italic;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-    color: #ffffff;
-}
-
-.hero-subtitle {
-    font-family: var(--font-primary);
-    font-size: 1.2rem;
-    letter-spacing: 8px;
-    text-transform: uppercase;
-    color: var(--accent-color);
-    margin-bottom: 35px;
+    background-position: center;
+    opacity: 0.9;
+    z-index: 0;
+    border-radius: 15px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('images/hero-building.png');
+    background-color: #222;
 }
 
 .hero-content {
     position: relative;
-    z-index: 10; /* Moves text to the front */
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
 }
 
-/* ==========================================================================
-   5. ABOUT SECTION 
-   ========================================================================== */
-.about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
-.about-text { order: 1; }
-.about-image-column { order: 2; position: relative; }
-.about-image { width: 100%; height: auto; border-radius: 4px; border: 1px solid var(--border-color); }
-.secondary-image { margin-top: -50px; width: 80%; margin-left: 20%; position: relative; z-index: 2; }
-
-.about-signature {
-    margin-top: 40px; padding-left: 25px; border-left: 3px solid var(--accent-color);
-    grid-column: 1 / -1;
+.hero-content h1 {
+    font-size: 4.5em;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    color: var(--secondary-color); 
+    opacity: 0;
+    transform: scale(0.7);
+    animation: popUpEffect 0.8s ease-out 0s forwards;
 }
-.about-signature p { font-family: var(--font-serif); font-style: italic; font-size: 1.5rem; color: #fff; }
 
-/* ==========================================================================
-   6. INNOVATION & PRODUCT EXCELLENCE
-   ========================================================================== */
-.innovation-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.innovation-item { height: 350px; position: relative; background-size: cover; background-position: center; border: 1px solid var(--border-color); }
+@keyframes popUpEffect {
+    to { opacity: 1; transform: scale(1); }
+}
+
+.hero-subtitle {
+    font-size: 1.4rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    margin-bottom: 50px;
+    font-weight: 600;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out 0.9s forwards;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 15px 30px;
+    font-weight: 700;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid var(--accent-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out 0.9s forwards;
+}
+
+@keyframes fadeIn { to { opacity: 1; } }
+
+.cta-button:hover {
+    background-color: transparent;
+    color: var(--accent-color);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--accent-color);
+}
+
+/* =========================================
+   7. ABOUT SECTION 
+   ========================================= */
+.about-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 5px 40px;
+    justify-content: flex-start;
+}
+
+.about-image-column {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 400px;
+    max-width: 50%;
+    gap: 20px;
+}
+
+.about-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-shadow: 15px 15px 0px rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.about-image:hover { transform: scale(1.10); z-index: 2; }
+.about-image.main-image { flex: 2; }
+.about-image.secondary-image { flex: 1; }
+
+.about-text { flex: 1; min-width: 300px; }
+.about-text p { font-size: 1.2em; margin-bottom: 20px; }
+.about-text p:first-child { margin-top: 0; }
+
+.about-content p1 {
+    display: block;
+    width: 100%;
+    flex-basis: 100%;
+    margin-top: 20px;
+    font-family: 'PT Serif', serif;
+    font-weight: 400;   
+    font-size: 1.7em;
+    color: var(--gray-light);
+    border-left: 6px solid var(--accent-color);
+    padding-left: 15px;
+}
+
+/* =========================================
+   8. INNOVATION SECTION 
+   ========================================= */
+.innovation-intro-text {
+    max-width: 1500px;
+    margin: 0 auto 40px auto;
+    text-align: center;
+}
+.innovation-intro-text p { font-size: 1.15em; }
+
+#innovation h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+    color: var(--secondary-color);
+}
+
+.innovation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.innovation-item {
+    position: relative;
+    overflow: hidden;
+    min-height: 300px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #333;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+   /* background-color: rgba(0, 0, 0, 0.2); */
+   /* background-blend-mode: multiply;*/
+   /* Brighter Settings */
+    background-color: transparent; /* Removed the dark tint */
+    background-blend-mode: normal; /* Standard image display */
+    filter: brightness(1.1);       /* Subtle 10% brightness boost */
+}
+
+.innovation-item.item-1 { 
+    background-image: url('images/innovation1.jpg'); 
+    background-size: contain; /* Shows the full image without cropping */
+    background-color: #ffffff; /* Adds a dark background if the image ratio doesn't match the box #1a1a1a*/
+}
+.innovation-item.item-2 { background-image: url('images/innovation2.jpeg'); }
+.innovation-item.item-3 { background-image: url('images/profile1.jpg'); } 
+
+.innovation-item:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-color);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.0);
+}
+
 .innovation-overlay {
-    position: absolute; inset: 0; background: rgba(0,0,0,0.85);
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 20px; text-align: center; opacity: 0; transition: 0.4s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
-.innovation-item:hover .innovation-overlay { opacity: 1; }
 
-.excellence-grid-refined { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 30px; align-items: center; }
-.spec-list li { display: flex; gap: 15px; padding: 20px 0; border-bottom: 1px solid var(--border-color); }
-.spec-list span { color: var(--accent-color); font-size: 2rem; }
-.excellence-visual-large { height: 500px; position: relative; border: 1px solid #333; }
-.ex-slider { display: flex; height: 100%; transition: 0.6s ease-in-out; }
-.ex-slide { min-width: 100%; }
-.ex-slide img { width: 100%; height: 100%; object-fit: cover; }
-.ex-btn { position: absolute; top: 50%; background: rgba(0,0,0,0.7); color: #fff; border: none; padding: 15px; cursor: pointer; z-index: 5; }
-.ex-next { right: 0; }
-.visual-overlay { position: absolute; bottom: 20px; left: 20px; background: var(--accent-color); color: #000; padding: 5px 15px; font-weight: bold; }
+.innovation-item:hover .innovation-overlay { opacity: 1; transform: translateY(0); }
 
-/* ==========================================================================
-   7. PROJECTS GALLERY
-   ========================================================================== */
-.projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-.project-item { position: relative; height: 300px; overflow: hidden; }
-.project-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-.project-info { position: absolute; inset: 0; background: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.4s; }
-.project-item:hover .project-info { opacity: 1; }
-.project-item:hover img { transform: scale(1.1); }
-
-/* ==========================================================================
-   8. CONTACT FORM
-   ========================================================================== */
-.contact-flex { display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; }
-.contact-form { display: flex; flex-direction: column; gap: 20px; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.contact-form input, .contact-form textarea { background: #111; border: 1px solid var(--border-color); color: #fff; padding: 15px; font-family: inherit; }
-.cta-button { background: var(--accent-color); color: #000; padding: 15px 30px; font-weight: bold; text-transform: uppercase; cursor: pointer; border: none; text-decoration: none; display: inline-block; text-align: center; }
-
-/* ==========================================================================
-   9. RESPONSIVE
-   ========================================================================== */
-@media (max-width: 1024px) {
-    .about-content, .innovation-grid, .excellence-grid-refined, .projects-grid, .contact-flex { grid-template-columns: 1fr; }
-    .nav-links { position: fixed; right: -100%; top: 70px; background: #000; width: 100%; flex-direction: column; padding: 40px; transition: 0.3s; }
-    .nav-active { right: 0; }
-    .menu-icon { display: block; }
+.innovation-overlay h4 {
+    font-family: var(--font-secondary);
+    font-size: 1.6rem;
+    color: var(--accent-color);
+    margin-top: 0;
+    margin-bottom: 5px;
 }
+
+.innovation-overlay p {
+    font-size: 1.1em;
+    color: var(--secondary-color);
+    margin-bottom: 0;
+}
+
+/* =========================================
+   9. PRODUCT CAROUSEL 
+   ========================================= */
+.section-padding {
+    padding: 30px 0; /* Reduced from 45px */
+}
+.product-carousel-container {
+    position: relative;
+    max-width: 900px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.product-slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.product-slide {
+    min-width: 100%;
+    height: 550px; /* הגדלתי מעט כדי שהטקסט יכנס בנוחות */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000; /*#1a1a1a dark grey*/
+    padding: 40px; 
+    box-sizing: border-box;
+}
+
+.product-slide img {
+    width: 100%;
+    height: 100%;
+    /* contain מבטיח שכל התמונה תיכנס למסגרת בלי להיחתך */
+    object-fit: contain; 
+    /* הוספת רקע כהה למקרה שהתמונה לא ממלאת את כל הרוחב */
+    background-color: #000000; /*#1a1a1a*/ 
+}
+
+.feature-slide {
+    background-color: var(--gray-dark);
+    padding: 40px;
+}
+
+.product-features-list {
+    width: 100%;
+    max-width: 600px;
+    text-align: left; 
+}
+
+.product-feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.product-feature-icon {
+    color: var(--accent-color);
+    font-size: 2rem !important;
+}
+
+.product-feature-item p {
+    margin: 0;
+    color: var(--gray-light);
+    font-size: 1.05rem;
+}
+
+.product-feature-item strong {
+    color: var(--accent-color);
+    display: block;
+    margin-bottom: 2px;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 215, 0, 0.8);
+    color: black;
+    border: none;
+    font-size: 24px;
+    width: 50px;  /* רוחב קבוע */
+    height: 50px; /* גובה קבוע זהה */
+    padding: 0;
+   /* מרכז את החץ בתוך העיגול */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.carousel-btn:hover {
+    background: var(--accent-color);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+.facade-tagline {
+    font-family: var(--font-secondary); /* פונט סריפי כמו הכותרות */
+    font-size: 1.4rem;                  /* גודל הטקסט */
+    color: var(--accent-color);         /* צבע זהב */
+    text-align: center;                 /* מרכזי */
+    font-style: italic;                 /* נטוי - מוסיף אלגנטיות */
+    letter-spacing: 2px;                /* ריווח בין אותיות */
+    text-transform: uppercase;          /* הופך לאותיות גדולות אם תרצה */
+    margin-top: 0 !important;    /* Remove any space above */
+    margin-bottom: 5px !important; /* Force a tiny 5px gap below */
+    padding-bottom: 0 !important;
+    line-height: 1.2;            /* Tighten the text height */
+    display: block;                     /* מבטיח שהוא תופס שורה לבד */
+}
+
+/* =========================================
+   9.1 STRENGTHS ACCORDION ANIMATION
+   ========================================= */
+
+.strengths-accordion {
+    display: flex;
+    width: 100%;
+    height: 450px;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* מוודא שהכותרות בתוך האקורדיון לא נמרחות מדי */
+.strength-content h3 {
+    text-align: left; /* או center, לפי העדפתך */
+    margin-bottom: 15px;
+}
+
+.strength-card {
+    position: relative;
+    flex: 1;
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #333;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.strength-card.card-1 { background-image: url('images/image1.jpg'); } /* Note: These are placeholder images */
+.strength-card.card-2 { background-image: url('images/image2.jpg'); } /* Remember to update them */
+.strength-card.card-3 { background-image: url('images/image3.jpg'); }
+
+.strength-card:hover {
+    flex: 3;
+    border-color: var(--accent-color);
+}
+
+.strength-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+    color: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.strength-content h3 {
+    font-family: var(--font-secondary);
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.strength-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--secondary-color);
+    margin: 0;
+    opacity: 0;
+    max-height: 0;
+    white-space: normal;
+    transition: opacity 0.4s ease 0.2s, max-height 0.4s ease 0.2s;
+}
+
+.strength-card:hover .strength-content p {
+    opacity: 1;
+    max-height: 200px;
+}
+
+.strength-card:hover .strength-content {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 100%);
+}
+
+/* =========================================
+   10. PROJECTS GALLERY
+   ========================================= */
+#Projects-gallery .projects-grid {
+   display: grid; 
+   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+   gap: 30px; /* Space between items */ 
+   margin-top: 40px;
+}
+
+#Projects-gallery .project-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+#Projects-gallery .project-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+#Projects-gallery .project-item:hover img {
+    transform: scale(1.08);
+    filter: brightness(0.6);}
+
+#Projects-gallery .project-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+    color: var(--secondary-color);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+#Projects-gallery .project-item:hover .project-info { transform: translateY(0); }
+
+#Projects-gallery .project-info h3 {
+    font-family: var(--font-primary);
+    font-size: 1.2em;
+    margin: 0;
+    color: var(--accent-color);
+}
+
+/*new*/
+/* Lightbox Styles */
+.lightbox {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 3000; /* Above everything else */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+#lightbox-caption {
+    color: var(--accent-color);
+    margin-top: 20px;
+    font-family: var(--font-secondary);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* =========================================
+   11. CONTACT SECTION
+   ========================================= */
+.contact-background {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    z-index: 0;
+    background-color: #111;
+}
+
+.contact-content {
+    position: relative;
+    z-index: 2;
+    padding: 60px 20px;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.contact-details p { margin-bottom: 10px; }
+.contact-link { color: var(--accent-color); border-bottom: 1px solid var(--accent-color); }
+
+.contact-form {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border: 1px solid #333;
+    margin-top: 40px;
+    text-align: left;
+}
+
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 5px; color: #aaa; font-size: 0.9em; }
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background: #222;
+    border: 1px solid #444;
+    color: #fff;
+    font-family: var(--font-primary);
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.form-submit-button { width: 100%; margin-top: 10px; }
+.form-note { font-size: 0.8em; text-align: center; margin-top: 15px; opacity: 0.5; }
+
+/* =========================================
+   12. FOOTER
+   ========================================= */
+footer {
+    background-color: #000;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    border-top: 1px solid #222;
+}
+
+/* =========================================
+   13. media
+   ========================================= */
+
+/* This media query applies styles when the screen width is 900 pixels or less. */
+@media (max-width: 900px) {
+  /* General container adjustments for smaller screens */
+  .container {
+    padding: 0 28px; /* Adjusts horizontal padding for containers on smaller screens */
+  }
+
+  /* Hero section adjustments */
+  .full-screen-section {
+    padding: 80px 16px 0 16px; /* Adjusts padding for full-screen sections (e.g., hero) */
+  }
+  .hero-background {
+    left: 20px; /* Reduces left spacing of the hero background image */
+    right: 20px; /* Reduces right spacing of the hero background image */
+  }
+  .hero-content h1 {
+    font-size: 3em;      /* Reduces the font size of the main hero title */
+    line-height: 1.1;    /* Adjusts line height for better readability on smaller screens */
+    letter-spacing: 1px; /* Reduces letter spacing for the main hero title */
+  }
+  .hero-subtitle {
+    font-size: 1.1rem;      /* Reduces the font size of the hero subtitle */
+    letter-spacing: 3px;    /* Reduces letter spacing for the hero subtitle */
+    margin-bottom: 30px;    /* Adjusts bottom margin for the hero subtitle */
+  }
+  .cta-button {
+    padding: 12px 25px; /* Adjusts padding for the Call-To-Action button */
+    font-size: 0.9em;   /* Reduces the font size of the Call-To-Action button */
+  }
+
+/* Mobile navigation specific styles */
+  .menu-icon {
+    display: block;              /* Makes the hamburger menu icon visible on small screens */
+    margin-left: auto;           /* Pushes the icon to the right side of the header */
+    padding-right: 20px;         /* Adds padding to the right of the icon */
+    cursor: pointer;             /* Changes cursor to a pointer, indicating it's clickable */
+    font-size: 28px;             /* Sets the font size for the hamburger icon */
+    line-height: 1;              /* Ensures the icon's line height is normal */
+    z-index: 2001;               /* Ensures the icon appears above other elements */
+  }
+
+  nav {
+    justify-content: space-between; /* Distributes space between logo and menu icon */
+    padding: 0;                     /* Removes padding from the nav element */
+  }
+
+  #nav-links {
+    display: none;               /* Hides the main navigation links by default on mobile */
+    background-color: #333;      /* Sets a background color for the hidden nav */
+    padding: 10px;               /* Adds internal padding to the hidden nav */
+  }
+
+  #nav-links.nav-active {
+    display: flex !important;    /* Forces the navigation links to display as a column when active */
+    flex-direction: column;      /* Arranges navigation links vertically */
+    position: fixed;             /* Fixes the mobile navigation menu to the viewport */
+    top: 60px;                   /* Positions the menu below the header */
+    left: 0;                     /* Aligns the menu to the left edge of the viewport */
+    right: 0;                    /* Aligns the menu to the right edge of the viewport */
+    background-color: rgba(0, 0, 0, 0.9); /* Transparent black background for the dropdown */
+    z-index: 2000;               /* Ensures the dropdown menu is above page content */
+  }
+
+  .nav-links a {
+    color: var(--secondary-color); /* Sets text color to white */
+    font-size: 0.85em;             /* Reduces font size for mobile links */
+    text-transform: uppercase;     /* Keeps text uppercase */
+    letter-spacing: 1px;           /* Sets letter spacing */
+    font-weight: 600;              /* Makes text bold */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transitions for color and transform */
+    display: inline-block;         /* Allows transform on inline elements */
+    transform-origin: center;      /* Sets the origin for transform animations */
+  }
+
+  /* Styling for the actively clicked/selected navigation link on mobile */
+  .nav-links a.active-link {
+    background-color: var(--accent-color); /* Changes background to yellow */
+    color: var(--primary-black) !important; /* Forces text color to black */
+    padding: 5px 10px;               /* Adds internal padding to the active link */
+    border-radius: 4px;              /* Rounds the corners of the active link's background */
+    transform: scale(1.1);           /* Enlarges the active link slightly */
+  }
+
+  .nav-links li {
+    margin: 20px 0;              /* Adds vertical margin between mobile navigation items */
+    padding-left: 15px;          /* Adds left padding to each list item */
+  }
+
+  /* About section adjustments */
+  .about-content {
+    flex-direction: column;      /* Stacks content vertically */
+    text-align: left;            /* Aligns text to the left */
+  }
+  .about-image-column {
+    flex: auto;                  /* Allows flex items to grow and shrink */
+    max-width: 90%;              /* Limits max width to 90% of parent */
+    margin: 30px auto 20px;      /* Centers the image column horizontally with vertical margins */
+    gap: 15px;                   /* Reduces gap between images */
+  }
+  .about-image-column .about-image {
+    flex: none;                  /* Prevents images from growing/shrinking disproportionately */
+    height: auto;                /* Allows height to adjust automatically */
+    width: 100%;                 /* Makes images take full width of their container */
+  }
+  .about-content p1 {
+    text-align: left;            /* Aligns the special 'p1' text to the left */
+    font-size: 1.4em;            /* Reduces font size of the special 'p1' text */
+  }
+
+  /* General adjustments for headings */
+  .section-header h2 {
+    font-size: 1.4em;            /* Reduces font size of section headers */
+    padding: 15px 20px;          /* Adjusts padding for section headers */
+    width: 100%;                 /* Makes headers take full width */
+    text-align: center;          /* Centers text within section headers */
+  }
+  h1 {
+    font-size: 2.5em;            /* Reduces font size of h1 elements */
+  }
+
+/* Innovation section adjustments */
+  .innovation-item {
+    min-height: 250px;           /* Sets a minimum height for innovation items */
+  }
+  #innovation .innovation-intro-text {
+    text-align: left;            /* Aligns intro text to the left */
+  }
+  #innovation .innovation-intro-text p {
+    font-size: 1.2em;            /* Adjusts font size of intro paragraph */
+    line-height: 1.7;            /* Adjusts line height for readability */
+  }
+  #innovation h3 {
+    text-align: left;            /* Aligns h3 headings to the left */
+    font-size: 1.4em;            /* Reduces font size of h3 headings */
+    margin-bottom: 20px;         /* Adjusts bottom margin */
+  }
+  .innovation-overlay {
+    padding: 16px;               /* Adjusts padding for the innovation item overlay */
+  }
+  .innovation-overlay h4 {
+    font-size: 1.2rem;           /* Reduces font size of overlay headings */
+  }
+  .innovation-overlay p {
+    font-size: 0.95em;           /* Reduces font size of overlay paragraphs */
+  }
+
+  /* Our Product section adjustments */
+  .our-product-content {
+    flex-direction: column;      /* Stacks product content vertically */
+    align-items: center;         /* Centers product content horizontally */
+  }
+  .product-main-image-container {
+    min-width: unset;            /* Removes minimum width constraint */
+    width: 100%;                 /* Makes image container full width */
+    max-width: 600px;            /* Sets a maximum width for the image container */
+  }
+  .product-features-list {
+    width: 100%;                 /* Makes the features list full width */
+  }
+
+  .facade-tagline {
+    font-size: 1.4em;            /* Reduces font size of the facade tagline */
+  }
+
+/* Our Strengths: accordion adjustments for mobile/touch */
+  .strengths-accordion {
+    display: flex;               /* Ensures flexbox behavior */
+    flex-direction: column;      /* Stacks strength cards vertically */
+    gap: 12px;                   /* Reduces gap between strength cards */
+    height: auto;                /* Allows height to adjust based on content */
+  }
+  .strength-card {
+    flex: 1;                     /* Allows cards to grow/shrink equally */
+    min-height: 260px;           /* Sets a minimum height for strength cards */
+    touch-action: manipulation;  /* Optimizes touch interactions for cards */
+  }
+  .strength-card.active {
+    flex: 3;                     /* When active, a card takes up more space (for accordion effect) */
+  }
+
+  .strength-content {
+    padding: 16px;               /* Adjusts padding within strength cards */
+    height: 100%;                /* Allows content to take full height */
+    display: flex;               /* Uses flexbox for content alignment */
+    flex-direction: column;      /* Stacks content within cards vertically */
+    justify-content: flex-start; /* Aligns content to the top */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0.05)); /* Adjusts background gradient */
+  }
+
+  .strength-content h3 {
+    font-size: 1.05rem;          /* Reduces font size of strength card headings */
+    margin: 0 0 8px;             /* Adjusts margins */
+    text-align: center;          /* Centers heading text */
+  }
+
+  /* Hidden by default (accordion), no clamp */
+  .strength-content p {
+    font-size: 0.95em;           /* Reduces font size of strength card paragraphs */
+    line-height: 1.5;            /* Adjusts line height for readability */
+    margin: 0;                   /* Removes margins */
+    display: block;              /* Ensures paragraph is a block element */
+    /* -webkit-line-clamp: unset; */ /* Removes previous line clamping (if any) for full text display */
+    /* -webkit-box-orient: initial; */ /* Resets box orientation (if any) */
+    opacity: 0;                  /* Hides the paragraph initially */
+    max-height: 0;               /* Collapses the paragraph initially */
+    overflow: hidden;            /* Hides overflowing content */
+    transition: opacity .3s, max-height .3s; /* Smooth transition for showing/hiding */
+  }
+
+  /* Show on hover/tap; allow scrolling if long */
+  .strength-card.active .strength-content p,
+  .strength-card:hover .strength-content p {
+    opacity: 1;                  /* Makes the paragraph visible */
+    max-height: 65vh;            /* Expands the paragraph to a max height (65% of viewport height) */
+    overflow: auto;              /* Adds scrollbar if content exceeds max-height */
+    -webkit-overflow-scrolling: touch; /* Improves scrolling performance on iOS devices */
+  }
+
+}
+
