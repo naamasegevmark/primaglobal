@@ -449,6 +449,9 @@ nav {
 /* =========================================
    9. PRODUCT CAROUSEL 
    ========================================= */
+.section-padding {
+    padding: 30px 0; /* Reduced from 45px */
+}
 .product-carousel-container {
     position: relative;
     max-width: 900px;
