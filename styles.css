@@ -354,6 +354,23 @@ nav {
     padding-left: 15px;
 }
 
+.about-signature {
+    margin-top: 30px;
+    padding-left: 20px;
+    border-left: 2px solid var(--accent-color, #FFD700); /* The vertical line */
+    grid-column: 1 / -1; /* Ensures it spans across the bottom of the grid */
+}
+
+.about-signature p {
+    font-family: 'Playfair Display', serif; /* Or your preferred serif font */
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #fff;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+    margin: 0;
+}
+
 /* =========================================
    8. INNOVATION SECTION 
    ========================================= */
