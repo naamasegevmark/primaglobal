@@ -333,5 +333,31 @@
         slider.style.transform = `translateX(${offset}%)`;
     }
 </script>
+ <!-- Light box for the PROJECTS GALLERY -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close-lightbox">&times;</span>
+    <img id="lightbox-img" src="" alt="Enlarged Project Image">
+    <div id="lightbox-caption"></div>
+    // Function to open the lightbox
+document.querySelectorAll('.project-item').forEach(item => {
+    item.addEventListener('click', function() {
+        const imgSrc = this.querySelector('img').src;
+        const captionText = this.querySelector('h3').innerText;
+        
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        
+        lightboxImg.src = imgSrc;
+        lightboxCaption.innerText = captionText;
+        lightbox.style.display = 'flex';
+    });
+});
+
+// Function to close the lightbox
+function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+}
+</div>
 </body>
 </html>
