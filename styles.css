@@ -439,11 +439,11 @@ nav {
 }
 .product-carousel-container {
     position: relative;
-    max-width: 900px;
-    margin-top: 10px;
-    margin-bottom: 20px;
     overflow: hidden;
     border-radius: 8px;
+    margin: 40px auto;
+    width: 100%;
+    max-width: 900px; 
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
@@ -454,7 +454,7 @@ nav {
 
 .product-slide {
     min-width: 100%;
-    height: 550px; /* הגדלתי מעט כדי שהטקסט יכנס בנוחות */
+    height: 550px; 
     display: flex;
     align-items: center;
     justify-content: center;
