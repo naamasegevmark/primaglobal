@@ -340,7 +340,7 @@ nav {
 .about-text p { font-size: 1.2em; margin-bottom: 20px; }
 .about-text p:first-child { margin-top: 0; }
 
-.about-content p1 {
+.about-content .about-content-highlight {
     display: block;
     width: 100%;
     flex-basis: 100%;
