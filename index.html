@@ -189,7 +189,19 @@
         </div>
     </div>
 </section>
-
+   
+   <script>
+let exIndex = 0;
+   function changeExSlide(n) {
+       const slider = document.getElementById('exSlider');
+       const slides = document.querySelectorAll('.ex-slide');
+       exIndex += n;
+       if (exIndex >= slides.length) exIndex = 0;
+       if (exIndex < 0) exIndex = slides.length - 1;
+       slider.style.transform = `translateX(${-exIndex * 100}%)`;
+          }
+</script>
+   
 <!-- PROJECTS GALLERY -->
 <section id="Projects-gallery" class="container black-bg section-padding">
 <div class="section-header">
