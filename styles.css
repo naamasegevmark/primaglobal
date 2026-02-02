@@ -468,7 +468,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #1a1a1a;
+    background-color: #000000; /*#1a1a1a dark grey*/
     padding: 40px; 
     box-sizing: border-box;
 }
