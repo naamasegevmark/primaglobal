@@ -449,205 +449,96 @@ nav {
 /* =========================================
    9. PRODUCT CAROUSEL 
    ========================================= */
-.section-padding {
-    padding: 30px 0; /* Reduced from 45px */
-}
-.product-carousel-container {
-    position: relative;
-    max-width: 900px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-.product-slider {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.product-slide {
-    min-width: 100%;
-    height: 550px; /* הגדלתי מעט כדי שהטקסט יכנס בנוחות */
-    display: flex;
+.excellence-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 30px;
     align-items: center;
-    justify-content: center;
-    background-color: #000000; /*#1a1a1a dark grey*/
-    padding: 40px; 
-    box-sizing: border-box;
+    margin-top: 40px;
 }
 
-.product-slide img {
-    width: 100%;
-    height: 100%;
-    /* contain מבטיח שכל התמונה תיכנס למסגרת בלי להיחתך */
-    object-fit: contain; 
-    /* הוספת רקע כהה למקרה שהתמונה לא ממלאת את כל הרוחב */
-    background-color: #000000; /*#1a1a1a*/ 
-}
-
-.feature-slide {
-    background-color: var(--gray-dark);
-    padding: 40px;
-}
-
-.product-features-list {
-    width: 100%;
-    max-width: 600px;
-    text-align: left; 
-}
-
-.product-feature-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.product-feature-icon {
-    color: var(--accent-color);
-    font-size: 2rem !important;
-}
-
-.product-feature-item p {
-    margin: 0;
-    color: var(--gray-light);
-    font-size: 1.05rem;
-}
-
-.product-feature-item strong {
-    color: var(--accent-color);
-    display: block;
-    margin-bottom: 2px;
-}
-
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 215, 0, 0.8);
-    color: black;
-    border: none;
-    font-size: 24px;
-    width: 50px;  /* רוחב קבוע */
-    height: 50px; /* גובה קבוע זהה */
-    padding: 0;
-   /* מרכז את החץ בתוך העיגול */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10;
-    border-radius: 50%;
-    transition: 0.3s;
-}
-
-.carousel-btn:hover {
-    background: var(--accent-color);
-    transform: translateY(-50%) scale(1.1);
-}
-
-.prev { left: 20px; }
-.next { right: 20px; }
-
-.facade-tagline {
-    font-family: var(--font-secondary); /* פונט סריפי כמו הכותרות */
-    font-size: 1.4rem;                  /* גודל הטקסט */
-    color: var(--accent-color);         /* צבע זהב */
-    text-align: center;                 /* מרכזי */
-    font-style: italic;                 /* נטוי - מוסיף אלגנטיות */
-    letter-spacing: 2px;                /* ריווח בין אותיות */
-    text-transform: uppercase;          /* הופך לאותיות גדולות אם תרצה */
-    margin-top: 0 !important;    /* Remove any space above */
-    margin-bottom: 5px !important; /* Force a tiny 5px gap below */
-    padding-bottom: 0 !important;
-    line-height: 1.2;            /* Tighten the text height */
-    display: block;                     /* מבטיח שהוא תופס שורה לבד */
-}
-
-/* =========================================
-   9.1 STRENGTHS ACCORDION ANIMATION
-   ========================================= */
-
-.strengths-accordion {
-    display: flex;
-    width: 100%;
-    height: 450px;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-/* מוודא שהכותרות בתוך האקורדיון לא נמרחות מדי */
-.strength-content h3 {
-    text-align: left; /* או center, לפי העדפתך */
-    margin-bottom: 15px;
-}
-
-.strength-card {
-    position: relative;
-    flex: 1;
-    border-radius: 5px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-    background-size: cover;
-    background-position: center;
-    border: 1px solid #333;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-}
-
-.strength-card.card-1 { background-image: url('images/image1.jpg'); } /* Note: These are placeholder images */
-.strength-card.card-2 { background-image: url('images/image2.jpg'); } /* Remember to update them */
-.strength-card.card-3 { background-image: url('images/image3.jpg'); }
-
-.strength-card:hover {
-    flex: 3;
-    border-color: var(--accent-color);
-}
-
-.strength-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 30px;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
-    color: var(--secondary-color);
+.excellence-column {
     display: flex;
     flex-direction: column;
-    text-align: left;
+    gap: 20px;
 }
 
-.strength-content h3 {
-    font-family: var(--font-secondary);
-    font-size: 1.5rem;
+.excellence-card {
+    background: #111;
+    padding: 20px;
+    border: 1px solid #222;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    transition: 0.3s ease;
+}
+
+.excellence-card:hover {
+    border-color: var(--accent-color);
+    background: #1a1a1a;
+    transform: translateX(5px);
+}
+
+/* Specific styling for the Strengths side */
+.excellence-card.highlight {
+    border-left: 3px solid var(--accent-color);
+}
+
+.excellence-card span {
     color: var(--accent-color);
-    margin: 0 0 10px 0;
+    font-size: 2rem;
+}
+
+.excellence-card h4 {
+    color: #fff;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    text-align: center;
 }
 
-.strength-content p {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: var(--secondary-color);
+.excellence-card p {
+    font-size: 0.85rem;
+    color: #aaa;
     margin: 0;
-    opacity: 0;
-    max-height: 0;
-    white-space: normal;
-    transition: opacity 0.4s ease 0.2s, max-height 0.4s ease 0.2s;
+    line-height: 1.4;
 }
 
-.strength-card:hover .strength-content p {
-    opacity: 1;
-    max-height: 200px;
+.excellence-visual {
+    position: relative;
+    height: 100%;
+    min-height: 400px;
 }
 
-.strength-card:hover .strength-content {
-    background: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 100%);
+.excellence-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #333;
+}
+
+.visual-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent-color);
+    color: #000;
+    padding: 10px 20px;
+    font-weight: 700;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+/* Mobile View */
+@media (max-width: 1024px) {
+    .excellence-grid {
+        grid-template-columns: 1fr;
+    }
+    .excellence-visual {
+        order: -1; /* Image stays at the top on mobile */
+        min-height: 300px;
+    }
 }
 
 /* =========================================
