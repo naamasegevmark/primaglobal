@@ -449,7 +449,6 @@ nav {
 /* =========================================
    9. PRODUCT CAROUSEL 
    ========================================= */
-/* קונטיינר הקרוסלה */
 .product-carousel-container {
     position: relative;
     max-width: 900px;
@@ -485,7 +484,6 @@ nav {
     background-color: #000000; /*#1a1a1a*/ 
 }
 
-/* עיצוב הסלייד עם הרשימה */
 .feature-slide {
     background-color: var(--gray-dark);
     padding: 40px;
@@ -494,7 +492,7 @@ nav {
 .product-features-list {
     width: 100%;
     max-width: 600px;
-    text-align: left; /* יישור טקסט לשמאל */
+    text-align: left; 
 }
 
 .product-feature-item {
@@ -521,7 +519,6 @@ nav {
     margin-bottom: 2px;
 }
 
-/* חצים */
 .carousel-btn {
     position: absolute;
     top: 50%;
@@ -530,7 +527,6 @@ nav {
     color: black;
     border: none;
     font-size: 24px;
-   /* הגדרת גודל קבוע וביטול פדינג */
     width: 50px;  /* רוחב קבוע */
     height: 50px; /* גובה קבוע זהה */
     padding: 0;
@@ -552,7 +548,6 @@ nav {
 .prev { left: 20px; }
 .next { right: 20px; }
 
-/* עיצוב משפט הסלוגן */
 .facade-tagline {
     font-family: var(--font-secondary); /* פונט סריפי כמו הכותרות */
     font-size: 1.4rem;                  /* גודל הטקסט */
@@ -560,8 +555,11 @@ nav {
     text-align: center;                 /* מרכזי */
     font-style: italic;                 /* נטוי - מוסיף אלגנטיות */
     letter-spacing: 2px;                /* ריווח בין אותיות */
-    margin-bottom: 5px;                /* מרווח מהכותרת שמתחתיו */
     text-transform: uppercase;          /* הופך לאותיות גדולות אם תרצה */
+    margin-top: 0 !important;    /* Remove any space above */
+    margin-bottom: 5px !important; /* Force a tiny 5px gap below */
+    padding-bottom: 0 !important;
+    line-height: 1.2;            /* Tighten the text height */
     display: block;                     /* מבטיח שהוא תופס שורה לבד */
 }
 
