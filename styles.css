@@ -363,7 +363,7 @@ nav {
 
 .about-signature p {
     font-family: 'Playfair Display', serif; /* Or your preferred serif font */
-    font-style: italic;
+    /*font-style: italic;*/
     font-size: 1.2rem;
     color: #fff;
     line-height: 1.6;
