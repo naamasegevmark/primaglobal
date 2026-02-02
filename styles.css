@@ -241,7 +241,7 @@ nav {
     opacity: 0.9;
     z-index: 0;
     border-radius: 15px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/hero-building.png');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('images/hero-building.png');
     background-color: #222;
 }
 
