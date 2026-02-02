@@ -453,7 +453,8 @@ nav {
 .product-carousel-container {
     position: relative;
     max-width: 900px;
-    margin: 40px auto;
+    margin-top: 10px;
+    margin-bottom: 40px;
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -559,7 +560,7 @@ nav {
     text-align: center;                 /* מרכזי */
     font-style: italic;                 /* נטוי - מוסיף אלגנטיות */
     letter-spacing: 2px;                /* ריווח בין אותיות */
-    margin-bottom: 10px;                /* מרווח מהכותרת שמתחתיו */
+    margin-bottom: 5px;                /* מרווח מהכותרת שמתחתיו */
     text-transform: uppercase;          /* הופך לאותיות גדולות אם תרצה */
     display: block;                     /* מבטיח שהוא תופס שורה לבד */
 }
