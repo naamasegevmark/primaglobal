@@ -479,10 +479,11 @@ nav {
 .product-slider {
     display: flex;
     transition: transform 0.5s ease-in-out;
+   width: 100%;
 }
 
 .product-slide {
-    min-width: 100%;
+    /* min-width: 100%; */ 
     height: 550px; 
     display: flex;
     align-items: center;
