@@ -306,32 +306,37 @@
         });
 
         // 4. Product Slider Function (needs to be global for onclick)
-       let counter = 1; 
-const slider = document.getElementById('productSlider');
-const slides = document.querySelectorAll('.product-slide');
-
-// Move to first real image initially
-slider.style.transform = `translateX(-100%)`;
+      let counter = 0;
 
 function moveSlide(direction) {
-    slider.style.transition = "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)";
+    const slider = document.getElementById('productSlider');
+    const slides = document.querySelectorAll('.product-slide');
+    const totalSlides = slides.length;
+
+    // Update the counter
     counter += direction;
-    slider.style.transform = `translateX(${-100 * counter}%)`;
+
+    // Infinite loop logic
+    if (counter >= totalSlides) {
+        counter = 0;
+    } else if (counter < 0) {
+        counter = totalSlides - 1;
+    }
+
+    // DYNAMIC WIDTH CALCULATION
+    // This calculates the exact width of the slide at the moment of the click
+    const slideWidth = slides[0].offsetWidth; 
+    
+    // Apply the transform
+    slider.style.transition = "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)";
+    slider.style.transform = `translateX(${-slideWidth * counter}px)`;
 }
 
-slider.addEventListener('transitionend', () => {
-    // End Clone -> Jump to Start
-    if (counter === slides.length - 1) {
-        slider.style.transition = "none";
-        counter = 1;
-        slider.style.transform = `translateX(-100%)`;
-    }
-    // Start Clone -> Jump to End
-    if (counter === 0) {
-        slider.style.transition = "none";
-        counter = slides.length - 2;
-        slider.style.transform = `translateX(${-100 * counter}%)`;
-    }
+// Optional: Reset to first slide on window resize to prevent alignment bugs
+window.addEventListener('resize', () => {
+    counter = 0;
+    const slider = document.getElementById('productSlider');
+    slider.style.transform = `translateX(0px)`;
 });
 
         // 5. Close Lightbox Function (needs to be global for onclick)
