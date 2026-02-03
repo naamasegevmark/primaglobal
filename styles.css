@@ -879,7 +879,7 @@ footer {
         right: 15px;
     }
 
-    /* --- About Section (The Box Fix) --- */
+    /* --- About Section --- */
     .about-content {
         flex-direction: column;
     }
@@ -903,7 +903,7 @@ footer {
         height: 300px; /* Uniform height for better mobile scanning */
     }
 
-    /* --- Product Carousel (Sphere Fix) --- */
+    /* --- Product Carousel --- */
     .product-carousel-container {
         max-width: 100%;
         border-radius: 0;
@@ -911,34 +911,62 @@ footer {
     }
 
     .product-slide {
-        height: 450px; /* Reduced height for vertical screens */
+        height: 480px; /* Locked height to keep it consistent */
         padding: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
-
+   
     .product-slide img {
         object-fit: contain; /* Prevents image cropping on narrow screens */
         max-height: 100%;
     }
 
-    .product-features-list {
+   .product-features-list {
         max-width: 100%;
-        padding: 0 10px;
+        padding: 0 5px;
     }
-
+   
+  .product-feature-item strong {
+        font-size: 0.9rem;
+        margin-bottom: 0; /* Keep it tight */
+    }
+   
     .product-feature-item p {
-        font-size: 0.95rem;
+        font-size: 0.85rem;
+        line-height: 1.2;
     }
 
     .product-feature-icon {
-        font-size: 1.5rem !important;
+        font-size: 1.4rem !important; /* Smaller icons */
+        min-width: 25px;
     }
 
     .carousel-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 18px;
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+        top: auto;
+        bottom: 10px; /* Moves buttons to the bottom */
+        transform: none; /* Removes the vertical centering */
+        background: rgba(0, 0, 0, 0.9);
+        border: 2px solid var(--accent-color);
+    }
+   
+    .carousel-btn:hover {
+        transform: scale(1.1);
     }
 
+    .prev { left: 15px; right: auto; }
+    .next { right: 15px; left: auto; }
+
+    /* Fix image sizing on mobile */
+    .product-slide img {
+        max-height: 250px;
+        object-fit: contain;
+    }
+}
     /* --- Innovation Grid --- */
     .innovation-grid {
         grid-template-columns: 1fr; /* Single column on mobile */
