@@ -303,18 +303,19 @@
         // 4. Product Slider Function (needs to be global for onclick)
         let currentSlide = 0;
 
-function moveSlide(direction) {
-    const slider = document.getElementById('productSlider');
-    const slides = document.querySelectorAll('.product-slide');
-    const totalSlides = slides.length;
+        function moveSlide(direction) {
+         const slider = document.getElementById('productSlider');
+         const slides = document.querySelectorAll('.product-slide');
+         const totalSlides = slides.length;
 
-    // This math ensures that if you go below 0, it jumps to the last slide
-    // and if you go above the last slide, it jumps back to 0
-    currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+        // The Modulo (%) math ensures that:
+        // 1. If we go past the last slide, we get 0 (first slide)
+       // 2. If we go before the first slide, we get totalSlides - 1 (last slide)
+      currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
 
-    const offset = -currentSlide * 100;
-    slider.style.transform = `translateX(${offset}%)`;
-}
+      const offset = -currentSlide * 100;
+      slider.style.transform = `translateX(${offset}%)`;
+       }
 
         // 5. Close Lightbox Function (needs to be global for onclick)
         function closeLightbox() {
