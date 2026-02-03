@@ -558,7 +558,7 @@ nav {
 }
 
 .carousel-btn:hover {
-    background: #1a1a1a; /* var(--accent-color); */
+    background: #121212; /* var(--accent-color); */
     transform: translateY(-50%) scale(1.1);
 }
 
