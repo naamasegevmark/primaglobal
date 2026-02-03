@@ -380,10 +380,10 @@ nav {
 .innovation-item {
     position: relative;
     height: 350px; /* Adjust height as needed */
-    /* old: background-size: cover;*/
-    background-size: contain; /* Shows the full image without cropping */
-    background-repeat: no-repeat;
-    background-color: #000; /* Fills empty space with black */
+    background-size: cover;
+    /*background-size: contain; /* Shows the full image without cropping */
+    /*background-repeat: no-repeat;*/
+    /*background-color: #000; /* Fills empty space with black*/ 
     background-position: center;
     border-radius: 4px;
     overflow: hidden;
