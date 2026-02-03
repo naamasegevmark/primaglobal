@@ -421,7 +421,7 @@ nav {
 }
 
 .innovation-overlay h4 {
-    color: #575df2; /*var(--accent-color);*/
+    color: var(--accent-color);
     margin-bottom: 10px;
     font-size: 1.4rem;
 }
@@ -705,12 +705,12 @@ nav {
 .lightbox img {
     max-width: 90%;
     max-height: 80%;
-    border: 2px solid var(--gray-dark);
+    border: 2px solid var( --primary-black:);
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
 #lightbox-caption {
-    color: var(--gray-dark);
+    color: var(--gray-light);
     margin-top: 20px;
     font-family: var(--font-secondary);
     font-size: 1.5rem;
