@@ -904,77 +904,86 @@ footer {
     }
 
     /* --- Product Carousel --- */
+    /* --- Product Carousel Fix --- */
     .product-carousel-container {
         max-width: 100%;
+        height: 420px; /* Reduced fixed height to keep everything in view */
+        margin: 10px 0;
         border-radius: 0;
-        margin: 20px 0;
+        overflow: hidden; /* Prevents seeing 'outside' the slide */
     }
 
     .product-slide {
-        height: 480px; /* Locked height to keep it consistent */
-        padding: 15px;
+        min-width: 100%;
+        height: 420px; /* Match container height */
+        padding: 10px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start; /* Keeps content toward the top */
+        align-items: center;
+        background-color: #000;
     }
-   
+
     .product-slide img {
-        object-fit: contain; /* Prevents image cropping on narrow screens */
-        max-height: 100%;
+        max-height: 180px; /* Shrunk image to leave room for text */
+        width: auto;
+        margin-bottom: 10px;
+        object-fit: contain;
     }
 
-   .product-features-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Two columns to save height */
-    gap: 10px; /* Tight gap */
-    width: 100%;
-    padding: 10px;
-}
-   
-.product-feature-item strong {
-    font-size: 0.75rem; /* Small, bold header */
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 4px;
-    display: block;
-}
-   
+    /* --- The Grid List --- */
+    .product-features-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .product-feature-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.03); 
+        padding: 8px 4px;
+        margin-bottom: 0; /* Override previous margin */
+    }
+
+    .product-feature-item strong {
+        font-size: 0.7rem;
+        line-height: 1;
+        margin-bottom: 2px;
+        display: block;
+    }
+
     .product-feature-item p {
-    font-size: 0.7rem; /* Very small text to ensure it fits */
-    line-height: 1.1;
-    margin: 0;
-    color: var(--gray-light);
-}
+        font-size: 0.65rem;
+        line-height: 1.1;
+        margin: 0;
+        color: var(--gray-light);
+    }
 
-   .product-feature-icon {
-    font-size: 1.2rem !important; /* Smaller icons */
-    margin-bottom: 5px;
-    color: var(--accent-color);
-}
+    .product-feature-icon {
+        font-size: 1.1rem !important;
+        margin-bottom: 2px;
+        color: var(--accent-color);
+    }
 
+    /* --- Navigation Buttons --- */
     .carousel-btn {
-        width: 35px;
-        height: 35px;
-        font-size: 16px;
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+        bottom: 5px; /* Tucked into the bottom corners */
         top: auto;
-        bottom: 10px; /* Moves buttons to the bottom */
-        transform: none; /* Removes the vertical centering */
+        transform: none;
         background: rgba(0, 0, 0, 0.9);
         border: 2px solid var(--accent-color);
     }
-   
-    .carousel-btn:hover {
-        transform: scale(1.1);
-    }
 
-    .prev { left: 15px; right: auto; }
-    .next { right: 15px; left: auto; }
-
-    /* Fix image sizing on mobile */
-  .product-slide img {
-    max-height: 200px; /* Reduced further to make room for the grid */
-    margin-bottom: 10px;
-}
+    .prev { left: 10px; right: auto; }
+    .next { right: 10px; left: auto; }
 
     /* --- Innovation Grid --- */
     .innovation-grid {
