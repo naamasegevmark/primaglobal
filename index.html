@@ -133,6 +133,7 @@
                     <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
 
                     <div class="product-slider" id="productSlider">
+                        <div class="product-slide feature-slide">...copy of features content...</div>
                         <div class="product-slide">
                             <img src="images/ourproduct1.jpg" alt="Product 1">
                         </div>
@@ -167,6 +168,8 @@
                                     <span class="material-symbols-outlined product-feature-icon">verified_user</span>
                                     <p><strong>Flexible Composition:</strong> Complete design freedom to integrate windows & custom openings.</p>
                                 </div>
+                                <div class="product-slide feature-slide">...original features content...</div>
+                                <div class="product-slide"><img src="images/ourproduct1.jpg" alt="Product 1"></div>
                             </div>
                         </div>
                     </div>
@@ -301,21 +304,32 @@
         });
 
         // 4. Product Slider Function (needs to be global for onclick)
-        let currentSlide = 0;
+        let counter = 1; // Start at 1 because index 0 is now a clone
+           const slider = document.getElementById('productSlider');
+           const slides = document.querySelectorAll('.product-slide');
 
-        function moveSlide(direction) {
-         const slider = document.getElementById('productSlider');
-         const slides = document.querySelectorAll('.product-slide');
-         const totalSlides = slides.length;
+        // Set initial position to the first real image
+            slider.style.transform = `translateX(-100%)`;
 
-        // The Modulo (%) math ensures that:
-        // 1. If we go past the last slide, we get 0 (first slide)
-       // 2. If we go before the first slide, we get totalSlides - 1 (last slide)
-      currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+           function moveSlide(direction) {
+           slider.style.transition = "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)";
+           counter += direction;
+           slider.style.transform = `translateX(${-100 * counter}%)`;
+          }
 
-      const offset = -currentSlide * 100;
-      slider.style.transform = `translateX(${offset}%)`;
-       }
+// The "Sphere" reset logic
+slider.addEventListener('transitionend', () => {
+    if (counter === slides.length - 1) { // Hit the end clone
+        slider.style.transition = "none";
+        counter = 1;
+        slider.style.transform = `translateX(-100%)`;
+    }
+    if (counter === 0) { // Hit the start clone
+        slider.style.transition = "none";
+        counter = slides.length - 2;
+        slider.style.transform = `translateX(${-100 * counter}%)`;
+    }
+});
 
         // 5. Close Lightbox Function (needs to be global for onclick)
         function closeLightbox() {
