@@ -1042,6 +1042,43 @@ footer {
     overflow: auto;              /* Adds scrollbar if content exceeds max-height */
     -webkit-overflow-scrolling: touch; /* Improves scrolling performance on iOS devices */
   }
-
 }
+/* Mobile Adjustments for Carousel */
+@media (max-width: 768px) {
+    .product-slide {
+        min-height: 350px; /* Reduces height so it fits on mobile screens */
+        height: auto;
+    }
 
+    .product-slide img {
+        object-fit: contain; /* Ensures the whole image is visible without cropping */
+        background-color: #000;
+    }
+
+    /* Adjust the Feature List for smaller screens */
+    .product-features-list {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .product-feature-item {
+        margin-bottom: 10px;
+    }
+
+    .product-feature-item p {
+        font-size: 0.9rem; /* Smaller text for mobile */
+        line-height: 1.4;
+    }
+
+    .product-feature-icon {
+        font-size: 24px; /* Smaller icons */
+    }
+
+    /* Make the navigation buttons a bit smaller so they don't block the view */
+    .carousel-btn {
+        padding: 10px;
+        font-size: 0.8rem;
+    }
+}
