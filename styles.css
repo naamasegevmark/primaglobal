@@ -319,7 +319,7 @@ nav {
     min-width: 300px;
     background: rgba(20, 20, 20, 0.7); /* Deep sleek black */
     backdrop-filter: blur(10px); /* Modern glass effect */
-    padding: 30px;
+    padding: 25px;
     border: 1px solid rgba(255, 215, 0, 0.1); /* Subtle gold border */
     border-top: 4px solid var(--accent-color); /* Signature gold line */
     border-radius: 4px;
