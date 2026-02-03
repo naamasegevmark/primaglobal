@@ -823,262 +823,158 @@ footer {
 
 /* =========================================
    13. media
-   ========================================= */
+   ========================================= *
 
-/* This media query applies styles when the screen width is 900 pixels or less. */
 @media (max-width: 900px) {
-  /* General container adjustments for smaller screens */
-  .container {
-    padding: 0 28px; /* Adjusts horizontal padding for containers on smaller screens */
-  }
+    /* --- General Layout --- */
+    .container {
+        padding: 0 20px;
+    }
 
-  /* Hero section adjustments */
-  .full-screen-section {
-    padding: 80px 16px 0 16px; /* Adjusts padding for full-screen sections (e.g., hero) */
-  }
-  .hero-background {
-    left: 20px; /* Reduces left spacing of the hero background image */
-    right: 20px; /* Reduces right spacing of the hero background image */
-  }
-  .hero-content h1 {
-    font-size: 3em;      /* Reduces the font size of the main hero title */
-    line-height: 1.1;    /* Adjusts line height for better readability on smaller screens */
-    letter-spacing: 1px; /* Reduces letter spacing for the main hero title */
-  }
-  .hero-subtitle {
-    font-size: 1.1rem;      /* Reduces the font size of the hero subtitle */
-    letter-spacing: 3px;    /* Reduces letter spacing for the hero subtitle */
-    margin-bottom: 30px;    /* Adjusts bottom margin for the hero subtitle */
-  }
-  .cta-button {
-    padding: 12px 25px; /* Adjusts padding for the Call-To-Action button */
-    font-size: 0.9em;   /* Reduces the font size of the Call-To-Action button */
-  }
+    /* --- Navigation --- */
+    .menu-icon {
+        display: block;
+        margin-left: auto;
+        padding-right: 20px;
+        cursor: pointer;
+        font-size: 28px;
+        z-index: 2001;
+    }
 
-/* Mobile navigation specific styles */
-  .menu-icon {
-    display: block;              /* Makes the hamburger menu icon visible on small screens */
-    margin-left: auto;           /* Pushes the icon to the right side of the header */
-    padding-right: 20px;         /* Adds padding to the right of the icon */
-    cursor: pointer;             /* Changes cursor to a pointer, indicating it's clickable */
-    font-size: 28px;             /* Sets the font size for the hamburger icon */
-    line-height: 1;              /* Ensures the icon's line height is normal */
-    z-index: 2001;               /* Ensures the icon appears above other elements */
-  }
+    nav {
+        justify-content: space-between;
+        padding: 0;
+    }
 
-  nav {
-    justify-content: space-between; /* Distributes space between logo and menu icon */
-    padding: 0;                     /* Removes padding from the nav element */
-  }
+    #nav-links {
+        display: none;
+    }
 
-  #nav-links {
-    display: none;               /* Hides the main navigation links by default on mobile */
-    background-color: #333;      /* Sets a background color for the hidden nav */
-    padding: 10px;               /* Adds internal padding to the hidden nav */
-  }
+    #nav-links.nav-active {
+        display: flex !important;
+        flex-direction: column;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.95);
+        z-index: 2000;
+        padding: 20px 0;
+    }
 
-  #nav-links.nav-active {
-    display: flex !important;    /* Forces the navigation links to display as a column when active */
-    flex-direction: column;      /* Arranges navigation links vertically */
-    position: fixed;             /* Fixes the mobile navigation menu to the viewport */
-    top: 60px;                   /* Positions the menu below the header */
-    left: 0;                     /* Aligns the menu to the left edge of the viewport */
-    right: 0;                    /* Aligns the menu to the right edge of the viewport */
-    background-color: rgba(0, 0, 0, 0.9); /* Transparent black background for the dropdown */
-    z-index: 2000;               /* Ensures the dropdown menu is above page content */
-  }
+    .nav-links li {
+        margin: 15px 0;
+        text-align: center;
+        padding-left: 0;
+    }
 
-  .nav-links a {
-    color: var(--secondary-color); /* Sets text color to white */
-    font-size: 0.85em;             /* Reduces font size for mobile links */
-    text-transform: uppercase;     /* Keeps text uppercase */
-    letter-spacing: 1px;           /* Sets letter spacing */
-    font-weight: 600;              /* Makes text bold */
-    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transitions for color and transform */
-    display: inline-block;         /* Allows transform on inline elements */
-    transform-origin: center;      /* Sets the origin for transform animations */
-  }
+    /* --- Hero Section --- */
+    .hero-content h1 {
+        font-size: 2.5em;
+        line-height: 1.1;
+    }
 
-  /* Styling for the actively clicked/selected navigation link on mobile */
-  .nav-links a.active-link {
-    background-color: var(--accent-color); /* Changes background to yellow */
-    color: var(--primary-black) !important; /* Forces text color to black */
-    padding: 5px 10px;               /* Adds internal padding to the active link */
-    border-radius: 4px;              /* Rounds the corners of the active link's background */
-    transform: scale(1.1);           /* Enlarges the active link slightly */
-  }
+    .hero-background {
+        left: 15px;
+        right: 15px;
+    }
 
-  .nav-links li {
-    margin: 20px 0;              /* Adds vertical margin between mobile navigation items */
-    padding-left: 15px;          /* Adds left padding to each list item */
-  }
+    /* --- About Section (The Box Fix) --- */
+    .about-content {
+        flex-direction: column;
+    }
 
-  /* About section adjustments */
-  .about-content {
-    flex-direction: column;      /* Stacks content vertically */
-    text-align: left;            /* Aligns text to the left */
-  }
-  .about-image-column {
-    flex: auto;                  /* Allows flex items to grow and shrink */
-    max-width: 90%;              /* Limits max width to 90% of parent */
-    margin: 30px auto 20px;      /* Centers the image column horizontally with vertical margins */
-    gap: 15px;                   /* Reduces gap between images */
-  }
-  .about-image-column .about-image {
-    flex: none;                  /* Prevents images from growing/shrinking disproportionately */
-    height: auto;                /* Allows height to adjust automatically */
-    width: 100%;                 /* Makes images take full width of their container */
-  }
-  .about-content p1 {
-    text-align: left;            /* Aligns the special 'p1' text to the left */
-    font-size: 1.4em;            /* Reduces font size of the special 'p1' text */
-  }
+    .about-card {
+        min-width: 100%;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
 
-  /* General adjustments for headings */
-  .section-header h2 {
-    font-size: 1.4em;            /* Reduces font size of section headers */
-    padding: 15px 20px;          /* Adjusts padding for section headers */
-    width: 100%;                 /* Makes headers take full width */
-    text-align: center;          /* Centers text within section headers */
-  }
-  h1 {
-    font-size: 2.5em;            /* Reduces font size of h1 elements */
-  }
+    .about-image-column {
+        flex: none;
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+        gap: 20px;
+    }
 
-/* Innovation section adjustments */
-  .innovation-item {
-    min-height: 250px;           /* Sets a minimum height for innovation items */
-  }
-  #innovation .innovation-intro-text {
-    text-align: left;            /* Aligns intro text to the left */
-  }
-  #innovation .innovation-intro-text p {
-    font-size: 1.2em;            /* Adjusts font size of intro paragraph */
-    line-height: 1.7;            /* Adjusts line height for readability */
-  }
-  #innovation h3 {
-    text-align: left;            /* Aligns h3 headings to the left */
-    font-size: 1.4em;            /* Reduces font size of h3 headings */
-    margin-bottom: 20px;         /* Adjusts bottom margin */
-  }
-  .innovation-overlay {
-    padding: 16px;               /* Adjusts padding for the innovation item overlay */
-  }
-  .innovation-overlay h4 {
-    font-size: 1.2rem;           /* Reduces font size of overlay headings */
-  }
-  .innovation-overlay p {
-    font-size: 0.95em;           /* Reduces font size of overlay paragraphs */
-  }
+    .about-image.main-image, 
+    .about-image.secondary-image {
+        height: 300px; /* Uniform height for better mobile scanning */
+    }
 
-  /* Our Product section adjustments */
-  .our-product-content {
-    flex-direction: column;      /* Stacks product content vertically */
-    align-items: center;         /* Centers product content horizontally */
-  }
-  .product-main-image-container {
-    min-width: unset;            /* Removes minimum width constraint */
-    width: 100%;                 /* Makes image container full width */
-    max-width: 600px;            /* Sets a maximum width for the image container */
-  }
-  .product-features-list {
-    width: 100%;                 /* Makes the features list full width */
-  }
+    /* --- Product Carousel (Sphere Fix) --- */
+    .product-carousel-container {
+        max-width: 100%;
+        border-radius: 0;
+        margin: 20px 0;
+    }
 
-  .facade-tagline {
-    font-size: 1.4em;            /* Reduces font size of the facade tagline */
-  }
-
-/* Our Strengths: accordion adjustments for mobile/touch */
-  .strengths-accordion {
-    display: flex;               /* Ensures flexbox behavior */
-    flex-direction: column;      /* Stacks strength cards vertically */
-    gap: 12px;                   /* Reduces gap between strength cards */
-    height: auto;                /* Allows height to adjust based on content */
-  }
-  .strength-card {
-    flex: 1;                     /* Allows cards to grow/shrink equally */
-    min-height: 260px;           /* Sets a minimum height for strength cards */
-    touch-action: manipulation;  /* Optimizes touch interactions for cards */
-  }
-  .strength-card.active {
-    flex: 3;                     /* When active, a card takes up more space (for accordion effect) */
-  }
-
-  .strength-content {
-    padding: 16px;               /* Adjusts padding within strength cards */
-    height: 100%;                /* Allows content to take full height */
-    display: flex;               /* Uses flexbox for content alignment */
-    flex-direction: column;      /* Stacks content within cards vertically */
-    justify-content: flex-start; /* Aligns content to the top */
-    background: linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0.05)); /* Adjusts background gradient */
-  }
-
-  .strength-content h3 {
-    font-size: 1.05rem;          /* Reduces font size of strength card headings */
-    margin: 0 0 8px;             /* Adjusts margins */
-    text-align: center;          /* Centers heading text */
-  }
-
-  /* Hidden by default (accordion), no clamp */
-  .strength-content p {
-    font-size: 0.95em;           /* Reduces font size of strength card paragraphs */
-    line-height: 1.5;            /* Adjusts line height for readability */
-    margin: 0;                   /* Removes margins */
-    display: block;              /* Ensures paragraph is a block element */
-    /* -webkit-line-clamp: unset; */ /* Removes previous line clamping (if any) for full text display */
-    /* -webkit-box-orient: initial; */ /* Resets box orientation (if any) */
-    opacity: 0;                  /* Hides the paragraph initially */
-    max-height: 0;               /* Collapses the paragraph initially */
-    overflow: hidden;            /* Hides overflowing content */
-    transition: opacity .3s, max-height .3s; /* Smooth transition for showing/hiding */
-  }
-
-  /* Show on hover/tap; allow scrolling if long */
-  .strength-card.active .strength-content p,
-  .strength-card:hover .strength-content p {
-    opacity: 1;                  /* Makes the paragraph visible */
-    max-height: 65vh;            /* Expands the paragraph to a max height (65% of viewport height) */
-    overflow: auto;              /* Adds scrollbar if content exceeds max-height */
-    -webkit-overflow-scrolling: touch; /* Improves scrolling performance on iOS devices */
-  }
-}
-/* Mobile Adjustments for Carousel */
-@media (max-width: 768px) {
     .product-slide {
-        min-height: 350px; /* Reduces height so it fits on mobile screens */
-        height: auto;
+        height: 450px; /* Reduced height for vertical screens */
+        padding: 15px;
     }
 
     .product-slide img {
-        object-fit: contain; /* Ensures the whole image is visible without cropping */
-        background-color: #000;
+        object-fit: contain; /* Prevents image cropping on narrow screens */
+        max-height: 100%;
     }
 
-    /* Adjust the Feature List for smaller screens */
     .product-features-list {
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .product-feature-item {
-        margin-bottom: 10px;
+        max-width: 100%;
+        padding: 0 10px;
     }
 
     .product-feature-item p {
-        font-size: 0.9rem; /* Smaller text for mobile */
-        line-height: 1.4;
+        font-size: 0.95rem;
     }
 
     .product-feature-icon {
-        font-size: 24px; /* Smaller icons */
+        font-size: 1.5rem !important;
     }
 
-    /* Make the navigation buttons a bit smaller so they don't block the view */
     .carousel-btn {
-        padding: 10px;
-        font-size: 0.8rem;
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    /* --- Innovation Grid --- */
+    .innovation-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+    }
+
+    .innovation-item {
+        height: 300px;
+    }
+
+    /* --- Strengths Accordion --- */
+    .strengths-accordion {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .strength-card {
+        min-height: 200px;
+    }
+}
+
+/* Extra Small Devices (Phones) */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2em;
+    }
+
+    .product-slide {
+        height: 380px;
+    }
+
+    .section-header h2 {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
+
+    .facade-tagline {
+        font-size: 1.1rem;
     }
 }
