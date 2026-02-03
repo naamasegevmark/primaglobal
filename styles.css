@@ -380,7 +380,7 @@ nav {
 .innovation-item {
     position: relative;
     height: 350px; /* Adjust height as needed */
-    background-size: cover;
+    background-size: 100%; /*cover;*/
     background-position: center;
     border-radius: 4px;
     overflow: hidden;
