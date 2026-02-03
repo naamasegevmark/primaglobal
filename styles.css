@@ -924,24 +924,33 @@ footer {
     }
 
    .product-features-list {
-        max-width: 100%;
-        padding: 0 5px;
-    }
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns to save height */
+    gap: 10px; /* Tight gap */
+    width: 100%;
+    padding: 10px;
+}
    
-  .product-feature-item strong {
-        font-size: 0.9rem;
-        margin-bottom: 0; /* Keep it tight */
-    }
+.product-feature-item strong {
+    font-size: 0.75rem; /* Small, bold header */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    display: block;
+}
    
     .product-feature-item p {
-        font-size: 0.85rem;
-        line-height: 1.2;
-    }
+    font-size: 0.7rem; /* Very small text to ensure it fits */
+    line-height: 1.1;
+    margin: 0;
+    color: var(--gray-light);
+}
 
-    .product-feature-icon {
-        font-size: 1.4rem !important; /* Smaller icons */
-        min-width: 25px;
-    }
+   .product-feature-icon {
+    font-size: 1.2rem !important; /* Smaller icons */
+    margin-bottom: 5px;
+    color: var(--accent-color);
+}
 
     .carousel-btn {
         width: 35px;
@@ -962,11 +971,11 @@ footer {
     .next { right: 15px; left: auto; }
 
     /* Fix image sizing on mobile */
-    .product-slide img {
-        max-height: 250px;
-        object-fit: contain;
-    }
+  .product-slide img {
+    max-height: 200px; /* Reduced further to make room for the grid */
+    margin-bottom: 10px;
 }
+
     /* --- Innovation Grid --- */
     .innovation-grid {
         grid-template-columns: 1fr; /* Single column on mobile */
