@@ -393,12 +393,12 @@ nav {
 /* Background Images for the boxes */
 .item-1 { background-image: url('images/innovation1.jpg'); }
 .item-2 { background-image: url('images/innovation2.jpeg'); }
-.item-3 { background-image: url('images/image3.jpg'); } 
+.item-3 { background-image: url('images/innovation3.jpg'); } 
 
 /* Adding images for the Strengths boxes */
-.strength-1 { background-image: url('images/image1.jpg'); }
-.strength-2 { background-image: url('images/image2.jpg'); }
-.strength-3 { background-image: url('images/innovation3.jpeg'); }
+.strength-1 { background-image: url('images/innovation4.jpg'); }
+.strength-2 { background-image: url('images/innovation5.jpg'); }
+.strength-3 { background-image: url('images/innovation6.jpg'); }
 
 .innovation-overlay {
     position: absolute;
