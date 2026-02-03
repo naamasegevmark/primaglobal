@@ -542,7 +542,7 @@ nav {
     transform: translateY(-50%);
     background: #000000; /* old: light grey: rgba(200, 200, 200, 0.7); yellow: rgba(255, 215, 0, 0.8); */
     color: #ffffff; /* white*/ /* old: grey:#333, black; */
-    border: 1px solid var(--accent-color); /* old: #d1d1d1; none; */
+    border: 3px solid var(--accent-color); /* old: #d1d1d1; none; */
     font-size: 24px;
     width: 50px;  /* רוחב קבוע */
     height: 50px; /* גובה קבוע זהה */
@@ -558,7 +558,7 @@ nav {
 }
 
 .carousel-btn:hover {
-    background: #d1d1d1; /* var(--accent-color); */
+    background: #1a1a1a; /* var(--accent-color); */
     transform: translateY(-50%) scale(1.1);
 }
 
