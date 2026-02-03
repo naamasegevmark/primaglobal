@@ -540,9 +540,9 @@ nav {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255, 215, 0, 0.8);
-    color: black;
-    border: none;
+    background: rgba(200, 200, 200, 0.7);/* yellow:rgba(255, 215, 0, 0.8); */
+    color: #333; /* black; */
+    border: 1px solid #d1d1d1; /* none; */
     font-size: 24px;
     width: 50px;  /* רוחב קבוע */
     height: 50px; /* גובה קבוע זהה */
@@ -558,7 +558,7 @@ nav {
 }
 
 .carousel-btn:hover {
-    background: var(--accent-color);
+    background: #ffffff; /* var(--accent-color); */
     transform: translateY(-50%) scale(1.1);
 }
 
